@@ -1,10 +1,14 @@
 # LiveClaw-500
 
-A benchmark for evaluating AI agents on real-world computer tasks across enterprise workflows.
+A benchmark for evaluating AI agents on realistic multi-step computer tasks across enterprise workflows.
+
+**105 tasks** | **13 models** | **22 workflow categories** | **18 mock services** | **pass@0.80**
+
+Interactive leaderboard: [`benchmark/leaderboard.html`](benchmark/leaderboard.html)
+
+---
 
 ## Leaderboard
-
-105 tasks · 13 models · 22 workflow categories · pass@0.80 · hybrid grading
 
 | # | Model | Organization | Pass Rate | Overall Completion |
 |---|-------|-------------|-----------|-------------------|
@@ -22,120 +26,93 @@ A benchmark for evaluating AI agents on real-world computer tasks across enterpr
 | 12 | Qwen 3.5 397B | Alibaba | 49.5% | 72.6 |
 | 13 | Doubao Seed 2 | ByteDance | 44.8% | 70.6 |
 
-Ranked by Pass Rate (pass ≥ 0.80), ties broken by Overall Completion Score. Interactive leaderboard: [`benchmark/leaderboard.html`](benchmark/leaderboard.html)
+**Evaluation logic.** Tasks are ranked by **Pass Rate** with **Overall Completion Score** as the tie-breaker. A task is counted as passed when its completion score is **≥ 0.80**.
 
-## Overview
+---
 
-LiveClaw-500 evaluates AI agents on multi-step workflows using mock enterprise services. Each task requires the agent to interact with one or more services via tool calls, extract and analyze data, and produce structured outputs graded against ground truth.
+## Tasks
 
-### Key Features
+LiveClaw-500 focuses on realistic work-style agent tasks rather than single-turn QA. Agents interact with mock enterprise services, perform multi-step actions, and are graded on both action correctness and output quality.
 
-- **105 tasks** across 22 workflow categories (HR, Finance, Communication, Terminal, etc.)
-- **13 models** from 9 organizations
-- **18 mock services**: gmail, crm, calendar, finance, helpdesk, notes, todo, web, contacts, documents, inventory, kb, ocr, rss, scheduler, caption, web_real, web_real_injection
-- **Hybrid grading** — deterministic rules (30-60%) verify API call correctness via dispatch logs; LLM-as-judge (40-70%) evaluates semantic quality. Terminal/workspace tasks use 100% script verification.
-- **Action-based evaluation** — graders check what the agent *did* (tool calls, service mutations), not just what it *said*
-- **Ordering-optimized task selection** — 105 tasks selected from 157 candidates via MILP to maximize model differentiation
+### Coverage
 
-### Task Categories
+| Area | Tasks |
+|---|---:|
+| PRODAPP | 17 |
+| SHELL | 12 |
+| HR | 8 |
+| IR | 6 |
+| SALES | 6 |
+| COMM | 5 |
+| DATA | 5 |
+| SUPPORT | 5 |
+| W | 5 |
+| WORKFLOW | 4 |
+| CRM | 4 |
+| FIN | 4 |
+| PROD | 4 |
+| A | 3 |
+| D | 3 |
+| MGMT | 3 |
+| OPS | 3 |
+| C | 2 |
+| RESEARCH | 2 |
+| SEC | 2 |
+| DOC | 1 |
+| R | 1 |
 
-| Category | Tasks | Description |
-|-----------|-------|--------------|
-| PRODAPP | 17 | Calendar, task, and project management |
-| SHELL | 12 | Log analysis, system diagnostics, scripting |
-| HR | 8 | Onboarding, reviews, leave management |
-| IR | 6 | Industry research, vendor comparison |
-| SALES | 6 | Deal risk, forecasting, account health |
-| COMM | 5 | Email synthesis, stakeholder updates |
-| DATA | 5 | Churn prediction, cost analysis, reconciliation |
-| SUPPORT | 5 | Ticket triage, complaint trends |
-| W | 5 | Config repair, deployment fixes, debugging |
-| WORKFLOW | 4 | End-to-end business processes |
-| CRM | 4 | Pipeline, renewal, upsell analysis |
-| FIN | 4 | Budget, tax, subscription analysis |
-| PROD | 4 | Sprint tracking, weekly planning |
-| A | 3 | Financial reconciliation, investment analysis |
-| D | 3 | Doc merge, API changelog, whitepaper |
-| MGMT | 3 | OKR, capacity, strategy tracking |
-| OPS | 3 | Meeting utilization, velocity, dependencies |
-| C | 2 | Meeting prep, customer health |
-| RESEARCH | 2 | Competitor analysis, market synthesis |
-| SEC | 2 | Login alerts, incident reconstruction |
-| DOC | 1 | SOP review |
-| R | 1 | Platform comparison report |
+### Mock services
 
-## Scoring Methodology
+`calendar`, `caption`, `config`, `contacts`, `crm`, `documents`, `finance`, `gmail`, `helpdesk`, `inventory`, `kb`, `notes`, `ocr`, `rss`, `scheduler`, `todo`, `web`, `web_real`, `web_real_injection`
 
-### Pass Threshold
-A task is **passed** if the completion score >= 0.80.
+### Grading
 
-**Overall Completion Score** is the raw mean of completion scores across all 105 tasks (no discount). Ranked by Pass Count; ties broken by Overall Completion Score.
+LiveClaw-500 uses a hybrid grading setup:
+- **Deterministic checks** verify required tool calls, state changes, and factual correctness.
+- **LLM-as-judge** evaluates semantic quality for report-style tasks.
+- **Script-first verification** is used for terminal and workspace-heavy tasks.
 
-### Grading Architecture
-Each task uses one of three grading modes:
+This combines action-level verification with output-level evaluation.
 
-1. **Claw-Eval style** (analysis/report tasks): 30-40% deterministic rules + 60-70% LLM-as-judge
-2. **WildClawBench style** (operation tasks): 50-70% deterministic rules + 30-50% LLM-as-judge
-3. **Script-first** (terminal/workspace tasks): 100% deterministic script verification
+---
 
-### Deterministic Dimensions
-- **Tool gate** — penalty multiplier based on whether agent called required APIs
-- **Data accuracy** — correct numbers/entities in output (verified against ground truth)
-- **Action verification** — required write operations completed (verified via dispatch logs)
+## Dataset
 
-### LLM-as-Judge Dimensions
-- **Content quality** — semantic accuracy evaluated against detailed rubrics
-- **Report structure** — formatting, organization, completeness
+### Repository layout
 
-### Task Selection
-105 tasks selected from 157 candidates via Mixed-Integer Linear Programming (MILP) to:
-1. Maximize ordering stability across top models
-2. Remove zero-discrimination tasks (all-pass or all-fail)
-3. Balance category representation
-
-## Efficiency Metrics
-
-| Model | Avg Tokens | Avg Turns | Avg Cost | Avg Time |
-|-------|------------|------------|-----------|-----------|
-| Claude Opus 4.6 | 32,715 | 5.0 | $0.90 | 120s |
-| GPT-5.4 | 17,833 | 4.0 | $0.06 | 61s |
-| Claude Sonnet 4.6 | 29,549 | 4.7 | $0.16 | 139s |
-| GLM-5 | 23,324 | 4.9 | $0.02 | 99s |
-| Kimi K2.5 | 20,421 | 4.9 | $0.01 | 123s |
-| Gemini 3.1 Pro | 39,069 | 5.3 | $0.07 | 95s |
-| DeepSeek V3.2 | 14,555 | 5.0 | $0.01 | 65s |
-
-## Directory Structure
-
-```
+```text
 LiveClaw-500/
 ├── README.md
-├── pyproject.toml                 # Package metadata & CLI entrypoint
+├── pyproject.toml
 ├── benchmark/
-│   ├── leaderboard.html           # Interactive leaderboard
-│   └── results/
-│       ├── raw_matrix_v3.csv      # 105×14 score matrix
-│       └── regrade_results.csv    # Full scoring results (long format)
 ├── tasks/
-│   └── CTB_*/
-│       ├── task.yaml              # Task definition + service config
-│       ├── grader.py              # Hybrid grader (det + judge)
-│       └── fixtures/              # Mock service data
+├── mock_services/
+├── model_configs/
 ├── scripts/
-│   └── regrade_with_judge.py      # Re-grade with LLM judge
-├── src/liveclaw_500/                 # Core evaluation framework
-├── mock_services/                 # 18 mock enterprise services
-├── model_configs/                 # Model API configurations
-└── config_template.yaml           # Config template (copy & fill in your API key)
+├── src/liveclaw_500/
+└── config_template.yaml
 ```
 
-## Running Evaluation
+### Included public assets
 
-### Prerequisites
-- Python 3.11+
-- Install: `pip install -e .`
+- `tasks/` — 105 released tasks with `task.yaml`, graders, and fixtures
+- `mock_services/` — mock backend services used for task execution
+- `benchmark/` — leaderboard and released result tables
+- `model_configs/` — public model config examples using environment variables
+- `src/liveclaw_500/` — evaluation framework and CLI
 
-### Run a single task
+---
+
+## Quick Start
+
+### 1. Install
+
+```bash
+pip install -e .
+```
+
+### 2. Run a single task
+
 ```bash
 python -m liveclaw_500.cli run \
   --task tasks/CTB_HR_01_onboarding_checklist \
@@ -143,7 +120,8 @@ python -m liveclaw_500.cli run \
   --trace-dir traces/
 ```
 
-### Run all tasks in batch
+### 3. Run a batch
+
 ```bash
 python -m liveclaw_500.cli batch \
   --tasks-dir tasks/ \
@@ -151,28 +129,34 @@ python -m liveclaw_500.cli batch \
   --parallel 4
 ```
 
-### Re-grade with existing traces
+### 4. Re-grade existing traces
+
 ```bash
 python scripts/regrade_with_judge.py \
   --traces-dir traces/your_model/ \
   --tasks-dir tasks/
 ```
 
-## Comparison with Related Benchmarks
+### 5. Start from a config template
+
+```bash
+cp config_template.yaml model_configs/my_model.yaml
+```
+
+Then fill in your provider-specific `api_key`, `base_url`, and `model_id`.
+
+---
+
+## Comparison
 
 | | LiveClaw-500 | Claw-Eval | WildClawBench |
 |---|---|---|---|
 | Tasks | 105 | 300 | 60 |
-| Models | 14 | 12 | 8 |
-| Grading | Hybrid (det + judge) | 75% Judge + 25% Rules | 67% Judge + 33% Scripts |
-| Judge model | GPT-5.4 | Gemini-3-Flash | GPT-5.4 |
+| Grading | Hybrid (rules + judge) | Judge-heavy hybrid | Script-heavy hybrid |
 | Services | 18 mock services | Real + sandbox | Sandbox only |
 | Pass threshold | 0.80 | 0.60 | Binary |
-| Top pass rate | 66.7% | ~55% | ~45% |
 
-## License
-
-This work is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+---
 
 ## Citation
 
@@ -182,3 +166,7 @@ This work is licensed under [Creative Commons Attribution 4.0 International (CC 
   year={2026},
 }
 ```
+
+## License
+
+This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
