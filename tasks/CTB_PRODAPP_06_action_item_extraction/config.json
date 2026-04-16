@@ -1,0 +1,24 @@
+{
+  "task_name": "CTB_PRODAPP_06_action_item_extraction",
+  "prompt": "fromnotesmeetingrecordsubmitfetchplacehaspendingitem(Action Items)。dateclosemeeting，aftersubmitfetchpendingitemandhastodotasktabledoto，findoutputentertodosystempendingitem。output：submitfetchplacehasAction Items（owneranddeadline），withandneednewtodotasktable。",
+  "services": {
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    },
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    },
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

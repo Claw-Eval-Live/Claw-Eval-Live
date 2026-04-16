@@ -1,0 +1,92 @@
+task_id: CTB_PROD_07_weekly_standup_summary
+task_name: Weekly Standup Summary
+version: '1.0'
+category: workflow
+difficulty: medium
+services:
+- name: notes
+  command: python mock_services/notes/server.py
+  port: 9105
+  health_check: http://localhost:9105/notes/list
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9105/notes/reset
+  env:
+    NOTES_FIXTURES: tasks/CTB_PROD_07_weekly_standup_summary/fixtures/notes/notes.json
+    ERROR_RATE: '0'
+- name: todo
+  command: python mock_services/todo/server.py
+  port: 9104
+  health_check: http://localhost:9104/todo/tasks
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9104/todo/reset
+  env:
+    TODO_FIXTURES: tasks/CTB_PROD_07_weekly_standup_summary/fixtures/todo/tasks.json
+    ERROR_RATE: '0'
+prompt:
+  text: |
+    Please summarize this week (March 24-27) daily standup notes and task statuses, and compile a weekly report. Include each person progress summary, key decisions made this week, current blockers, and next week plan.
+  language: en
+tools:
+- name: notes_list_documents
+  description: Get the list of notes
+  input_schema:
+    type: object
+    properties:
+      search:
+        type: string
+    required: []
+- name: notes_get_document
+  description: Get note details
+  input_schema:
+    type: object
+    properties:
+      note_id:
+        type: string
+    required:
+    - note_id
+- name: todo_list_tasks
+  description: Get the list of tasks
+  input_schema:
+    type: object
+    properties:
+      status:
+        type: string
+    required: []
+- name: todo_get_task
+  description: Get task details
+  input_schema:
+    type: object
+    properties:
+      task_id:
+        type: string
+    required:
+    - task_id
+tool_endpoints:
+- tool_name: notes_list_documents
+  url: http://localhost:9105/notes/list
+  method: POST
+- tool_name: notes_get_document
+  url: http://localhost:9105/notes/get
+  method: POST
+- tool_name: todo_list_tasks
+  url: http://localhost:9104/todo/tasks
+  method: POST
+- tool_name: todo_get_task
+  url: http://localhost:9104/todo/tasks/get
+  method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+  - fixtures/notes/notes.json
+  - fixtures/todo/tasks.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: 'See grader for ground truth data.
+
+  '
+primary_dimensions:
+- completion

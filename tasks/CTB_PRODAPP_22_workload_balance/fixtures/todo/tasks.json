@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Microservice splitting implementation",
+    "assignee": "Xin Lu",
+    "priority": "high",
+    "status": "in_progress",
+    "due_date": "2026-04-10",
+    "estimated_hours": 30,
+    "tags": [
+      "architecture",
+      "microservice"
+    ],
+    "task_id": "todo_001"
+  },
+  {
+    "title": "APIdocumentationwrite",
+    "assignee": "Xin Lu",
+    "priority": "medium",
+    "status": "todo",
+    "due_date": "2026-04-09",
+    "estimated_hours": 10,
+    "tags": [
+      "documentation"
+    ],
+    "task_id": "todo_002"
+  },
+  {
+    "title": "frontendtablecomponentdevelopment",
+    "assignee": "Lin Xia",
+    "priority": "medium",
+    "status": "in_progress",
+    "due_date": "2026-04-08",
+    "estimated_hours": 8,
+    "tags": [
+      "frontend",
+      "component"
+    ],
+    "task_id": "todo_003"
+  },
+  {
+    "title": "datadatabase index optimization",
+    "assignee": "Wei Jia",
+    "priority": "medium",
+    "status": "todo",
+    "due_date": "2026-04-09",
+    "estimated_hours": 6,
+    "tags": [
+      "datadatabase",
+      "optimization"
+    ],
+    "task_id": "todo_004"
+  },
+  {
+    "title": "automationdeploymentscript",
+    "assignee": "Jing Cui",
+    "priority": "low",
+    "status": "todo",
+    "due_date": "2026-04-12",
+    "estimated_hours": 5,
+    "tags": [
+      "DevOps"
+    ],
+    "task_id": "todo_005"
+  }
+]

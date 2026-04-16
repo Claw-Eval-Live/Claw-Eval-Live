@@ -1,0 +1,106 @@
+task_id: CTB_HR_11_probation_review_batch
+task_name: Probation Review Batch
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_HR_11_probation_review_batch/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_HR_11_probation_review_batch/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Please process the batch of probation period reviews due this month.
+    
+    Requirements:
+    1. Retrieve employee records for those completing probation this month
+    2. Review emails for manager assessments and performance feedback
+    3. For each employee under review:
+       - Compile performance data
+       - Review manager recommendation (confirm/extend/terminate)
+       - Check if all probation objectives were met
+       - Prepare the review summary
+    4. Generate a batch probation review report with:
+       - Employee-by-employee assessment
+       - Manager recommendations
+       - Final HR recommendations
+       - Required actions and deadlines
+  language: en
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: List personnel records
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get personnel details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  Confirmed (3 employees/60%): Wang Jianguo (92/95/90 excellent + 5% raise), Qian Xiaolei (85/90/88 excellent), Lin Zhiqiang (78/82/80 barely met targets, needs monitoring).
+  Probation extended (1 employee/20%): Sun Lihua (70/75/65 below targets, extended 3 months).
+  Not confirmed (1 employee/20%): Huang Lijuan (60/55/50 significantly below targets, repeated tardiness).
+  Ranking: Wang Jianguo > Qian Xiaolei > Lin Zhiqiang > Sun Lihua > Huang Lijuan.
+primary_dimensions: [completion]

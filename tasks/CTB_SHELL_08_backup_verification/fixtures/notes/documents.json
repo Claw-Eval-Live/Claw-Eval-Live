@@ -1,0 +1,37 @@
+[
+  {
+    "note_id": "note_801",
+    "title": "backupplanstrategydocument",
+    "content": "# backupplanstrategydocument v2.0 ## backuptaskinventory ### MySQLdatabasebackup\n- backup：daysAM2:00，mysqldump\n- backup：6hours，mysqlbinlog\n- retainstrategy：retain7days，retain3days\n- backuptarget：/data/backup/+ backup-nfs-01NFS\n- RPO: 24hours，6hours\n- RTO: 4hours ### filebackup\n- backupscope：/data/uploads, /data/static, /etc/\n- backup：rsync --partial --timeout=3600\n- plantime：daysAM3:00\n- backuptarget：backup-nfs-01:/backup/app01/\n- retainstrategy：retain14days\n- RPO: 24hours ### - scope：backupdata\n- ：rclone sync\n- plantime：daysAM4:00\n- timeout：6hours\n- target：dc-backup-bj\n- ：100Mbps\n- RPO: 48hours ## backupspace\n- /data/backup/ capacity500GB\n- cleanup：retain7daysbackup\n- cleanupscript：/opt/scripts/backup_cleanup.sh\n- cleanuptime：daysAM1:00backupexecute",
+    "tags": [
+      "backup",
+      "strategy",
+      "plan"
+    ],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "DBA Team",
+    "participants": [
+      "Ops Team",
+      "Infrastructure Team"
+    ],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_802",
+    "title": "backuprecoveryprocess",
+    "content": "# backuprecoveryprocess ## MySQLrecoveryprocess\n1. confirmrecoverytargettime\n2. backuprecovery: mysql < full_backup.sql\n3. binlogtargettime: mysqlbinlog --stop-datetime=TARGET binlog.* | mysql\n4. verificationdata: check\n5. RTO: 4hours ## filerecoveryprocess\n1. confirmneedsrecoveryfiledirectory\n2. NFSbackuprecovery: rsync backup-nfs-01:/backup/app01/TARGET LOCAL_PATH\n3. verificationfile: md5sum\n4. RTO: 1hours ## recoveryprocessrecovery\n1. start\n2. backuprecoverydatabasefile\n3. updateDNS\n4. verificationservice\n5. RTO: 8hours ## recovery\n- ：times\n- last time：2026-01-15\n- times：2026-04-15\n- content：recovery + recovery +",
+    "tags": [
+      "backup",
+      "recovery",
+      "process"
+    ],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "DBA Team",
+    "participants": [
+      "Ops Team"
+    ],
+    "duration_minutes": 0
+  }
+]

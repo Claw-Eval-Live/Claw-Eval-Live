@@ -1,0 +1,21 @@
+{
+  "task_id": "CTB_IR_13",
+  "task_name": "supply_chain_risk",
+  "task_description": "Search for semiconductor supply chain information and, combined with supplier notifications in email, assess supply chain risks.",
+  "prompt": "Please search for the latest developments in the global semiconductor supply chain in 2026, and also review supplier notifications received via email. Generate a supply chain risk assessment report covering: 1) Global chip supply and demand situation; 2) Key supplier risk ratings; 3) Impact of geopolitics on the supply chain; 4) Risk mitigation measures and alternative solution recommendations.",
+  "services": [
+    {
+      "service_name": "web",
+      "port": 9113,
+      "env_variable": "WEB_FIXTURES",
+      "error_rate": "0"
+    },
+    {
+      "service_name": "gmail",
+      "port": 9100,
+      "env_variable": "GMAIL_FIXTURES",
+      "error_rate": "0"
+    }
+  ],
+  "primary_dimensions": ["completion"]
+}

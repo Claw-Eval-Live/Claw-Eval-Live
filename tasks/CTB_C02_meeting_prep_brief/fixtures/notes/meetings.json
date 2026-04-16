@@ -1,0 +1,18 @@
+[
+  {
+    "note_id": "note_201",
+    "title": "StarCare Health Discovery Meeting Retrospective",
+    "created_at": "2026-03-10T11:00:00Z",
+    "participants": ["Me", "Ning Zhou", "Jing Li", "Tao Wang"],
+    "content": "Discovery meeting key takeaways:\n\n1. StarCare Health wants to start with a 4-week pilot covering 2 hospitals first, rather than going all-in at once.\n2. Success criteria: successfully run through medical record structuring, basic quality control alerts, and weekly report export — three core workflows.\n3. Jing Li is responsible for internal project advancement and is more concerned about the timeline and compliance materials; Tao Wang is more concerned about system integration and explicitly stated a preference for HIS read-only API access first.\n4. The client's internal security and procurement processes are rigorous — they need to see a security materials package before official launch.\n5. We recommend providing a demo using de-identified sample data first to ease their concerns about real data integration.\n6. Outstanding issues: have not confirmed who will handle the procurement materials checklist, nor the cadence of weekly check-ins after the pilot kickoff.",
+    "duration_minutes": 50
+  },
+  {
+    "note_id": "note_202",
+    "title": "Sales Daily Quick Notes",
+    "created_at": "2026-03-12T18:30:00Z",
+    "participants": ["Me"],
+    "content": "Followed up with a few customers today. Blue Ocean Retail is still reviewing the pricing; Beichen Logistics has no new progress. Remember to submit the taxi receipt for reimbursement tonight.",
+    "duration_minutes": 10
+  }
+]

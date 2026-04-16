@@ -1,0 +1,116 @@
+task_id: CTB_CRM_03_renewal_priority_triage
+task_name: Contract Renewal Priority Triage
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_CRM_03_renewal_priority_triage/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_CRM_03_renewal_priority_triage/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    The customer success team needs to prioritize upcoming contract renewals.
+
+    Steps:
+    1. Retrieve all customer information from CRM (including contract end date, annual revenue, health score, tier)
+    2. Check emails from these customers for recent communications (understand renewal intent and requirements)
+    3. Prioritize renewals based on the following factors:
+       - Urgency (closer expiration date = higher priority)
+       - Customer value (annual revenue x tier weight)
+       - Health risk (low health score + complaints = needs more attention)
+       - Specific customer requirements (emails with concrete conditions need priority response)
+    4. Generate renewal strategy recommendations for each customer
+    5. Output a priority ranking report:
+       - Each customer's renewal priority, rationale, and risk assessment
+       - Action plan sorted by priority
+       - Total expiring revenue summary
+  language: en
+
+tools:
+  - name: crm_list_customers
+    description: List customers
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get customer details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 14
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+
+tool_endpoints:
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/crm/customers.json
+    - fixtures/gmail/inbox.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  P0: Ruitong Medical (4/10, VIP, 450K, has 3 conditions) -- most urgent
+  P1: Jinding Tech (4/15, VIP, 500K, wants to add-on) -- positive but needs follow-up
+  P2: Haichuan Logistics (4/30, std, 120K, has complaints) -- churn risk
+  P3: Xingchen Education (5/1, VIP, 380K, stable) -- ample time
+  P4: Hengtai Trading (6/30, std, 80K, health score 35) -- handle last
+  Total expiring revenue: 1,530K
+
+primary_dimensions: [completion]

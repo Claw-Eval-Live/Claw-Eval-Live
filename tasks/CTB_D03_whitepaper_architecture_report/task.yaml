@@ -1,0 +1,74 @@
+task_id: CTB_D03_whitepaper_architecture_report
+task_name: Whitepaper Architecture Comparison Report
+version: "1.0"
+category: document_transform
+difficulty: medium-hard
+
+prompt:
+  text: |
+    Analyze the 3 attached technical whitepapers and produce a technology selection comparison report for the technical committee.
+
+    Attachments:
+    - `system_x_whitepaper.md`
+    - `system_y_whitepaper.md`
+    - `system_z_whitepaper.md`
+
+    Your output must:
+    1. Be written in English
+    2. Cover the following four categories of information for each system:
+       - Performance benchmark data
+       - Architectural limitations
+       - Hardware requirements
+       - Suitable use cases
+    3. Use structured Markdown output containing at least:
+       - A brief executive summary
+       - A comparison table with columns: `Dimension`, `System X`, `System Y`, `System Z`
+       - A conclusion section that clearly states which system is best suited for a "high-concurrency read-write real-time analytics" scenario
+    4. Do not fabricate information that is not in the attachments
+    5. The conclusion must not simply say "it depends" — provide a definitive recommendation with rationale
+
+    Hints:
+    - Pay special attention to throughput, P99 latency, node scale limits, and memory/disk constraints
+    - If a system is clearly unsuitable for a particular scenario, state that explicitly
+  language: en
+  attachments:
+    - fixtures/docs/system_x_whitepaper.md
+    - fixtures/docs/system_y_whitepaper.md
+    - fixtures/docs/system_z_whitepaper.md
+
+tools: []
+tool_endpoints: []
+
+environment:
+  timeout_seconds: 240
+  max_turns: 12
+  fixtures:
+    - fixtures/docs/system_x_whitepaper.md
+    - fixtures/docs/system_y_whitepaper.md
+    - fixtures/docs/system_z_whitepaper.md
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  1. Should cover all three systems:
+     - System X: distributed object storage
+     - System Y: memory-first analytics engine
+     - System Z: graph-optimized database
+  2. Key figures should include at least:
+     - X: 420k ops/s, p99 18ms, 12 node soft limit, 64GB RAM + NVMe
+     - Y: 710k ops/s, p99 4ms, 8 node coherence limit, 256GB RAM
+     - Z: 160k ops/s, traversal latency 7ms, write path degrades beyond 6 shards, 128GB RAM
+  3. Architectural limitations should mention at least:
+     - X: cross-region write not recommended, metadata compaction window
+     - Y: coherence cost spikes steeply beyond 8 nodes, high memory cost
+     - Z: high re-balancing overhead under concurrent writes, not suitable for write-intensive real-time analytics
+  4. The conclusion should recommend System Y as the top choice for the "high-concurrency read-write real-time analytics" scenario
+  5. Rationale should include at least:
+     - Highest throughput
+     - Lowest p99 latency
+     - Well suited for real-time analytics / hot dataset workloads
+     - But must accept the high memory cost and node scale limitation
+
+primary_dimensions: [completion, communication]

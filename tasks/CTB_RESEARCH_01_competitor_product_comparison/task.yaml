@@ -1,0 +1,84 @@
+task_id: CTB_RESEARCH_01_competitor_product_comparison
+task_name: Competitor Product Comparison
+version: "1.0"
+category: research
+difficulty: medium
+
+services:
+  - name: web
+    command: python mock_services/web/server.py
+    port: 9113
+    health_check: http://localhost:9113/web/search
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9113/web/reset
+    env:
+      WEB_FIXTURES: tasks/CTB_RESEARCH_01_competitor_product_comparison/fixtures/web/pages.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    Please search for information about competitor products and generate a competitive analysis report. Based on web search results, compare competitors across key dimensions. Output: feature comparison matrix, pricing comparison, strengths/weaknesses per competitor, and strategic recommendations.
+
+    1. Search and review each competitor's product introduction pages
+    2. Compare the following dimensions:
+       - Core feature coverage (instant messaging, video conferencing, document collaboration, approvals, project management, etc.)
+       - Maximum video conferencing capacity
+       - Number of open platform APIs
+       - Pricing strategy
+       - Core strengths and weaknesses of each product
+    3. Build a feature comparison matrix
+    4. Generate a competitive analysis report:
+       - Feature comparison matrix
+       - Product positioning analysis for each product
+       - Recommendations for different customer types (e.g., SMBs, large enterprises, government/public sector)
+       - Product with the most APIs and the product with the largest video conferencing capacity
+  language: en
+
+tools:
+  - name: web_search
+    description: Search the web
+    input_schema:
+      type: object
+      properties:
+        query:
+          type: string
+      required: [query]
+
+  - name: web_get_page
+    description: Search keywords
+    input_schema:
+      type: object
+      properties:
+        url:
+          type: string
+      required: [url]
+
+tool_endpoints:
+  - tool_name: web_search
+    url: http://localhost:9113/web/search
+    method: POST
+  - tool_name: web_get_page
+    url: http://localhost:9113/web/page
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/web/pages.json
+
+scoring_components: []
+expected_actions: []
+reference_solution: |
+  1. Products compared: Feishu, WeCom, DingTalk, WeLink
+  2. Meeting capacity: Feishu 500 people, WeCom 300 people, DingTalk 302 people, WeLink 1000 people (largest)
+  3. Open platform APIs: Feishu 800+, WeCom 500+, DingTalk 1200+ (most), WeLink ~300 (fewest)
+  4. Pricing: Feishu 50 yuan/seat/month (free <50 people), WeCom 30 yuan/seat/month (free basic), DingTalk 9.8 yuan/seat/month (lowest), WeLink 25 yuan/seat/month (free <100)
+  5. Feishu positioning: AI-driven, best document collaboration; suited for tech/creative companies
+  6. WeCom positioning: WeChat ecosystem integration, strongest customer management (CRM-like)
+  7. DingTalk positioning: cheapest, Alibaba Cloud integration, low-code platform; suited for cost-sensitive SMEs
+  8. WeLink positioning: highest security (level-3 certification), best video quality; suited for government/enterprise
+  9. Recommendations: SMEs -> DingTalk (lowest cost); large enterprises -> Feishu or WeCom; government/SOE -> WeLink (security)
+  10. Feature dimensions: instant messaging, video conferencing, document collaboration, approval workflow, project management
+primary_dimensions: [completion]

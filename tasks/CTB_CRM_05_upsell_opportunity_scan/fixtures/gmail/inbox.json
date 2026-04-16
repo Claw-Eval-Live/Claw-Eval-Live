@@ -1,0 +1,62 @@
+[
+  {
+    "message_id": "msg_up01",
+    "thread_id": "t_up01",
+    "from": "client-x@up-x.com",
+    "to": [
+      "cs@our-company.com"
+    ],
+    "subject": "Can we add more user seats?",
+    "body": "Our team has expanded to 50 people, and the current 20-user license is not enough. How do we expand?",
+    "date": "2026-03-24T09:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_up02",
+    "thread_id": "t_up02",
+    "from": "client-y@up-y.com",
+    "to": [
+      "sales@our-company.com"
+    ],
+    "subject": "Interested in the data analytics module",
+    "body": "We read about your data analytics module and would like to learn about pricing and features. We currently only use the basic plan.",
+    "date": "2026-03-25T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_up03",
+    "thread_id": "t_up03",
+    "from": "client-z@up-z.com",
+    "to": [
+      "cs@our-company.com"
+    ],
+    "subject": "Want to deploy for branch offices too",
+    "body": "Headquarters has been working well. We want to deploy for our New York and Chicago branch offices too. What plan options are available?",
+    "date": "2026-03-26T09:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_up10",
+    "thread_id": "t_up10",
+    "from": "admin@our-company.com",
+    "to": [
+      "all@our-company.com"
+    ],
+    "subject": "Elevator maintenance",
+    "body": "Elevator maintenance.",
+    "date": "2026-03-27T09:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  }
+]

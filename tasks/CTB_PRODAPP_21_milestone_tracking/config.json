@@ -1,0 +1,24 @@
+{
+  "task_name": "CTB_PRODAPP_21_milestone_tracking",
+  "prompt": "completeprojectmilestonereport。pendingtaskprogress、datereviewmeetingarrangeandnotesprogressreport，analysiseachmilestonecompletedstatus、riskandcompleteddate。withJSONformatreturn，milestones（eachmilestonename、status、planned_date、predicted_date、completion_percentage、risks）、overall_health（projectdegree：green/yellow/red）andaction_itemssegment。",
+  "services": {
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    },
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    },
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

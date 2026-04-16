@@ -1,0 +1,72 @@
+[
+  {
+    "customer_id": "CUS-401",
+    "name": "Everway Logistics Technology Ltd.",
+    "contact_person": "Zhao Lei",
+    "contact_email": "zhaolei@hengda-logistics.cn",
+    "contact_title": "VP of Operations",
+    "status": "active",
+    "tier": "VIP",
+    "industry": "Logistics",
+    "annual_revenue": 480000,
+    "last_contact_date": "2026-03-15",
+    "renewal_date": "2026-05-01",
+    "support_tickets": [
+      {"ticket_id": "TK-201", "title": "API interface frequent timeouts", "status": "open", "priority": "high", "created": "2026-03-10"},
+      {"ticket_id": "TK-202", "title": "Data export function errors", "status": "open", "priority": "medium", "created": "2026-03-18"},
+      {"ticket_id": "TK-199", "title": "Report format adjustment", "status": "resolved", "priority": "low", "created": "2026-02-28"}
+    ],
+    "notes": "Upgraded to enterprise edition last year. Recent complaints increasing, needs close attention."
+  },
+  {
+    "customer_id": "CUS-402",
+    "name": "CloudSail Education Group",
+    "contact_person": "Lin Yan",
+    "contact_email": "linyan@yunfan-edu.cn",
+    "contact_title": "Director of IT",
+    "status": "active",
+    "tier": "VIP",
+    "industry": "Education",
+    "annual_revenue": 320000,
+    "last_contact_date": "2026-01-20",
+    "renewal_date": "2026-04-15",
+    "support_tickets": [
+      {"ticket_id": "TK-185", "title": "User permission configuration issue", "status": "resolved", "priority": "medium", "created": "2026-01-15"}
+    ],
+    "notes": "Renewal approaching, over 60 days since last contact. Proactive outreach needed."
+  },
+  {
+    "customer_id": "CUS-403",
+    "name": "Stellar Finance Services Ltd.",
+    "contact_person": "Wu Tao",
+    "contact_email": "wutao@xingchen-finance.com",
+    "contact_title": "CTO",
+    "status": "active",
+    "tier": "VIP",
+    "industry": "Finance",
+    "annual_revenue": 560000,
+    "last_contact_date": "2026-03-20",
+    "renewal_date": "2026-09-01",
+    "support_tickets": [],
+    "notes": "Long-term satisfied customer, renewal window is far away."
+  },
+  {
+    "customer_id": "CUS-404",
+    "name": "Azure Sea Medical Devices Ltd.",
+    "contact_person": "Chen Jing",
+    "contact_email": "chenjing@bihai-medical.cn",
+    "contact_title": "Procurement Manager",
+    "status": "active",
+    "tier": "VIP",
+    "industry": "Medical",
+    "annual_revenue": 280000,
+    "last_contact_date": "2026-03-10",
+    "renewal_date": "2026-06-30",
+    "support_tickets": [
+      {"ticket_id": "TK-210", "title": "Compliance report generation failure", "status": "open", "priority": "high", "created": "2026-03-20"},
+      {"ticket_id": "TK-211", "title": "Severe data sync delay", "status": "open", "priority": "high", "created": "2026-03-22"},
+      {"ticket_id": "TK-208", "title": "New feature training request", "status": "open", "priority": "low", "created": "2026-03-05"}
+    ],
+    "notes": "Has submitted consecutive high-priority tickets recently, multiple follow-ups on data sync issue."
+  }
+]

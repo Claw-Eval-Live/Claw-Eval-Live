@@ -1,0 +1,22 @@
+[
+  {
+    "message_id": "msg_13_01",
+    "thread_id": "thread_13_01",
+    "subject": "[Important Notice] GPU Delivery Delay Notice",
+    "from": "NVIDIA Partner Sales <sales@nvidia-partner.cn>",
+    "to": "Procurement Department <procurement@company.com>",
+    "date": "2026-03-25T10:00:00Z",
+    "body": "Dear Customer: Due to HBM supply tightness and export control approval delays, the 50 units of H200 (PO-2026-0315) are expected to be delayed from the original delivery date of April 15, 2026 to July 30, 2026, a delay of approximately 15 weeks. If you have urgent needs, we can offer Huawei Ascend 910C as an alternative, which is currently in stock with approximately 3-week lead time. We sincerely apologize for any inconvenience caused.",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_13_02",
+    "thread_id": "thread_13_02",
+    "subject": "Vendor Annual Evaluation - Chip Vendor Risk Rating",
+    "from": "Supply Chain Management <scm@company.com>",
+    "to": "Management Team <mgmt@company.com>",
+    "date": "2026-03-25T14:00:00Z",
+    "body": "Based on the annual evaluation, chip vendor risk ratings are as follows: NVIDIA (High Risk -> High Risk): export controls significantly impact supply continuity; AMD (High Risk): supply has been affected; Huawei (Medium Risk -> Low Risk): domestic supply chain is stable and improving; Intel (Medium Risk): supply has been affected. Recommendation: adjust procurement allocation to NVIDIA 60%, Huawei 25%, Intel 15%. Expected additional GPU procurement budget of 20M CNY.",
+    "is_read": false
+  }
+]

@@ -1,0 +1,109 @@
+task_id: CTB_HR_07_recruitment_pipeline_status
+task_name: Recruitment Pipeline Status
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_HR_07_recruitment_pipeline_status/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_HR_07_recruitment_pipeline_status/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Please compile the current recruitment pipeline status and generate a hiring progress report.
+    
+    Requirements:
+    1. Retrieve open positions and candidate records
+    2. Review emails for recruiter updates and hiring manager feedback
+    3. For each open position, track:
+       - Number of candidates at each stage
+       - Time-to-fill metrics
+       - Hiring manager feedback
+       - Interview scheduling status
+    4. Identify bottlenecks in the hiring process
+    5. Generate a recruitment pipeline report with:
+       - Position-by-position breakdown
+       - Pipeline health metrics
+       - Urgent hiring needs
+       - Recommended actions
+  language: en
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: List personnel records
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get personnel details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  4 positions, 7 candidates:
+  JOB-701 Senior Frontend: Xu Wenbo (tech interview passed 88 pts, pending HR final), Zhong Haiyan (eliminated 55 pts), Fang Zheng (round-1 passed, pending round-2)
+  JOB-702 Product Manager: Shen Siyu (offer sent 25000/month, awaiting response), Han Lei (backup)
+  JOB-703 Data Analyst: Wu Yutong (offer accepted, start date Apr 15), Ma Chao (pending round-1)
+  JOB-704 DevOps: urgent, no candidates, need to launch recruitment immediately
+  Urgent items: post DevOps opening, follow up on Shen Siyu offer, schedule HR final for Xu Wenbo, schedule round-2 for Fang Zheng
+primary_dimensions: [completion]

@@ -1,0 +1,134 @@
+task_id: CTB_SALES_10_key_account_health
+task_name: Key Account Health Assessment
+version: "1.0"
+category: workflow
+difficulty: hard
+
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_SALES_10_key_account_health/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_SALES_10_key_account_health/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_SALES_10_key_account_health/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    As the Key Account Director, please conduct a comprehensive health assessment of all strategic accounts.
+
+    Follow these steps:
+    1. Retrieve all key account information from CRM (contract value, renewal date, satisfaction, etc.)
+    2. Read recent emails related to each key account (sentiment, needs, complaints)
+    3. Retrieve revenue records for each key account from the finance system (contracts, upsells, service credits, etc.)
+    4. Score each customer across the following dimensions (1-10):
+       - Financial contribution: cumulative revenue, upsell trends
+       - Satisfaction signals: email sentiment, CRM satisfaction tags
+       - Renewal risk: days until renewal, competitor threats, complaints
+       - Expansion potential: upsell history, new demand signals
+    5. Output a key account health report:
+       - Per account: name, annual contract value, cumulative revenue, health score, dimension scores, key findings, action recommendations
+       - Total annual contract value
+       - High-risk account alerts (requiring immediate action)
+       - Expansion opportunity accounts (upsell candidates)
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back: {type: integer, default: 7}
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id: {type: string}
+      required: [message_id]
+  - name: crm_list_customers
+    description: List customers
+    input_schema:
+      type: object
+      properties:
+        status: {type: string}
+      required: []
+  - name: crm_get_customer
+    description: Get customer details
+    input_schema:
+      type: object
+      properties:
+        customer_id: {type: string}
+      required: [customer_id]
+  - name: finance_list_transactions
+    description: List transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date: {type: string}
+      required: []
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+    - fixtures/finance/transactions.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  XinYuan Group: cumulative 2.65M, high satisfaction, no renewal risk, 1M expansion -> healthy (8-9)
+  BYD Electronics: cumulative 3.96M, high satisfaction, new factory 2M opportunity -> healthy (8-9), biggest expansion
+  Zoomlion Heavy: cumulative 1.85M, 3 outage complaints, May renewal, threatening vendor switch -> high risk (4-5)
+  Hisense Video: cumulative 1.5M (-80K compensation=1.42M net), low satisfaction, demanding 20% discount, April deadline, SAP threat -> high risk (3-4)
+  Total annual contract: 9M (2.5M+1.8M+3.2M+1.5M)
+  High risk alert: Hisense (most urgent, April), Zoomlion (May)
+  Expansion opportunities: BYD (2M), XinYuan (1M)
+
+primary_dimensions: [completion]

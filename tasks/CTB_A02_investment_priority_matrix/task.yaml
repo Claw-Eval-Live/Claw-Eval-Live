@@ -1,0 +1,104 @@
+task_id: CTB_A02_investment_priority_matrix
+task_name: Project Investment Priority Matrix
+version: "1.0"
+category: data_analysis
+difficulty: medium-hard
+
+prompt:
+  text: |
+    Please complete an investment priority assessment based on 4 attachments and produce the final report in English.
+
+    Attachments:
+    - `project_a_forecast.csv`
+    - `project_b_forecast.csv`
+    - `project_c_forecast.csv`
+    - `risk_brief.md`
+
+    Requirements:
+    1. For each of the three projects, calculate:
+       - 5-year NPV (discount rate fixed at 8%)
+       - IRR
+       - Dynamic payback period
+    2. Based on `risk_brief.md`, classify each project's risk level as:
+       - High
+       - Medium
+       - Low
+    3. Scoring rules are fixed as:
+       - Financial score = `NPV ranking 50% + IRR ranking 30% + Payback ranking 20%`
+       - Ranking mapping: Best = 100, Middle = 70, Worst = 40
+       - Risk score mapping: Low = 100, Medium = 70, High = 40
+       - Composite score = `Financial score * 0.6 + Risk score * 0.4`
+    4. Rounding rules:
+       - NPV rounded to 2 decimal places
+       - IRR rounded to 2 decimal places (percentage)
+       - Dynamic payback period rounded to 2 decimal places
+       - Composite score rounded to 1 decimal place
+    5. Output must include:
+       - Executive summary
+       - A comparison table: Project, NPV, IRR, Payback, Risk Level, Financial Score, Risk Score, Composite Score, Priority
+       - A risk-return decision matrix (table or text matrix)
+       - Clearly state: Primary choice, Alternate choice, Deferred project
+       - Recommendation rationale and key risk warnings
+    6. The final response must be the complete report itself, not Python code, pseudocode, or intermediate drafts.
+
+    Hints:
+    - `year=0` in `project_*_forecast.csv` represents the initial investment (negative value)
+    - Annual cash flow units are in million CNY
+  language: en
+  attachments:
+    - fixtures/docs/project_a_forecast.csv
+    - fixtures/docs/project_b_forecast.csv
+    - fixtures/docs/project_c_forecast.csv
+    - fixtures/docs/risk_brief.md
+
+tools: []
+tool_endpoints: []
+
+environment:
+  timeout_seconds: 240
+  max_turns: 14
+  fixtures:
+    - fixtures/docs/project_a_forecast.csv
+    - fixtures/docs/project_b_forecast.csv
+    - fixtures/docs/project_c_forecast.csv
+    - fixtures/docs/risk_brief.md
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  1. 5-year NPV (8% discount rate) for the three projects:
+     - Project A: 1888.34
+     - Project B: 3583.23
+     - Project C: 2586.15
+  2. IRR for the three projects:
+     - Project A: 22.85%
+     - Project B: 30.02%
+     - Project C: 26.07%
+  3. Dynamic payback period:
+     - Project A: 2.81
+     - Project B: 2.43
+     - Project C: 2.63
+  4. Risk level:
+     - Project A: Medium
+     - Project B: High
+     - Project C: Low
+  5. Financial score:
+     - Project B = 100
+     - Project C = 70
+     - Project A = 40
+  6. Risk score:
+     - Project C = 100
+     - Project A = 70
+     - Project B = 40
+  7. Composite score:
+     - Project C = 82.0
+     - Project B = 76.0
+     - Project A = 52.0
+  8. Final recommendation:
+     - Primary choice: Project C
+     - Alternate choice: Project B
+     - Deferred: Project A
+
+primary_dimensions: [completion, communication]

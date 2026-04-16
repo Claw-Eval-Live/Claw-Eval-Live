@@ -1,0 +1,38 @@
+[
+  {
+    "note_id": "note_501",
+    "title": "logconfigurationstandards",
+    "content": "# logconfigurationstandards ## logrotateconfiguration\n- configurationfilepath：/etc/logrotate.d/app-services\n- configurationfilepermission：644, root:syslog\n- user：syslog\n- executetime：AM02:00cron\n- statusfile：/var/lib/logrotate/status ## strategy\n- ：daily\n- retaindays：30days\n- ：gzip\n- latency：delaycompressdays\n- file：10GB\n- expected：>= 90%log ## logstandard\n- production environment：INFO\n- ：DEBUG\n- DEBUG：retain24hoursrecovery ## serverdisk\n- /var/log/app/ ：500GB\n- alertthreshold： > 75%\n- urgentthreshold： > 85%",
+    "tags": [
+      "log",
+      "operationsstandards",
+      "logrotate"
+    ],
+    "created_at": "2026-02-01T10:00:00Z",
+    "updated_at": "2026-03-15T10:00:00Z",
+    "author": "Ops Team",
+    "participants": [
+      "operations",
+      "Li (Ops Engineer)"
+    ],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_502",
+    "title": "ELKclusterILMstrategyconfiguration",
+    "content": "# ELKcluster ## clusterinformation\n- Elasticsearch：8.11\n- datanode：3，2TB SSD\n- capacity：approximately6TB1 ## ILMstrategy：payment-policy\n- hot：retain7days\n- warm：7-30days，force merge1 segment\n- cold：30-90days，coldnode\n- delete：records min_age:90d AND max_size:500GB\n- note：deleterecordsOR，currentconfigurationAND ## standards\n- ：{service}-{yyyy}.{mm}.{dd}\n- ：payment-2026.03.27 ## diskalert\n- node > 75% alert\n- node > 85% stop",
+    "tags": [
+      "ELK",
+      "ILM",
+      "log"
+    ],
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-03-27T10:00:00Z",
+    "author": "",
+    "participants": [
+      "operations",
+      ""
+    ],
+    "duration_minutes": 0
+  }
+]

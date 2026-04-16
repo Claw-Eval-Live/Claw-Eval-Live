@@ -1,0 +1,104 @@
+task_id: CTB_IR_14
+task_name: esg_compliance_report
+version: '1.0'
+category: workflow
+difficulty: medium
+services:
+- name: web
+  command: python mock_services/web/server.py
+  port: 9113
+  health_check: http://localhost:9113/web/search
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9113/web/reset
+  env:
+    WEB_SEARCH_FIXTURES: tasks/CTB_IR_14_esg_compliance_report/fixtures/web/search_results.json
+    ERROR_RATE: '0'
+- name: notes
+  command: python mock_services/notes/server.py
+  port: 9105
+  health_check: http://localhost:9105/notes/list
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9105/notes/reset
+  env:
+    NOTES_FIXTURES: tasks/CTB_IR_14_esg_compliance_report/fixtures/notes/meetings.json
+    ERROR_RATE: '0'
+prompt:
+  text: Search for the latest 2026 ESG (Environmental, Social, Governance) compliance standards and best practices in the tech industry. Also review internal notes on the company's carbon emissions and social responsibility records. Generate an ESG compliance report covering 1) latest ESG regulatory requirements; 2) assessment of the company's current ESG performance; 3) gap analysis against industry benchmarks; 4) improvement roadmap.
+  language: en
+tools:
+- name: web_search
+  description: Search the web
+  input_schema:
+    type: object
+    properties:
+      query:
+        type: string
+        description: Search keywords
+    required:
+    - query
+- name: web_get_page
+  description: Retrieve web page content
+  input_schema:
+    type: object
+    properties:
+      url:
+        type: string
+        description: Web page URL
+    required:
+    - url
+- name: notes_list
+  description: Retrieve the list of notes/documents
+  input_schema:
+    type: object
+    properties:
+      max_results:
+        type: integer
+        description: Maximum number of results to return
+        default: 10
+    required: []
+- name: notes_get
+  description: Retrieve detailed content of a note/document by ID
+  input_schema:
+    type: object
+    properties:
+      note_id:
+        type: string
+        description: Note ID
+    required:
+    - note_id
+tool_endpoints:
+- tool_name: web_search
+  url: http://localhost:9113/web/search
+  method: POST
+- tool_name: web_get_page
+  url: http://localhost:9113/web/fetch
+  method: POST
+- tool_name: notes_list
+  url: http://localhost:9105/notes/list
+  method: POST
+- tool_name: notes_get
+  url: http://localhost:9105/notes/get
+  method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+  - fixtures/web/search_results.json
+  - fixtures/notes/meetings.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  1. Regulatory: mandatory ESG disclosure from 2026 (CSRC); PUE must not exceed 1.25; Scope 3 required
+  2. Company status: PUE 1.38 (above 1.25 standard); Scope 2 = 18,500t CO2e; Scope 3 ~45,000t (not yet precise)
+  3. Renewable energy 32%; female tech 18% (below industry avg 22%); MSCI ESG rating BB (vs industry BBB)
+  4. No ESG committee; no AI ethics framework; carbon neutral target 2035
+  5. Benchmarks: Tencent carbon neutral 2030/PUE 1.15; Alibaba 100% renewable/PUE 1.18; Huawei AI ethics committee
+  6. Key gaps: PUE 1.38 vs 1.25, MSCI BB vs BBB, female tech 18% vs 22%, no AI ethics, Scope 3 incomplete
+  7. Short-term roadmap: establish ESG committee, start AI ethics framework, begin Scope 3 calculation
+  8. Medium-term: PUE reduction plan, increase renewable energy beyond 32%
+  9. Long-term: carbon neutral by 2035, MSCI BBB target
+primary_dimensions:
+- completion

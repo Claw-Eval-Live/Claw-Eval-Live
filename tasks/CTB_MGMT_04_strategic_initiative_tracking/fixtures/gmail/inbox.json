@@ -1,0 +1,32 @@
+[
+  {
+    "message_id": "msg_strat_01",
+    "thread_id": "thread_strat_01",
+    "subject": "AI Product Line Progress Weekly Report - Week 12",
+    "from": "chen.wei@nextera.com",
+    "to": ["ceo@nextera.com"],
+    "date": "2026-03-25T10:00:00Z",
+    "body": "Dear CEO,\n\nAI product line progress this week:\n- Recommendation engine core algorithm complete, accuracy reached 92%\n- Frontend interaction prototype first version complete\n- Issue encountered: insufficient GPU resources, training tasks queued heavily, affecting model iteration speed\n- M2 (MVP) expected to finish on time, but GPU resource issue needs urgent resolution\n\nRisk items:\n- GPU server procurement approval still pending (waiting 2 weeks)\n- Frontend developer understaffed, Fang Wang simultaneously handling payment module refactoring\n\nWei Chen",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_strat_02",
+    "thread_id": "thread_strat_02",
+    "subject": "International Expansion Research Progress - Delay Notice",
+    "from": "liu.na@nextera.com",
+    "to": ["ceo@nextera.com"],
+    "date": "2026-03-26T09:00:00Z",
+    "body": "Dear CEO,\n\nThe international market research (M1) is expected to be delayed by 2 weeks, originally planned for March 31 completion, now estimated for April 14.\n\nReasons for delay:\n- Southeast Asian market complexity exceeded expectations, additional research needed for Vietnam and Philippines markets\n- Translation and localization assessment requires more time\n- Research team understaffed (only 2 people)\n\nImpact on subsequent phases: M2 (localization team setup) may correspondingly shift to mid-June.\n\nSuggestion: Could we focus on Singapore and Indonesia first, narrowing scope to accelerate progress?\n\nNa Liu",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_strat_03",
+    "thread_id": "thread_strat_03",
+    "subject": "Operational Efficiency Project - Automation Tool Procurement Request",
+    "from": "zhang.lei@nextera.com",
+    "to": ["ceo@nextera.com"],
+    "date": "2026-03-24T14:00:00Z",
+    "body": "Dear CEO,\n\nOperational efficiency initiative M2 progress:\n- CI/CD automation pipeline setup complete (saving 30% of development deployment time)\n- Currently evaluating RPA tools for finance and HR process automation\n- Need to purchase UiPath enterprise license, budget approximately 120,000 yuan/year\n\nExpected impact: financial month-end close process reduced from 5 days to 2 days, HR onboarding process reduced from 3 days to 1 day.\n\nM2 overall progress is good, expected to finish early by mid-May.\n\nLei Zhang",
+    "is_read": false
+  }
+]

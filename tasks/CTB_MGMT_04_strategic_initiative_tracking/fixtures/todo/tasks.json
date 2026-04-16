@@ -1,0 +1,62 @@
+[
+  {
+    "task_id": "todo_strat_01",
+    "title": "AI Recommendation Engine Algorithm Development",
+    "description": "Complete recommendation engine core algorithm, target accuracy above 90%",
+    "status": "done",
+    "priority": "high",
+    "due_date": "2026-03-20",
+    "assignee": "chen.wei",
+    "created_at": "2026-02-01"
+  },
+  {
+    "task_id": "todo_strat_02",
+    "title": "AI Assistant Frontend Prototype",
+    "description": "Develop AI assistant interaction prototype",
+    "status": "in_progress",
+    "priority": "high",
+    "due_date": "2026-04-10",
+    "assignee": "wang.fang",
+    "created_at": "2026-03-01"
+  },
+  {
+    "task_id": "todo_strat_03",
+    "title": "Southeast Asia Market Research Report",
+    "description": "Complete market research for five countries: Singapore, Indonesia, Vietnam, Philippines, Thailand",
+    "status": "in_progress",
+    "priority": "high",
+    "due_date": "2026-03-31",
+    "assignee": "liu.na",
+    "created_at": "2026-02-01"
+  },
+  {
+    "task_id": "todo_strat_04",
+    "title": "CI/CD Automation Pipeline",
+    "description": "Set up fully automated CI/CD pipeline",
+    "status": "done",
+    "priority": "high",
+    "due_date": "2026-03-15",
+    "assignee": "zhang.lei",
+    "created_at": "2026-01-15"
+  },
+  {
+    "task_id": "todo_strat_05",
+    "title": "RPA Tool Evaluation and Procurement",
+    "description": "Evaluate UiPath and other RPA tools and complete procurement",
+    "status": "in_progress",
+    "priority": "medium",
+    "due_date": "2026-04-15",
+    "assignee": "zhang.lei",
+    "created_at": "2026-03-01"
+  },
+  {
+    "task_id": "todo_strat_06",
+    "title": "GPU Server Procurement Request",
+    "description": "Request procurement of 2 A100 GPU servers for AI model training",
+    "status": "pending",
+    "priority": "high",
+    "due_date": "2026-03-28",
+    "assignee": "chen.wei",
+    "created_at": "2026-03-10"
+  }
+]

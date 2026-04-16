@@ -1,0 +1,56 @@
+[
+  {
+    "title": "payment gateway sandboxaskissue",
+    "content": "4month1datecontactpayment gatewaytechnicalsupport，replyestimated4month4dateenvironment。alternativeFangcase：useMockservicefirstruninterfacedevelopment，afteragaindoendtoendtesting。Mockservicealreadyhasbasicframework，estimated2hourscanset up。",
+    "author": "Jie Liao",
+    "created_at": "2026-04-02",
+    "tags": [
+      "payment",
+      "blocked"
+    ],
+    "note_id": "bl-1",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "DBApermission approvalprocessrecord",
+    "content": "alreadysubmitpermission request#DB-2026-0402。DBAteam replied：largetablecheckneedsecurityapproval workflow，estimated3-5business days。addneeddepartment director。suggest using firsttestingenvironmentsmalldatadevelopment，aftertoproductiondata。",
+    "author": "Ying Deng",
+    "created_at": "2026-04-02",
+    "tags": [
+      "DBA",
+      "permission",
+      "blocked"
+    ],
+    "note_id": "bl-2",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "SMTPserver configurationrequirements",
+    "content": "alreadytowardITsubmitservice。ITreply：due tosecuritystrategyadjust，externaldepartmentSMTPendportalready。Fangcase：1）useinternaldepartmentemailAPI；2）useFangemailserviceSendGrid。recommendationuseFangcase1，needAPIkey。",
+    "author": "Jie Liao",
+    "created_at": "2026-04-02",
+    "tags": [
+      "SMTP",
+      "IT",
+      "blocked"
+    ],
+    "note_id": "bl-3",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "blockedaskissueescalatestrategy",
+    "content": "project deadlineas4month15date。beforehas3blockedtask。if4month5by date，needescalatetodepartment director。payment gatewayaskissueaffectsmaximum，affectscoretaskprocess。",
+    "author": "Project Manager",
+    "created_at": "2026-04-02",
+    "tags": [
+      "management",
+      "escalate"
+    ],
+    "note_id": "bl-4",
+    "participants": [],
+    "duration_minutes": 0
+  }
+]

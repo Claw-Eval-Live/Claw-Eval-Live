@@ -1,0 +1,152 @@
+[
+  {
+    "ticket_id": "ESC-001",
+    "subject": "System crash causing data loss",
+    "description": "Customer reported a sudden system crash with partial order data lost",
+    "status": "escalated",
+    "priority": "critical",
+    "created_at": "2026-03-18T08:00:00Z",
+    "updated_at": "2026-03-20T16:00:00Z",
+    "reporter": "customer_a@client.com",
+    "assignee": "senior-support@company.com",
+    "category": "data_loss",
+    "comments": [
+      {
+        "author": "l1-support@company.com",
+        "text": "Initial investigation could not recover the data; escalating to senior engineer",
+        "created_at": "2026-03-18T09:00:00Z"
+      },
+      {
+        "author": "senior-support@company.com",
+        "text": "Partially restored data from backup; 3 orders remain unrecoverable",
+        "created_at": "2026-03-19T14:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "ESC-002",
+    "subject": "Frequent API timeouts affecting business",
+    "description": "Customer's business system experiences frequent API call timeouts with a 30% timeout rate",
+    "status": "escalated",
+    "priority": "critical",
+    "created_at": "2026-03-19T10:00:00Z",
+    "updated_at": "2026-03-22T10:00:00Z",
+    "reporter": "customer_b@client.com",
+    "assignee": "senior-support@company.com",
+    "category": "performance",
+    "comments": [
+      {
+        "author": "l1-support@company.com",
+        "text": "Initially suggested the customer add a retry mechanism; customer was dissatisfied and requested escalation",
+        "created_at": "2026-03-19T11:00:00Z"
+      },
+      {
+        "author": "senior-support@company.com",
+        "text": "Root cause identified as improper server-side connection pool configuration; issue fixed",
+        "created_at": "2026-03-21T15:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "ESC-003",
+    "subject": "Invoice amount calculation error",
+    "description": "Customer found that this month's invoice was overcharged by approximately 20%",
+    "status": "escalated",
+    "priority": "high",
+    "created_at": "2026-03-20T14:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "reporter": "customer_c@client.com",
+    "assignee": "billing-team@company.com",
+    "category": "billing",
+    "comments": [
+      {
+        "author": "l1-support@company.com",
+        "text": "Verified the invoice and confirmed a billing anomaly; escalating to billing team",
+        "created_at": "2026-03-20T15:30:00Z"
+      },
+      {
+        "author": "billing-team@company.com",
+        "text": "Confirmed the issue was caused by a bug introduced during a billing module upgrade; fixed and refund issued",
+        "created_at": "2026-03-24T11:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "ESC-004",
+    "subject": "Permission misconfiguration causing data exposure risk",
+    "description": "Customer reported that regular users can see sensitive data from the admin panel",
+    "status": "escalated",
+    "priority": "critical",
+    "created_at": "2026-03-22T09:00:00Z",
+    "updated_at": "2026-03-23T18:00:00Z",
+    "reporter": "customer_d@client.com",
+    "assignee": "security-team@company.com",
+    "category": "security",
+    "comments": [
+      {
+        "author": "l1-support@company.com",
+        "text": "Confirmed a permission vulnerability; urgently escalating to security team",
+        "created_at": "2026-03-22T09:30:00Z"
+      },
+      {
+        "author": "security-team@company.com",
+        "text": "Permission configuration fixed urgently; retrospective check confirmed no data breach occurred",
+        "created_at": "2026-03-22T15:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "ESC-005",
+    "subject": "Bulk import function error",
+    "description": "Bulk importing customer data via CSV fails when exceeding 1000 records",
+    "status": "escalated",
+    "priority": "high",
+    "created_at": "2026-03-23T11:00:00Z",
+    "updated_at": "2026-03-26T14:00:00Z",
+    "reporter": "customer_e@client.com",
+    "assignee": "senior-support@company.com",
+    "category": "bug",
+    "comments": [
+      {
+        "author": "l1-support@company.com",
+        "text": "Reproduced the issue; importing over 1000 records indeed causes an error; escalating to development team",
+        "created_at": "2026-03-23T12:00:00Z"
+      },
+      {
+        "author": "senior-support@company.com",
+        "text": "Root cause was a memory limit configuration; threshold increased to 10000 records",
+        "created_at": "2026-03-25T16:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "ESC-006",
+    "subject": "Report data inconsistent with actual figures",
+    "description": "Sales data in the monthly report does not match the data in the customer's system",
+    "status": "escalated",
+    "priority": "high",
+    "created_at": "2026-03-24T10:00:00Z",
+    "updated_at": "2026-03-27T10:00:00Z",
+    "reporter": "customer_c@client.com",
+    "assignee": "senior-support@company.com",
+    "category": "data_integrity",
+    "comments": [
+      {
+        "author": "l1-support@company.com",
+        "text": "Customer provided comparison data showing approximately 5% discrepancy; escalating for review",
+        "created_at": "2026-03-24T11:30:00Z"
+      },
+      {
+        "author": "senior-support@company.com",
+        "text": "Root cause identified as a timezone conversion issue affecting statistical calculation scope",
+        "created_at": "2026-03-26T14:00:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

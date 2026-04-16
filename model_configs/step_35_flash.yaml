@@ -1,0 +1,16 @@
+# Step 3.5 Flash via OpenRouter
+
+model:
+  api_key: ${OPENROUTER_API_KEY}
+  base_url: https://openrouter.ai/api/v1
+  model_id: stepfun/step-3.5-flash
+
+judge:
+  api_key: ${OPENROUTER_API_KEY}
+  base_url: https://openrouter.ai/api/v1
+  model_id: google/gemini-3-flash-preview
+  enabled: true
+
+defaults:
+  trace_dir: traces_step_35_flash
+  tasks_dir: tasks

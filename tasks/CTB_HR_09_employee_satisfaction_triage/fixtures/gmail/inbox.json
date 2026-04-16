@@ -1,0 +1,46 @@
+[
+  {
+    "message_id": "msg_hr09_001",
+    "thread_id": "thread_hr09_001",
+    "subject": "employeesatisfactionsurvey - Engineering",
+    "from": "survey@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-24T09:00:00Z",
+    "body": "HR，\n\nEngineeringsatisfactionsurvey（15，100%）：\n\n1. compensationbenefitssatisfaction：3.2/5（decline0.5）\n2. satisfaction：4.1/5\n3. satisfaction：3.5/5\n4. satisfaction：3.8/5\n5. ：2.8/5（decline0.8，low）\n\nfeedback：\n- \"overtime，project\" （5and）\n- \"salaryincrease rate\" （3and）\n- \"tech stackupdate\" （2and）\n\nsurvey",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr09_002",
+    "thread_id": "thread_hr09_002",
+    "subject": "employeesatisfactionsurvey - Marketing",
+    "from": "survey@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-24T10:00:00Z",
+    "body": "HR，\n\nMarketingsatisfactionsurvey（8，100%）：\n\n1. compensationbenefitssatisfaction：3.5/5\n2. satisfaction：4.3/5\n3. satisfaction：2.9/5（low，decline0.6）\n4. satisfaction：4.0/5\n5. ：3.7/5\n\nfeedback：\n- \"promotion，\" （4and）\n- \"departmentcollaboration\" （3and）\n\nsurvey",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr09_003",
+    "thread_id": "thread_hr09_003",
+    "subject": "employeesatisfactionsurvey - Finance",
+    "from": "survey@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-24T11:00:00Z",
+    "body": "HR，\n\nFinancesatisfactionsurvey（4，100%）：\n\n1. compensationbenefitssatisfaction：3.0/5（low）\n2. satisfaction：3.8/5\n3. satisfaction：3.2/5\n4. satisfaction：4.2/5\n5. ：3.5/5\n\nfeedback：\n- \"compensationlow\" （3and）\n- \"overtimemedium，optimization\" （2and）\n\nsurvey",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr09_004",
+    "thread_id": "thread_hr09_004",
+    "subject": "employeesatisfactionsurvey - Product",
+    "from": "survey@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-24T14:00:00Z",
+    "body": "HR，\n\nProductsatisfactionsurvey（6，100%）：\n\n1. compensationbenefitssatisfaction：3.6/5\n2. satisfaction：4.0/5\n3. satisfaction：3.3/5\n4. satisfaction：3.5/5（decline0.7）\n5. ：3.9/5\n\nfeedback：\n- \"，requirement\" （4and）\n- \"Engineeringcommunicationhigh\" （2and）\n\nsurvey",
+    "is_read": false,
+    "labels": []
+  }
+]

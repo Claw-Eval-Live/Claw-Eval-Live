@@ -1,0 +1,76 @@
+task_id: CTB_A01_financial_reconciliation
+task_name: Financial Reconciliation Analysis
+version: "1.0"
+category: data_analysis
+difficulty: medium-hard
+
+prompt:
+  text: |
+    Complete a month-end sales reconciliation using the 3 attached files, and produce a structured reconciliation report.
+
+    Attachments:
+    - `crm_export.csv`
+    - `bank_settlements.csv`
+    - `invoice_ledger.csv`
+
+    Requirements:
+    1. Perform a three-way reconciliation using transaction ID as the primary key:
+       - CRM: `transaction_id`
+       - Bank settlements: `external_ref`
+       - Invoice ledger: `invoice_ref`
+    2. Classify each record into one of these categories:
+       - Full match
+       - Amount discrepancy
+       - Missing bank entry
+       - Missing invoice
+       - Bank-only (unmatched)
+    3. Your output must include:
+       - Summary: count of full matches, count of exceptions, total impact amount
+       - Detail table: for each exception, list transaction ID, discrepancy type, CRM amount, bank amount, invoice amount, variance, probable cause
+       - Recommended actions: prioritized next steps
+    4. Write the report in a format suitable for sending directly to the finance lead
+    5. Do not fabricate data that does not exist in the attachments
+    6. Output the final reconciliation report directly — do not output Python code, pseudocode, CSV reproductions, or intermediate calculations
+    7. The final response must be the complete report itself, not just an analysis plan
+
+    Notes:
+    - All amounts are in CNY
+    - "Total impact amount" is the sum of absolute variance amounts across all exceptions
+  language: en
+  attachments:
+    - fixtures/docs/crm_export.csv
+    - fixtures/docs/bank_settlements.csv
+    - fixtures/docs/invoice_ledger.csv
+
+tools: []
+tool_endpoints: []
+
+environment:
+  timeout_seconds: 240
+  max_turns: 14
+  fixtures:
+    - fixtures/docs/crm_export.csv
+    - fixtures/docs/bank_settlements.csv
+    - fixtures/docs/invoice_ledger.csv
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  1. Full matches: 2 transactions (TX-1001, TX-1006)
+  2. Exceptions: 5 items:
+     - TX-1002: CRM/bank 980.00, invoice 890.00, amount discrepancy 90.00
+     - TX-1003: CRM/invoice 1499.00, bank entry missing, variance 1499.00
+     - TX-1004: CRM/bank 730.00, invoice missing, variance 730.00
+     - TX-1005: CRM/invoice 2200.00, bank 2150.00, variance 50.00
+     - UNMAPPED-7781: bank-only entry, amount 560.00
+  3. Total impact amount: 2929.00
+  4. Recommended actions should include at minimum:
+     - Trace missing bank settlement for TX-1003
+     - Issue or locate missing invoice for TX-1004
+     - Verify invoice amount discrepancy for TX-1002
+     - Investigate holdback/shortfall for TX-1005
+     - Trace origin of UNMAPPED-7781
+
+primary_dimensions: [completion, communication]

@@ -1,0 +1,52 @@
+[
+  {
+    "message_id": "msg_901",
+    "thread_id": "thread_901",
+    "subject": "The system is way too slow!",
+    "from": "zhao@clientA.com",
+    "to": "support@company.com",
+    "date": "2026-03-15T09:00:00Z",
+    "body": "Your system has been getting slower and slower recently. It takes over 20 seconds just to open a report, severely impacting our productivity. Please resolve this as soon as possible!",
+    "is_read": true
+  },
+  {
+    "message_id": "msg_902",
+    "thread_id": "thread_902",
+    "subject": "Complaint: Unacceptable page load speed",
+    "from": "qian@clientB.com",
+    "to": "support@company.com",
+    "date": "2026-03-18T10:00:00Z",
+    "body": "Your system is virtually unusable during afternoon peak hours, with frequent page load timeouts. We have endured this for two weeks now, and if it does not improve we will consider switching vendors.",
+    "is_read": true
+  },
+  {
+    "message_id": "msg_903",
+    "thread_id": "thread_903",
+    "subject": "Billing issue complaint",
+    "from": "sun@clientC.com",
+    "to": "support@company.com",
+    "date": "2026-03-20T14:00:00Z",
+    "body": "We found that this month's invoice is 50% higher than last month, but our usage has not increased. Please check if there is a billing error. This is the second time a similar issue has occurred.",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_904",
+    "thread_id": "thread_904",
+    "subject": "Missing feature feedback",
+    "from": "li@clientD.com",
+    "to": "support@company.com",
+    "date": "2026-03-22T11:00:00Z",
+    "body": "We urgently need a bulk export feature. Currently we can only export records one by one manually, which is extremely inefficient. We submitted this request three months ago with no response.",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_905",
+    "thread_id": "thread_905",
+    "subject": "Data export format issue",
+    "from": "wu@clientE.com",
+    "to": "support@company.com",
+    "date": "2026-03-24T09:00:00Z",
+    "body": "In the exported Excel file, all date formats have been converted to numbers and are completely unusable. Please fix this export bug as soon as possible.",
+    "is_read": false
+  }
+]

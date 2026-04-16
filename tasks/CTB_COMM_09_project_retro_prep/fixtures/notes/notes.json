@@ -1,0 +1,24 @@
+[
+  {
+    "note_id": "note_801",
+    "title": "Alpha Project - Milestone Record",
+    "created_at": "2026-03-01T10:00:00Z",
+    "participants": [
+      "Wang Ming",
+      "Li Na",
+      "Zhang Wei"
+    ],
+    "duration_minutes": 30,
+    "content": "Alpha Project Key Milestones:\n\n- Original launch date: March 7\n- Actual launch date: March 28 (delayed 3 weeks)\n- Original budget: 800K\n- Actual cost: 920K (15% overrun)\n- Team size: 6 people\n- Core deliverables: Customer management system + Data dashboard\n\nMajor events during the project:\n1. Feb 15: Client requested new mobile requirements (not in original plan)\n2. Feb 22: Third-party payment API approval was rejected, resubmitted\n3. Mar 5: Integration testing found data sync bug, fix took 1 week"
+  },
+  {
+    "note_id": "note_802",
+    "title": "Alpha Project - Team Feedback Summary",
+    "created_at": "2026-03-20T15:00:00Z",
+    "participants": [
+      "Wang Ming"
+    ],
+    "duration_minutes": 0,
+    "content": "Team Feedback (collected anonymously):\n\nPositive:\n- Good team collaboration atmosphere\n- Correct technical architecture decisions\n- Timely client communication\n\nNeeds improvement:\n- Requirement changes lack formal process\n- Test environment setup was too late\n- Documentation updates not timely\n- Code review process not strictly enforced"
+  }
+]

@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+.env.local
+.env.*
+
+# Traces and results (generated output)
+traces/
+traces_*/
+results/
+logs/
+*.log
+
+# Runtime
+.checkpoint.json
+
+# Docker SSL
+docker/ssl-certs/

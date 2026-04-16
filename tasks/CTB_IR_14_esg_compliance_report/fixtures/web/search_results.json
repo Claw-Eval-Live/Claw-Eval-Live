@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://esg-standards.example.com/china-esg-2026",
+    "title": "Summary of 2026 China ESG Regulatory Updates",
+    "content": "Major 2026 ESG regulatory changes: 1) CSRC requires all listed companies to mandatorily disclose ESG information starting from 2026 annual reports; 2) Carbon accounting standards upgraded to ISO 14064-2026, with new Scope 3 supply chain carbon emissions accounting requirement; 3) Tech industry adds data center energy efficiency metric requiring PUE not to exceed 1.25; 4) Social dimension adds AI ethics assessment requirement. Companies failing to disclose ESG information on time will face warnings and fines up to 5 million yuan. MSCI China ESG rating criteria updated with 12 new sub-indicators.",
+    "date": "2026-03-12"
+  },
+  {
+    "url": "https://green-tech.example.com/best-practices-2026",
+    "title": "Tech Industry ESG Best Practice Case Studies",
+    "content": "Tech industry ESG benchmark companies: Tencent carbon neutral target 2030, current PUE value 1.15; Alibaba achieved 100% renewable energy procurement, PUE value 1.18; Huawei published AI ethics white paper and established AI ethics committee. Industry average ESG rating: MSCI BBB. Best practices: establish real-time carbon emissions monitoring systems, implement green supply chain management, set up dedicated ESG committees, regularly publish sustainability reports. In employee diversity, the industry average for female tech staff is 22%.",
+    "date": "2026-03-18"
+  }
+]

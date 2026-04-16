@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "service_name": "web",
+      "port": 9113,
+      "endpoints": {
+        "health": { "method": "POST", "path": "/web/search" },
+        "reset": { "method": "POST", "path": "/web/reset" }
+      },
+      "tools": [
+        { "name": "web_search", "method": "POST", "path": "/web/search" },
+        { "name": "web_get_page", "method": "POST", "path": "/web/page" }
+      ]
+    }
+  ]
+}

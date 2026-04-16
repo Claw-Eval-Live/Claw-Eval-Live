@@ -1,0 +1,83 @@
+task_id: CTB_PROD_04_milestone_status_check
+task_name: Milestone Status Check
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: notes
+    command: python mock_services/notes/server.py
+    port: 9105
+    health_check: http://localhost:9105/notes/list
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9105/notes/reset
+    env:
+      NOTES_FIXTURES: tasks/CTB_PROD_04_milestone_status_check/fixtures/notes/notes.json
+      ERROR_RATE: "0"
+  - name: todo
+    command: python mock_services/todo/server.py
+    port: 9104
+    health_check: http://localhost:9104/todo/tasks
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9104/todo/reset
+    env:
+      TODO_FIXTURES: tasks/CTB_PROD_04_milestone_status_check/fixtures/todo/tasks.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    Check Q2 product milestone progress. Compare the milestone plan in the notes with the actual task statuses in the task management system, identify delay risks and blockers, and assess the cascading impact on subsequent milestones.
+  language: en
+
+tools:
+  - name: notes_list
+    description: List notes
+    input_schema:
+      type: object
+      properties:
+        search:
+          type: string
+      required: []
+  - name: notes_get
+    description: Get note details
+    input_schema:
+      type: object
+      properties:
+        note_id:
+          type: string
+      required: [note_id]
+  - name: todo_list_tasks
+    description: List tasks
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+
+tool_endpoints:
+  - tool_name: notes_list
+    url: http://localhost:9105/notes/list
+    method: POST
+  - tool_name: notes_get
+    url: http://localhost:9105/notes/get
+    method: POST
+  - tool_name: todo_list_tasks
+    url: http://localhost:9104/todo/tasks
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/notes/notes.json
+    - fixtures/todo/tasks.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  M1 done. M2 at risk: Core API in progress + UI blocked -> Alpha 5/1 may be delayed. M3-M5 cascading risk.
+primary_dimensions: [completion]

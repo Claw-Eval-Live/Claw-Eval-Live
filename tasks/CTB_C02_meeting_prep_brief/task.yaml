@@ -1,0 +1,206 @@
+task_id: CTB_C02_meeting_prep_brief
+task_name: Meeting Prep Brief Synthesis
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: calendar
+    command: python mock_services/calendar/server.py
+    port: 9101
+    health_check: http://localhost:9101/calendar/events
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9101/calendar/reset
+    env:
+      CALENDAR_FIXTURES: tasks/CTB_C02_meeting_prep_brief/fixtures/calendar/events.json
+      CALENDAR_DISABLE_DATE_SHIFT: "1"
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_C02_meeting_prep_brief/fixtures/gmail/inbox.json
+  - name: notes
+    command: python mock_services/notes/server.py
+    port: 9105
+    health_check: http://localhost:9105/notes/list
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9105/notes/reset
+    env:
+      NOTES_FIXTURES: tasks/CTB_C02_meeting_prep_brief/fixtures/notes/meetings.json
+
+prompt:
+  text: |
+    Tomorrow afternoon (2026-03-19) I have a pilot prep meeting with StarCare Health. Please put together a pre-meeting brief for me.
+
+    You need to:
+    1. Check the calendar for 2026-03-19 to confirm which meeting it is, the time, attendees, and location
+    2. Read relevant emails to understand the client's most recent concerns
+    3. Review relevant meeting notes to extract historical context, success criteria, and outstanding issues
+    4. Produce a structured pre-meeting brief that includes at least:
+       - Meeting basic information
+       - Client's current concerns
+       - Risks / open issues
+       - Our recommended talking points / next steps for the meeting
+
+    Requirements:
+    - Base everything only on the information you find — do not fabricate anything
+    - The brief must be clearly structured for quick review before the meeting
+    - Only compile information related to the "StarCare Health Pilot Prep Meeting"
+    - If the calendar listing does not directly return the meeting, do not stop; cross-reference related emails and notes, then use available information to complete the brief
+  language: en
+
+tools:
+  - name: calendar_list_events
+    description: List calendar events within a given date range
+    input_schema:
+      type: object
+      properties:
+        date:
+          type: string
+          description: Start date (YYYY-MM-DD)
+        days:
+          type: integer
+          description: Number of days to look ahead
+          default: 1
+      required: [date]
+
+  - name: calendar_get_event
+    description: Get detailed information for a calendar event
+    input_schema:
+      type: object
+      properties:
+        event_id:
+          type: string
+          description: Event ID
+      required: [event_id]
+
+  - name: gmail_list_messages
+    description: List messages in the inbox
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          description: Number of recent days to retrieve
+          default: 7
+        max_results:
+          type: integer
+          description: Maximum number of results to return
+          default: 20
+      required: []
+
+  - name: gmail_get_message
+    description: Get detailed content of an email by message ID
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+          description: Message ID
+      required: [message_id]
+
+  - name: notes_list
+    description: List meeting notes
+    input_schema:
+      type: object
+      properties:
+        max_results:
+          type: integer
+          description: Maximum number of results to return
+          default: 10
+      required: []
+
+  - name: notes_get
+    description: Get detailed content of a meeting note by ID
+    input_schema:
+      type: object
+      properties:
+        note_id:
+          type: string
+          description: Note ID
+      required: [note_id]
+
+tool_endpoints:
+  - tool_name: calendar_list_events
+    url: http://localhost:9101/calendar/events
+    method: POST
+  - tool_name: calendar_get_event
+    url: http://localhost:9101/calendar/events/get
+    method: POST
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: notes_list
+    url: http://localhost:9105/notes/list
+    method: POST
+  - tool_name: notes_get
+    url: http://localhost:9105/notes/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/calendar/events.json
+    - fixtures/gmail/inbox.json
+    - fixtures/notes/meetings.json
+
+scoring_components:
+  - name: inspect_calendar
+    weight: 0.18
+    check:
+      type: tool_called
+      tool_name: calendar_list_events
+      min_calls: 1
+  - name: inspect_meeting_details
+    weight: 0.10
+    check:
+      type: tool_called
+      tool_name: calendar_get_event
+      min_calls: 1
+  - name: inspect_relevant_emails
+    weight: 0.20
+    check:
+      type: tool_called
+      tool_name: gmail_get_message
+      min_calls: 2
+  - name: inspect_relevant_notes
+    weight: 0.14
+    check:
+      type: tool_called
+      tool_name: notes_get
+      min_calls: 1
+  - name: mention_key_topics
+    weight: 0.20
+    check:
+      type: keywords_present
+      keywords: ["SOC 2", "HIS", "pilot", "procurement", "de-identified data"]
+  - name: structured_brief
+    weight: 0.18
+    check:
+      type: min_length
+      min_length: 140
+
+safety_checks: []
+
+reference_solution: |
+  1. Use calendar_list_events(date="2026-03-19") to find the "StarCare Health Pilot Prep Meeting"
+  2. Use calendar_get_event to read meeting details — confirm time, location, and attendees
+  3. Read two relevant emails: one from Jing Li about SOC 2 and pilot timeline; one from our pre-sales colleague Ning Zhou with background on HIS read-only access, procurement, and de-identified data
+  4. Read the "StarCare Health Discovery Meeting Retrospective" note to extract success criteria and historical context
+  5. Produce a structured brief covering at least:
+     - Tomorrow afternoon 15:00-16:00, online meeting
+     - Client's current top concerns: SOC 2 / compliance, HIS access, April pilot timeline
+     - Risks: procurement materials, API boundary, de-identified sample data
+     - Meeting should advance: implementation plan, owners, and a materials checklist for next steps
+
+primary_dimensions: [completion, communication]

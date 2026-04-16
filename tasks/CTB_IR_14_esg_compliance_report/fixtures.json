@@ -1,0 +1,40 @@
+{
+  "WEB_FIXTURES": [
+    {
+      "url": "https://esg-standards.example.com/china-esg-2026",
+      "title": "Summary of 2026 China ESG Regulatory Updates",
+      "content": "Major 2026 ESG regulatory changes: 1) CSRC requires all listed companies to mandatorily disclose ESG information starting from 2026 annual reports; 2) Carbon accounting standards upgraded to ISO 14064-2026, with new Scope 3 supply chain carbon emissions accounting requirement; 3) Tech industry adds data center energy efficiency metric requiring PUE not to exceed 1.25; 4) Social dimension adds AI ethics assessment requirement. Companies failing to disclose ESG information on time will face warnings and fines up to 5 million yuan. MSCI China ESG rating criteria updated with 12 new sub-indicators.",
+      "date": "2026-03-12"
+    },
+    {
+      "url": "https://green-tech.example.com/best-practices-2026",
+      "title": "Tech Industry ESG Best Practice Case Studies",
+      "content": "Tech industry ESG benchmark companies: Tencent carbon neutral target 2030, current PUE value 1.15; Alibaba achieved 100% renewable energy procurement, PUE value 1.18; Huawei published AI ethics white paper and established AI ethics committee. Industry average ESG rating: MSCI BBB. Best practices: establish real-time carbon emissions monitoring systems, implement green supply chain management, set up dedicated ESG committees, regularly publish sustainability reports. In employee diversity, the industry average for female tech staff is 22%.",
+      "date": "2026-03-18"
+    }
+  ],
+  "NOTES_FIXTURES": [
+    {
+      "note_id": "note_14_01",
+      "title": "2025 Annual Carbon Emissions Accounting Results",
+      "content": "Company 2025 carbon emissions accounting: Scope 1 direct emissions 1,200 tonnes CO2e, Scope 2 indirect emissions (electricity) 18,500 tonnes CO2e, Scope 3 estimated at approximately 45,000 tonnes CO2e (precise calculation not yet completed). Data center PUE value 1.38, above the industry standard of 1.25. Purchased renewable energy electricity proportion at 32%. Compared to 2024, total emissions increased 12%, primarily due to business expansion adding 2 new data centers. Carbon neutral target: 2035.",
+      "tags": ["ESG", "carbon emissions", "annual report"],
+      "created_at": "2026-03-10T10:00:00Z",
+      "updated_at": "2026-03-20T10:00:00Z",
+      "author": "Sustainability Department",
+      "participants": ["Grace Wang", "Leo Li"],
+      "duration_minutes": 0
+    },
+    {
+      "note_id": "note_14_02",
+      "title": "Social Responsibility and Governance Status Memo",
+      "content": "Social dimension: female employees 35%, female tech staff 18% (below industry average of 22%); employee training 48 hours/person/year; CSR spending 0.3% of revenue. Governance dimension: independent directors 33% of the board; ESG committee not yet established; information security ISO 27001 certified. No formal AI ethics assessment framework or committee has been set up. MSCI ESG rating: BB, below industry average of BBB.",
+      "tags": ["ESG", "social responsibility", "governance"],
+      "created_at": "2026-03-15T14:00:00Z",
+      "updated_at": "2026-03-25T10:00:00Z",
+      "author": "Sustainability Department",
+      "participants": ["Grace Wang"],
+      "duration_minutes": 0
+    }
+  ]
+}

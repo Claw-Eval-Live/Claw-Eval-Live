@@ -1,0 +1,56 @@
+task_id: CTB_COMM_25_stakeholder_update_compile
+task_name: Stakeholder Update Compilation
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_COMM_25_stakeholder_update_compile/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    The project management office needs to consolidate Q1 progress from all department stakeholders. Please collect updates from the 5 department heads via email, extract key data and results, and compile a comprehensive progress summary report.
+  language: en
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/gmail/inbox.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  Marketing: Customer acquisition cost $6.50/person, 18,000 acquired, conversion rate 3.2%. Technology: Uptime 99.9%, response time 80ms, database sharding not completed. Product: 12 new features, satisfaction score 4.3, DAU +15%. Customer Success: Renewal rate 92%, NPS 42, 1 churned and 3 new enterprise accounts. Finance: Revenue $4M (+22%), gross margin 68%, cash $7.5M, accounts receivable days 52.
+primary_dimensions: [completion]

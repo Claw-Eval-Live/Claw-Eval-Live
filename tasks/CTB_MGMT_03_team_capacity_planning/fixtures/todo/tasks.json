@@ -1,0 +1,82 @@
+[
+  {
+    "task_id": "todo_cap_01",
+    "title": "Complete payment module refactoring",
+    "description": "Refactor the payment module to support multiple payment methods",
+    "status": "in_progress",
+    "priority": "high",
+    "due_date": "2026-04-05",
+    "assignee": "wang.fang",
+    "created_at": "2026-03-15"
+  },
+  {
+    "task_id": "todo_cap_02",
+    "title": "Deploy AI recommendation model v2",
+    "description": "Deploy the new recommendation model to the production environment",
+    "status": "in_progress",
+    "priority": "high",
+    "due_date": "2026-04-03",
+    "assignee": "chen.wei",
+    "created_at": "2026-03-10"
+  },
+  {
+    "task_id": "todo_cap_03",
+    "title": "User feedback system development",
+    "description": "Develop a user feedback collection and analysis system",
+    "status": "pending",
+    "priority": "medium",
+    "due_date": "2026-04-10",
+    "assignee": "li.na",
+    "created_at": "2026-03-20"
+  },
+  {
+    "task_id": "todo_cap_04",
+    "title": "Microservices architecture migration plan",
+    "description": "Write the microservices migration plan document",
+    "status": "in_progress",
+    "priority": "high",
+    "due_date": "2026-04-01",
+    "assignee": "wang.fang",
+    "created_at": "2026-03-18"
+  },
+  {
+    "task_id": "todo_cap_05",
+    "title": "Increase automated test coverage",
+    "description": "Raise core module automated test coverage from 60% to 80%",
+    "status": "in_progress",
+    "priority": "medium",
+    "due_date": "2026-04-08",
+    "assignee": "zhao.peng",
+    "created_at": "2026-03-20"
+  },
+  {
+    "task_id": "todo_cap_06",
+    "title": "API documentation update",
+    "description": "Update the v2 API technical documentation",
+    "status": "pending",
+    "priority": "low",
+    "due_date": "2026-04-15",
+    "assignee": "zhao.peng",
+    "created_at": "2026-03-22"
+  },
+  {
+    "task_id": "todo_cap_07",
+    "title": "Client A custom feature development",
+    "description": "Develop custom reporting feature based on Client A requirements",
+    "status": "pending",
+    "priority": "high",
+    "due_date": "2026-04-07",
+    "assignee": "li.na",
+    "created_at": "2026-03-25"
+  },
+  {
+    "task_id": "todo_cap_08",
+    "title": "Performance monitoring dashboard",
+    "description": "Build a real-time performance monitoring dashboard",
+    "status": "pending",
+    "priority": "medium",
+    "due_date": "2026-04-12",
+    "assignee": "chen.wei",
+    "created_at": "2026-03-25"
+  }
+]

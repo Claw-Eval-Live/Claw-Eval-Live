@@ -1,0 +1,20 @@
+{
+  "task_name": "CTB_PRODAPP_17_blocker_resolution",
+  "prompt": "analysisbeforeplacehaspassiveblockedtask，notesrecord，aseachblockedaskissuesubmitFangcaseandpriorityarrange。deadline、taskaffectsandcanrunFangcase。withJSONformatreturn，blockers（eachitemstask、severity、workaround、estimated_resolution、action_items）andescalation_plansegment。",
+  "services": {
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    },
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

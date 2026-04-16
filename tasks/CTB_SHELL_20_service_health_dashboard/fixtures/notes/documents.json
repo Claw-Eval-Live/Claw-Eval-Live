@@ -1,0 +1,40 @@
+[
+  {
+    "note_id": "note_601",
+    "title": "serviceSLAstandardalertrule",
+    "content": "# serviceSLAstandard ## payment-service\n- SLA：99.5%\n- P99responsetime：<= 3seconds\n- QPScapacity：1500\n- alertrule：error>0.5%duration5minutes，P99>3sduration10minutes ## order-service\n- SLA：99.9%\n- P99responsetime：<= 1seconds\n- QPScapacity：1000\n- threshold： < 50records\n- alertrule：error>0.5%duration3minutes，>100records/hours ## notification-service\n- latencySLA：lag < 5000records\n- ：500records/seconds\n- alertrule：lag>10000duration10minutes ## gateway-service\n- TLSlatency：<= 20ms\n- connectioncapacity：20000\n- TLScache：>= 80%\n- alertrule：latency>50msduration5minutes",
+    "tags": [
+      "SLA",
+      "monitoring",
+      "alert"
+    ],
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-03-20T10:00:00Z",
+    "author": "SRE Team",
+    "participants": [
+      "Wang (Ops Engineer)",
+      "Li (Ops Engineer)",
+      ""
+    ],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_602",
+    "title": "3servicedeploymentrecord",
+    "content": "# 20263servicerecord ## 324\n- upgradev3.0，APIlatency\n- payment-servicetimeoutconfiguration ## 326\n- order-servicereleasev2.5.0，interface\n- interfaceoptimizeSQLorders\n- gateway-service SSLcertificateupdate，TLS session ticket key ## 327\n- notification-servicepod-notify-03Full GC，GCpausetime12seconds\n- Kafkaconsumersession.timeout.msconfiguration10seconds",
+    "tags": [
+      "record",
+      "deployment",
+      "service"
+    ],
+    "created_at": "2026-03-24T10:00:00Z",
+    "updated_at": "2026-03-27T16:00:00Z",
+    "author": "Ops Team",
+    "participants": [
+      "Wang (Ops Engineer)",
+      "Li (Ops Engineer)",
+      ""
+    ],
+    "duration_minutes": 0
+  }
+]

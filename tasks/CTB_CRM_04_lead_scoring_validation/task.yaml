@@ -1,0 +1,110 @@
+task_id: CTB_CRM_04_lead_scoring_validation
+task_name: Lead Scoring Validation from Email Activity
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_CRM_04_lead_scoring_validation/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_CRM_04_lead_scoring_validation/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    Sales operations needs to validate whether CRM lead scores are consistent with actual email interactions.
+
+    1. Retrieve all leads and their current scores (lead_score) from CRM
+    2. Search emails for interaction history with each lead
+    3. Assess actual intent strength based on email content:
+       - Multiple interactions + quote request + demo request -> high score (80+)
+       - Urgent need + clear budget + tight timeline -> highest score (90+)
+       - General inquiry -> low score (30)
+       - Unsubscribe/decline -> invalid (0)
+    4. Compare CRM score vs actual assessment, identify scoring discrepancies
+    5. Output validation report: each lead's CRM score, recommended score, discrepancy, adjustment direction
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 30
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: List leads
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get lead details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  LEAD-301(40): 2 emails + quote + demo -> should be 80+ -> underscored by 40
+  LEAD-302(70): 1 general inquiry -> should be 30 -> overscored by 40
+  LEAD-303(50): urgent + $500K + 2 weeks -> should be 90+ -> severely underscored by 40
+  LEAD-304(60): unsubscribed -> should be 0/invalid -> mark as invalid
+
+primary_dimensions: [completion]

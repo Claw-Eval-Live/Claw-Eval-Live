@@ -1,0 +1,46 @@
+[
+  {
+    "message_id": "msg_901",
+    "thread_id": "thread_901",
+    "from": "sales-zhang@our-company.cn",
+    "to": ["client-wangfang@greentech.cn"],
+    "subject": "Re: Annual Partnership Proposal Confirmation",
+    "body": "Ms. Wang Fang,\n\nThank you for your trust. After discussion, our annual partnership proposal is as follows:\n1. Standard edition annual fee at 20% discount, i.e., 96,000 CNY/year (original price 120,000)\n2. Complimentary 3-month premium edition trial\n3. 2 free on-site training sessions\n4. Technical support response time commitment of within 4 hours\n\nPlease feel free to contact us with any questions.\n\nZhang Wei\nSales Manager",
+    "date": "2026-03-10T10:00:00Z",
+    "labels": ["sent"],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_902",
+    "thread_id": "thread_902",
+    "from": "sales-zhang@our-company.cn",
+    "to": ["client-liuwei@precision-mfg.com"],
+    "subject": "Exclusive Offer for Precision Manufacturing",
+    "body": "Mr. Liu Wei,\n\nBased on our discussion, here is the exclusive proposal for your company:\n1. First-year contract price of 65,000 CNY (standard price 80,000)\n2. Complimentary anomaly detection premium module (valued at 20,000)\n3. Free data migration service\n4. Priority technical support channel\n\nPlease confirm and I will arrange the contract.\n\nZhang Wei",
+    "date": "2026-03-12T14:00:00Z",
+    "labels": ["sent"],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_903",
+    "thread_id": "thread_903",
+    "from": "sales-li@our-company.cn",
+    "to": ["client-chenyu@nova-retail.com"],
+    "subject": "Nova Retail Partnership Proposal",
+    "body": "Mr. Chen Yu,\n\nWe are glad to have reached a preliminary agreement. The proposal is as follows:\n1. Enterprise edition annual fee of 150,000 CNY (no discount)\n2. Includes data analytics and natural language query modules\n3. API integration support provided\n4. 7x24 technical support\n\nLi Ming\nSenior Sales Consultant",
+    "date": "2026-03-15T09:00:00Z",
+    "labels": ["sent"],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_910",
+    "thread_id": "thread_910",
+    "from": "hr@our-company.cn",
+    "to": ["all@our-company.cn"],
+    "subject": "Quarterly Team Building Activity Notice",
+    "body": "Hello everyone, the quarterly team building activity is scheduled for April 10.",
+    "date": "2026-03-20T09:00:00Z",
+    "labels": ["inbox"],
+    "is_read": false
+  }
+]

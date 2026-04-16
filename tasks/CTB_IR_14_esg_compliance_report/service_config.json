@@ -1,0 +1,29 @@
+{
+  "services": [
+    {
+      "service_name": "web",
+      "port": 9113,
+      "endpoints": {
+        "health": { "method": "POST", "path": "/web/search" },
+        "reset": { "method": "POST", "path": "/web/reset" }
+      },
+      "tools": [
+        { "name": "web_search", "method": "POST", "path": "/web/search" },
+        { "name": "web_get_page", "method": "POST", "path": "/web/page" }
+      ]
+    },
+    {
+      "service_name": "notes",
+      "port": 9105,
+      "endpoints": {
+        "health": { "method": "POST", "path": "/notes/health" },
+        "reset": { "method": "POST", "path": "/notes/reset" }
+      },
+      "tools": [
+        { "name": "notes_search", "method": "POST", "path": "/notes/search" },
+        { "name": "notes_get", "method": "POST", "path": "/notes/get" },
+        { "name": "notes_create", "method": "POST", "path": "/notes/create" }
+      ]
+    }
+  ]
+}

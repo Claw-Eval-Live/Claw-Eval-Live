@@ -1,0 +1,92 @@
+[
+  {
+    "message_id": "msg_701",
+    "thread_id": "thread_701",
+    "from": "zhaolei@hengda-logistics.cn",
+    "to": [
+      "support@our-company.cn"
+    ],
+    "subject": "API Timeout Issue Still Unresolved",
+    "body": "Hello,\n\nThe API timeout ticket (TK-201) submitted last week has still not been resolved. Our dispatch system is experiencing dozens of errors daily due to your API timeouts. This issue is now seriously affecting our daily operations.\n\nIf a solution is not provided within this week, we may need to consider alternative vendors.\n\nZhao Lei\nEverway Logistics",
+    "date": "2026-03-22T09:30:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_702",
+    "thread_id": "thread_702",
+    "from": "zhaolei@hengda-logistics.cn",
+    "to": [
+      "account-manager@our-company.cn"
+    ],
+    "subject": "Serious Dissatisfaction with Service Quality",
+    "body": "Hello,\n\nI must express our team's serious dissatisfaction with recent service quality. In addition to the API issue, data exports are frequently erroneous, and our reporting team has to spend an extra hour daily verifying data.\n\nPlease arrange for a technical lead to contact me as soon as possible.\n\nZhao Lei",
+    "date": "2026-03-23T14:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_703",
+    "thread_id": "thread_703",
+    "from": "chenjing@bihai-medical.cn",
+    "to": [
+      "support@our-company.cn"
+    ],
+    "subject": "Compliance Report Generation Issue - Urgent Follow-up",
+    "body": "Hello,\n\nThe compliance report generation failure ticket (TK-210) I submitted has been open for two days now. As a medical device company, compliance reports are a regulatory requirement and cannot be delayed.\n\nAdditionally, the data sync delay issue is very concerning to us, as real-time accuracy of medical data is critical.\n\nPlease prioritize this.\n\nChen Jing\nAzure Sea Medical",
+    "date": "2026-03-23T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_704",
+    "thread_id": "thread_704",
+    "from": "chenjing@bihai-medical.cn",
+    "to": [
+      "sales@our-company.cn"
+    ],
+    "subject": "Some Concerns About Renewal",
+    "body": "Hello,\n\nOur contract expires this June. Frankly, the recent technical issues are making us hesitant about whether to renew. Before making a final decision, we would like to see a clear resolution timeline for these issues.\n\nChen Jing",
+    "date": "2026-03-24T16:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_705",
+    "thread_id": "thread_705",
+    "from": "wutao@xingchen-finance.com",
+    "to": [
+      "account-manager@our-company.cn"
+    ],
+    "subject": "Next Quarter Collaboration Plans",
+    "body": "Hello,\n\nLast quarter's collaboration went very smoothly. I would like to know if there is a new feature release plan for next quarter? In particular, enhancements to the risk control module.\n\nWe are also considering expanding usage to branch offices.\n\nWu Tao\nStellar Finance",
+    "date": "2026-03-21T11:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_706",
+    "thread_id": "thread_706",
+    "from": "hr@our-company.cn",
+    "to": [
+      "all-staff@our-company.cn"
+    ],
+    "subject": "Friday Team Building Activity Notice",
+    "body": "Dear colleagues, there will be a spring team building activity this Friday afternoon. Please attend on time.",
+    "date": "2026-03-24T09:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  }
+]

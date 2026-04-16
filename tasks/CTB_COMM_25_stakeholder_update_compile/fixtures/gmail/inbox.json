@@ -1,0 +1,57 @@
+[
+  {
+    "message_id": "msg_c25_01",
+    "thread_id": "thread_s1",
+    "subject": "Q1 Marketing Progress Report",
+    "from": "Helen Brooks <hbrooks@company.com>",
+    "to": ["PMO <pmo@company.com>"],
+    "date": "2026-03-24T09:00:00Z",
+    "body": "Marketing Q1 results: Online customer acquisition cost reduced to $6.50/person, total acquisitions 18,000, conversion rate 3.2%. Next quarter plan: expand investment in short video channels.",
+    "is_read": true,
+    "labels": ["inbox"]
+  },
+  {
+    "message_id": "msg_c25_02",
+    "thread_id": "thread_s2",
+    "subject": "Technology Department Q1 Summary",
+    "from": "Gary Walsh <gwalsh@company.com>",
+    "to": ["PMO <pmo@company.com>"],
+    "date": "2026-03-24T10:30:00Z",
+    "body": "Technology Q1: Completed microservice migration. System uptime improved from 99.5% to 99.9%. API response time optimized from 200ms to 80ms. Pending: Database sharding plan not yet completed.",
+    "is_read": true,
+    "labels": ["inbox"]
+  },
+  {
+    "message_id": "msg_c25_03",
+    "thread_id": "thread_s3",
+    "subject": "Product Department Quarterly Review",
+    "from": "Fiona Yang <fyang@company.com>",
+    "to": ["PMO <pmo@company.com>"],
+    "date": "2026-03-25T08:00:00Z",
+    "body": "Product Q1: Launched 12 new features, user satisfaction score 4.3/5. Key feature: Smart recommendation engine launched, DAU increased by 15%. Next quarter focus: Internationalization adaptation.",
+    "is_read": true,
+    "labels": ["inbox"]
+  },
+  {
+    "message_id": "msg_c25_04",
+    "thread_id": "thread_s4",
+    "subject": "Customer Success Department Update",
+    "from": "Linda Wei <lwei@company.com>",
+    "to": ["PMO <pmo@company.com>"],
+    "date": "2026-03-25T14:00:00Z",
+    "body": "Customer Success Q1: Renewal rate 92%, NPS improved from 35 to 42. 1 enterprise customer churned (reason: budget cuts), 3 new enterprise customers signed.",
+    "is_read": true,
+    "labels": ["inbox"]
+  },
+  {
+    "message_id": "msg_c25_05",
+    "thread_id": "thread_s5",
+    "subject": "Finance Department Quarterly Summary",
+    "from": "Mark Chen <mchen@company.com>",
+    "to": ["PMO <pmo@company.com>"],
+    "date": "2026-03-26T09:00:00Z",
+    "body": "Q1 revenue $4M, up 22% year-over-year. Gross margin 68%, up 3 percentage points from last quarter. Cash flow healthy, cash on hand $7.5M. Watch item: Accounts receivable days increased from 45 to 52 days.",
+    "is_read": false,
+    "labels": ["inbox"]
+  }
+]

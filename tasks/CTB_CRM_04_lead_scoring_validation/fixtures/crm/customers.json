@@ -1,0 +1,6 @@
+[
+  {"customer_id": "LEAD-301", "name": "Prospect A", "contact_person": "Director Zhang", "contact_email": "lead-a@prospect-a.com", "status": "active", "tier": "standard", "industry": "Manufacturing", "annual_revenue": 0, "lead_score": 40, "notes": "Initial inquiry."},
+  {"customer_id": "LEAD-302", "name": "Prospect B", "contact_person": "Manager Li", "contact_email": "lead-b@prospect-b.com", "status": "active", "tier": "standard", "industry": "Retail", "annual_revenue": 0, "lead_score": 70, "notes": "Marked as high intent."},
+  {"customer_id": "LEAD-303", "name": "Prospect C", "contact_person": "Director Wang", "contact_email": "lead-c@prospect-c.com", "status": "active", "tier": "standard", "industry": "Finance", "annual_revenue": 0, "lead_score": 50, "notes": "Medium score."},
+  {"customer_id": "LEAD-304", "name": "Prospect D", "contact_person": "Manager Zhao", "contact_email": "lead-d@prospect-d.com", "status": "active", "tier": "standard", "industry": "Education", "annual_revenue": 0, "lead_score": 60, "notes": ""}
+]

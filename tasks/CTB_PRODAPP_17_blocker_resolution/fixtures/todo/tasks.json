@@ -1,0 +1,70 @@
+[
+  {
+    "title": "payment gateway integration",
+    "assignee": "Jie Liao",
+    "priority": "high",
+    "status": "blocked",
+    "due_date": "2026-04-07",
+    "estimated_hours": 20,
+    "tags": [
+      "payment",
+      "integration"
+    ],
+    "blocker_reason": "Fangpayment gateway sandboxenvironment",
+    "task_id": "todo_001"
+  },
+  {
+    "title": "userdataexportfeature",
+    "assignee": "Ying Deng",
+    "priority": "high",
+    "status": "blocked",
+    "due_date": "2026-04-06",
+    "estimated_hours": 12,
+    "tags": [
+      "data",
+      "export"
+    ],
+    "blocker_reason": "needDBAapprovallargetablecheckpermission",
+    "task_id": "todo_002"
+  },
+  {
+    "title": "emailnotifyservice",
+    "assignee": "Jie Liao",
+    "priority": "medium",
+    "status": "blocked",
+    "due_date": "2026-04-08",
+    "estimated_hours": 8,
+    "tags": [
+      "email",
+      "notify"
+    ],
+    "blocker_reason": "SMTPserver configurationpendingITdepartment confirmed",
+    "task_id": "todo_003"
+  },
+  {
+    "title": "frontendinternationalization",
+    "assignee": "Ying Deng",
+    "priority": "medium",
+    "status": "in_progress",
+    "due_date": "2026-04-10",
+    "estimated_hours": 15,
+    "tags": [
+      "internationalization",
+      "frontend"
+    ],
+    "task_id": "todo_004"
+  },
+  {
+    "title": "logsystem",
+    "assignee": "Jie Liao",
+    "priority": "low",
+    "status": "todo",
+    "due_date": "2026-04-15",
+    "estimated_hours": 10,
+    "tags": [
+      "log",
+      "ops"
+    ],
+    "task_id": "todo_005"
+  }
+]

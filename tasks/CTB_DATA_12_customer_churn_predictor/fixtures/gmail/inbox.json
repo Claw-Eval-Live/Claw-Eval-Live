@@ -1,0 +1,77 @@
+[
+  {
+    "message_id": "msg_ch01",
+    "thread_id": "t_ch01",
+    "from": "client-a@churn-a.cn",
+    "to": [
+      "cs@our-company.cn"
+    ],
+    "subject": "Considering Not Renewing",
+    "body": "Usage is very low and team feedback is negative. We are considering other options.",
+    "date": "2026-03-24T09:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_ch02",
+    "thread_id": "t_ch02",
+    "from": "client-b@churn-b.cn",
+    "to": [
+      "support@our-company.cn"
+    ],
+    "subject": "5th Complaint Already",
+    "body": "This is my 5th complaint about the same issue. If it is not resolved we will switch vendors.",
+    "date": "2026-03-25T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_ch03",
+    "thread_id": "t_ch03",
+    "from": "client-c@churn-c.cn",
+    "to": [
+      "cs@our-company.cn"
+    ],
+    "subject": "Renewal and Upsell",
+    "body": "We are very satisfied and would like to renew and purchase 3 additional modules.",
+    "date": "2026-03-26T09:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_ch04",
+    "thread_id": "t_ch04",
+    "from": "client-d@churn-d.cn",
+    "to": [
+      "billing@our-company.cn"
+    ],
+    "subject": "Refund Request",
+    "body": "There was a 3-day service outage this month. We request an SLA-based refund. Otherwise we will consider terminating the contract.",
+    "date": "2026-03-26T14:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_ch10",
+    "thread_id": "t_ch10",
+    "from": "admin@our-company.cn",
+    "to": [
+      "all@our-company.cn"
+    ],
+    "subject": "Parking Fee Adjustment",
+    "body": "Parking fees will be adjusted next month.",
+    "date": "2026-03-27T09:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  }
+]

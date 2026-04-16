@@ -1,0 +1,20 @@
+{
+  "task_name": "CTB_PRODAPP_09_resource_allocation",
+  "prompt": "analysisteamcompletemembersourceassign。eachpeopledatemeetingarrangeandpendingtask（work hours、priority），findoutputpassandnotcompletemember，giveoutputsourcenewassignoptimizationrecommendation。withJSONformatreturnanalysis，overloaded_members、underloaded_membersandrecommendationssegment。",
+  "services": {
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    },
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

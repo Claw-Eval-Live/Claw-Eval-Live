@@ -1,0 +1,98 @@
+task_id: CTB_HR_02_leave_balance_audit
+task_name: Annual Leave Balance Audit
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_HR_02_leave_balance_audit/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_HR_02_leave_balance_audit/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    You are an HR specialist responsible for annual leave balance auditing. Please review all leave request emails and employee records, and complete the following tasks:
+
+    1. Cross-check each employee's claimed annual leave balance against the system records
+    2. Flag employees with balance discrepancies and specify the differences
+    3. Determine whether each leave request can be approved (i.e., whether the balance is sufficient)
+    4. Provide a recommendation for Wang Min's supplementary comp-time request
+    5. Summarize the audit results in a table format
+  language: en
+tools:
+  - name: gmail_list_messages
+    description: Get the list of emails
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: Get the list of personnel
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get personnel details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  Zhao Li (EMP-201): Claimed balance 8 days, actual 6 days, discrepancy of 2 days. Requested 5 days, actual balance 6 days, can be approved.
+  Sun Qiang (EMP-202): Claimed balance 10 days, actual 10 days, consistent. Requested 3 days, can be approved.
+  Wang Min (EMP-203): Claimed balance 5 days, actual 5 days, consistent. But requested 7 days exceeds balance, comp-time balance only 1 day, still short 1 day.
+  Huang Lei (EMP-204): Claimed balance 6 days, actual 4 days, discrepancy of 2 days. Requested 2 days, actual balance 4 days, can be approved.
+primary_dimensions: [completion]

@@ -1,0 +1,46 @@
+[
+  {
+    "message_id": "msg_hr07_001",
+    "thread_id": "thread_hr07_001",
+    "subject": "candidateupdate - highFront-end Engineer",
+    "from": "recruiter_liu@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-22T09:00:00Z",
+    "body": "HR，\n\nhighFront-end Engineerposition（JOB-701）candidate：\n\n1. candidateA Xu Wen（CAND-001）：alreadyinterview，88/100。etcHR。\n2. candidateB （CAND-002）：interviewnot yet，55/100。recommendation。\n3. candidateC （CAND-003）：，etc（）。\n\nrecruitment ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr07_002",
+    "thread_id": "thread_hr07_002",
+    "subject": "candidateupdate - manager",
+    "from": "recruiter_wang@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-23T10:00:00Z",
+    "body": "HR，\n\nmanagerposition（JOB-702）candidate：\n\n1. candidateD （CAND-004）：alreadyoffer，salary25000/，etc。\n2. candidateE （CAND-005）：HR，candidate。\n\nrecruitment ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr07_003",
+    "thread_id": "thread_hr07_003",
+    "subject": "candidateupdate - Data Analyst",
+    "from": "recruiter_liu@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-24T09:00:00Z",
+    "body": "HR，\n\nData Analystposition（JOB-703）candidate：\n\n1. candidateF （CAND-006）：alreadyoffer，expected415onboarding。\n2. candidateG Ma Chao（CAND-007）：resume screening，。\n\nrecruitment ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr07_004",
+    "thread_id": "thread_hr07_004",
+    "subject": "urgentrecruitmentrequirement - DevOps",
+    "from": "tech_director@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-25T08:00:00Z",
+    "body": "HR，\n\nEngineeringurgentneed1DevOps（JOB-704），currentlynocandidate。pleasereleasedpositionrecruitment。salary：20000-28000CNY/。\n\n4。\n\ndirector ",
+    "is_read": false,
+    "labels": []
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "message_id": "msg_hr05_001",
+    "thread_id": "thread_hr05_001",
+    "subject": "training needs - EngineeringPythontraining",
+    "from": "tech_director@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-20T09:00:00Z",
+    "body": "HR，\n\nEngineeringpleasePythontraining，and5medium。requirement：\n1. （asyncio）\n2. microservice\n3. optimization\n\nexpectedtraining：3\n：high（Q2projectneed）\n：15000CNY\n\ndirector ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr05_002",
+    "thread_id": "thread_hr05_002",
+    "subject": "training needs - Marketingtraining",
+    "from": "marketing_vp@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-20T11:00:00Z",
+    "body": "HR，\n\nMarketingneedtraining，and3Marketing Specialist。requirement：\n1. Excelhigh\n2. SQL\n3. can（Tableau）\n\nexpectedtraining：2\n：medium\n：8000CNY\n\nVP ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr05_003",
+    "thread_id": "thread_hr05_003",
+    "subject": "training needs - leadershiptraining",
+    "from": "ceo_office@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-21T09:00:00Z",
+    "body": "HR，\n\nishasdepartmentmanagerandor above（approximately8）leadershiptraining。：\n1. team\n2. resolved\n3. \n\nexpectedtraining：2（can）\n：high\n：25000CNY（please）\n\n  ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr05_004",
+    "thread_id": "thread_hr05_004",
+    "subject": "training needs - Financetraining",
+    "from": "cfo@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-22T10:00:00Z",
+    "body": "HR，\n\nFinanceneedtraining，and4。202641，completedtraining。\n\n：\n1. 2026\n2. policy\n3. New personal income tax special additional deductions\n\nexpectedtraining：1\n：urgent\n：5000CNY\n\nCFO ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr05_005",
+    "thread_id": "thread_hr05_005",
+    "subject": "training needs - Productuser",
+    "from": "product_director@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-23T09:00:00Z",
+    "body": "HR，\n\nProductpleaseUXtraining，and2manager。requirement：\n1. user\n2. \n3. （Figma）\n\nexpectedtraining：2\n：low（Q3can）\n：6000CNY\n\ndirector ",
+    "is_read": false,
+    "labels": []
+  }
+]

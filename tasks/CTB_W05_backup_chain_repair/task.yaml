@@ -1,0 +1,84 @@
+task_id: CTB_W05_backup_chain_repair
+task_name: Incremental Backup Chain Repair
+version: "1.0"
+category: terminal
+difficulty: medium-hard
+
+services: []
+
+prompt:
+  text: |
+    Container files:
+
+    - /workspace/project/logs/terminal_history.log
+    - /workspace/project/logs/backup_check.log
+    - /workspace/project/backups/snapshot.index.json
+    - /workspace/project/backups/snapshots/base_20260310/manifest.json
+    - /workspace/project/backups/snapshots/inc_20260311/manifest.json
+    - /workspace/project/backups/snapshots/inc_20260312/manifest.json
+    - /workspace/project/scripts/chain_probe.py
+
+    The most recent incremental backup verification has failed. Your tasks:
+    1. Start by reading the logs to determine the true root cause — do not just look at the last error
+    2. Fix only the necessary backup metadata so the latest snapshot chain is restorable again
+    3. Do not modify any payload data files
+    4. Do not modify `chain_probe.py`
+    5. Run `python /workspace/project/scripts/chain_probe.py` and make sure it outputs `CHAIN_OK`
+    6. Write a report at `/workspace/BACKUP_REPAIR.md` explaining:
+       - The true root cause
+       - Which errors were merely symptoms
+       - What index/metadata changes you made
+       - How you verified the fix
+
+    Constraints:
+    - Limit your changes to `snapshot.index.json` as much as possible
+    - Do not modify any log files
+    - Do not fabricate recovery results
+  language: en
+
+tools: []
+tool_endpoints: []
+
+sandbox_files:
+  - project/logs/terminal_history.log
+  - project/logs/backup_check.log
+  - project/backups/snapshot.index.json
+  - project/backups/snapshots/base_20260310/manifest.json
+  - project/backups/snapshots/base_20260310/payloads/app_config_v1.yml
+  - project/backups/snapshots/base_20260310/payloads/customers_base.csv
+  - project/backups/snapshots/inc_20260311/manifest.json
+  - project/backups/snapshots/inc_20260311/payloads/app_config_v2.yml
+  - project/backups/snapshots/inc_20260311/payloads/daily_20260311.csv
+  - project/backups/snapshots/inc_20260312/manifest.json
+  - project/backups/snapshots/inc_20260312/payloads/daily_20260312.csv
+  - project/backups/snapshots/inc_20260312/payloads/latest_summary.txt
+  - project/scripts/chain_probe.py
+
+sandbox_grader_files:
+  - fixtures/verify_backup.py
+
+env_snapshot_commands:
+  - python /workspace/project/scripts/chain_probe.py
+  - python /workspace/fixtures/verify_backup.py
+  - test -f /workspace/BACKUP_REPAIR.md && echo EXISTS || echo MISSING
+
+environment:
+  timeout_seconds: 420
+  max_turns: 24
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  1. The true root cause is that the parent of `inc_20260312` in `snapshot.index.json` was incorrectly set to `base_20260310`
+  2. This caused the restore probe to skip `inc_20260311`, which lost:
+     - The v2 version of app/config.yml
+     - reports/daily_20260311.csv
+  3. The fix is to change `inc_20260312.parent` back to `inc_20260311`
+  4. Running `chain_probe.py` should output `CHAIN_OK` and produce `/workspace/output/backup_restore_probe.json`
+  5. The report should state:
+     - "missing daily_20260311.csv" and "config hash mismatch" are symptoms, not root causes
+     - The root cause is a broken parent reference in the latest incremental snapshot, not payload file corruption
+
+primary_dimensions: [completion, robustness]

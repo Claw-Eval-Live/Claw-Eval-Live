@@ -1,0 +1,79 @@
+task_id: CTB_D01_multi_doc_merge
+task_name: Multi-Document Merge Report
+version: "1.0"
+category: document_transform
+difficulty: medium
+
+prompt:
+  text: |
+    Please merge the 3 attached documents into a single unified project handover report.
+
+    Requirements:
+    1. Organize by topic, not by copying in original document order
+    2. Include at least the following four sections:
+       - Project Goals and Scope
+       - Key Stakeholders and Their Requirements
+       - Current Blockers / Open Items
+       - Key Milestones for the Next Two Weeks
+    3. If there are conflicts between documents, prioritize the latest status from the "action tracker"
+    4. The output should be suitable for a new team member taking over — clear structure, no duplication, no filler
+    5. Write the full report to `/workspace/project_handover_report.md`
+    6. In your final reply, do not just provide a summary; include the full report text or clearly state what you wrote
+  language: en
+  attachments:
+    - fixtures/docs/project_brief.md
+    - fixtures/docs/solution_review_notes.txt
+    - fixtures/docs/action_tracker.csv
+
+tools: []
+tool_endpoints: []
+
+environment:
+  timeout_seconds: 180
+  max_turns: 10
+  fixtures:
+    - fixtures/docs/project_brief.md
+    - fixtures/docs/solution_review_notes.txt
+    - fixtures/docs/action_tracker.csv
+
+env_snapshot_commands:
+  - test -f /workspace/project_handover_report.md && cat /workspace/project_handover_report.md || echo MISSING
+
+scoring_components:
+  - name: merged_scope
+    weight: 0.25
+    check:
+      type: keywords_present
+      keywords: ["North Star Store Analytics", "120 stores", "anomaly alerting"]
+  - name: merged_stakeholders
+    weight: 0.25
+    check:
+      type: keywords_present
+      keywords: ["Grace Lin", "Kevin Wu", "procurement"]
+  - name: merged_blockers
+    weight: 0.25
+    check:
+      type: keywords_present
+      keywords: ["security questionnaire", "TBD", "KPI"]
+  - name: merged_milestones
+    weight: 0.25
+    check:
+      type: keywords_present
+      keywords: ["2026-03-26", "2026-03-28", "2026-04-07"]
+
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  1. Read project_brief.md to extract project goals, pilot scope, and original kickoff date
+  2. Read solution_review_notes.txt to extract latest client requirements and key risks
+  3. Read action_tracker.csv and use its latest owner / status / due date to override older information
+  4. The merged report should at minimum cover:
+     - This is the "North Star Store Analytics Project", piloting across 120 stores
+     - Scope includes store operations dashboard, anomaly alerting, and weekly operations summary
+     - Key requirements come from Grace Lin / Kevin Wu / procurement team
+     - Current blockers include security questionnaire owner still TBD, KPI definitions pending Kevin Wu confirmation
+     - Latest kickoff date is 2026-04-07, not 2026-04-01 from earlier documents
+     - Key milestones within two weeks are 2026-03-26, 2026-03-28, and 2026-04-07
+
+primary_dimensions: [completion, communication]

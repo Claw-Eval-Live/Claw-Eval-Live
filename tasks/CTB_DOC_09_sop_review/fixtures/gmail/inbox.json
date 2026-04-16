@@ -1,0 +1,47 @@
+[
+  {
+    "message_id": "msg_d09_01",
+    "thread_id": "thread_d09_01",
+    "from": "cs@company.cn",
+    "to": [
+      "ops@company.cn"
+    ],
+    "subject": "SOPissue",
+    "body": "Operations Department，\n\nSOPIn actual execution, there are the followingissue：\n1. P030minute response time is often not met（No one is on duty during weekends and holidays）\n2. The satisfaction survey response rate is only15%，\n3. missing——There is no clear escalation path after customer complaints\n4. knowledge baseupdate，hasupdate\n\nrecommendpolicy。\n\ncustomer",
+    "date": "2026-03-25T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_d09_02",
+    "thread_id": "thread_d09_02",
+    "from": "dev@company.cn",
+    "to": [
+      "ops@company.cn"
+    ],
+    "subject": "releasedSOPimprovementrecommend",
+    "body": "Operations Department，\n\nv2.2releasedSOPissue：\n1. canaryreleasedhasrollbackstandard\n2. stagingverificationcomplete，\n3. releasednoticecustomer，should be synced to technical support\n4. monitoring30，recommendis1\n5. missingreleasedchecklisttemplate\n\nEngineering Department",
+    "date": "2026-03-26T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_d09_03",
+    "thread_id": "thread_d09_03",
+    "from": "sales@company.cn",
+    "to": [
+      "cs@company.cn"
+    ],
+    "subject": "onboarding",
+    "body": "customer，\n\nonboarding：\n1. approximately3，SOP48\n2. import2\n3. training，2trainingneed4\n4. No customization for the flagship editiontraining\n\nrecommendcustomerSOP。\n\nSales Department",
+    "date": "2026-03-27T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": true
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "transaction_id": "TXN-W02-01",
+    "type": "expense",
+    "amount": 3200,
+    "date": "2026-03-15",
+    "description": "-reimbursement",
+    "category": "",
+    "department": "Sales Department"
+  },
+  {
+    "transaction_id": "TXN-W02-02",
+    "type": "expense",
+    "amount": 15000,
+    "date": "2026-03-10",
+    "description": "Jira",
+    "category": "procurement",
+    "department": "Engineering Department"
+  },
+  {
+    "transaction_id": "TXN-W02-03",
+    "type": "expense",
+    "amount": 24000,
+    "date": "2026-03-01",
+    "description": "server",
+    "category": "serverexpense",
+    "department": "Engineering Department"
+  },
+  {
+    "transaction_id": "TXN-W02-04",
+    "type": "expense",
+    "amount": 5000,
+    "date": "2026-02-20",
+    "description": "",
+    "category": "",
+    "department": "Marketing Department"
+  },
+  {
+    "transaction_id": "TXN-W02-05",
+    "type": "income",
+    "amount": 420000,
+    "date": "2026-03-25",
+    "description": "-",
+    "category": "",
+    "department": "Sales Department"
+  }
+]

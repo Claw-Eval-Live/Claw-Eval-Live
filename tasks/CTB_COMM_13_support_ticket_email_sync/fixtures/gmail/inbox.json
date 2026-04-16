@@ -1,0 +1,7 @@
+[
+  {"message_id": "msg_2201", "thread_id": "t_2201", "from": "client-a@alpha.com", "to": ["support@our-company.com"], "subject": "System crashed 3 times", "body": "The system crashed 3 times today, and orders were lost. Urgent!", "date": "2026-03-25T08:00:00Z", "labels": ["inbox"], "is_read": false},
+  {"message_id": "msg_2202", "thread_id": "t_2202", "from": "client-b@beta.com", "to": ["support@our-company.com"], "subject": "Export function error", "body": "Getting ERROR-4001 when exporting CSV. Can this be fixed? Not urgent.", "date": "2026-03-25T10:00:00Z", "labels": ["inbox"], "is_read": false},
+  {"message_id": "msg_2203", "thread_id": "t_2203", "from": "client-c@gamma.com", "to": ["support@our-company.com"], "subject": "Thanks for fixing the previous issue", "body": "The login issue reported last time has been fixed. Thanks to the team!", "date": "2026-03-26T09:00:00Z", "labels": ["inbox"], "is_read": false},
+  {"message_id": "msg_2204", "thread_id": "t_2204", "from": "client-d@delta.com", "to": ["support@our-company.com"], "subject": "Need help with permission configuration", "body": "We have 5 new employees who need tiered permissions configured. Can you provide a guide or remote assistance?", "date": "2026-03-26T14:00:00Z", "labels": ["inbox"], "is_read": false},
+  {"message_id": "msg_2210", "thread_id": "t_2210", "from": "newsletter@tech.com", "to": ["all@our-company.com"], "subject": "Weekly Tech Newsletter", "body": "This week's tech highlights...", "date": "2026-03-27T09:00:00Z", "labels": ["inbox"], "is_read": false}
+]

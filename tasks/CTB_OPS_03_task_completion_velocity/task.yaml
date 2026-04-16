@@ -1,0 +1,88 @@
+task_id: CTB_OPS_03_task_completion_velocity
+task_name: Task Completion Velocity Analysis
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: todo
+    command: python mock_services/todo/server.py
+    port: 9104
+    health_check: http://localhost:9104/todo/tasks
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9104/todo/reset
+    env:
+      TODO_FIXTURES: tasks/CTB_OPS_03_task_completion_velocity/fixtures/todo/tasks.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    Please analyze the team's task completion velocity to help me understand each member's work efficiency.
+
+    Specific requirements:
+    1. Retrieve all task records
+    2. For each assignee, calculate:
+       - Number of completed tasks and pending tasks
+       - Average completion time (days from creation to completion)
+       - Whether there are any overdue tasks (completion date later than due date)
+       - Average completion time for high-priority tasks
+    3. Overall statistics:
+       - Team total task completion rate
+       - Team average completion time
+       - Number and percentage of overdue tasks
+    4. Provide efficiency rankings and improvement recommendations
+
+    Please output a comprehensive task completion velocity analysis report.
+  language: en
+
+tools:
+  - name: todo_list_tasks
+    description: Get the list of tasks
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Filter by task status
+        assignee:
+          type: string
+          description: Filter by assignee
+      required: []
+
+  - name: todo_get_task
+    description: Get task details
+    input_schema:
+      type: object
+      properties:
+        task_id:
+          type: string
+          description: Task ID
+      required: [task_id]
+
+tool_endpoints:
+  - tool_name: todo_list_tasks
+    url: http://localhost:9104/todo/tasks
+    method: POST
+  - tool_name: todo_get_task
+    url: http://localhost:9104/todo/tasks/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/todo/tasks.json
+
+scoring_components: []
+safety_checks: []
+reference_solution: |
+  1. zhangwei: 3 completed, 0 pending, avg 5.67 days, 0 overdue, high-priority avg 4 days
+  2. liming: 2 completed, 1 pending, avg 8.5 days, 1 overdue (todo_303, due 3/20 done 3/22), high-priority avg 12 days
+  3. wangli: 1 completed, 1 pending, avg 6 days, 0 overdue
+  4. Team totals: 6/8 completed (75%), avg ~6.67 days, 1 overdue (16.7%)
+  5. Efficiency ranking: zhangwei (fastest, ~5.67d) > wangli (~6d) > liming (slowest, ~8.5d)
+  6. liming has overdue task and slowest average -- needs improvement
+  7. High-priority handling varies significantly (zhangwei 4d vs liming 12d)
+  8. Recommendations should address liming's efficiency gap
+primary_dimensions: [completion]

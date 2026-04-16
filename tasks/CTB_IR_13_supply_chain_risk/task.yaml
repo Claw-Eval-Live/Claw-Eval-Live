@@ -1,0 +1,128 @@
+task_id: CTB_IR_13
+task_name: Supply Chain Risk
+version: '1.0'
+category: workflow
+difficulty: medium
+services:
+- name: web
+  command: python mock_services/web/server.py
+  port: 9113
+  health_check: http://localhost:9113/web/search
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9113/web/reset
+  env:
+    WEB_SEARCH_FIXTURES: tasks/CTB_IR_13_supply_chain_risk/fixtures/web/search_results.json
+    ERROR_RATE: '0'
+- name: gmail
+  command: python mock_services/gmail/server.py
+  port: 9100
+  health_check: http://localhost:9100/gmail/messages
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9100/gmail/reset
+  env:
+    GMAIL_FIXTURES: tasks/CTB_IR_13_supply_chain_risk/fixtures/gmail/inbox.json
+    ERROR_RATE: '0'
+prompt:
+  text: |
+    Please search for the latest developments in the 2026 global semiconductor supply chain and review supplier notifications in email. Generate a supply chain risk assessment report covering: 1) Global chip supply and demand outlook; 2) Key supplier risk ratings; 3) Geopolitical impact on the supply chain; 4) Risk mitigation measures and alternative sourcing recommendations.
+  language: en
+tools:
+- name: web_search
+  description: Search the web
+  input_schema:
+    type: object
+    properties:
+      query:
+        type: string
+        description: Search keywords
+    required:
+    - query
+- name: web_get_page
+  description: Fetch web page content
+  input_schema:
+    type: object
+    properties:
+      url:
+        type: string
+        description: Web page URL
+    required:
+    - url
+- name: gmail_list_messages
+  description: List inbox email messages
+  input_schema:
+    type: object
+    properties:
+      days_back:
+        type: integer
+        description: Number of recent days to retrieve
+        default: 7
+      max_results:
+        type: integer
+        description: Maximum number of results
+        default: 20
+    required: []
+- name: gmail_get_message
+  description: Get email message details by ID
+  input_schema:
+    type: object
+    properties:
+      message_id:
+        type: string
+        description: Message ID
+    required:
+    - message_id
+- name: gmail_send
+  description: Send an email
+  input_schema:
+    type: object
+    properties:
+      to:
+        type: string
+      subject:
+        type: string
+      body:
+        type: string
+    required:
+    - to
+    - subject
+    - body
+tool_endpoints:
+- tool_name: web_search
+  url: http://localhost:9113/web/search
+  method: POST
+- tool_name: web_get_page
+  url: http://localhost:9113/web/fetch
+  method: POST
+- tool_name: gmail_list_messages
+  url: http://localhost:9100/gmail/messages
+  method: POST
+- tool_name: gmail_get_message
+  url: http://localhost:9100/gmail/messages/get
+  method: POST
+- tool_name: gmail_send
+  url: http://localhost:9100/gmail/send
+  method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+  - fixtures/web/search_results.json
+  - fixtures/gmail/inbox.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  1. Global semiconductor market: 7,800 billion USD; AI chip share 28%
+  2. TSMC advanced process share 62%; HBM supply tight with 24-week lead time
+  3. Export controls: US AI chip limit 300 TOPS; ASML suspended DUV maintenance for China
+  4. EDA tool restriction extended to GAA process; Japan added 23 equipment types
+  5. H200 delivery delay: 50 units (PO-2026-0315) delayed from April to July (~15 weeks)
+  6. Alternative: Huawei Ascend 910C, 3-week delivery, in stock
+  7. Supplier risk ratings: NVIDIA extreme-high, AMD high, Ascend low, Cambricon medium
+  8. Recommended procurement split: Ascend 60%, NVIDIA 25%, others 15%
+  9. Budget impact: +20M yuan for full-year GPU procurement
+  10. Report covers: supply-demand outlook, supplier risk ratings, geopolitical impact, mitigation measures
+primary_dimensions:
+- completion

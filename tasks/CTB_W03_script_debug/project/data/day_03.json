@@ -1,0 +1,33 @@
+{
+  "date": "2026-03-03",
+  "records": [
+    {
+      "id": "tx-3001",
+      "state": "SETTLED",
+      "amount": "$0.99",
+      "category_name": "storage",
+      "owner": "zoe"
+    },
+    {
+      "id": "tx-3002",
+      "status": "retry",
+      "amount": "1.01",
+      "category": "storage ",
+      "owner": "zoe"
+    },
+    {
+      "id": "tx-3003",
+      "status": "completed",
+      "amount_cents": "450",
+      "category": "compute",
+      "owner": " Ken "
+    },
+    {
+      "id": "tx-3004",
+      "status": "failed",
+      "amount": "8.00",
+      "category": "network",
+      "owner": "ops"
+    }
+  ]
+}

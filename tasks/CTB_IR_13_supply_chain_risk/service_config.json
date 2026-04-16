@@ -1,0 +1,29 @@
+{
+  "services": [
+    {
+      "service_name": "web",
+      "port": 9113,
+      "endpoints": {
+        "health": { "method": "POST", "path": "/web/search" },
+        "reset": { "method": "POST", "path": "/web/reset" }
+      },
+      "tools": [
+        { "name": "web_search", "method": "POST", "path": "/web/search" },
+        { "name": "web_get_page", "method": "POST", "path": "/web/page" }
+      ]
+    },
+    {
+      "service_name": "gmail",
+      "port": 9100,
+      "endpoints": {
+        "health": { "method": "POST", "path": "/gmail/health" },
+        "reset": { "method": "POST", "path": "/gmail/reset" }
+      },
+      "tools": [
+        { "name": "gmail_search", "method": "POST", "path": "/gmail/search" },
+        { "name": "gmail_get_message", "method": "POST", "path": "/gmail/message" },
+        { "name": "gmail_send", "method": "POST", "path": "/gmail/send" }
+      ]
+    }
+  ]
+}

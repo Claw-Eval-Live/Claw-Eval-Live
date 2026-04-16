@@ -1,0 +1,10 @@
+[
+  {
+    "note_id": "note_1001",
+    "title": "Sprint 12 Planning Meeting Minutes",
+    "created_at": "2026-03-17T10:00:00Z",
+    "participants": ["PM-Wang", "Frontend-Li", "Backend-Zhang", "QA-Zhao"],
+    "duration_minutes": 60,
+    "content": "Sprint 12 Goals (3/17-3/28):\n\n1. User profile page redesign (Frontend-Li, 3 story points)\n2. Order API v2 development (Backend-Zhang, 5 story points)\n3. Payment callback optimization (Backend-Zhang, 3 story points)\n4. Login flow security hardening (Backend-Zhang, 2 story points)\n5. Regression test suite update (QA-Zhao, 2 story points)\n6. Performance test report (QA-Zhao, 3 story points)\n\nTotal: 18 story points\nCommitment: All 6 items\nDemo time: 3/28, 3:00 PM"
+  }
+]

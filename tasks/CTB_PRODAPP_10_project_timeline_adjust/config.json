@@ -1,0 +1,20 @@
+{
+  "task_name": "CTB_PRODAPP_10_project_timeline_adjust",
+  "prompt": "projectoriginalfixed4month18datecompleteduser acceptancetesting。at'datadatabase table structuredesign'task2days（newdeadlineas4month7date）。datataskdependencycloseanddatemeetingarrange，newcomputeeachtaskline，giveoutputadjustafterprojectplanning。withJSONformatreturn，adjusted_timeline（eachtasknewdate）、delay_impact（daysnumber）andrisk_itemssegment。",
+  "services": {
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    },
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

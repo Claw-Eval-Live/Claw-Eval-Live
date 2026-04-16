@@ -1,0 +1,52 @@
+[
+  {
+    "task_id": "todo_p7_01",
+    "title": "Recommendation algorithm v2 full rollout",
+    "description": "Full rollout after recommendation algorithm A/B test passes",
+    "status": "completed",
+    "priority": "high",
+    "due_date": "2026-03-25",
+    "assignee": "Zheng Peng",
+    "created_at": "2026-03-20"
+  },
+  {
+    "task_id": "todo_p7_02",
+    "title": "Mobile adaptation",
+    "description": "CompleteiOSandAndroidtheUIconfigured",
+    "status": "completed",
+    "priority": "high",
+    "due_date": "2026-03-27",
+    "assignee": "Huang Rong",
+    "created_at": "2026-03-18"
+  },
+  {
+    "task_id": "todo_p7_03",
+    "title": "afterAPI",
+    "description": "Refactor core API endpoints，resolve compatibility issues",
+    "status": "in_progress",
+    "priority": "high",
+    "due_date": "2026-03-28",
+    "assignee": "Fang Da",
+    "created_at": "2026-03-15"
+  },
+  {
+    "task_id": "todo_p7_04",
+    "title": "Regression Testing",
+    "description": "Full RolloutRegression Testing",
+    "status": "in_progress",
+    "priority": "medium",
+    "due_date": "2026-03-28",
+    "assignee": "Qian Jin",
+    "created_at": "2026-03-22"
+  },
+  {
+    "task_id": "todo_p7_05",
+    "title": "Recommendation API latency optimization",
+    "description": "P99Latency increased from 50ms to 120ms，needs investigation and optimization",
+    "status": "in_progress",
+    "priority": "critical",
+    "due_date": "2026-03-28",
+    "assignee": "Zheng Peng",
+    "created_at": "2026-03-27"
+  }
+]

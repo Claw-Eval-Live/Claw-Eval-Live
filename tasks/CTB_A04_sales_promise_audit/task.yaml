@@ -1,0 +1,170 @@
+task_id: CTB_A04_sales_promise_audit
+task_name: Sales Promise Consistency Audit
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_A04_sales_promise_audit/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_A04_sales_promise_audit/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    The legal department needs to audit whether the commitments made by the sales team in emails to customers are consistent with CRM contract terms. Please:
+
+    1. Find all proposal/quotation emails sent by sales staff from the mailbox
+    2. Extract specific commitment terms from each email (pricing, discounts, freebies, service commitments, etc.)
+    3. Query the corresponding customer's contract terms from CRM
+    4. Compare email commitments with CRM contract terms item by item, and identify all inconsistencies
+    5. Assign a risk level to each inconsistency:
+       - High risk: Involves pricing discrepancies or unauthorized discounts
+       - Medium risk: Involves freebies/trials and other add-on commitments
+       - Low risk: Wording differences but substantively consistent
+    6. Produce a structured audit report
+
+    The report must include:
+    - Audit scope (which customers were checked, how many emails)
+    - Item-by-item comparison details for each customer
+    - Inconsistency summary table (Customer, Item, Email Commitment, CRM Record, Discrepancy, Risk Level)
+    - List of high-risk items requiring legal review
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 30
+        max_results:
+          type: integer
+          default: 20
+      required: []
+
+  - name: gmail_get_message
+    description: Get email message details by ID
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+
+  - name: crm_list_customers
+    description: List CRM customers
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+        tier:
+          type: string
+      required: []
+
+  - name: crm_get_customer
+    description: Get full customer details including contract terms
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+
+  - name: crm_search_customer
+    description: Search customer by email or company name
+    input_schema:
+      type: object
+      properties:
+        email:
+          type: string
+        company:
+          type: string
+      required: []
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+  - tool_name: crm_search_customer
+    url: http://localhost:9110/crm/customers/search
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+
+scoring_components:
+  - name: find_sales_emails
+    weight: 0.10
+    check:
+      type: tool_called
+      tool_name: gmail_get_message
+      min_calls: 3
+  - name: query_crm_contracts
+    weight: 0.15
+    check:
+      type: tool_called
+      tool_name: crm_get_customer
+      min_calls: 2
+  - name: identify_discrepancies
+    weight: 0.35
+    check:
+      type: keywords_present
+      keywords: ["inconsisten", "discrepanc", "discount", "20% off", "96,000", "65,000"]
+  - name: risk_classification
+    weight: 0.20
+    check:
+      type: keywords_present
+      keywords: ["high risk", "medium risk", "price discrepancy"]
+  - name: audit_report
+    weight: 0.20
+    check:
+      type: min_length
+      min_length: 300
+
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  1. Found 3 sales proposal emails (msg_901, 902, 903)
+  2. Extracted commitment terms from each email
+  3. Queried CRM contracts for 3 customers
+  4. Inconsistencies found:
+     - CUS-501 GreenTech: Email 20% off 96K vs CRM 120K (high risk), 3-month trial (medium risk), 2 training sessions (medium risk), 4h SLA vs 8h (medium risk)
+     - CUS-502 Precision Mfg: Email 65K vs CRM 80K (high risk), free anomaly detection module (medium risk), free migration (medium risk), priority support vs standard (low risk)
+     - CUS-503 Nova Retail: Consistent, no discrepancies
+  5. High-risk items: 2 pricing discrepancies requiring legal review
+
+primary_dimensions: [completion, communication]

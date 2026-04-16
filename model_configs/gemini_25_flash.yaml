@@ -1,0 +1,16 @@
+# Gemini 2.5 Flash via OpenRouter
+
+model:
+  api_key: ${OPENROUTER_API_KEY}
+  base_url: https://openrouter.ai/api/v1
+  model_id: google/gemini-2.5-flash
+
+judge:
+  api_key: ${OPENROUTER_API_KEY}
+  base_url: https://openrouter.ai/api/v1
+  model_id: google/gemini-3-flash-preview
+  enabled: true
+
+defaults:
+  trace_dir: traces_gemini_25_flash
+  tasks_dir: tasks

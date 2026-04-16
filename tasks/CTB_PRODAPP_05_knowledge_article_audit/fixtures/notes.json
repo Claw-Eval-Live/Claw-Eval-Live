@@ -1,0 +1,60 @@
+[
+  {
+    "note_id": "note_p05a",
+    "title": "payment systemdeploymentmanual",
+    "content": "# payment systemdeploymentmanual（v2.0）\n\n## environment requirements\n- Java 11\n- MySQL 5.7\n- Redis 5.0\n\n## deployment steps\n1. pullv2.0image\n2. configuredatadatabase connection todb-old-01\n3. launchservice\n\n## updatedate：2025-06-15",
+    "tags": [
+      "payment",
+      "deployment",
+      "manual"
+    ],
+    "created_at": "2025-06-15T10:00:00Z",
+    "updated_at": "2025-06-15T10:00:00Z",
+    "author": "Qiang Wang",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_p05b",
+    "title": "monitoringsystemuseguide",
+    "content": "# monitoringsystemuseguide\n\n## useeditionZabbix 4.0\n- login URL：http://zabbix-old.internal:8080\n- alertrulesconfigure...\n\n## updatedate：2025-03-20",
+    "tags": [
+      "monitoring",
+      "Zabbix",
+      "guide"
+    ],
+    "created_at": "2025-03-20T10:00:00Z",
+    "updated_at": "2025-03-20T10:00:00Z",
+    "author": "Lei Chen",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_p05c",
+    "title": "APIAPI specificationv3.0",
+    "content": "# APIAPI specification v3.0\n\n## RESTfulspecification\n- GETusecheck\n- POSTuse\n- shouldcodestandards：200/201/400/401/404/500\n- returnformat：{code, message, data}\n\n## updatedate：2026-03-01",
+    "tags": [
+      "API",
+      "specification"
+    ],
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-03-01T10:00:00Z",
+    "author": "Min Zhao",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_p05d",
+    "title": "newmemberonboardingtechnicalguide",
+    "content": "# newmemberonboardingtechnicalguide\n\n## developmentenvironment\n- IDE: IntelliJ IDEA\n- codedatabase：GitLab (http://gitlab.internal)\n- CI/CD: Jenkins\n\n## useservice\n- payment system：http://payment-v2.internal\n- monitoringsystem：http://zabbix-old.internal:8080\n\n## updatedate：2025-09-01",
+    "tags": [
+      "onboarding",
+      "guide"
+    ],
+    "created_at": "2025-09-01T10:00:00Z",
+    "updated_at": "2025-09-01T10:00:00Z",
+    "author": "Wei Zhang",
+    "participants": [],
+    "duration_minutes": 0
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "note_id": "note_ms01",
+    "title": "Q2 Product Milestone Plan",
+    "created_at": "2026-03-01T10:00:00Z",
+    "participants": [
+      "PM",
+      "Team"
+    ],
+    "duration_minutes": 60,
+    "content": "Q2 Milestones:\n\nM1: 4/15 Requirements Freeze\nM2: 5/1 Alpha Release\nM3: 5/15 Beta Release\nM4: 6/1 RC Release\nM5: 6/15 GA Release\n\nKey dependencies: Core API (Zhang Wei) and UI Framework (Li Na) must be completed before M2"
+  }
+]

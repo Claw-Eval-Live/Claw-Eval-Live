@@ -1,0 +1,110 @@
+[
+  {
+    "transaction_id": "TXN-801",
+    "type": "revenue",
+    "amount": 800000,
+    "date": "2026-01-15",
+    "description": "Huading Group annual service fee",
+    "category": "subscription",
+    "department": "sales"
+  },
+  {
+    "transaction_id": "TXN-802",
+    "type": "cost",
+    "amount": 240000,
+    "date": "2026-01-20",
+    "description": "Huading Group service cost (dedicated CSM + custom support)",
+    "category": "service_cost",
+    "department": "delivery"
+  },
+  {
+    "transaction_id": "TXN-803",
+    "type": "revenue",
+    "amount": 320000,
+    "date": "2026-01-15",
+    "description": "Xinyuan Trading annual service fee",
+    "category": "subscription",
+    "department": "sales"
+  },
+  {
+    "transaction_id": "TXN-804",
+    "type": "cost",
+    "amount": 80000,
+    "date": "2026-01-20",
+    "description": "Xinyuan Trading service cost",
+    "category": "service_cost",
+    "department": "delivery"
+  },
+  {
+    "transaction_id": "TXN-805",
+    "type": "revenue",
+    "amount": 150000,
+    "date": "2026-02-01",
+    "description": "Qihang Software annual service fee",
+    "category": "subscription",
+    "department": "sales"
+  },
+  {
+    "transaction_id": "TXN-806",
+    "type": "cost",
+    "amount": 60000,
+    "date": "2026-02-05",
+    "description": "Qihang Software service cost (includes additional tech support)",
+    "category": "service_cost",
+    "department": "delivery"
+  },
+  {
+    "transaction_id": "TXN-807",
+    "type": "revenue",
+    "amount": 650000,
+    "date": "2026-01-15",
+    "description": "Dongfang Medical annual service fee",
+    "category": "subscription",
+    "department": "sales"
+  },
+  {
+    "transaction_id": "TXN-808",
+    "type": "cost",
+    "amount": 280000,
+    "date": "2026-01-20",
+    "description": "Dongfang Medical service cost (includes custom development maintenance)",
+    "category": "service_cost",
+    "department": "delivery"
+  },
+  {
+    "transaction_id": "TXN-809",
+    "type": "revenue",
+    "amount": 280000,
+    "date": "2026-02-01",
+    "description": "Qingsong Construction annual service fee",
+    "category": "subscription",
+    "department": "sales"
+  },
+  {
+    "transaction_id": "TXN-810",
+    "type": "cost",
+    "amount": 70000,
+    "date": "2026-02-05",
+    "description": "Qingsong Construction service cost",
+    "category": "service_cost",
+    "department": "delivery"
+  },
+  {
+    "transaction_id": "TXN-811",
+    "type": "revenue",
+    "amount": 95000,
+    "date": "2026-03-01",
+    "description": "Langshi Environmental annual service fee",
+    "category": "subscription",
+    "department": "sales"
+  },
+  {
+    "transaction_id": "TXN-812",
+    "type": "cost",
+    "amount": 45000,
+    "date": "2026-03-05",
+    "description": "Langshi Environmental service cost (includes training)",
+    "category": "service_cost",
+    "department": "delivery"
+  }
+]

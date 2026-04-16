@@ -1,0 +1,22 @@
+{
+  "task_name": "CTB_PRODAPP_01_calendar_conflict_resolve",
+  "prompt": "Please review all calendar events, identify meetings with time conflicts. Taking into account to-do task deadlines and priorities as well as the meeting scheduling rules in the notes, provide conflict resolution recommendations. Requirements: list all conflicting pairs, explain the resolution recommendation for each conflict (which to keep, which to move and suggested time), and output a final conflict-free adjusted schedule.",
+  "services": {
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    },
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    },
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": ["completion"]
+}

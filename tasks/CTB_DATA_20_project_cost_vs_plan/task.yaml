@@ -1,0 +1,69 @@
+task_id: CTB_DATA_20_project_cost_vs_plan
+task_name: Project Cost vs Plan Comparison
+version: "1.0"
+category: workflow
+difficulty: hard
+services:
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_DATA_20_project_cost_vs_plan/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+  - name: todo
+    command: python mock_services/todo/server.py
+    port: 9104
+    health_check: http://localhost:9104/todo/tasks
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9104/todo/reset
+    env:
+      TODO_FIXTURES: tasks/CTB_DATA_20_project_cost_vs_plan/fixtures/todo/tasks.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    Please compare the Smart Campus project's actual expenditures against the planned budget. Retrieve all transaction records and milestone tasks for this project, compare actual costs versus planned budget by stage, calculate the variance for each stage and the overall project cost variance, and assess whether the project faces an overrun risk.
+  language: en
+tools:
+  - name: finance_list_transactions
+    description: List transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date:
+          type: string
+      required: []
+  - name: todo_list_tasks
+    description: List todo tasks
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+tool_endpoints:
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+  - tool_name: todo_list_tasks
+    url: http://localhost:9104/todo/tasks
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/finance/transactions.json
+    - fixtures/todo/tasks.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  Smart Campus project actual total 550K (150+80+200+35+60+25), planned budget total 530K (50+80+120+180+30+50+20).
+  Stage comparison: Front-end budget 120K actual 150K over by 30K; Back-end budget 180K actual 200K over by 20K; Testing budget 30K actual 35K over by 5K; Deployment budget 50K actual 60K over by 10K; Documentation budget 20K actual 25K over by 5K; UI Design budget 80K actual 80K on target.
+  Total overrun 20K (+3.8%). Spent 550K / budget 530K. Progress: 4/7 completed, 2 in progress, 1 pending.
+primary_dimensions: [completion]

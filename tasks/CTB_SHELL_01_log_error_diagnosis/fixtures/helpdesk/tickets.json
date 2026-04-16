@@ -1,0 +1,62 @@
+[
+  {
+    "ticket_id": "TK-101",
+    "subject": "payment-serviceOOMError",
+    "description": "payment-serviceHad 12 OutOfMemoryError occurrences in the past 24 hours，mainly concentrated during peak hours（14:00-16:00）。Logjava.lang.OutOfMemoryError: Java heap space，GCLogs indicateFull GCfromper hour1timesrose toeachminutes3times。currentJVMParameters：-Xms256m -Xmx512m。Service deployed on prod-node-03。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "reporter": "Monitoring System",
+    "assignee": "Engineer Wang",
+    "category": "LogError",
+    "comments": [
+      {
+        "author": "Operations",
+        "text": "Confirmed pod has restarted multiple times，heap dumpalreadyto/data/dumps/payment-oom-0325.hprof",
+        "created_at": "2026-03-25T11:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-102",
+    "subject": "order-servicedatabaseConnectionTimeout",
+    "description": "order-serviceLoginexitlargecom.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure。Timeoutapproximatelyeach5minutestimes，Time30-2minutes。Connection PoolConfig：maxPoolSize=10, connectionTimeout=30000ms。databaseServiceasdb-master-01。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-21T08:30:00Z",
+    "updated_at": "2026-03-25T09:00:00Z",
+    "reporter": "Monitoring System",
+    "assignee": "Engineer Li",
+    "category": "LogError",
+    "comments": [
+      {
+        "author": "DBA",
+        "text": "db-master-01Current active connectionscountapproximately450，max_connections=500Upper Limit",
+        "created_at": "2026-03-25T09:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-103",
+    "subject": "payment-service NullPointerException",
+    "description": "payment-serviceAtProcessingRequestexitNullPointerException，HeapStack：at com.app.payment.RefundHandler.process(RefundHandler.java:87)。ErrorAtCallsThird-party Payment Gatewayresultsaftertriggered，Impactapproximately5%theRequest。from3month24dayexit。",
+    "status": "open",
+    "priority": "medium",
+    "created_at": "2026-03-24T14:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "reporter": "Monitoring System",
+    "assignee": "Engineer Wang",
+    "category": "LogError",
+    "comments": [
+      {
+        "author": "Engineer Wang",
+        "text": "Third-party Payment GatewayAt3month23dayenterAPIUpgrade，segmenthaschange",
+        "created_at": "2026-03-25T10:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

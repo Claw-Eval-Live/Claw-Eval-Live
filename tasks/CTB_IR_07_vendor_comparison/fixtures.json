@@ -1,0 +1,22 @@
+{
+  "WEB_FIXTURES": [
+    {
+      "url": "https://cloud-review.cn/comparison-2026",
+      "title": "2026 Comprehensive Comparison of China's Cloud Computing Vendors",
+      "content": "2026 China cloud computing market share: Alibaba Cloud 33.1%, Huawei Cloud 19.8%, Tencent Cloud 15.4%, CTYun 9.2%. In computing performance, Alibaba Cloud's Yitian 710 processor leads in performance, while Huawei Cloud's Kunpeng 920 is the top performer in ARM architecture. Availability SLA: Alibaba Cloud 99.995%, Huawei Cloud 99.99%, Tencent Cloud 99.99%, CTYun 99.95%. Security compliance: all four have passed Level 3 classified protection, with Huawei Cloud and Alibaba Cloud additionally obtaining ISO 27701 privacy management certification.",
+      "date": "2026-03-12"
+    },
+    {
+      "url": "https://cloud-pricing.cn/2026-benchmark",
+      "title": "2026 Cloud Computing Price Benchmark",
+      "content": "Average monthly price comparison for standard 4-core 8GB cloud servers: Alibaba Cloud 398 yuan/month, Tencent Cloud 375 yuan/month, Huawei Cloud 389 yuan/month, CTYun 329 yuan/month. Cost-effectiveness ranking: CTYun > Tencent Cloud > Huawei Cloud > Alibaba Cloud. However, in large-scale cluster scenarios, Alibaba Cloud has the highest auto-scaling efficiency and the lowest total cost of ownership (TCO). In storage pricing, Huawei Cloud object storage is the most competitive at 0.098 yuan per GB per month.",
+      "date": "2026-03-18"
+    },
+    {
+      "url": "https://cloud-service.cn/support-review",
+      "title": "Cloud Vendor Technical Support Service Review",
+      "content": "Technical support response speed review: Alibaba Cloud average response time 12 minutes (industry fastest), Huawei Cloud 18 minutes, Tencent Cloud 22 minutes, CTYun 35 minutes. Dedicated account manager service: Alibaba Cloud assigns one for annual spending above 500,000 yuan, Huawei Cloud above 300,000 yuan, Tencent Cloud above 1,000,000 yuan. Documentation completeness score (out of 10): Alibaba Cloud 9.2, Huawei Cloud 8.8, Tencent Cloud 8.5, CTYun 7.3.",
+      "date": "2026-03-20"
+    }
+  ]
+}

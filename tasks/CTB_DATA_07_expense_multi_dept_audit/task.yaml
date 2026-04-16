@@ -1,0 +1,119 @@
+task_id: CTB_DATA_07_expense_multi_dept_audit
+task_name: Multi-Department Expense Budget Audit
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_DATA_07_expense_multi_dept_audit/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_DATA_07_expense_multi_dept_audit/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    The finance audit team needs you to verify whether each department's actual March spending is consistent with the budget.
+
+    Please follow these steps:
+    1. Find the budget notification email from the finance department in the inbox, and extract each department's budget cap
+    2. Pull all March transaction records from the finance system
+    3. Summarize actual spending by department
+    4. Compare each department's actual spending against its budget cap
+    5. Identify all over-budget departments, calculate the overage amount and percentage
+    6. Sort by overage percentage from highest to lowest
+    7. Output an audit report including:
+       - Spending details per department (transaction count, total amount, amounts by category)
+       - Budget comparison table (budget, actual, variance, overage percentage)
+       - Over-budget department warning list
+       - Total spending summary
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 30
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: finance_list_transactions
+    description: List transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date:
+          type: string
+        end_date:
+          type: string
+      required: []
+  - name: finance_get_transaction
+    description: Get single transaction details
+    input_schema:
+      type: object
+      properties:
+        transaction_id:
+          type: string
+      required: [transaction_id]
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+  - tool_name: finance_get_transaction
+    url: http://localhost:9102/finance/transactions/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/finance/transactions.json
+    - fixtures/gmail/inbox.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  Budget (from email): Marketing 100K, Engineering 80K, Sales 50K, HR 30K, Admin 10K
+  Actual: Marketing 117K, Engineering 85K, Sales 55.5K, HR 25K, Admin 8.5K
+  Over budget:
+  - Marketing: over by 17K (17%) -- highest
+  - Sales: over by 5.5K (11%)
+  - Engineering: over by 5K (6.25%)
+  Within budget: HR, Admin
+  Total spending: 291K
+
+primary_dimensions: [completion]

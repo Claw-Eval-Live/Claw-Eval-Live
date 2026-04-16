@@ -1,0 +1,80 @@
+[
+  {
+    "title": "core completedAPIdevelopment",
+    "assignee": "Yue Qin",
+    "priority": "high",
+    "status": "done",
+    "due_date": "2026-04-01",
+    "estimated_hours": 30,
+    "tags": [
+      "API",
+      "milestone1"
+    ],
+    "task_id": "todo_001"
+  },
+  {
+    "title": "completedfrontendprimaryprocess",
+    "assignee": "Shi Wei",
+    "priority": "high",
+    "status": "in_progress",
+    "due_date": "2026-04-08",
+    "estimated_hours": 25,
+    "tags": [
+      "frontend",
+      "milestone2"
+    ],
+    "task_id": "todo_002"
+  },
+  {
+    "title": "integration completedtesting",
+    "assignee": "Yue Qin",
+    "priority": "high",
+    "status": "todo",
+    "due_date": "2026-04-15",
+    "estimated_hours": 20,
+    "tags": [
+      "testing",
+      "milestone3"
+    ],
+    "task_id": "todo_003"
+  },
+  {
+    "title": "performancebenchmarktesting",
+    "assignee": "Shi Wei",
+    "priority": "medium",
+    "status": "todo",
+    "due_date": "2026-04-18",
+    "estimated_hours": 12,
+    "tags": [
+      "performance",
+      "milestone3"
+    ],
+    "task_id": "todo_004"
+  },
+  {
+    "title": "deploy to pre-releaseenvironment",
+    "assignee": "Yue Qin",
+    "priority": "high",
+    "status": "todo",
+    "due_date": "2026-04-22",
+    "estimated_hours": 8,
+    "tags": [
+      "deployment",
+      "milestone4"
+    ],
+    "task_id": "todo_005"
+  },
+  {
+    "title": "user acceptancetestingpassed",
+    "assignee": "Shi Wei",
+    "priority": "high",
+    "status": "todo",
+    "due_date": "2026-04-25",
+    "estimated_hours": 15,
+    "tags": [
+      "UAT",
+      "milestone4"
+    ],
+    "task_id": "todo_006"
+  }
+]

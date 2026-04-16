@@ -1,0 +1,46 @@
+[
+  {
+    "message_id": "msg_hr04_001",
+    "thread_id": "thread_hr04_001",
+    "subject": "compensationplease - Engineeringadjustment",
+    "from": "tech_director@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-22T09:00:00Z",
+    "body": "HR，\n\nEngineeringor belowemployeecompensationplease：\n\n1. （EMP-401）：25000CNY/，please30000CNY/，increase rate20%。：，completedmicroservicerefactoring。\n2. （EMP-402）：18000CNY/，please21000CNY/，increase rate16.7%。：promotionismedium。\n3. （EMP-403）：15000CNY/，please17000CNY/，increase rate13.3%。：excellent，probation。\n\ndirector ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr04_002",
+    "thread_id": "thread_hr04_002",
+    "subject": "compensationplease - Marketing",
+    "from": "marketing_vp@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-22T11:00:00Z",
+    "body": "HR，\n\nMarketingcompensationplease：\n\n1. （EMP-404）：22000CNY/，please26000CNY/，increase rate18.2%。：Q1，150。\n2. （EMP-405）：12000CNY/，please14000CNY/，increase rate16.7%。：onboarding，stable。\n\nVP ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr04_003",
+    "thread_id": "thread_hr04_003",
+    "subject": "compensationplease - Finance",
+    "from": "cfo@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-23T09:00:00Z",
+    "body": "HR，\n\nFinancecompensation：\n\n1. （EMP-406）：16000CNY/，please18000CNY/，increase rate12.5%。：annualadjustment，satisfactory。\n\npleasecompanypolicyannualis15%，adjustmentneedVPor aboveapproval。\n\nCFO ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr04_004",
+    "thread_id": "thread_hr04_004",
+    "subject": "Q2compensationbudgetnotice",
+    "from": "finance@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-21T15:00:00Z",
+    "body": "HR，\n\nQ2departmentcompensationbudget：\n- Engineering：budget15000CNY\n- Marketing：budget6000CNY\n- Finance：budget3000CNY\n\npleasedepartmentadjustmentbudget。\n\nFinance",
+    "is_read": true,
+    "labels": []
+  }
+]

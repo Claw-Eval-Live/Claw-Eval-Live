@@ -1,0 +1,33 @@
+{
+  "date": "2026-03-02",
+  "records": [
+    {
+      "id": "tx-2001",
+      "status": " paid ",
+      "amount": "5.00",
+      "category_name": "Support",
+      "owner": "nina"
+    },
+    {
+      "id": "tx-2002",
+      "status": "queued",
+      "amount_cents": 700,
+      "category": "support ",
+      "owner": " Nina "
+    },
+    {
+      "id": "tx-2003",
+      "state": "cancelled",
+      "amount": "3.00",
+      "category": "support",
+      "owner": "ops"
+    },
+    {
+      "id": "tx-2004",
+      "state": "completed",
+      "amount_cents": 200,
+      "category": "Compute",
+      "owner": "li"
+    }
+  ]
+}

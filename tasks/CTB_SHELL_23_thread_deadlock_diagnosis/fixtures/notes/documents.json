@@ -1,0 +1,41 @@
+[
+  {
+    "note_id": "note_901",
+    "title": "threadconfigurationstandards",
+    "content": "# threadstandards ## thread pool configuration\n- payment-service: thread200, HikariCP maxPoolSize=20, connectionTimeout=30s\n- order-service: thread100, HikariCP maxPoolSize=30\n- notification-service: thread50, emailthread2, updatethread1 ## databasestandards\n- timeout：60seconds\n- ：，caused\n- alertthreshold：>5minutes ## Javastandards\n- synchronized\n- ，\n- ReentrantLock.tryLock(timeout)synchronized ## standards\n- RedisTTL：taskexecutetime2\n- configurationrenewal(watchdog)\n- finallyexecute",
+    "tags": [
+      "thread",
+      "",
+      "standards",
+      ""
+    ],
+    "created_at": "2026-02-15T10:00:00Z",
+    "updated_at": "2026-03-20T10:00:00Z",
+    "author": "Architecture Team",
+    "participants": [
+      "Wang (Ops Engineer)",
+      "Li (Ops Engineer)",
+      ""
+    ],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_902",
+    "title": "3record",
+    "content": "# 20263 ## 325\n- scheduled tasksmonthly-settlement，account\n- SELECT ... FOR UPDATEaccount_balance\n- configurationtimeout，handletime5-10minutesdatapossiblytimeout ## 326\n- order-service v2.5.0release，interface\n- interfaceorderAmounthandle\n- productId\n- possiblycaused ## 327\n- notification-serviceRateLimitUpdaterthread，configuration\n- threadupdateRateLimiterneedsEmailTemplateCachetemplate\n- EmailSenderthread",
+    "tags": [
+      "",
+      "",
+      ""
+    ],
+    "created_at": "2026-03-25T10:00:00Z",
+    "updated_at": "2026-03-27T16:00:00Z",
+    "author": "Dev Team",
+    "participants": [
+      "Wang (Ops Engineer)",
+      "Li (Ops Engineer)",
+      ""
+    ],
+    "duration_minutes": 0
+  }
+]

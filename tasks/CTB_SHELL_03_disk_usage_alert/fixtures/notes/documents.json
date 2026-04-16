@@ -1,0 +1,24 @@
+[
+  {
+    "note_id": "note_301",
+    "title": "DiskUsingThresholdStrategy",
+    "content": "# DiskUsingThresholdStrategy v1.3\n\n## AlertThreshold\n- Threshold: 80%\n- Threshold: 85%\n- Critical Threshold: 90%\n- Threshold: 95%\n\n## district\n- /var/log: recommended 50GB，log retention 7 days\n- /data: databaseServicerecommendation500GBwith\n- /tmp: recommendation20GB，Cleanup\n- /: districtrecommendation20%idle\n\n## AlertResponseTime\n- (80%): 48smallProcessing\n- (85%): 24smallProcessing\n- Urgent(90%): 4smallProcessing\n- (95%): 1smallProcessing\n\n## automaticCleanupRule\n- Log Files: logrotateeachday，Retention7days\n- Temporary: exceeds7daysautomaticCleanup\n- databasebinlog: Retention7days，expire_logs_days=7",
+    "tags": ["Disk", "Threshold", "Strategy"],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "Operationsgroup",
+    "participants": ["DBAgroup"],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_302",
+    "title": "LogCleanupspecification",
+    "content": "# LogCleanupspecification\n\n## NginxLogCleanup\n1. ChecklogrotateConfig: /etc/logrotate.d/nginx\n2. Rotation: logrotate -f /etc/logrotate.d/nginx\n3. CleanupLog: find /var/log/nginx -name '*.gz' -mtime +7 -delete\n\n## Application LogsCleanup\n1. CheckApplication LogsConfigintheRotationStrategy\n2. Cleanupexceeds7daystheLog\n3. LogIsneed（ProductionEnvironmentrecommendationINFO）\n\n## MySQL BinlogCleanup\n1. Check master-slave replication status: SHOW SLAVE STATUS\n2. automaticExpired: SET GLOBAL expire_logs_days=7\n3. Cleanup: PURGE BINARY LOGS BEFORE DATE_SUB(NOW(), INTERVAL 7 DAY)\n\n## TemporaryCleanup\n1. Cleanupupload_tmp: find /tmp/upload_tmp -mtime +7 -delete\n2. Cleanupsession_tmp: find /tmp/session_tmp -mtime +3 -delete\n3. cron",
+    "tags": ["LogCleanup", "specification"],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "Operationsgroup",
+    "participants": ["DBAgroup", "Development Team"],
+    "duration_minutes": 0
+  }
+]

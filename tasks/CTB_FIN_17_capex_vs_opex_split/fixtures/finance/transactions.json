@@ -1,0 +1,72 @@
+[
+  {
+    "transaction_id": "CO-1",
+    "type": "it_spending",
+    "item": "Server procurement",
+    "amount": 180000,
+    "useful_life_years": 5,
+    "classified_as": "capex",
+    "date": "2026-03-01",
+    "description": "Server procurement"
+  },
+  {
+    "transaction_id": "CO-2",
+    "type": "it_spending",
+    "item": "Cloud service monthly fee",
+    "amount": 45000,
+    "useful_life_years": 0,
+    "classified_as": "opex",
+    "date": "2026-03-01",
+    "description": "Cloud service monthly fee"
+  },
+  {
+    "transaction_id": "CO-3",
+    "type": "it_spending",
+    "item": "Software license 3-year",
+    "amount": 90000,
+    "useful_life_years": 3,
+    "classified_as": "opex",
+    "date": "2026-03-01",
+    "description": "Software license 3-year"
+  },
+  {
+    "transaction_id": "CO-4",
+    "type": "it_spending",
+    "item": "Laptop",
+    "amount": 8000,
+    "useful_life_years": 3,
+    "classified_as": "opex",
+    "date": "2026-03-01",
+    "description": "Laptop"
+  },
+  {
+    "transaction_id": "CO-5",
+    "type": "it_spending",
+    "item": "Data center renovation",
+    "amount": 250000,
+    "useful_life_years": 10,
+    "classified_as": "capex",
+    "date": "2026-03-01",
+    "description": "Data center renovation"
+  },
+  {
+    "transaction_id": "CO-6",
+    "type": "it_spending",
+    "item": "Temporary contractor",
+    "amount": 35000,
+    "useful_life_years": 0,
+    "classified_as": "opex",
+    "date": "2026-03-01",
+    "description": "Temporary contractor"
+  },
+  {
+    "transaction_id": "CO-7",
+    "type": "it_spending",
+    "item": "ERP system",
+    "amount": 500000,
+    "useful_life_years": 5,
+    "classified_as": "opex",
+    "date": "2026-03-01",
+    "description": "ERP system"
+  }
+]

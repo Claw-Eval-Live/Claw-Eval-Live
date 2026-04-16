@@ -1,0 +1,57 @@
+[
+  {
+    "message_id": "msg_hr10_001",
+    "thread_id": "thread_hr10_001",
+    "subject": "2026annualbenefits - Zhang Wei",
+    "from": "zhangwei@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-20T09:00:00Z",
+    "body": "HR，\n\n2026annualbenefits：\n\n1. ：A（，）\n2. ：\n3. ：，5%\n4. subsidy：please，500CNY\n\n：EMP-1001\nZhang Wei",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr10_002",
+    "thread_id": "thread_hr10_002",
+    "subject": "2026annualbenefits - Liu Yang",
+    "from": "liuyang@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-20T10:30:00Z",
+    "body": "HR，\n\nbenefits：\n\n1. ：B（）\n2. ：\n3. ：\n4. subsidy：please，500CNY\n5. subsidy：please（2）\n\n：EMP-1002\nLiu Yang",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr10_003",
+    "thread_id": "thread_hr10_003",
+    "subject": "2026annualbenefits - Chen Jing",
+    "from": "chenjing@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-21T09:00:00Z",
+    "body": "HR，\n\nbenefits：\n\n1. ：A（）\n2. ：\n3. ：，3%\n4. subsidy：please，1500CNY\n\n：EMP-1003\nChen Jing",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr10_004",
+    "thread_id": "thread_hr10_004",
+    "subject": "2026annualbenefits - ",
+    "from": "zhaoli@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-21T14:00:00Z",
+    "body": "HR，\n\nbenefits：\n\n1. ：C（high，）\n2. ：\n3. ：，8%\n4. subsidy：please，500CNY\n\n：EMP-1004\n",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr10_005",
+    "thread_id": "thread_hr10_005",
+    "subject": "benefitspolicyreminder",
+    "from": "benefits@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-19T08:00:00Z",
+    "body": "HR，\n\npleaseor belowbenefits：\n1. The maximum enterprise annuity contribution rate is5%，need\n2. subsidyonboarding2employee\n3. subsidyhousing fundcan（Chen Jingalreadyhashousing fund）\n4. C（high）directorandor above\n\npleaseemployeeispolicy。\n\nbenefits",
+    "is_read": true,
+    "labels": []
+  }
+]

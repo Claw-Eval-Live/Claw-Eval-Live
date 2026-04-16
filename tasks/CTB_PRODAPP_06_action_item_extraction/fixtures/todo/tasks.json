@@ -1,0 +1,41 @@
+[
+  {
+    "title": "user login module optimization",
+    "assignee": "Na Li",
+    "priority": "high",
+    "status": "in_progress",
+    "due_date": "2026-04-05",
+    "estimated_hours": 10,
+    "tags": [
+      "frontend",
+      "login"
+    ],
+    "task_id": "todo_001"
+  },
+  {
+    "title": "Microservice gateway upgrade",
+    "assignee": "Qiang Wang",
+    "priority": "high",
+    "status": "todo",
+    "due_date": "2026-04-08",
+    "estimated_hours": 16,
+    "tags": [
+      "backend",
+      "gateway"
+    ],
+    "task_id": "todo_002"
+  },
+  {
+    "title": "datadatabase backup script",
+    "assignee": "Min Zhao",
+    "priority": "medium",
+    "status": "in_progress",
+    "due_date": "2026-04-06",
+    "estimated_hours": 6,
+    "tags": [
+      "datadatabase",
+      "ops"
+    ],
+    "task_id": "todo_003"
+  }
+]

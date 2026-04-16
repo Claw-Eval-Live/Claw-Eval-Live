@@ -1,0 +1,105 @@
+task_id: CTB_SALES_08_commission_dispute_resolve
+task_name: Commission Dispute Resolution
+version: "1.0"
+category: workflow
+difficulty: medium-hard
+
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_SALES_08_commission_dispute_resolve/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_SALES_08_commission_dispute_resolve/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    As the Sales Compensation Manager, please resolve the following commission disputes.
+
+    Follow these steps:
+    1. Read all commission-related emails (dispute claims and commission policies)
+    2. Retrieve relevant transaction records from the finance system (payment receipts, commission payouts, refund records)
+    3. Verify each salesperson's commission dispute:
+       - Verify deal amounts and payment status
+       - Calculate the correct commission per policy
+       - Compare with actual commission paid, determine the difference
+       - Account for refunds, splits, and other special cases
+    4. Output a commission dispute resolution report:
+       - For each dispute: salesperson name, disputed amount, verification result, amount to be paid/recovered, resolution recommendation
+       - Overall dispute resolution summary
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back: {type: integer, default: 7}
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id: {type: string}
+      required: [message_id]
+  - name: finance_list_transactions
+    description: List transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date: {type: string}
+      required: []
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/finance/transactions.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  Wang Lei dispute:
+    Claim: Tianyu 300K + Mingdao 200K = 500K x 5% = 25,000, paid 18,000, short 7,000
+    Verification: Mingdao had 60K refund -> actual net = 300K + 140K = 440K x 5% = 22,000, paid 18,000
+    Should pay: 4,000 (not 7,000 as Wang Lei claims)
+  Li Fang dispute:
+    Claim: Ruifeng 450K commission 22,500 + Jincheng 180K commission 9,000 = 31,500, paid 15,000, short 16,500
+    Verification: Ruifeng payment received in Feb -> commission due in Mar = 22,500; Jincheng payment received in Feb -> commission due in Mar = 9,000
+    Paid 15,000, should pay additional 16,500 (Li Fang's claim is correct)
+  Zhao Qiang dispute:
+    Claim: Huateng 500K full commission 25,000, received only 12,500
+    Verification: Finance records show 50/50 split (Zhao Qiang 12,500 + Chen Xue 12,500), need to confirm split basis
+    Pending: Need Zhao Qiang and Chen Xue to confirm contribution ratio
+
+primary_dimensions: [completion]

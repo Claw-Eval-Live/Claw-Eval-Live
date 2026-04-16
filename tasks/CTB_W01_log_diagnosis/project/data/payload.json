@@ -1,0 +1,25 @@
+{
+  "window": "2026-03-18T00:00Z/2026-03-18T06:00Z",
+  "records": [
+    {
+      "source": "billing",
+      "status": "ready",
+      "bytes": 1200
+    },
+    {
+      "source": "ops",
+      "status": "ready",
+      "bytes": 800
+    },
+    {
+      "source": "billing",
+      "status": "delayed",
+      "bytes": 0
+    },
+    {
+      "source": "analytics",
+      "status": "ready",
+      "bytes": 650
+    }
+  ]
+}

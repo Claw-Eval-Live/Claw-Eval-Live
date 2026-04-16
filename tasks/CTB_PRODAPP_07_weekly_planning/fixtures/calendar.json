@@ -1,0 +1,103 @@
+[
+  {
+    "title": "Sprint Planning Meeting",
+    "date": "2026-04-06",
+    "start_time": "2026-04-06T09:00:00Z",
+    "end_time": "2026-04-06T11:00:00Z",
+    "participants": [
+      "Wei Zhang",
+      "Na Li",
+      "Qiang Wang",
+      "Min Zhao",
+      "Lei Chen"
+    ],
+    "location": "Main Conference Room",
+    "event_id": "evt_001",
+    "attendees": [
+      "Wei Zhang",
+      "Na Li",
+      "Qiang Wang",
+      "Min Zhao",
+      "Lei Chen"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "clientDfeaturedemo",
+    "date": "2026-04-07",
+    "start_time": "2026-04-07T14:00:00Z",
+    "end_time": "2026-04-07T15:30:00Z",
+    "participants": [
+      "Wei Zhang",
+      "Na Li"
+    ],
+    "location": "Online Meeting",
+    "event_id": "evt_002",
+    "attendees": [
+      "Wei Zhang",
+      "Na Li"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "Code Review Meeting",
+    "date": "2026-04-08",
+    "start_time": "2026-04-08T10:00:00Z",
+    "end_time": "2026-04-08T11:30:00Z",
+    "participants": [
+      "Qiang Wang",
+      "Min Zhao",
+      "Lei Chen"
+    ],
+    "location": "Meeting Room A",
+    "event_id": "evt_003",
+    "attendees": [
+      "Qiang Wang",
+      "Min Zhao",
+      "Lei Chen"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "Product Requirements Review",
+    "date": "2026-04-09",
+    "start_time": "2026-04-09T14:00:00Z",
+    "end_time": "2026-04-09T16:00:00Z",
+    "participants": [
+      "Wei Zhang",
+      "Na Li",
+      "Qiang Wang"
+    ],
+    "location": "Main Conference Room",
+    "event_id": "evt_004",
+    "attendees": [
+      "Wei Zhang",
+      "Na Li",
+      "Qiang Wang"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "Sprintretrospectiveanddemo",
+    "date": "2026-04-10",
+    "start_time": "2026-04-10T15:00:00Z",
+    "end_time": "2026-04-10T17:00:00Z",
+    "participants": [
+      "Wei Zhang",
+      "Na Li",
+      "Qiang Wang",
+      "Min Zhao",
+      "Lei Chen"
+    ],
+    "location": "Main Conference Room",
+    "event_id": "evt_005",
+    "attendees": [
+      "Wei Zhang",
+      "Na Li",
+      "Qiang Wang",
+      "Min Zhao",
+      "Lei Chen"
+    ],
+    "recurring": false
+  }
+]

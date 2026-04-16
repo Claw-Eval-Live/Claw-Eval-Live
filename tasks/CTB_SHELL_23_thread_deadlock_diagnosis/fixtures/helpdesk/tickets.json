@@ -1,0 +1,82 @@
+[
+  {
+    "ticket_id": "TK-901",
+    "subject": "payment-servicethreadexhaustedcausedrequest",
+    "description": "payment-servicerequesttimeout，jstackanalysis200thread187WAITINGstatus。threaddumpthreaddatabaseconnectionHikariCPgetConnection。databaseconnectionmaxPoolSize=20，connectionduration20ACTIVEstatus。monitoring47minutes。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-27T09:00:00Z",
+    "updated_at": "2026-03-27T14:00:00Z",
+    "reporter": "APMmonitoring",
+    "assignee": "Wang (Ops Engineer)",
+    "category": "thread",
+    "comments": [
+      {
+        "author": "DBAteam",
+        "text": "scheduled tasksmonthly-settlement，account_balance47minutes，",
+        "created_at": "2026-03-27T14:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-902",
+    "subject": "order-servicecausedrollback",
+    "description": "order-service6hours23timesdatabase(Deadlock found when trying to get lock)。：Aordersinventory，Binventoryorders。timescausedrollback，impactapproximately2%createrequest。InnoDBlogtimesorder_id=ORD-20260327-5582ORD-20260327-5583。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T10:00:00Z",
+    "updated_at": "2026-03-27T15:00:00Z",
+    "reporter": "databasemonitoring",
+    "assignee": "Li (Ops Engineer)",
+    "category": "thread",
+    "comments": [
+      {
+        "author": "Li (Ops Engineer)",
+        "text": "v2.5.0interfaceorderAmounthandle，productId，caused",
+        "created_at": "2026-03-27T15:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-903",
+    "subject": "notification-servicethread",
+    "description": "notification-serviceJava。jstack2threadsynchronized：Thread-EmailSenderEmailTemplateCache.lockRateLimiter.lock，Thread-RateLimitUpdaterRateLimiter.lockEmailTemplateCache.lock。emailstop，duration35minutes。impactemailnotificationfeature。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-27T11:00:00Z",
+    "updated_at": "2026-03-27T15:00:00Z",
+    "reporter": "APMmonitoring",
+    "assignee": "",
+    "category": "thread",
+    "comments": [
+      {
+        "author": "",
+        "text": "causedJava，thread。needstryLocktimeout",
+        "created_at": "2026-03-27T15:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-904",
+    "subject": "causedscheduled tasks",
+    "description": "Redis。scheduled tasksscheduler-task-reconciliationRedisreconcile-lock，executeprocessOOM，。TTL3600seconds1hours，tasknormalexecute5minutes。5taskfailed，causeddatalatency75minutes。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T12:00:00Z",
+    "updated_at": "2026-03-27T16:00:00Z",
+    "reporter": "taskmonitoring",
+    "assignee": "Wang (Ops Engineer)",
+    "category": "thread",
+    "comments": [
+      {
+        "author": "Wang (Ops Engineer)",
+        "text": "RedisTTL，taskexecutetime210minutes1hours。renewal(watchdog)",
+        "created_at": "2026-03-27T16:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

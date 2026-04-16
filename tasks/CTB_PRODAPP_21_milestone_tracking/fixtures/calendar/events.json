@@ -1,0 +1,95 @@
+[
+  {
+    "title": "milestone1reviewmeeting",
+    "date": "2026-04-02",
+    "start_time": "2026-04-02T10:00:00Z",
+    "end_time": "2026-04-02T11:30:00Z",
+    "participants": [
+      "Yue Qin",
+      "Shi Wei",
+      "Project Manager"
+    ],
+    "location": "Meeting Room A",
+    "event_id": "evt_001",
+    "attendees": [
+      "Yue Qin",
+      "Shi Wei",
+      "Project Manager"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "milestone2reviewmeeting",
+    "date": "2026-04-09",
+    "start_time": "2026-04-09T10:00:00Z",
+    "end_time": "2026-04-09T11:30:00Z",
+    "participants": [
+      "Yue Qin",
+      "Shi Wei",
+      "Project Manager"
+    ],
+    "location": "Meeting Room A",
+    "event_id": "evt_002",
+    "attendees": [
+      "Yue Qin",
+      "Shi Wei",
+      "Project Manager"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "clientprogress report",
+    "date": "2026-04-10",
+    "start_time": "2026-04-10T14:00:00Z",
+    "end_time": "2026-04-10T15:00:00Z",
+    "participants": [
+      "Project Manager"
+    ],
+    "location": "online",
+    "event_id": "evt_003",
+    "attendees": [
+      "Project Manager"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "milestone3reviewmeeting",
+    "date": "2026-04-16",
+    "start_time": "2026-04-16T10:00:00Z",
+    "end_time": "2026-04-16T11:30:00Z",
+    "participants": [
+      "Yue Qin",
+      "Shi Wei",
+      "Project Manager"
+    ],
+    "location": "Meeting Room A",
+    "event_id": "evt_004",
+    "attendees": [
+      "Yue Qin",
+      "Shi Wei",
+      "Project Manager"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "review",
+    "date": "2026-04-26",
+    "start_time": "2026-04-26T09:00:00Z",
+    "end_time": "2026-04-26T12:00:00Z",
+    "participants": [
+      "Yue Qin",
+      "Shi Wei",
+      "Project Manager",
+      "clienttable"
+    ],
+    "location": "Main Conference Room",
+    "event_id": "evt_005",
+    "attendees": [
+      "Yue Qin",
+      "Shi Wei",
+      "Project Manager",
+      "clienttable"
+    ],
+    "recurring": false
+  }
+]

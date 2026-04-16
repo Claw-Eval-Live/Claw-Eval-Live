@@ -1,0 +1,78 @@
+task_id: CTB_DATA_08_ecommerce_monthly_reconcile
+task_name: E-Commerce Monthly Three-Way Reconciliation
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_DATA_08_ecommerce_monthly_reconcile/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    Please complete the March e-commerce three-way reconciliation.
+
+    The data source contains three record types (distinguished by the type field):
+    - order: E-commerce platform order records
+    - bank_receipt: Bank deposit records (reference field links to order ID)
+    - invoice: Issued invoice records (reference field links to order ID)
+
+    Please follow these steps:
+    1. Retrieve all March transaction records from the finance system
+    2. Using order ID as the primary key, link orders, bank deposits, and invoices
+    3. Classify and label each order's reconciliation status:
+       - Full match: All three sources have consistent amounts
+       - Amount discrepancy: Order amount does not match bank deposit amount
+       - Missing bank deposit: Order completed but no bank record
+       - Missing invoice: Order completed and bank deposited but no invoice issued
+       - Refunded: Order has been refunded, no bank deposit or invoice needed
+       - Bank orphan: Bank has a deposit but no matching order
+    4. Output a reconciliation report including:
+       - Summary: Count of matched orders, anomaly count, total anomaly amount
+       - Detail for each anomaly (order ID, anomaly type, amounts from each source)
+       - Recommended follow-up actions
+  language: en
+
+tools:
+  - name: finance_list_transactions
+    description: List transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date:
+          type: string
+        end_date:
+          type: string
+      required: []
+
+tool_endpoints:
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/finance/transactions.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  Full match (4): ORD-001(2580), ORD-002(1990), ORD-005(3200), ORD-007(6800)
+  Amount discrepancy (1): ORD-003 order 4500 vs bank 4200, difference 300
+  Missing bank + missing invoice (1): ORD-004, 890
+  Refunded (1): ORD-006, 1560, normal
+  Bank orphan (1): BANK-999, 750, unknown source
+
+primary_dimensions: [completion]

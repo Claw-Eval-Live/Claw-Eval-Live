@@ -1,0 +1,107 @@
+task_id: CTB_HR_06_exit_interview_summary
+task_name: Exit Interview Summary
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_HR_06_exit_interview_summary/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_HR_06_exit_interview_summary/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Please compile and analyze recent exit interview data to identify retention risks.
+    
+    Requirements:
+    1. Retrieve exit interview records from the system
+    2. Review emails for any related HR communications
+    3. For each exit interview, extract:
+       - Departure reason
+       - Department and role
+       - Tenure at company
+       - Key feedback themes
+    4. Identify patterns and trends across departures
+    5. Generate a summary report with:
+       - Common departure reasons ranked by frequency
+       - Department-level analysis
+       - Retention risk indicators
+       - Recommended interventions
+  language: en
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: List personnel records
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get personnel details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  5 departures: Wang Lei (Engineering, compensation), Zhang Min (Marketing, career growth), Chen Haoran (Engineering, overtime), Lin Xue (Finance, compensation), Yang Fan (Product, career growth).
+  Departure reason breakdown: compensation 2 (40%), career development 2 (40%), work-life balance 1 (20%).
+  Department breakdown: Engineering 2, Marketing 1, Finance 1, Product 1.
+  Recommendations: establish market-rate benchmarking, improve promotion framework, control overtime hours, expand business areas to offer internal transfer opportunities.
+primary_dimensions: [completion]

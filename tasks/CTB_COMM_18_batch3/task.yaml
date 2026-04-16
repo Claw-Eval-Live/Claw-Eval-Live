@@ -1,0 +1,109 @@
+task_id: CTB_COMM_18_batch3
+task_name: Customer Complaint Resolution Tracking
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_COMM_18_batch3/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_COMM_18_batch3/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    The customer service manager needs to verify the handling status of customer complaint emails. Check which complaints have been replied to and resolved, which remain unhandled, and sort pending items by severity.
+    Read the emails and CRM data, compare item by item, identify all discrepancies, and output a verification report with details and recommendations.
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: List customers
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get customer details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+  - name: crm_search_customer
+    description: Search customers
+    input_schema:
+      type: object
+      properties:
+        email:
+          type: string
+      required: []
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+  - tool_name: crm_search_customer
+    url: http://localhost:9110/crm/customers/search
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  Company X: Replied and data restored -> status should be updated to resolved. Company Y: Complaint unhandled + no CRM record -> needs creation. Company Z: API rate limit complaint + VIP -> needs priority handling + new record. Pending priority: Z (VIP + feature limitation) > Y (display anomaly).
+
+primary_dimensions: [completion]

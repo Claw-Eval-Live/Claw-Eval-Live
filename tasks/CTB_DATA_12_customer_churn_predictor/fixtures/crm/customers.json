@@ -1,0 +1,54 @@
+[
+  {
+    "customer_id": "CHR-001",
+    "name": "Customer A - Low Usage",
+    "contact_person": "Customer A",
+    "contact_email": "client-a@churn-a.cn",
+    "status": "active",
+    "tier": "standard",
+    "industry": "Other",
+    "annual_revenue": 150000,
+    "notes": "Usage rate 12%, last login 2 months ago. Contract expires May.",
+    "health_score": 25,
+    "contract_end": "2026-05-15"
+  },
+  {
+    "customer_id": "CHR-002",
+    "name": "Customer B - Multiple Complaints",
+    "contact_person": "Customer B",
+    "contact_email": "client-b@churn-b.cn",
+    "status": "active",
+    "tier": "VIP",
+    "industry": "Other",
+    "annual_revenue": 400000,
+    "notes": "5 complaints this quarter. Contract expires June.",
+    "health_score": 30,
+    "contract_end": "2026-06-30"
+  },
+  {
+    "customer_id": "CHR-003",
+    "name": "Customer C - Satisfied",
+    "contact_person": "Customer C",
+    "contact_email": "client-c@churn-c.cn",
+    "status": "active",
+    "tier": "VIP",
+    "industry": "Other",
+    "annual_revenue": 350000,
+    "notes": "High satisfaction.",
+    "health_score": 95,
+    "contract_end": "2026-09-01"
+  },
+  {
+    "customer_id": "CHR-004",
+    "name": "Customer D - Refund Request",
+    "contact_person": "Customer D",
+    "contact_email": "client-d@churn-d.cn",
+    "status": "active",
+    "tier": "standard",
+    "industry": "Other",
+    "annual_revenue": 200000,
+    "notes": "SLA violation last month. Contract expires April.",
+    "health_score": 40,
+    "contract_end": "2026-04-30"
+  }
+]

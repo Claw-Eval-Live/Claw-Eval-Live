@@ -1,0 +1,9 @@
+[
+  {"transaction_id": "TE-1", "type": "travel_expense", "employee": "James Wilson", "department": "Sales", "amount": 12500, "limit": 8000, "date": "2025-10-05", "city": "Shanghai", "description": "Client visit travel"},
+  {"transaction_id": "TE-2", "type": "travel_expense", "employee": "Emily Chen", "department": "Marketing", "amount": 6500, "limit": 8000, "date": "2025-10-10", "city": "Beijing", "description": "Trade show travel"},
+  {"transaction_id": "TE-3", "type": "travel_expense", "employee": "David Park", "department": "Engineering", "amount": 15000, "limit": 8000, "date": "2025-10-15", "city": "Shenzhen", "description": "Technical exchange travel"},
+  {"transaction_id": "TE-4", "type": "travel_expense", "employee": "Sarah Miller", "department": "Sales", "amount": 7200, "limit": 8000, "date": "2025-10-20", "city": "Guangzhou", "description": "Client signing travel"},
+  {"transaction_id": "TE-5", "type": "travel_expense", "employee": "Robert Taylor", "department": "Executive", "amount": 22000, "limit": 15000, "date": "2025-10-25", "city": "Chengdu", "description": "Branch office inspection"},
+  {"transaction_id": "TE-6", "type": "travel_expense", "employee": "Linda Huang", "department": "Marketing", "amount": 9500, "limit": 8000, "date": "2025-11-01", "city": "Hangzhou", "description": "Brand promotion travel"},
+  {"transaction_id": "TE-7", "type": "travel_expense", "employee": "Michael Sun", "department": "Engineering", "amount": 5800, "limit": 8000, "date": "2025-11-05", "city": "Nanjing", "description": "Project deployment travel"}
+]

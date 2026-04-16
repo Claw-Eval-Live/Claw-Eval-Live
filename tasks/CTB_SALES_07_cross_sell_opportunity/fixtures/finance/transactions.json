@@ -1,0 +1,12 @@
+[
+  {"transaction_id": "TXN-701", "type": "revenue", "amount": 800000, "date": "2025-07-01", "description": "Dahua Group-ERPBasicContract", "category": "sales", "department": "Sales"},
+  {"transaction_id": "TXN-702", "type": "revenue", "amount": 120000, "date": "2026-01-15", "description": "Dahua Group-ERPAnnualMaintenanceFee", "category": "service", "department": "customerSuccessful"},
+  {"transaction_id": "TXN-703", "type": "revenue", "amount": 500000, "date": "2025-04-01", "description": "New-CRMSystemContract", "category": "sales", "department": "Sales"},
+  {"transaction_id": "TXN-704", "type": "revenue", "amount": 85000, "date": "2026-02-01", "description": "New-CRMDevelopment", "category": "service", "department": "Delivery"},
+  {"transaction_id": "TXN-705", "type": "revenue", "amount": 1200000, "date": "2025-01-01", "description": "Yintai Holdings-ERPAdvancedContract", "category": "sales", "department": "Sales"},
+  {"transaction_id": "TXN-706", "type": "revenue", "amount": 400000, "date": "2025-06-01", "description": "Yintai Holdings-HRSystemContract", "category": "sales", "department": "Sales"},
+  {"transaction_id": "TXN-707", "type": "revenue", "amount": 200000, "date": "2026-01-01", "description": "Yintai Holdings-AnnualMaintenanceandUpgrade", "category": "service", "department": "customerSuccessful"},
+  {"transaction_id": "TXN-708", "type": "revenue", "amount": 350000, "date": "2025-10-01", "description": "Tongda Logistics-Logistics Management System", "category": "sales", "department": "Sales"},
+  {"transaction_id": "TXN-709", "type": "revenue", "amount": 200000, "date": "2025-12-01", "description": "Kaide Education-Online Learning Platform", "category": "sales", "department": "Sales"},
+  {"transaction_id": "TXN-710", "type": "revenue", "amount": 30000, "date": "2026-03-01", "description": "Kaide Education-User License", "category": "upsell", "department": "Sales"}
+]

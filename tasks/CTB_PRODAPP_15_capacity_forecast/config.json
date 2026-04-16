@@ -1,0 +1,20 @@
+{
+  "task_name": "CTB_PRODAPP_15_capacity_forecast",
+  "prompt": "to4month6dateto4month10datethisweekteamrun。eachpeopleeachdaysstandardswork hoursas8hours，needmeetinguse。computeeachcompletememberthis weekcanusedevelopment，comparisonpendingtaskwork hoursrequirements，iscompletedtask。withJSONformatreturn，capacity_per_member（eachpeopletotal_hours、meeting_hours、available_hours、required_hours）、at_risk_tasksandrecommendationssegment。",
+  "services": {
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    },
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

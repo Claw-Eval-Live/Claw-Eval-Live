@@ -1,0 +1,53 @@
+task_id: CTB_FIN_30_tax_deduction_review
+task_name: Tax Deduction Review
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_FIN_30_tax_deduction_review/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Please review the pre-tax deductibility of company expenses. Requirements:
+    1. List all expense items, marking whether each is deductible and noting any special deduction rules
+    2. Calculate the total non-deductible expenses (penalties and late payment surcharges)
+    3. Identify expenses with capped deduction rules (business entertainment at 60% limit)
+    4. Calculate the R&D super-deduction amount (175% super deduction)
+    5. Calculate the corporate income tax impact of non-deductible expenses (non-deductible total x 25% tax rate)
+  language: en
+tools:
+  - name: finance_list_transactions
+    description: Retrieve financial transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date:
+          type: string
+      required: []
+tool_endpoints:
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/finance/transactions.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  Non-deductible: Penalties 80K + Late surcharges 25K = 105K.
+  Business entertainment 350K, 60% deduction limit = 210K, non-deductible portion = 140K.
+  R&D expenses 600K, 175% super deduction = 1,050K (extra deduction 450K).
+  Non-deductible total = 105K, tax impact = 105K x 25% = 26.25K.
+  Including entertainment non-deductible portion: total non-deductible = 105K + 140K = 245K, tax impact = 245K x 25% = 61.25K.
+primary_dimensions: [completion]

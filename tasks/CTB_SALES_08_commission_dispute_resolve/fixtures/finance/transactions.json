@@ -1,0 +1,12 @@
+[
+  {"transaction_id": "COM-001", "type": "expense", "amount": 18000, "date": "2026-03-10", "description": "Wang Lei - March commission payout", "category": "commission", "department": "Sales"},
+  {"transaction_id": "COM-002", "type": "revenue", "amount": 300000, "date": "2026-03-05", "description": "Tianyu Tech contract payment received - Wang Lei", "category": "sales", "department": "Sales"},
+  {"transaction_id": "COM-003", "type": "revenue", "amount": 200000, "date": "2026-03-08", "description": "Mingdao Software contract payment received - Wang Lei", "category": "sales", "department": "Sales"},
+  {"transaction_id": "COM-004", "type": "revenue", "amount": 60000, "date": "2026-03-12", "description": "Mingdao Software refund - product module cancellation", "category": "refund", "department": "Sales"},
+  {"transaction_id": "COM-005", "type": "expense", "amount": 15000, "date": "2026-03-10", "description": "Li Fang - February commission payout", "category": "commission", "department": "Sales"},
+  {"transaction_id": "COM-006", "type": "revenue", "amount": 450000, "date": "2026-02-15", "description": "Ruifeng Industries contract payment received - Li Fang", "category": "sales", "department": "Sales"},
+  {"transaction_id": "COM-007", "type": "revenue", "amount": 180000, "date": "2026-02-25", "description": "Jincheng Logistics final payment received - Li Fang", "category": "sales", "department": "Sales"},
+  {"transaction_id": "COM-008", "type": "expense", "amount": 12500, "date": "2026-03-10", "description": "Zhao Qiang - Huateng Group commission (50% share)", "category": "commission", "department": "Sales"},
+  {"transaction_id": "COM-009", "type": "expense", "amount": 12500, "date": "2026-03-10", "description": "Chen Xue - Huateng Group commission (50% share)", "category": "commission", "department": "Sales"},
+  {"transaction_id": "COM-010", "type": "revenue", "amount": 500000, "date": "2026-02-20", "description": "Huateng Group contract payment received", "category": "sales", "department": "Sales"}
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "note_id": "note_801",
+    "title": "cachearchitecture",
+    "content": "# cachearchitecturedocument ## Redisclusterredis-cluster-01\n- ：Redis 7.2\n- ：Cluster，33\n- maxmemory：4GB/node\n- strategy：allkeys-lru\n- ：>= 85%\n- keystandards： - user-session:* TTL=1h - product-catalog:* TTL=1h - order-cache:* TTL=30min ## CDNcache\n- ：CDN\n- cachestrategy：URLpath+parameterhashcachekey\n- ：>= 90%\n- alertthreshold：> 500Mbps\n- URLstandards：contenthashcontentcache ## cacheCaffeine\n- order-service: maximumSize=10000, expireAfterWrite=5min\n- ：>= 80% ## MySQL Query Cache\n- query_cache_size=256MB\n- ：>= 60%\n- note：DDLdatabaserecommendationenabledquery_cache",
+    "tags": [
+      "cache",
+      "Redis",
+      "CDN",
+      "architecture"
+    ],
+    "created_at": "2026-03-01T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "Architecture Team",
+    "participants": [
+      "",
+      "Li (Ops Engineer)"
+    ],
+    "duration_minutes": 0
+  }
+]

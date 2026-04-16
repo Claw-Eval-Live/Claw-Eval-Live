@@ -1,0 +1,77 @@
+[
+  {
+    "from": "client-x@company-x.com",
+    "to": [
+      "support@our-company.com"
+    ],
+    "subject": "Data loss complaint",
+    "body": "All our order data from 3/20 was lost, seriously impacting operations. Estimated loss of about $50,000.",
+    "date": "2026-03-22T08:00:00Z",
+    "is_read": false,
+    "labels": [
+      "inbox"
+    ],
+    "message_id": "msg_c01",
+    "thread_id": "thread_msg_c01"
+  },
+  {
+    "from": "client-y@company-y.com",
+    "to": [
+      "support@our-company.com"
+    ],
+    "subject": "Dashboard display anomaly",
+    "body": "The charts on the dashboard are displaying incorrectly and the numbers do not match. Not urgent but affects reporting.",
+    "date": "2026-03-24T10:00:00Z",
+    "is_read": false,
+    "labels": [
+      "inbox"
+    ],
+    "message_id": "msg_c02",
+    "thread_id": "thread_msg_c02"
+  },
+  {
+    "from": "support@our-company.com",
+    "to": [
+      "client-x@company-x.com"
+    ],
+    "subject": "Re: Data loss complaint",
+    "body": "Data has been restored. Please confirm.",
+    "date": "2026-03-23T16:00:00Z",
+    "is_read": false,
+    "labels": [
+      "inbox"
+    ],
+    "message_id": "msg_c03",
+    "thread_id": "thread_msg_c03"
+  },
+  {
+    "from": "client-z@company-z.com",
+    "to": [
+      "support@our-company.com"
+    ],
+    "subject": "API rate limit too low",
+    "body": "The current limit of 100 requests/minute is too low. We need at least 500 requests/minute.",
+    "date": "2026-03-25T09:00:00Z",
+    "is_read": false,
+    "labels": [
+      "inbox"
+    ],
+    "message_id": "msg_c04",
+    "thread_id": "thread_msg_c04"
+  },
+  {
+    "from": "marketing@our-company.com",
+    "to": [
+      "all@our-company.com"
+    ],
+    "subject": "Monthly newsletter",
+    "body": "This month's newsletter...",
+    "date": "2026-03-26T09:00:00Z",
+    "is_read": false,
+    "labels": [
+      "inbox"
+    ],
+    "message_id": "msg_c10",
+    "thread_id": "thread_msg_c10"
+  }
+]

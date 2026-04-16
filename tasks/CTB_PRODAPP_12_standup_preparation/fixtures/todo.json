@@ -1,0 +1,68 @@
+[
+  {
+    "title": "payment interface integration",
+    "assignee": "Gang Wu",
+    "priority": "high",
+    "status": "in_progress",
+    "due_date": "2026-04-04",
+    "estimated_hours": 16,
+    "tags": [
+      "payment",
+      "backend"
+    ],
+    "task_id": "todo_001"
+  },
+  {
+    "title": "order listpagerefactoring",
+    "assignee": "Xue Zheng",
+    "priority": "medium",
+    "status": "done",
+    "due_date": "2026-04-02",
+    "estimated_hours": 12,
+    "tags": [
+      "frontend",
+      "refactoring"
+    ],
+    "task_id": "todo_002"
+  },
+  {
+    "title": "writepayment module",
+    "assignee": "Gang Wu",
+    "priority": "medium",
+    "status": "todo",
+    "due_date": "2026-04-06",
+    "estimated_hours": 8,
+    "tags": [
+      "testing",
+      "payment"
+    ],
+    "task_id": "todo_003"
+  },
+  {
+    "title": "user feedback featuredevelopment",
+    "assignee": "Xue Zheng",
+    "priority": "medium",
+    "status": "in_progress",
+    "due_date": "2026-04-07",
+    "estimated_hours": 10,
+    "tags": [
+      "frontend",
+      "feature"
+    ],
+    "task_id": "todo_004"
+  },
+  {
+    "title": "deployment pipeline configuration",
+    "assignee": "Bing Han",
+    "priority": "high",
+    "status": "blocked",
+    "due_date": "2026-04-03",
+    "estimated_hours": 6,
+    "tags": [
+      "DevOps",
+      "deployment"
+    ],
+    "blocker_reason": "pendingopsteam access grantedproductionenvironment permissions",
+    "task_id": "todo_005"
+  }
+]

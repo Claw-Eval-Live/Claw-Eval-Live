@@ -1,0 +1,84 @@
+task_id: CTB_A03_cashflow_risk_memo
+task_name: Cashflow Risk Alert Memo
+version: "1.0"
+category: data_analysis
+difficulty: medium-hard
+
+prompt:
+  text: |
+    Based on the 2 attached files, perform a rolling cashflow forecast and output the final memo directly.
+
+    Attachments:
+    - `cashflow_history.csv`
+    - `forecast_policy.md`
+
+    Requirements:
+    1. Strictly follow the methodology described in `forecast_policy.md` to produce a rolling forecast for 2026-01 through 2026-06.
+    2. You must provide a forecast table containing at least the following columns:
+       - Month
+       - Forecast Inflow
+       - Forecast Outflow
+       - Net Cash Flow
+       - Ending Cash Balance
+       - Below Safety Line (yes/no)
+       - Funding Gap
+    3. The final memo must include:
+       - Executive Summary
+       - Forecast Table
+       - List of Risk Months
+       - Minimum Cash Balance Point and Peak Funding Gap
+       - Recommended Actions
+    4. Recommended actions must be aligned with risk time points and cover at least:
+       - Short-term financing / credit facility arrangements
+       - Accelerated accounts receivable collection
+    5. All monetary values in millions of CNY; do not change the methodology unless instructed.
+    6. Output the complete memo directly in your final reply. Do not output Python code, pseudocode, or intermediate drafts.
+
+    Note:
+    - This is a closed-world analysis task; you may only use data and rules from the attachments.
+    - Do not invent hypothetical scenarios that do not exist in the data.
+  language: en
+  attachments:
+    - fixtures/docs/cashflow_history.csv
+    - fixtures/docs/forecast_policy.md
+
+tools: []
+tool_endpoints: []
+
+environment:
+  timeout_seconds: 240
+  max_turns: 14
+  fixtures:
+    - fixtures/docs/cashflow_history.csv
+    - fixtures/docs/forecast_policy.md
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  1. Forecast methodology:
+     - For 2026-01 through 2026-06, inflow/outflow uses the 2025 same-month values
+     - Starting cash balance is 7.4 (2025-12-31 ending balance)
+     - Safety line is 5.0
+  2. Forecast results should approximate:
+     - Jan: ending 6.4
+     - Feb: ending 5.5
+     - Mar: ending 4.7
+     - Apr: ending 4.1
+     - May: ending 4.2
+     - Jun: ending 4.5
+  3. Risk months should be:
+     - 2026-03
+     - 2026-04
+     - 2026-05
+     - 2026-06
+  4. Minimum cash balance point:
+     - 2026-04 at 4.1
+  5. Peak funding gap:
+     - 2026-04 at 0.9
+  6. Recommendations should include at least:
+     - Secure short-term credit or bridge financing before March
+     - Accelerate accounts receivable collection in Feb-April
+
+primary_dimensions: [completion, communication]

@@ -1,0 +1,14 @@
+[
+  {"transaction_id": "ACT-901", "type": "revenue", "amount": 450000, "date": "2026-01-18", "description": "North China-days", "category": "sales", "department": "North China"},
+  {"transaction_id": "ACT-902", "type": "revenue", "amount": 380000, "date": "2026-02-10", "description": "North China-Hengxin Group", "category": "sales", "department": "North China"},
+  {"transaction_id": "ACT-903", "type": "revenue", "amount": 250000, "date": "2026-03-05", "description": "North China-Boyuan Consulting", "category": "sales", "department": "North China"},
+  {"transaction_id": "ACT-904", "type": "revenue", "amount": 680000, "date": "2026-01-22", "description": "East China-", "category": "sales", "department": "East China"},
+  {"transaction_id": "ACT-905", "type": "revenue", "amount": 520000, "date": "2026-02-15", "description": "East China-Jincheng Logistics", "category": "sales", "department": "East China"},
+  {"transaction_id": "ACT-906", "type": "revenue", "amount": 430000, "date": "2026-03-10", "description": "East China-Mingdao Software", "category": "sales", "department": "East China"},
+  {"transaction_id": "ACT-907", "type": "revenue", "amount": 350000, "date": "2026-01-25", "description": "South China-", "category": "sales", "department": "South China"},
+  {"transaction_id": "ACT-908", "type": "revenue", "amount": 280000, "date": "2026-02-20", "description": "South China-Huitong Energy", "category": "sales", "department": "South China"},
+  {"transaction_id": "ACT-909", "type": "revenue", "amount": 620000, "date": "2026-02-08", "description": "Southwest-Huateng Group", "category": "sales", "department": "Southwest"},
+  {"transaction_id": "ACT-910", "type": "revenue", "amount": 150000, "date": "2026-03-12", "description": "Southwest-Blueocean Investment", "category": "sales", "department": "Southwest"},
+  {"transaction_id": "ACT-911", "type": "revenue", "amount": 180000, "date": "2026-01-30", "description": "Northwest-Xingchen Education", "category": "sales", "department": "Northwest"},
+  {"transaction_id": "ACT-912", "type": "revenue", "amount": 95000, "date": "2026-03-20", "description": "Northwest-Yunfan Tech", "category": "sales", "department": "Northwest"}
+]

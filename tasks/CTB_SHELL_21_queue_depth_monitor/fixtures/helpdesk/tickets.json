@@ -1,0 +1,82 @@
+[
+  {
+    "ticket_id": "TK-701",
+    "subject": "order-queue",
+    "description": "RabbitMQqueue order-queue current78000recordsnormal<5000。consumer624consumer10:00connection。800records/seconds，600records/seconds180records/seconds。queuememory1.2GB，nodememory1.5GB。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-27T10:30:00Z",
+    "updated_at": "2026-03-27T14:00:00Z",
+    "reporter": "RabbitMQmonitoring",
+    "assignee": "Li (Ops Engineer)",
+    "category": "message queue",
+    "comments": [
+      {
+        "author": "Li (Ops Engineer)",
+        "text": "4consumernetwork，RabbitMQcluster10:00timesnetwork",
+        "created_at": "2026-03-27T14:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-702",
+    "subject": "payment-dlqqueueduration",
+    "description": "RabbitMQqueue payment-dlq 15600recordsnormal0。 payment-queue TTLexpiredTTL=30secondsconsumerreject(nack)。analysis85%becauseconsumerhandletimeouthandletime>30seconds，15%failed(ClassNotFoundException)。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T11:00:00Z",
+    "updated_at": "2026-03-27T15:00:00Z",
+    "reporter": "RabbitMQmonitoring",
+    "assignee": "Wang (Ops Engineer)",
+    "category": "message queue",
+    "comments": [
+      {
+        "author": "Wang (Ops Engineer)",
+        "text": "payment-service v2.3.1，consumerfailed。handletimeoutlatency",
+        "created_at": "2026-03-27T15:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-703",
+    "subject": "notification-queuelatency",
+    "description": "Kafka topic notification-events consumer notify-consumer-group lag50032000。assignment：partition-0 lag=25000，partition-1 lag=4000，partition-2 lag=3000。3consumerinstanceconsumer-01partition-0，5due tokeyuserID，userpartition-0。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T12:00:00Z",
+    "updated_at": "2026-03-27T16:00:00Z",
+    "reporter": "Kafkamonitoring",
+    "assignee": "",
+    "category": "message queue",
+    "comments": [
+      {
+        "author": "",
+        "text": "strategyuserIdhash key，Key AccountsuserId hash，recommendationround-robin",
+        "created_at": "2026-03-27T16:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-704",
+    "subject": "audit-queue",
+    "description": "auditqueue audit-queue ：24hours52000records，49700records，2300records。queuecurrent100records。。autoAcktrue，consumerhandlefailed。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T13:00:00Z",
+    "updated_at": "2026-03-27T17:00:00Z",
+    "reporter": "auditsystem",
+    "assignee": "Li (Ops Engineer)",
+    "category": "message queue",
+    "comments": [
+      {
+        "author": "Li (Ops Engineer)",
+        "text": "confirmautoAck=trueissue，consumerhandlefailed，ack",
+        "created_at": "2026-03-27T17:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

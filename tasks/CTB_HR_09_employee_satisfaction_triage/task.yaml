@@ -1,0 +1,108 @@
+task_id: CTB_HR_09_employee_satisfaction_triage
+task_name: Employee Satisfaction Triage
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_HR_09_employee_satisfaction_triage/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_HR_09_employee_satisfaction_triage/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Please triage the latest employee satisfaction survey results and identify areas requiring immediate attention.
+    
+    Requirements:
+    1. Retrieve employee survey results from the system
+    2. Review emails for any related feedback or concerns
+    3. Analyze satisfaction scores across dimensions:
+       - Work environment
+       - Management quality
+       - Career growth opportunities
+       - Compensation and benefits
+       - Work-life balance
+    4. Identify departments or teams with critically low scores
+    5. Generate a triage report with:
+       - Overall satisfaction summary
+       - Department rankings
+       - Critical areas needing intervention
+       - Recommended action plans
+  language: en
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: List personnel records
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get personnel details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  Lowest scoring items: Engineering work-life balance 2.8/5, Marketing career growth 2.9/5, Finance compensation 3.0/5, Product career growth 3.3/5.
+  Largest declines: Engineering work-life balance -0.8, Product management quality -0.7, Marketing career growth -0.6, Engineering compensation -0.5.
+  Common issues: overtime/work pressure (Engineering 5 + Finance 2), compensation competitiveness (Engineering 3 + Finance 3), promotion pathways (Marketing 4), cross-department collaboration (Marketing 3 + Product 2).
+  Top 3 critical issues: work-life balance (Engineering 2.8 lowest), career growth (Marketing 2.9), compensation (Finance 3.0).
+primary_dimensions: [completion]

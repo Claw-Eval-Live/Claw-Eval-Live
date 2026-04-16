@@ -1,0 +1,12 @@
+[
+  {"transaction_id": "FIN-001", "department": "Marketing", "category": "Advertising", "amount": 85000, "date": "2026-03-05", "description": "Q1 online ad spend - Google + Meta", "approved_by": "Director Zhang"},
+  {"transaction_id": "FIN-002", "department": "Marketing", "category": "Events", "amount": 32000, "date": "2026-03-12", "description": "Customer appreciation event venue + catering", "approved_by": "Director Zhang"},
+  {"transaction_id": "FIN-003", "department": "Engineering", "category": "Cloud Services", "amount": 45000, "date": "2026-03-01", "description": "AWS March cloud services fee", "approved_by": "Director Li"},
+  {"transaction_id": "FIN-004", "department": "Engineering", "category": "Software Licenses", "amount": 28000, "date": "2026-03-15", "description": "JetBrains full suite license renewal", "approved_by": "Director Li"},
+  {"transaction_id": "FIN-005", "department": "Engineering", "category": "Cloud Services", "amount": 12000, "date": "2026-03-18", "description": "CDN acceleration service", "approved_by": "Director Li"},
+  {"transaction_id": "FIN-006", "department": "Sales", "category": "Travel", "amount": 18500, "date": "2026-03-08", "description": "East region client visit travel", "approved_by": "Director Wang"},
+  {"transaction_id": "FIN-007", "department": "Sales", "category": "Travel", "amount": 22000, "date": "2026-03-20", "description": "South region client visit travel", "approved_by": "Director Wang"},
+  {"transaction_id": "FIN-008", "department": "Sales", "category": "Entertainment", "amount": 15000, "date": "2026-03-22", "description": "Client dinner entertainment", "approved_by": "Director Wang"},
+  {"transaction_id": "FIN-009", "department": "HR", "category": "Training", "amount": 25000, "date": "2026-03-10", "description": "New employee onboarding training", "approved_by": "Director Zhao"},
+  {"transaction_id": "FIN-010", "department": "Admin", "category": "Office Supplies", "amount": 8500, "date": "2026-03-14", "description": "Office supplies procurement", "approved_by": "Director Zhao"}
+]

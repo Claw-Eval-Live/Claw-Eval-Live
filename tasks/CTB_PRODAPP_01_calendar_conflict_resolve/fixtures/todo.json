@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Complete Client A Requirements Document",
+    "assignee": "Wei Zhang",
+    "priority": "high",
+    "status": "in_progress",
+    "due_date": "2026-04-06",
+    "estimated_hours": 4,
+    "tags": ["client", "requirements"],
+    "task_id": "todo_001"
+  },
+  {
+    "title": "Frontend Component Library v2.0 Release",
+    "assignee": "Na Li",
+    "priority": "high",
+    "status": "in_progress",
+    "due_date": "2026-04-07",
+    "estimated_hours": 8,
+    "tags": ["frontend", "release"],
+    "task_id": "todo_002"
+  },
+  {
+    "title": "Security Vulnerability Fix",
+    "assignee": "Qiang Wang",
+    "priority": "critical",
+    "status": "todo",
+    "due_date": "2026-04-06",
+    "estimated_hours": 6,
+    "tags": ["security", "urgent"],
+    "task_id": "todo_003"
+  },
+  {
+    "title": "Quarterly Data Report",
+    "assignee": "Min Zhao",
+    "priority": "medium",
+    "status": "todo",
+    "due_date": "2026-04-08",
+    "estimated_hours": 10,
+    "tags": ["data", "report"],
+    "task_id": "todo_004"
+  }
+]

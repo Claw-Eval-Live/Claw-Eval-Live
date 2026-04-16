@@ -1,0 +1,24 @@
+[
+  {
+    "note_id": "note_601",
+    "title": "Microservice Architecture Documentation",
+    "content": "# Microservice Architecture Documentation v3.2\n\n## Service List\n\n### API Gateway\n- Function: Unified entry, routing, authentication/authorization\n- Dependencies: user-service (authentication)\n- Port: 8080\n- Instances: 4\n\n### user-service\n- Function: User management, session management, permission verification\n- Dependencies: MySQL (user_db), Redis (session cache, user info cache)\n- Port: 8081\n- Instances: 3\n- Cache strategy: User info cached 30 minutes, session info cached 24 hours\n\n### order-service\n- Function: Order management, inventory deduction\n- Dependencies: MySQL (order_db), user-service (user verification), payment-service (payment), Kafka (events)\n- Port: 8082\n- Instances: 4\n- HTTP client timeout: 30s\n- Thread pool size: 200\n\n### payment-service\n- Function: Payment processing, refunds, reconciliation\n- Dependencies: MySQL (payment_db), Redis (idempotency check), order-service (order status callback), third-party payment gateway\n- Port: 8083\n- Instances: 3\n\n## Traffic Path\nClient -> API Gateway -> user-service (auth) -> order-service -> payment-service -> third-party gateway",
+    "tags": ["architecture", "microservice", "dependency"],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "Architecture Team",
+    "participants": ["All Business Teams"],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_602",
+    "title": "Service Dependency Matrix and High Availability Strategy",
+    "content": "# Service Dependency Matrix\n\n| Service | MySQL | Redis | user-service | order-service | payment-service | Kafka |\n|------|-------|-------|-------------|---------------|-----------------|-------|\n| API Gateway | - | - | Hard dependency | - | - | - |\n| user-service | Hard dependency | Hard dependency | - | - | - | - |\n| order-service | Hard dependency | - | Hard dependency | - | Hard dependency | Soft dependency |\n| payment-service | Hard dependency | Hard dependency | - | Soft dependency | - | Soft dependency |\n\n## High Availability Strategy (Current State)\n- MySQL: Master-replica replication, manual failover\n- Redis: Sentinel mode, automatic failover (timeout configured at 30s)\n- Inter-service calls: No circuit breaker, no degradation strategy\n- Kafka: 3-node cluster, replication factor 2\n\n## Known Risks\n1. Redis single point of failure would cause both user-service and payment-service to go down\n2. user-service unavailability would block API Gateway, affecting all services\n3. No circuit breakers between services; thread pools easily exhausted by slow requests\n4. Lack of local cache fallback mechanism\n\n## Improvement Plan (Pending Implementation)\n1. Introduce Hystrix/Sentinel circuit breakers\n2. Add L1 local cache to user-service\n3. Upgrade Redis to Cluster mode\n4. Add degradation strategies for inter-service calls",
+    "tags": ["dependency matrix", "high availability", "risk"],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "Architecture Team",
+    "participants": ["SRE Team"],
+    "duration_minutes": 0
+  }
+]

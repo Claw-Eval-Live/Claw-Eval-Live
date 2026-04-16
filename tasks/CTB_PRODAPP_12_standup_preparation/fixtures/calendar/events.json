@@ -1,0 +1,78 @@
+[
+  {
+    "title": "Daily Standup",
+    "date": "2026-04-03",
+    "start_time": "2026-04-03T09:30:00Z",
+    "end_time": "2026-04-03T09:45:00Z",
+    "participants": [
+      "Gang Wu",
+      "Xue Zheng",
+      "Bing Han",
+      "Project Manager"
+    ],
+    "location": "standup area",
+    "event_id": "evt_001",
+    "attendees": [
+      "Gang Wu",
+      "Xue Zheng",
+      "Bing Han",
+      "Project Manager"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "paymentFangcasetechnicalreview",
+    "date": "2026-04-03",
+    "start_time": "2026-04-03T14:00:00Z",
+    "end_time": "2026-04-03T15:00:00Z",
+    "participants": [
+      "Gang Wu",
+      "Bing Han"
+    ],
+    "location": "Meeting Room A",
+    "event_id": "evt_002",
+    "attendees": [
+      "Gang Wu",
+      "Bing Han"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "productrequirementsclarification meeting",
+    "date": "2026-04-03",
+    "start_time": "2026-04-03T16:00:00Z",
+    "end_time": "2026-04-03T16:30:00Z",
+    "participants": [
+      "Xue Zheng",
+      "Product Manager"
+    ],
+    "location": "online",
+    "event_id": "evt_003",
+    "attendees": [
+      "Xue Zheng",
+      "Product Manager"
+    ],
+    "recurring": false
+  },
+  {
+    "title": "Sprint Retrospective",
+    "date": "2026-04-04",
+    "start_time": "2026-04-04T15:00:00Z",
+    "end_time": "2026-04-04T16:00:00Z",
+    "participants": [
+      "Gang Wu",
+      "Xue Zheng",
+      "Bing Han",
+      "Project Manager"
+    ],
+    "location": "Meeting Room B",
+    "event_id": "evt_004",
+    "attendees": [
+      "Gang Wu",
+      "Xue Zheng",
+      "Bing Han",
+      "Project Manager"
+    ],
+    "recurring": false
+  }
+]

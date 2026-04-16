@@ -1,0 +1,63 @@
+[
+  {
+    "ticket_id": "TK-501",
+    "title": "Login page white screen",
+    "description": "Customer A reports: Chrome browser login page shows white screen, persists after clearing cache.",
+    "department": "Technical Support",
+    "priority": "high",
+    "status": "open",
+    "category": "bug",
+    "customer_email": "zhang@alpha-retail.com",
+    "created_at": "2026-03-20T09:00:00Z",
+    "assigned_to": "Tech Support - Lee"
+  },
+  {
+    "ticket_id": "TK-502",
+    "title": "Report export timeout",
+    "description": "Customer B reports: System times out when exporting reports with more than 10,000 rows.",
+    "department": "Technical Support",
+    "priority": "medium",
+    "status": "in_progress",
+    "category": "bug",
+    "customer_email": "li@beta-finance.com",
+    "created_at": "2026-03-21T10:00:00Z",
+    "assigned_to": "Tech Support - Wang"
+  },
+  {
+    "ticket_id": "TK-503",
+    "title": "Data import format not supported",
+    "description": "Customer C requests support for Excel 2007 format (.xls) import; currently only .xlsx is supported.",
+    "department": "Product",
+    "priority": "low",
+    "status": "open",
+    "category": "feature_request",
+    "customer_email": "wang@gamma-logistics.com",
+    "created_at": "2026-03-22T14:00:00Z",
+    "assigned_to": "Product - Zhang"
+  },
+  {
+    "ticket_id": "TK-504",
+    "title": "API authentication failure",
+    "description": "Customer D's API calls frequently return 401 errors; token confirmed not expired.",
+    "department": "Technical Support",
+    "priority": "high",
+    "status": "resolved",
+    "category": "bug",
+    "customer_email": "chen@delta-edu.com",
+    "created_at": "2026-03-18T08:00:00Z",
+    "resolved_at": "2026-03-19T16:00:00Z",
+    "assigned_to": "Tech Support - Lee"
+  },
+  {
+    "ticket_id": "TK-505",
+    "title": "Mobile responsiveness issue",
+    "description": "Customer E reports: Charts display incompletely on iPad, some buttons unclickable.",
+    "department": "Technical Support",
+    "priority": "medium",
+    "status": "open",
+    "category": "bug",
+    "customer_email": "zhao@epsilon-health.com",
+    "created_at": "2026-03-23T11:00:00Z",
+    "assigned_to": "Tech Support - Wang"
+  }
+]

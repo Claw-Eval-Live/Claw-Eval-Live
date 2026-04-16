@@ -1,0 +1,16 @@
+# DeepSeek V3.2 via OpenRouter
+
+model:
+  api_key: ${OPENROUTER_API_KEY}
+  base_url: https://openrouter.ai/api/v1
+  model_id: deepseek/deepseek-v3.2
+
+judge:
+  api_key: ${OPENROUTER_API_KEY}
+  base_url: https://openrouter.ai/api/v1
+  model_id: google/gemini-3-flash-preview
+  enabled: true
+
+defaults:
+  trace_dir: traces_deepseek_v32
+  tasks_dir: tasks

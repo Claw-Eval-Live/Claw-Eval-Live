@@ -1,0 +1,68 @@
+task_id: CTB_IR_12
+task_name: Talent Market Analysis
+version: '1.0'
+category: workflow
+difficulty: medium
+services:
+- name: web
+  command: python mock_services/web/server.py
+  port: 9113
+  health_check: http://localhost:9113/web/search
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9113/web/reset
+  env:
+    WEB_SEARCH_FIXTURES: tasks/CTB_IR_12_talent_market_analysis/fixtures/web/search_results.json
+    ERROR_RATE: '0'
+prompt:
+  text: |
+    Please search for the 2026 China AI talent market landscape and generate a talent market analysis report covering: 1) Current AI talent supply and demand; 2) Salary levels across sub-domains (large language models, multimodal AI, embodied intelligence, etc.); 3) Talent distribution by major city; 4) Recruitment trends and recommendations.
+  language: en
+tools:
+- name: web_search
+  description: Search the web
+  input_schema:
+    type: object
+    properties:
+      query:
+        type: string
+        description: Search keywords
+    required:
+    - query
+- name: web_get_page
+  description: Fetch web page content
+  input_schema:
+    type: object
+    properties:
+      url:
+        type: string
+        description: Web page URL
+    required:
+    - url
+tool_endpoints:
+- tool_name: web_search
+  url: http://localhost:9113/web/search
+  method: POST
+- tool_name: web_get_page
+  url: http://localhost:9113/web/fetch
+  method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+  - fixtures/web/search_results.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  1. Overall AI talent gap: 1.5 million people
+  2. Sub-domains: LLM, multimodal AI, embodied intelligence (25% salary growth), AI safety
+  3. City distribution: Beijing 32.5% of AI talent, followed by Shanghai, Shenzhen, Hangzhou
+  4. New first-tier cities (Chengdu, Wuhan): 45% talent inflow growth
+  5. Hiring trends: inference deployment engineers in high demand
+  6. Cross-functional (compound) talent preferred
+  7. AI safety roles growing rapidly
+  8. Remote work becoming more accepted
+  9. Actionable recruitment recommendations for each trend
+primary_dimensions:
+- completion

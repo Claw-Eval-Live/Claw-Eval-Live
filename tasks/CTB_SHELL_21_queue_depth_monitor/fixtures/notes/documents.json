@@ -1,0 +1,40 @@
+[
+  {
+    "note_id": "note_701",
+    "title": "message queueclusterconfigurationmonitoringstandard",
+    "content": "# message queueconfiguration ## RabbitMQcluster\n- ：3.12.10\n- node：3rabbit-01, rabbit-02, rabbit-03\n- nodememory：1.5GB\n- ：0.8memory80% ### queueconfiguration\n- order-queue: durable=true, maxLength=100000, consumerexpected6\n- payment-queue: durable=true, messageTTL=30000ms, deadLetterExchange=payment-dlx\n- payment-dlq: queue，normal0\n- audit-queue: durable=true, autoAck=truerisk ## Kafkacluster\n- ：3.6.0\n- Broker：3\n- notification-events: partitions=3, replication-factor=2\n- consumer: notify-consumer-group, instance=3 ## monitoringthreshold\n- queue: >5000recordsalertorder/payment\n- consumerlag: >5000recordsalertKafka\n- queue: >100recordsalert\n- : ->1%alert",
+    "tags": [
+      "message queue",
+      "RabbitMQ",
+      "Kafka",
+      "monitoring"
+    ],
+    "created_at": "2026-03-10T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "",
+    "participants": [
+      "Li (Ops Engineer)",
+      "Wang (Ops Engineer)",
+      ""
+    ],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_702",
+    "title": "3message queuerecord",
+    "content": "# 20263message queue ## 324\n- payment-service v2.3.1release，paymentChannel\n- consumerv2.2.x，causedClassNotFoundException ## 327 10:00\n- RabbitMQclusterrabbit-02rabbit-01networkapproximately30seconds\n- causedconsumerconnection，order-queueconsumer62\n- networkrecoveryconsumerconnection-recoveryconfiguration",
+    "tags": [
+      "message queue",
+      "",
+      ""
+    ],
+    "created_at": "2026-03-24T10:00:00Z",
+    "updated_at": "2026-03-27T16:00:00Z",
+    "author": "Ops Team",
+    "participants": [
+      "Li (Ops Engineer)",
+      "Wang (Ops Engineer)"
+    ],
+    "duration_minutes": 0
+  }
+]

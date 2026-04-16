@@ -1,0 +1,103 @@
+task_id: CTB_SALES_09_quarterly_forecast_vs_actual
+task_name: Quarterly Forecast vs Actual Analysis
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_SALES_09_quarterly_forecast_vs_actual/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_SALES_09_quarterly_forecast_vs_actual/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    As an FP&A Analyst, please produce a Q1 forecast vs actual variance analysis report.
+
+    Steps:
+    1. From the CRM, retrieve each sales region's Q1 forecast data (check the notes field for forecast amounts)
+    2. From the finance system, retrieve Q1 actual sales revenue (aggregate by region)
+    3. For each region, calculate:
+       - Forecast amount
+       - Actual amount
+       - Variance (actual - forecast)
+       - Variance percentage (variance / forecast x 100%)
+    4. Produce a report including:
+       - Per region: forecast, actual, variance amount, variance percentage
+       - Company total: total forecast, total actual, total variance, overall variance percentage
+       - Best and worst accuracy regions
+       - Regions that exceeded forecast vs those that fell short
+  language: en
+
+tools:
+  - name: crm_list_customers
+    description: Get the list of customers
+    input_schema:
+      type: object
+      properties:
+        status: {type: string}
+      required: []
+  - name: crm_get_customer
+    description: Get customer details
+    input_schema:
+      type: object
+      properties:
+        customer_id: {type: string}
+      required: [customer_id]
+  - name: finance_list_transactions
+    description: Get transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date: {type: string}
+      required: []
+
+tool_endpoints:
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/crm/customers.json
+    - fixtures/finance/transactions.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  North China: Forecast1200K, actual1080K(45+38+25), variance-120K, -10%
+  East China: Forecast1800K, actual1630K(68+52+43), variance-170K, -9.44%
+  South China: Forecast900K, actual630K(35+28), variance-270K, -30%
+  Southwest: Forecast600K, actual770K(62+15), variance+170K, +28.33%
+  Northwest: Forecast300K, actual27.50K(18+9.5), variance-2.50K, -8.33%
+  totalForecast: 4800K, totalactual: 438.50K, totalvariance: -41.50K, -8.65%
+  highest: Northwest(-8.33%), mostlow: South China(-30%)
+  exceed: Southwest, not: ///
+
+primary_dimensions: [completion]

@@ -1,0 +1,35 @@
+[
+  {
+    "customer_id": "CPT-001",
+    "name": "Company X",
+    "contact_email": "client-x@company-x.com",
+    "status": "active",
+    "tier": "VIP",
+    "notes": "Complaint record: Data loss, Status: In progress",
+    "annual_revenue": 450000,
+    "contact_person": "Company X",
+    "industry": "Other"
+  },
+  {
+    "customer_id": "CPT-002",
+    "name": "Company Y",
+    "contact_email": "client-y@company-y.com",
+    "status": "active",
+    "tier": "standard",
+    "notes": "No complaint records",
+    "annual_revenue": 100000,
+    "contact_person": "Company Y",
+    "industry": "Other"
+  },
+  {
+    "customer_id": "CPT-003",
+    "name": "Company Z",
+    "contact_email": "client-z@company-z.com",
+    "status": "active",
+    "tier": "VIP",
+    "notes": "No complaint records",
+    "annual_revenue": 380000,
+    "contact_person": "Company Z",
+    "industry": "Other"
+  }
+]

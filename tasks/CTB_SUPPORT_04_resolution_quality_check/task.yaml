@@ -1,0 +1,85 @@
+task_id: CTB_SUPPORT_04_resolution_quality_check
+task_name: Resolution Quality Check
+version: "1.0"
+category: workflow
+difficulty: medium-hard
+
+services:
+  - name: helpdesk
+    command: python mock_services/helpdesk/server.py
+    port: 9107
+    health_check: http://localhost:9107/helpdesk/tickets
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9107/helpdesk/reset
+    env:
+      HELPDESK_FIXTURES: tasks/CTB_SUPPORT_04_resolution_quality_check/fixtures/helpdesk/tickets.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    Please perform a quality spot-check on resolved tickets to assess the completeness and quality of the solutions.
+
+    Evaluation criteria:
+    - Completeness: Was the customer's issue truly resolved (confirmed by customer / issue no longer occurs)?
+    - Root cause analysis: Was the root cause found and fixed (not a temporary workaround)?
+    - Communication quality: Were the replies professional, timely, and clear?
+    - Customer satisfaction: Did the customer express satisfaction?
+
+    Specific requirements:
+    1. Retrieve all resolved tickets
+    2. Review the handling process and resolution for each ticket
+    3. Rate each ticket (Excellent / Good / Fair / Poor) with justification
+    4. Identify tickets with quality issues and point out the specific problems
+    5. Provide an overall quality assessment and improvement recommendations
+
+    Please produce a complete resolution quality spot-check report.
+  language: en
+
+tools:
+  - name: helpdesk_list_tickets
+    description: List tickets
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+        priority:
+          type: string
+      required: []
+
+  - name: helpdesk_get_ticket
+    description: Get ticket details
+    input_schema:
+      type: object
+      properties:
+        ticket_id:
+          type: string
+      required: [ticket_id]
+
+tool_endpoints:
+  - tool_name: helpdesk_list_tickets
+    url: http://localhost:9107/helpdesk/tickets
+    method: POST
+  - tool_name: helpdesk_get_ticket
+    url: http://localhost:9107/helpdesk/tickets/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/helpdesk/tickets.json
+
+scoring_components: []
+safety_checks: []
+reference_solution: |
+  1. RQ-001: GOOD -- root cause found (insufficient memory), customer confirmed fix; initial response (clear cache) was wrong but corrected
+  2. RQ-002: EXCELLENT -- quick resolution, correct fix, customer confirmed
+  3. RQ-003: FAIR -- initial response dismissed customer's valid concern, took 2+ days to resolve; eventual fix was correct but communication was poor
+  4. RQ-004: POOR -- no root cause found, no actual fix provided, ticket closed without truly resolving; customer never confirmed (most critical quality failure)
+  5. RQ-005: EXCELLENT -- quick, correct solution, customer verified
+  6. Overall: 2 Excellent, 1 Good, 1 Fair, 1 Poor
+  7. Key problems: RQ-003 (dismissive first response, slow resolution); RQ-004 (closed without resolution -- requires immediate attention)
+  8. Recommendations: require customer confirmation before closing tickets; improve communication quality training; implement resolution verification process
+primary_dimensions: [completion]

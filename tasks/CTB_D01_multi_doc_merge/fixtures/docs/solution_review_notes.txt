@@ -1,0 +1,9 @@
+Solution review notes
+=====================
+
+1. Grace Lin explicitly stated that the pilot phase must first get the store operations dashboard and weekly operations summary working, otherwise it will be hard to get buy-in from regional operations teams.
+2. Kevin Wu believes data ingestion should start with read-only POS integration to avoid modifying production workflows from the outset.
+3. The client's procurement team additionally requires a security questionnaire to be completed; if this is not prepared in time, the contract process will be blocked.
+4. There is still an open item: the KPI definitions have not been finalized, especially the methodology for "promotion conversion rate" and "inventory turnover days."
+5. Our team recommends doing a dry run with a sample data pack first before switching to real store data.
+6. Leo verbally mentioned that the kickoff will more likely be pushed to the second week of April, but this had not been confirmed at the time.

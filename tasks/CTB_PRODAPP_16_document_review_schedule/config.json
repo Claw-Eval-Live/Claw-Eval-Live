@@ -1,0 +1,20 @@
+{
+  "task_name": "CTB_PRODAPP_16_document_review_schedule",
+  "prompt": "as4pendingreviewdocumentationarrangereviewmeeting。eachdocumentationrecommendationreviewpeople、estimatedreview、urgentdegree，withandreviewpeoplehasdatearrange（4month6date-8date），findtosegment。：reviewpeoplenotreviewselfwritedocumentation。withJSONformatreturn，review_schedule（eachdocumentationdocument、reviewers、proposed_date、proposed_time、duration）andscheduling_notessegment。",
+  "services": {
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    },
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

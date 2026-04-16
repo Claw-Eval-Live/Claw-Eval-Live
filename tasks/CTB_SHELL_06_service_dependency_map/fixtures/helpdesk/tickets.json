@@ -1,0 +1,82 @@
+[
+  {
+    "ticket_id": "TK-601",
+    "subject": "Redis cluster master node crashed",
+    "description": "The master node of Redis cluster redis-cluster-01 crashed suddenly at 2026-03-25 14:23. Sentinel failed to complete failover within expected time (timeout configured at 30s, actual wait exceeded 2 minutes). Cause: Master node ran out of memory (used_memory: 16GB, maxmemory: 16GB), triggering OOM Killer. Impact: All services depending on Redis experienced widespread failures.",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-25T14:25:00Z",
+    "updated_at": "2026-03-25T16:00:00Z",
+    "reporter": "Redis Monitor",
+    "assignee": "Infrastructure Team",
+    "category": "Cascading Failure",
+    "comments": [
+      {
+        "author": "Infrastructure Team",
+        "text": "Manual failover completed; replica redis-slave-02 promoted to master. Outage lasted approximately 8 minutes.",
+        "created_at": "2026-03-25T14:35:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-602",
+    "subject": "user-service widespread unavailability",
+    "description": "user-service returned 503 errors in bulk after 14:23, error rate surged from 0.1% to 78%. User login, session validation, and user info queries all affected. Error logs show: redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool. user-service depends on Redis for session storage and user cache.",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-25T14:26:00Z",
+    "updated_at": "2026-03-25T16:00:00Z",
+    "reporter": "Service Monitor",
+    "assignee": "User Team",
+    "category": "Cascading Failure",
+    "comments": [
+      {
+        "author": "User Team",
+        "text": "user-service has no local cache fallback mechanism; when Redis is unavailable, it cannot serve any requests.",
+        "created_at": "2026-03-25T14:40:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-603",
+    "subject": "order-service order endpoint timeouts",
+    "description": "The POST /orders endpoint of order-service started timing out in bulk from 14:24 (P99 rose from 200ms to 30s). Error rate reached 65%. Log analysis: order-service needs to call user-service to verify user info before creating orders; user-service being unavailable caused order-service thread pool exhaustion. order-service HTTP client timeout is configured at 30s with no circuit breaker.",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-25T14:28:00Z",
+    "updated_at": "2026-03-25T16:00:00Z",
+    "reporter": "Service Monitor",
+    "assignee": "Order Team",
+    "category": "Cascading Failure",
+    "comments": [
+      {
+        "author": "Order Team",
+        "text": "order-service thread pool (200) was entirely consumed by slow requests to user-service, preventing it from handling any requests.",
+        "created_at": "2026-03-25T14:45:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-604",
+    "subject": "payment-service payment failure rate surged",
+    "description": "payment-service success rate dropped from 99.9% to 12%. Two issues: 1) Depends on Redis for payment idempotency checks -- Redis unavailability caused idempotency check failures; 2) After payment completion, needs to callback order-service to update order status -- order-service timeout caused callback failures. payment-service's own processing logic is normal; issues entirely caused by upstream/downstream dependency failures.",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-25T14:30:00Z",
+    "updated_at": "2026-03-25T16:00:00Z",
+    "reporter": "Service Monitor",
+    "assignee": "Payment Team",
+    "category": "Cascading Failure",
+    "comments": [
+      {
+        "author": "Payment Team",
+        "text": "Recommend adding local idempotency cache as degradation fallback when Redis is unavailable.",
+        "created_at": "2026-03-25T15:00:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

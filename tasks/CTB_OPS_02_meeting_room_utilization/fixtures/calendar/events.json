@@ -1,0 +1,118 @@
+[
+  {
+    "event_id": "evt_201",
+    "title": "Product Requirements Review",
+    "location": "Room A (8 seats)",
+    "attendees": [
+      "pm@company.com",
+      "dev1@company.com",
+      "dev2@company.com"
+    ],
+    "description": "Q2 product requirements review",
+    "organizer": "pm@company.com",
+    "start_time": "2026-03-23T09:00:00Z",
+    "end_time": "2026-03-23T10:30:00Z"
+  },
+  {
+    "event_id": "evt_202",
+    "title": "Frontend Tech Talk",
+    "location": "Room B (20 seats)",
+    "attendees": [
+      "dev1@company.com",
+      "dev2@company.com",
+      "dev3@company.com"
+    ],
+    "description": "React 19 new features sharing",
+    "organizer": "dev1@company.com",
+    "start_time": "2026-03-23T14:00:00Z",
+    "end_time": "2026-03-23T15:00:00Z"
+  },
+  {
+    "event_id": "evt_203",
+    "title": "Weekly Standup",
+    "location": "Room A (8 seats)",
+    "attendees": [
+      "pm@company.com",
+      "dev1@company.com",
+      "dev2@company.com",
+      "dev3@company.com",
+      "qa@company.com"
+    ],
+    "description": "Monday standup",
+    "organizer": "pm@company.com",
+    "start_time": "2026-03-24T09:30:00Z",
+    "end_time": "2026-03-24T09:45:00Z"
+  },
+  {
+    "event_id": "evt_204",
+    "title": "Client Demo",
+    "location": "Room C (6 seats)",
+    "attendees": [
+      "sales@company.com",
+      "pm@company.com"
+    ],
+    "description": "Demo new features to GreenPower Energy",
+    "organizer": "sales@company.com",
+    "start_time": "2026-03-24T14:00:00Z",
+    "end_time": "2026-03-24T16:00:00Z"
+  },
+  {
+    "event_id": "evt_205",
+    "title": "Architecture Design Discussion",
+    "location": "Room A (8 seats)",
+    "attendees": [
+      "dev1@company.com",
+      "dev2@company.com",
+      "architect@company.com"
+    ],
+    "description": "Microservices architecture refactoring discussion",
+    "organizer": "architect@company.com",
+    "start_time": "2026-03-25T10:00:00Z",
+    "end_time": "2026-03-25T12:00:00Z"
+  },
+  {
+    "event_id": "evt_206",
+    "title": "All-Hands Monthly Wrap-up",
+    "location": "Room B (20 seats)",
+    "attendees": [
+      "ceo@company.com",
+      "pm@company.com",
+      "dev1@company.com",
+      "dev2@company.com",
+      "dev3@company.com",
+      "hr@company.com",
+      "sales@company.com",
+      "qa@company.com"
+    ],
+    "description": "March all-hands wrap-up meeting",
+    "organizer": "ceo@company.com",
+    "start_time": "2026-03-25T14:00:00Z",
+    "end_time": "2026-03-25T15:30:00Z"
+  },
+  {
+    "event_id": "evt_207",
+    "title": "1-on-1 Performance Review",
+    "location": "Room C (6 seats)",
+    "attendees": [
+      "hr@company.com",
+      "dev1@company.com"
+    ],
+    "description": "Q1 performance review",
+    "organizer": "hr@company.com",
+    "start_time": "2026-03-26T10:00:00Z",
+    "end_time": "2026-03-26T10:30:00Z"
+  },
+  {
+    "event_id": "evt_208",
+    "title": "Bug Fix Discussion",
+    "location": "Room A (8 seats)",
+    "attendees": [
+      "dev2@company.com",
+      "qa@company.com"
+    ],
+    "description": "Urgent bug discussion",
+    "organizer": "qa@company.com",
+    "start_time": "2026-03-26T15:00:00Z",
+    "end_time": "2026-03-26T16:00:00Z"
+  }
+]

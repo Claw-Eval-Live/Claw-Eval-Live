@@ -1,0 +1,38 @@
+{
+  "WEB_FIXTURES": [
+    {
+      "url": "https://semiconductor-weekly.com/supply-chain-2026",
+      "title": "2026 Global Semiconductor Supply Chain Situation Analysis",
+      "content": "The global semiconductor market reached $780 billion in 2026, with AI chips accounting for 28%. Advanced process nodes (3nm and below) remain capacity-constrained, with an average lead time of 18 weeks. TSMC holds 62% of the global advanced process foundry market share, Samsung 15%, and Intel 8%. Mainland China is rapidly expanding mature process (28nm and above) capacity, with SMIC capacity growing 35% year-over-year. HBM (High Bandwidth Memory) supply is tight, with SK Hynix and Samsung holding 95% market share and lead times extending to 24 weeks.",
+      "date": "2026-03-15"
+    },
+    {
+      "url": "https://geopolitics-tech.com/chip-restrictions-2026",
+      "title": "2026 Chip Export Control Latest Developments",
+      "content": "The U.S. updated its chip export control list for China in February 2026, with new restrictions including: 1) AI training chip performance cap further lowered to 300 TOPS; 2) EDA tool restrictions expanded to GAA process technology; 3) HBM exports require case-by-case approval. The Netherlands' ASML announced suspension of all DUV lithography machine maintenance services for China. Japan added 23 types of semiconductor equipment to export controls. China is accelerating domestic alternatives, with Huawei's Ascend 910C chip entering mass production, achieving 85% of A100 performance.",
+      "date": "2026-03-20"
+    }
+  ],
+  "GMAIL_FIXTURES": [
+    {
+      "message_id": "msg_13_01",
+      "thread_id": "thread_13_01",
+      "subject": "[Important Notice] GPU Server Delivery Delay Notification",
+      "from": "NVIDIA Channel Partner <sales@nvidia-partner.cn>",
+      "to": "Procurement Department <procurement@company.com>",
+      "date": "2026-03-25T10:00:00Z",
+      "body": "Dear Customer: Due to tight HBM supply and changes in export control approval processes, the estimated delivery date for the 50 H200 servers your company ordered (Order No. PO-2026-0315) will be delayed from the original date of April 15, 2026 to July 30, 2026, a delay of approximately 15 weeks. We are actively coordinating. If an urgent alternative is needed, you may consider Huawei Ascend 910C servers, which are currently in ample stock with a lead time of approximately 3 weeks. We sincerely apologize for the inconvenience.",
+      "is_read": false
+    },
+    {
+      "message_id": "msg_13_02",
+      "thread_id": "thread_13_02",
+      "subject": "Annual Supplier Assessment - Chip Supplier Risk Level Adjustment",
+      "from": "Supply Chain Management Department <scm@company.com>",
+      "to": "Management Team <mgmt@company.com>",
+      "date": "2026-03-25T14:00:00Z",
+      "body": "Based on the latest assessment, chip supplier risk levels have been adjusted as follows: NVIDIA (High Risk -> Very High Risk): increased supply uncertainty due to export controls; AMD (High Risk): limited alternative options; Huawei Ascend (Medium Risk -> Low Risk): stable domestic supply chain with continued capacity expansion; Cambricon (Medium Risk): product performance still lags behind. Recommended procurement ratio adjustment: Ascend 60%, NVIDIA 25%, Others 15%. The annual GPU procurement budget is expected to need an increase of 20 million yuan.",
+      "is_read": false
+    }
+  ]
+}

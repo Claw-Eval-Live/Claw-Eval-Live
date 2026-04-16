@@ -1,0 +1,95 @@
+task_id: CTB_CRM_05_upsell_opportunity_scan
+task_name: Upsell Opportunity Scan
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_CRM_05_upsell_opportunity_scan/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_CRM_05_upsell_opportunity_scan/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    Scan customer emails to identify upsell, upgrade, and expansion opportunities. Cross-reference with CRM current plans, estimate potential revenue for each opportunity, and rank by amount.
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: List customers
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get customer details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  Z (multi-site +2, estimated +500K largest), X (expand 20->50 users +150K), Y (upgrade + data analytics +120K). Total opportunity 770K.
+primary_dimensions: [completion]

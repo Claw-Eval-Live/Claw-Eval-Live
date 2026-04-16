@@ -1,0 +1,52 @@
+task_id: CTB_FIN_22_travel_expense_audit
+task_name: Travel Expense Compliance Audit
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_FIN_22_travel_expense_audit/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Please audit the compliance of travel expenses. Requirements:
+    1. List all travel expense records, including employee name, department, amount, and limit
+    2. Flag travel expenses that exceed the limit (amount > limit is non-compliant)
+    3. Calculate the total excess amount (sum of amounts exceeding limits)
+    4. Summarize total travel expenses by department
+    5. Identify the employee with the most severe policy violation
+  language: en
+tools:
+  - name: finance_list_transactions
+    description: Retrieve financial transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date:
+          type: string
+      required: []
+tool_endpoints:
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/finance/transactions.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  4 over-limit records: James Wilson 12,500 (over by 4,500), David Park 15,000 (over by 7,000), Robert Taylor 22,000 (over by 7,000), Linda Huang 9,500 (over by 1,500).
+  Total excess = 4,500 + 7,000 + 7,000 + 1,500 = 20,000.
+  By department: Sales 19,700, Marketing 16,000, Engineering 20,800, Executive 22,000.
+  Most severe: David Park (over by 7,000) and Robert Taylor (over by 7,000) tied.
+primary_dimensions: [completion]

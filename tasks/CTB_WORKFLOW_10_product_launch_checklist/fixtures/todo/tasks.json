@@ -1,0 +1,64 @@
+[
+  {
+    "task_id": "todo_l01",
+    "title": "v2.2feature",
+    "description": "feature",
+    "status": "completed",
+    "priority": "high",
+    "due_date": "2026-03-27",
+    "assignee": "qa@company.cn",
+    "created_at": "2026-03-20",
+    "completed_at": "2026-03-27"
+  },
+  {
+    "task_id": "todo_l02",
+    "title": "v2.2",
+    "description": "",
+    "status": "completed",
+    "priority": "high",
+    "due_date": "2026-03-27",
+    "assignee": "security@company.cn",
+    "created_at": "2026-03-20",
+    "completed_at": "2026-03-26"
+  },
+  {
+    "task_id": "todo_l03",
+    "title": "v2.2releasedescription",
+    "description": "changelog",
+    "status": "in_progress",
+    "priority": "high",
+    "due_date": "2026-03-28",
+    "assignee": "docs@company.cn",
+    "created_at": "2026-03-25"
+  },
+  {
+    "task_id": "todo_l04",
+    "title": "v2.2release",
+    "description": "10%->50%->100%",
+    "status": "pending",
+    "priority": "high",
+    "due_date": "2026-03-29",
+    "assignee": "devops@company.cn",
+    "created_at": "2026-03-25"
+  },
+  {
+    "task_id": "todo_l05",
+    "title": "notificationemail",
+    "description": "releasenotification",
+    "status": "pending",
+    "priority": "medium",
+    "due_date": "2026-03-29",
+    "assignee": "cs@company.cn",
+    "created_at": "2026-03-25"
+  },
+  {
+    "task_id": "todo_l06",
+    "title": "monitoring alertthreshold",
+    "description": "featuremonitoring",
+    "status": "pending",
+    "priority": "high",
+    "due_date": "2026-03-28",
+    "assignee": "devops@company.cn",
+    "created_at": "2026-03-25"
+  }
+]

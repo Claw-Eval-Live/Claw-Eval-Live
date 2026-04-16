@@ -1,0 +1,81 @@
+task_id: CTB_SUPPORT_01_ticket_escalation_review
+task_name: Ticket Escalation Review
+version: "1.0"
+category: workflow
+difficulty: medium-hard
+
+services:
+  - name: helpdesk
+    command: python mock_services/helpdesk/server.py
+    port: 9107
+    health_check: http://localhost:9107/helpdesk/tickets
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9107/helpdesk/reset
+    env:
+      HELPDESK_FIXTURES: tasks/CTB_SUPPORT_01_ticket_escalation_review/fixtures/helpdesk/tickets.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    Please review and analyze all escalated tickets for this month.
+
+    Specific requirements:
+    1. Retrieve all escalated tickets
+    2. Analyze each escalated ticket:
+       - Reason for escalation
+       - Issue category
+       - Team handling the ticket after escalation
+       - Resolution outcome
+    3. Identify common causes of escalation (categorize and count by type)
+    4. Identify repeat customers (customers with multiple escalated tickets)
+    5. Provide improvement recommendations on how to reduce unnecessary escalations
+
+    Please produce a complete ticket escalation review report.
+  language: en
+
+tools:
+  - name: helpdesk_list_tickets
+    description: List tickets
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+        priority:
+          type: string
+      required: []
+
+  - name: helpdesk_get_ticket
+    description: Get ticket details
+    input_schema:
+      type: object
+      properties:
+        ticket_id:
+          type: string
+      required: [ticket_id]
+
+tool_endpoints:
+  - tool_name: helpdesk_list_tickets
+    url: http://localhost:9107/helpdesk/tickets
+    method: POST
+  - tool_name: helpdesk_get_ticket
+    url: http://localhost:9107/helpdesk/tickets/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/helpdesk/tickets.json
+
+scoring_components: []
+safety_checks: []
+reference_solution: |
+  1. Total escalated tickets: 6 (ESC-001 through ESC-006)
+  2. Categories: data_loss, performance, billing, security, bug, data_integrity
+  3. Severity: 3 Critical (ESC-001, ESC-002, ESC-004), 3 High (ESC-003, ESC-005, ESC-006)
+  4. Repeat customer: customer_c has 2 escalations (ESC-003 and ESC-006) -- indicates ongoing unresolved issues
+  5. Common cause analysis: categorize and count escalations by type to identify patterns
+  6. Recommendations: improve first-line resolution for recurring categories; dedicated follow-up for repeat customer customer_c; process changes to reduce unnecessary escalations
+primary_dimensions: [completion]

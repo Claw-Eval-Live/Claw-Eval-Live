@@ -1,0 +1,20 @@
+[
+  {"transaction_id": "ORD-001", "type": "order", "amount": 2580, "date": "2026-03-02", "customer": "Customer A", "payment_method": "Alipay", "status": "completed", "description": "Order ORD-001"},
+  {"transaction_id": "ORD-002", "type": "order", "amount": 1990, "date": "2026-03-05", "customer": "Customer B", "payment_method": "WeChat Pay", "status": "completed", "description": "Order ORD-002"},
+  {"transaction_id": "ORD-003", "type": "order", "amount": 4500, "date": "2026-03-08", "customer": "Customer C", "payment_method": "Bank Transfer", "status": "completed", "description": "Order ORD-003"},
+  {"transaction_id": "ORD-004", "type": "order", "amount": 890, "date": "2026-03-10", "customer": "Customer D", "payment_method": "Alipay", "status": "completed", "description": "Order ORD-004"},
+  {"transaction_id": "ORD-005", "type": "order", "amount": 3200, "date": "2026-03-12", "customer": "Customer E", "payment_method": "WeChat Pay", "status": "completed", "description": "Order ORD-005"},
+  {"transaction_id": "ORD-006", "type": "order", "amount": 1560, "date": "2026-03-15", "customer": "Customer F", "payment_method": "Alipay", "status": "refunded", "description": "Order ORD-006 refunded"},
+  {"transaction_id": "ORD-007", "type": "order", "amount": 6800, "date": "2026-03-18", "customer": "Customer G", "payment_method": "Bank Transfer", "status": "completed", "description": "Order ORD-007"},
+  {"transaction_id": "BANK-001", "type": "bank_receipt", "amount": 2580, "date": "2026-03-03", "reference": "ORD-001", "description": "Bank deposit ORD-001"},
+  {"transaction_id": "BANK-002", "type": "bank_receipt", "amount": 1990, "date": "2026-03-06", "reference": "ORD-002", "description": "Bank deposit ORD-002"},
+  {"transaction_id": "BANK-003", "type": "bank_receipt", "amount": 4200, "date": "2026-03-09", "reference": "ORD-003", "description": "Bank deposit ORD-003 amount discrepancy"},
+  {"transaction_id": "BANK-005", "type": "bank_receipt", "amount": 3200, "date": "2026-03-13", "reference": "ORD-005", "description": "Bank deposit ORD-005"},
+  {"transaction_id": "BANK-007", "type": "bank_receipt", "amount": 6800, "date": "2026-03-19", "reference": "ORD-007", "description": "Bank deposit ORD-007"},
+  {"transaction_id": "BANK-999", "type": "bank_receipt", "amount": 750, "date": "2026-03-20", "reference": "unknown", "description": "Bank deposit unknown source"},
+  {"transaction_id": "INV-001", "type": "invoice", "amount": 2580, "date": "2026-03-04", "reference": "ORD-001", "description": "Invoice ORD-001"},
+  {"transaction_id": "INV-002", "type": "invoice", "amount": 1990, "date": "2026-03-07", "reference": "ORD-002", "description": "Invoice ORD-002"},
+  {"transaction_id": "INV-003", "type": "invoice", "amount": 4500, "date": "2026-03-10", "reference": "ORD-003", "description": "Invoice ORD-003"},
+  {"transaction_id": "INV-005", "type": "invoice", "amount": 3200, "date": "2026-03-14", "reference": "ORD-005", "description": "Invoice ORD-005"},
+  {"transaction_id": "INV-007", "type": "invoice", "amount": 6800, "date": "2026-03-20", "reference": "ORD-007", "description": "Invoice ORD-007"}
+]

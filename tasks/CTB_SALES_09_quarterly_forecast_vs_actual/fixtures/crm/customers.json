@@ -1,0 +1,7 @@
+[
+  {"customer_id": "FC-901", "name": "Q1SalesForecast-North China", "email": "forecast@company.com", "company": "SalesForecast", "status": "active", "deal_stage": "forecast", "deal_value": 1200000, "notes": "Q1Forecast:North China1200K CNY|people:Zhang Wei", "created_at": "2026-01-01", "last_contact": "2026-01-01"},
+  {"customer_id": "FC-902", "name": "Q1SalesForecast-East China", "email": "forecast@company.com", "company": "SalesForecast", "status": "active", "deal_stage": "forecast", "deal_value": 1800000, "notes": "Q1Forecast:East China1800K CNY|people:", "created_at": "2026-01-01", "last_contact": "2026-01-01"},
+  {"customer_id": "FC-903", "name": "Q1SalesForecast-South China", "email": "forecast@company.com", "company": "SalesForecast", "status": "active", "deal_stage": "forecast", "deal_value": 900000, "notes": "Q1Forecast:South China900K CNY|people:Wang Fang", "created_at": "2026-01-01", "last_contact": "2026-01-01"},
+  {"customer_id": "FC-904", "name": "Q1SalesForecast-Southwest", "email": "forecast@company.com", "company": "SalesForecast", "status": "active", "deal_stage": "forecast", "deal_value": 600000, "notes": "Q1Forecast:Southwest600K CNY|people:", "created_at": "2026-01-01", "last_contact": "2026-01-01"},
+  {"customer_id": "FC-905", "name": "Q1SalesForecast-Northwest", "email": "forecast@company.com", "company": "SalesForecast", "status": "active", "deal_stage": "forecast", "deal_value": 300000, "notes": "Q1Forecast:Northwest300K CNY|people:", "created_at": "2026-01-01", "last_contact": "2026-01-01"}
+]

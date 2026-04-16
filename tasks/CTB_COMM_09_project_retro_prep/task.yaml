@@ -1,0 +1,144 @@
+task_id: CTB_COMM_09_project_retro_prep
+task_name: Project Retrospective Meeting Preparation
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: calendar
+    command: python mock_services/calendar/server.py
+    port: 9101
+    health_check: http://localhost:9101/calendar/events
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9101/calendar/reset
+    env:
+      CALENDAR_FIXTURES: tasks/CTB_COMM_09_project_retro_prep/fixtures/calendar/events.json
+      ERROR_RATE: "0"
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_COMM_09_project_retro_prep/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: notes
+    command: python mock_services/notes/server.py
+    port: 9105
+    health_check: http://localhost:9105/notes/list
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9105/notes/reset
+    env:
+      NOTES_FIXTURES: tasks/CTB_COMM_09_project_retro_prep/fixtures/notes/notes.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    You are the project manager about to lead the retrospective meeting for the Alpha project. Please prepare retrospective meeting materials.
+
+    Steps:
+    1. Check the calendar to find the retrospective meeting time and attendees
+    2. Read team member email feedback (delay reasons, technical issues, customer feedback)
+    3. Review project notes (milestone records, team feedback summary)
+    4. Compile all information and generate retrospective materials including:
+       - Project overview (planned vs actual: timeline, budget, personnel)
+       - Delay cause analysis (extract from emails and notes, sorted by impact)
+       - Technical debt list (extract specific data from Zhang Wei's email)
+       - Customer satisfaction (extract rating and specific feedback from client email)
+       - Improvement recommendations (synthesize from all sources)
+
+    The materials must include specific numbers (delay days, budget overrun percentage, test coverage, satisfaction score, etc.).
+  language: en
+
+tools:
+  - name: calendar_list_events
+    description: List calendar events
+    input_schema:
+      type: object
+      properties:
+        date:
+          type: string
+        days:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: notes_list
+    description: List notes
+    input_schema:
+      type: object
+      properties:
+        search:
+          type: string
+      required: []
+  - name: notes_get
+    description: Get note details
+    input_schema:
+      type: object
+      properties:
+        note_id:
+          type: string
+      required: [note_id]
+
+tool_endpoints:
+  - tool_name: calendar_list_events
+    url: http://localhost:9101/calendar/events
+    method: POST
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: notes_list
+    url: http://localhost:9105/notes/list
+    method: POST
+  - tool_name: notes_get
+    url: http://localhost:9105/notes/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/calendar/events.json
+    - fixtures/gmail/inbox.json
+    - fixtures/notes/notes.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  Key data points (must appear in output):
+  - Delay: 3 weeks (3/7 -> 3/28)
+  - Budget overrun: 15% (800K -> 920K)
+  - Test coverage: 45% (target 80%)
+  - Customer satisfaction: 7/10
+  - Blocking bugs: 15
+  - Requirement changes: 3 items
+  - API approval delay: 2 weeks
+  - Manual deployment steps: 12
+  - Undocumented modules: 3
+
+primary_dimensions: [completion]

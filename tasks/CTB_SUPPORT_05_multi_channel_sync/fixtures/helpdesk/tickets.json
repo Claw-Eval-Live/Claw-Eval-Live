@@ -1,0 +1,70 @@
+[
+  {
+    "ticket_id": "MC-001",
+    "subject": "Multiple user accounts locked",
+    "description": "Stellar Tech has multiple user accounts locked out",
+    "status": "resolved",
+    "priority": "high",
+    "created_at": "2026-03-20T09:00:00Z",
+    "updated_at": "2026-03-20T11:00:00Z",
+    "reporter": "zhangsan@clientX.com",
+    "assignee": "support@company.com",
+    "category": "account",
+    "comments": [
+      {
+        "author": "support@company.com",
+        "text": "Accounts have been unlocked in bulk; the security policy was triggered by mistake",
+        "created_at": "2026-03-20T10:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "MC-002",
+    "subject": "Quarterly report data anomaly",
+    "description": "Q1 report data showing as zero",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-23T15:00:00Z",
+    "updated_at": "2026-03-24T10:00:00Z",
+    "reporter": "liuqi@clientZ.com",
+    "assignee": "support@company.com",
+    "category": "bug",
+    "comments": [
+      {
+        "author": "support@company.com",
+        "text": "Investigating the report generation logic",
+        "created_at": "2026-03-23T16:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "MC-003",
+    "subject": "Mobile app crash issue",
+    "description": "iOS app crashes frequently after the latest update",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-25T10:00:00Z",
+    "updated_at": "2026-03-26T10:00:00Z",
+    "reporter": "chenba@clientW.com",
+    "assignee": "mobile-dev@company.com",
+    "category": "bug",
+    "comments": [],
+    "department": "general"
+  },
+  {
+    "ticket_id": "MC-004",
+    "subject": "System response speed optimization",
+    "description": "Overall system response has been slow recently",
+    "status": "open",
+    "priority": "medium",
+    "created_at": "2026-03-22T10:00:00Z",
+    "updated_at": "2026-03-24T10:00:00Z",
+    "reporter": "internal@company.com",
+    "assignee": "ops@company.com",
+    "category": "performance",
+    "comments": [],
+    "department": "general"
+  }
+]

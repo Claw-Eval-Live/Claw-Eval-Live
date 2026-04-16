@@ -1,0 +1,46 @@
+[
+  {
+    "note_id": "note_p7_01",
+    "title": "3month24dayStandup",
+    "content": "：Zheng Peng、Huang Rong、Fang Da、Qian Jin。\nZheng Peng：CompleteRecommendation Algorithmv2theABTest，CTR12%，Full RolloutLaunch。\nHuang Rong：Mobile adaptationenter80%，canComplete。\nFang Da：afterAPItoCompatibilityissue，need2days。\nQian Jin：TestEnvironmentComplete，Regression Testing。\n：Recommendation AlgorithmFull Rollout，API refactoring deadline extended to March 28。",
+    "tags": ["Standup", ""],
+    "created_at": "2026-03-24T10:30:00Z",
+    "updated_at": "2026-03-24T10:30:00Z",
+    "author": "project",
+    "participants": ["Zheng Peng", "Huang Rong", "Fang Da", "Qian Jin"],
+    "duration_minutes": 15
+  },
+  {
+    "note_id": "note_p7_02",
+    "title": "3Mar 25 Tue Standup Minutes",
+    "content": "：Zheng Peng、Huang Rong、Fang Da、Qian Jin。\nZheng Peng：Recommendation AlgorithmFull RolloutLaunchComplete，Monitoring MetricsNormal。\nHuang Rong：Mobile adaptationenter90%，iPadissue。\nFang Da：Compatibilityissuealready，APIRecoveryNormalenter。\nQian Jin：Regression Testing2P2 bug，fix submitted。\n：iPadissueprioritylow，notblockedrelease。",
+    "tags": ["Standup"],
+    "created_at": "2026-03-25T10:30:00Z",
+    "updated_at": "2026-03-25T10:30:00Z",
+    "author": "project",
+    "participants": ["Zheng Peng", "Huang Rong", "Fang Da", "Qian Jin"],
+    "duration_minutes": 15
+  },
+  {
+    "note_id": "note_p7_03",
+    "title": "3month26dayStandup",
+    "content": "：Zheng Peng、Huang Rong、Fang Da、Qian Jin。\nZheng Peng：Recommendation AlgorithmLaunchafterDAU8%，exceeded expectations。\nHuang Rong：Mobile adaptationalreadyComplete，enterenterinternalTest。\nFang Da：APIComplete70%，3month28daybyDelivery。\nQian Jin：2P2 bugfix verified and passed，Newincreaseuse50。\n：MobileenterenterCanaryrelease。",
+    "tags": ["Standup"],
+    "created_at": "2026-03-26T10:30:00Z",
+    "updated_at": "2026-03-26T10:30:00Z",
+    "author": "project",
+    "participants": ["Zheng Peng", "Huang Rong", "Fang Da", "Qian Jin"],
+    "duration_minutes": 15
+  },
+  {
+    "note_id": "note_p7_04",
+    "title": "3month27dayStandup",
+    "content": "：Zheng Peng、Huang Rong、Fang Da、Qian Jin。\nZheng Peng：monitoringrecommendAPIP99Latency increased from 50ms to 120ms，Atcheck。\nHuang Rong：MobileinternalTest，CanaryreleasepreparationReady。\nFang Da：APIComplete90%，Authentication ModuledaysComplete。\nQian Jin：Full RolloutRegression Testingpass rate98.5%，3lowpriorityissuetobacklog。\n：recommendAPIlatencyissueasP1，Zheng Pengdayspriority。",
+    "tags": ["Standup"],
+    "created_at": "2026-03-27T10:30:00Z",
+    "updated_at": "2026-03-27T10:30:00Z",
+    "author": "project",
+    "participants": ["Zheng Peng", "Huang Rong", "Fang Da", "Qian Jin"],
+    "duration_minutes": 15
+  }
+]

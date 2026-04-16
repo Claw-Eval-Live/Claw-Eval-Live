@@ -1,0 +1,41 @@
+[
+  {
+    "title": "milestone1completedreport",
+    "content": "coreAPIdevelopmentalreadycompleted。work hours28hours，less than estimated2hours。APIcover100%，passedplacehasinterfacetesting。risk item：departmentinterfaceshouldpass200ms，needatmilestone3runPerformance Optimization。",
+    "author": "Yue Qin",
+    "created_at": "2026-04-01",
+    "tags": [
+      "milestone",
+      "report"
+    ],
+    "note_id": "ms-1",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "milestone2progress update",
+    "content": "frontendprimaryprocessprogress75%。Completed：login、page、tablepage。In Progress：page、editingpage。encountered issue：Mobile Adaptationmore complex than expected，estimatedneedexternal8hours。may be delayed1-2days。",
+    "author": "Shi Wei",
+    "created_at": "2026-04-05",
+    "tags": [
+      "milestone",
+      "progress"
+    ],
+    "note_id": "ms-2",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "project risk register",
+    "content": "risk1：frontendmilestone2may be delayed，affectsaftertestingplanning。risk2：performanceaskissuepossiblymilestone3large。risk3：clientpossiblyatUATsegmentsubmitoutputrequirementschange。：reserve，submitbeforeopenPerformance Optimization。",
+    "author": "Project Manager",
+    "created_at": "2026-04-05",
+    "tags": [
+      "risk",
+      "management"
+    ],
+    "note_id": "ms-3",
+    "participants": [],
+    "duration_minutes": 0
+  }
+]

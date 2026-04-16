@@ -1,0 +1,50 @@
+[
+  {
+    "note_id": "note_d09_01",
+    "title": "customerhandledSOP",
+    "content": "## customerhandledstandard process\n\n### 1：\n- ：//\n- response：P0-30，P1-2，P2-8，P3-24\n- automatically assigned to the corresponding technical support\n\n### 2：diagnosis\n- confirmcustomerissue\n- issue\n- ：Bug/requirement/issue/configurationissue\n\n### 3：handled\n- issue：customer\n- configurationissue：configuration\n- Bug：commitJIRA\n- requirement：Product Department\n\n### 4：\n- confirmcustomerissuealreadyresolved\n- \n- updateknowledge base",
+    "tags": [
+      "SOP",
+      "handled"
+    ],
+    "created_at": "2025-06-01T10:00:00Z",
+    "updated_at": "2025-06-01T10:00:00Z",
+    "author": "customer",
+    "participants": [
+      "customer"
+    ],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_d09_02",
+    "title": "versionreleasedSOP",
+    "content": "## versionreleasedstandard process\n\n### released（T-3）\n- completedAll feature development and code review\n- full rollout\n- released\n\n### released（T-1）\n- stagingverification\n- releasednoticecustomer\n- rollback\n\n### released（T）\n- 10:00 \n- canaryreleased（10%->50%->100%）\n- monitoring30\n\n### released（T+1）\n- customer\n- handledurgentissue\n- released",
+    "tags": [
+      "SOP",
+      "versionreleased"
+    ],
+    "created_at": "2025-09-01T10:00:00Z",
+    "updated_at": "2025-09-01T10:00:00Z",
+    "author": "Engineering Department",
+    "participants": [
+      "Engineering Department"
+    ],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_d09_03",
+    "title": "customerOnboarding SOP",
+    "content": "## customer\n\n### 1：\n- approximately24Create customer account within hours\n- 48meeting\n- Send welcome email and usage guide\n\n### 2-3：configuration\n- customercompletedconfiguration\n- import\n- configurationuserpermission\n\n### 4：training\n- training（2）\n- usertraining（1）\n- training\n\n### 5-6：\n- check-in\n- resolvedissue\n- 30NPS",
+    "tags": [
+      "SOP",
+      "onboarding"
+    ],
+    "created_at": "2025-08-01T10:00:00Z",
+    "updated_at": "2025-08-01T10:00:00Z",
+    "author": "customer",
+    "participants": [
+      "customer"
+    ],
+    "duration_minutes": 0
+  }
+]

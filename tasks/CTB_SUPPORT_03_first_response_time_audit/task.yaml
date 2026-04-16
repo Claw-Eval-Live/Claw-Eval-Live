@@ -1,0 +1,89 @@
+task_id: CTB_SUPPORT_03_first_response_time_audit
+task_name: First Response Time Audit
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: helpdesk
+    command: python mock_services/helpdesk/server.py
+    port: 9107
+    health_check: http://localhost:9107/helpdesk/tickets
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9107/helpdesk/reset
+    env:
+      HELPDESK_FIXTURES: tasks/CTB_SUPPORT_03_first_response_time_audit/fixtures/helpdesk/tickets.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    Please audit the support team's first response times.
+
+    SLA standards:
+    - High priority tickets: first response <= 30 minutes
+    - Medium priority tickets: first response <= 1 hour
+
+    Specific requirements:
+    1. Retrieve all tickets and their comments
+    2. Calculate the first response time for each ticket (interval from ticket creation to the first support reply)
+    3. Determine whether each ticket meets the SLA standard
+    4. Statistics by support agent:
+       - Average first response time
+       - SLA compliance rate
+    5. Overall statistics:
+       - Total tickets, compliant count, breach count
+       - Team overall SLA compliance rate
+    6. Identify the best and worst performing agents
+
+    Please produce a complete first response time audit report.
+  language: en
+
+tools:
+  - name: helpdesk_list_tickets
+    description: List tickets
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+        priority:
+          type: string
+      required: []
+
+  - name: helpdesk_get_ticket
+    description: Get ticket details
+    input_schema:
+      type: object
+      properties:
+        ticket_id:
+          type: string
+      required: [ticket_id]
+
+tool_endpoints:
+  - tool_name: helpdesk_list_tickets
+    url: http://localhost:9107/helpdesk/tickets
+    method: POST
+  - tool_name: helpdesk_get_ticket
+    url: http://localhost:9107/helpdesk/tickets/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/helpdesk/tickets.json
+
+scoring_components: []
+safety_checks: []
+reference_solution: |
+  1. FRT-001 (high priority): 10 min -- PASS (SLA: 30 min)
+  2. FRT-002 (high priority): 55 min -- FAIL (exceeded 30 min SLA)
+  3. FRT-003 (medium priority): 8 min -- PASS (SLA: 60 min)
+  4. FRT-004 (high priority): 90 min -- FAIL (exceeded 30 min SLA)
+  5. FRT-005 (high priority): 135 min -- FAIL (exceeded 30 min SLA)
+  6. FRT-006 (medium priority): 5 min -- PASS (SLA: 60 min)
+  7. Overall SLA: 3 compliant, 3 breach, 50% compliance rate
+  8. Agent performance: agent_a 100% SLA compliance (best performer); agent_b 0% compliance (worst); agent_c 0% compliance
+  9. Recommendations: training and process improvement for agent_b and agent_c; investigate root causes of slow response times
+primary_dimensions: [completion]

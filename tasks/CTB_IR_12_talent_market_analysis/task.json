@@ -1,0 +1,15 @@
+{
+  "task_id": "CTB_IR_12",
+  "task_name": "talent_market_analysis",
+  "task_description": "Search for talent market data in the AI field, analyzing talent supply and demand, salary levels, and hiring trends.",
+  "prompt": "Please search for information on the AI talent market in China in 2026 and generate a talent market analysis report, including: 1) Current AI talent supply and demand; 2) Salary levels by sub-field (large language models, multimodal AI, embodied intelligence, etc.); 3) Talent distribution across major cities; 4) Hiring trends and recommendations.",
+  "services": [
+    {
+      "service_name": "web",
+      "port": 9113,
+      "env_variable": "WEB_FIXTURES",
+      "error_rate": "0"
+    }
+  ],
+  "primary_dimensions": ["completion"]
+}

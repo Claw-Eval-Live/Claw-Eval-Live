@@ -1,0 +1,110 @@
+task_id: CTB_SALES_02_deal_risk_assessment
+task_name: Deal Risk Assessment
+version: "1.0"
+category: workflow
+difficulty: medium-hard
+
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_SALES_02_deal_risk_assessment/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_SALES_02_deal_risk_assessment/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    As the Sales Director, perform a risk assessment on all currently active deals.
+
+    Follow these steps:
+    1. Retrieve all in-progress deals from CRM (exclude closed-won and closed-lost)
+    2. Read recent emails for each relevant customer to identify risk signals
+    3. Assess each deal's risk level: High Risk / Medium Risk / Low Risk
+    4. Risk signals include: budget changes, timeline delays, competitor involvement, decision-maker changes, internal restructuring
+    5. Output a risk assessment report containing:
+       - Per deal: customer name, amount, current stage, risk level, specific risk factors, recommended countermeasures
+       - Total active deal amount and weighted risk amount
+       - Sorted by risk level (high risk first)
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back: {type: integer, default: 7}
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id: {type: string}
+      required: [message_id]
+  - name: crm_list_customers
+    description: List customers
+    input_schema:
+      type: object
+      properties:
+        status: {type: string}
+      required: []
+  - name: crm_get_customer
+    description: Get customer details
+    input_schema:
+      type: object
+      properties:
+        customer_id: {type: string}
+      required: [customer_id]
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  High risk:
+  - Minghui Manufacturing (2M, negotiation): CFO questions ROI, cost-cutting, requires CEO approval -> High risk
+  - Hongyuan Tech (1.2M, negotiation): internal restructuring, postponed to May, budget re-approval -> High risk
+  Medium risk:
+  - Shengda Logistics (850K, proposal): competitor 15% lower price, April 5 deadline -> Medium risk
+  Low risk:
+  - Tiancheng Real Estate (600K, discovery): may build in-house IT, Q3 start -> Low risk (or medium risk)
+  Excluded: Yunfan Education (closed-won)
+  Total active deal amount: 4.65M (1200000+850000+2000000+600000)
+
+primary_dimensions: [completion]

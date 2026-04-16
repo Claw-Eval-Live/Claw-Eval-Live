@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://docs.boardflow.dev/platform-overview",
+    "title": "BoardFlow Platform Overview",
+    "snippet": "BoardFlow provides CRDT-based real-time collaboration, PostgreSQL + object storage backend, region pinning and audit log, supporting 120 concurrent editors.",
+    "source": "docs.boardflow.dev",
+    "published_at": "2026-03-02T09:00:00Z",
+    "keywords": ["BoardFlow", "whiteboard", "open source", "CRDT", "WebSocket", "concurrency", "GDPR", "data residency", "audit", "self-hosted"]
+  },
+  {
+    "url": "https://github.example.com/boardflow/platform",
+    "title": "BoardFlow GitHub Overview",
+    "snippet": "BoardFlow has an active community: 7.2k stars, monthly release cadence, median security patch response of 4 days.",
+    "source": "github.example.com",
+    "published_at": "2026-03-05T08:00:00Z",
+    "keywords": ["BoardFlow", "GitHub", "stars", "release", "security patch", "community", "whiteboard"]
+  },
+  {
+    "url": "https://docs.canvasgrid.io/platform-overview",
+    "title": "CanvasGrid Platform Overview",
+    "snippet": "CanvasGrid uses an OT + Redis streams collaboration layer, supports 60 concurrent editors, moderate self-hosting complexity, with the EU data residency plugin still in beta.",
+    "source": "docs.canvasgrid.io",
+    "published_at": "2026-03-01T10:00:00Z",
+    "keywords": ["CanvasGrid", "whiteboard", "open source", "OT", "Redis", "concurrency", "data residency", "plugin", "self-hosted"]
+  },
+  {
+    "url": "https://github.example.com/canvasgrid/core",
+    "title": "CanvasGrid GitHub Overview",
+    "snippet": "CanvasGrid has 4.8k stars, 4 releases in the last 12 months, security patches avg 16 days; upgrades require checking OT worker compatibility.",
+    "source": "github.example.com",
+    "published_at": "2026-03-04T08:30:00Z",
+    "keywords": ["CanvasGrid", "GitHub", "stars", "release", "patch", "community", "OT", "whiteboard"]
+  },
+  {
+    "url": "https://docs.syncslate.dev/platform-overview",
+    "title": "SyncSlate Platform Overview",
+    "snippet": "SyncSlate uses a single-node relay architecture, max 35 concurrent editors, no region pinning, and no native audit log.",
+    "source": "docs.syncslate.dev",
+    "published_at": "2026-02-25T11:00:00Z",
+    "keywords": ["SyncSlate", "whiteboard", "open source", "relay", "concurrency", "audit", "region pinning", "legacy"]
+  },
+  {
+    "url": "https://github.example.com/syncslate/app",
+    "title": "SyncSlate GitHub Overview",
+    "snippet": "SyncSlate has 2.1k stars, 2 releases in the last 12 months, no explicit security patch SLA, slow maintenance cadence.",
+    "source": "github.example.com",
+    "published_at": "2026-03-04T07:00:00Z",
+    "keywords": ["SyncSlate", "GitHub", "stars", "release", "security", "maintenance", "whiteboard"]
+  },
+  {
+    "url": "https://ops-playbook.example.com/eu-data-residency-cutover",
+    "title": "EU Data Residency Whiteboard Cutover Playbook",
+    "snippet": "Multi-region collaboration tool migration recommendations: store EU data separately in EU object storage; pilot first, then dual-track, then cut over; define rollback triggers and replication strategy.",
+    "source": "ops-playbook.example.com",
+    "published_at": "2026-02-14T09:30:00Z",
+    "keywords": ["GDPR", "EU", "data residency", "playbook", "rollback", "replica", "whiteboard migration", "cutover"]
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "title": "productplanningmeetingminutes - 3month30date",
+    "content": "：1）Q2focusadvanceMobile Adaptation，owner：Chen Xu；2）afterplatformmanagementsystemescalatetoVue3，owner：Lin Feng；3）dataanalysismoduleneedat4month15by datecompletedPOC，owner：Chen Xu；4）clientsystemneedincreaseaddselffeature。",
+    "author": "Project Manager",
+    "created_at": "2026-03-30",
+    "tags": [
+      "meetingminutes",
+      "productplanning"
+    ],
+    "note_id": "mn-1",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "Technology Selection Discussionminutes - 4month1date",
+    "content": "：1）mobileuseReact Nativerather thanFlutter；2）dataanalysismoduleadoptElasticsearch+KibanaFangcase；3）needLin FengresearchVue3migration toolchain，4month5by dateoutputresearchreport。",
+    "author": "engineering manager",
+    "created_at": "2026-04-01",
+    "tags": [
+      "meetingminutes",
+      "technology selection"
+    ],
+    "note_id": "mn-2",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "clientrequirementsreviewminutes - 4month2date",
+    "content": "clientrequirement：1）supportvolumeexportfeature（priorityhigh）；2）increaseadddatavisual dashboard；3）login supportSSOintegration。ownerpendingfixed，needatdowntimesstandupassign。",
+    "author": "Product Manager",
+    "created_at": "2026-04-02",
+    "tags": [
+      "meetingminutes",
+      "requirements"
+    ],
+    "note_id": "mn-3",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "securitycompliancemeetingminutes - 4month2date",
+    "content": "requirement：1）4end of monthbeforecompletedGDPRcompliancecheck；2）userdataencryptiontransferescalatetoTLS1.3；3）Chen XudataFangcasedesign，4month10by datecompleted。",
+    "author": "securityowner",
+    "created_at": "2026-04-02",
+    "tags": [
+      "meetingminutes",
+      "security"
+    ],
+    "note_id": "mn-4",
+    "participants": [],
+    "duration_minutes": 0
+  }
+]

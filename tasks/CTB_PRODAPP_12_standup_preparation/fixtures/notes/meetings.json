@@ -1,0 +1,54 @@
+[
+  {
+    "title": "datestanduprecord",
+    "content": "Gang Wu：payment interface integrationprogress60%，toFangSDKaskissue。Xue Zheng：order listrefactoringCompleted，preparationopenuser feedback feature。Bing Han：deployment pipelinepassiveblocked，alreadycontactops。",
+    "author": "Project Manager",
+    "created_at": "2026-04-02",
+    "tags": [
+      "standup",
+      "record"
+    ],
+    "note_id": "note-s1",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "paymentSDKtechnical research",
+    "content": "FangpaymentSDK v3.2storeatandNode18notaskissue。Fangcase：leveltov3.1orpendingFang（estimated4month5datereleasepatch）。recommend temporarily usingv3.1。",
+    "author": "Gang Wu",
+    "created_at": "2026-04-02",
+    "tags": [
+      "payment",
+      "technical"
+    ],
+    "note_id": "note-s2",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "productionenvironment permissionsprogress",
+    "content": "alreadysubmit#2026040101，opsreplyestimated4month3datedowncanwithcompletedpermissionopen。",
+    "author": "Bing Han",
+    "created_at": "2026-04-02",
+    "tags": [
+      "ops",
+      "permission"
+    ],
+    "note_id": "note-s3",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "user feedback featurerequirementschange",
+    "content": "Product Managerrequirementincreaseadduptransferfeature，estimatedexternalneed4hoursdevelopment。needatstandupdiscussionisaffects。",
+    "author": "Xue Zheng",
+    "created_at": "2026-04-02",
+    "tags": [
+      "requirements",
+      "change"
+    ],
+    "note_id": "note-s4",
+    "participants": [],
+    "duration_minutes": 0
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "note_id": "note_1001",
+    "title": "storagearchitecturestrategydocument",
+    "content": "# storagearchitecture ## dataSSD\n- equipment：storage-hot-01，NVMe SSD\n- capacity：10TB\n- storagedata：7daysdata\n- alert：> 80%\n- data：userlog、record、cache ## dataHDD\n- equipment：storage-warm-01，RAID-6 HDD16\n- capacity：50TB\n- storagedata：7days-90daysdata\n- RAID-6：2failure\n- IOPS：1200\n- latency：<= 20ms ## datastorage\n- equipment：MinIOcluster\n- storagedata：>90daysarchivedata\n- retain：2\n- budget：21000\n- strategy：lifecycle-policy-coldexpireddelete ## migration\n- task：auto-tier-migrate\n- →：execute，migration>7daysdata\n- →：weeklyexecute，migration>90daysdata\n- migrationtime：AM02:00-06:00\n- migration：300Mbps\n- NFS：/mnt/warm-storage",
+    "tags": [
+      "storage",
+      "",
+      "architecture"
+    ],
+    "created_at": "2026-02-01T10:00:00Z",
+    "updated_at": "2026-03-20T10:00:00Z",
+    "author": "Infrastructure Team",
+    "participants": [
+      "operations",
+      "Li (Ops Engineer)"
+    ],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_1002",
+    "title": "3storageincidentrecord",
+    "content": "# 20263storagerecord ## 315\n- datastorage-warm-01disk-03reportSMARTalert\n- 318disk-03degradedstatus， ## 320\n- auto-tier-migratetaskexecutefailed\n- errorinformation：NFS mount point /mnt/warm-storage is stale\n- cause：dataNFSserverrestartnfsd\n- taskconfigurationfailed ## 228\n- updatedatastrategylifecycle-policy-cold\n- content：retain32\n- configurationfileJSONerror，MinIOstrategy",
+    "tags": [
+      "storage",
+      "",
+      "incident"
+    ],
+    "created_at": "2026-03-15T10:00:00Z",
+    "updated_at": "2026-03-27T14:00:00Z",
+    "author": "Ops Team",
+    "participants": [
+      "operations",
+      "Li (Ops Engineer)"
+    ],
+    "duration_minutes": 0
+  }
+]

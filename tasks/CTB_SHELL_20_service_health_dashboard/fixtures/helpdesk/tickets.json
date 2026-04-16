@@ -1,0 +1,82 @@
+[
+  {
+    "ticket_id": "TK-601",
+    "subject": "payment-serviceresponsetimeP99SLA",
+    "description": "payment-service7daysP99responsetime4.2seconds，SLAthreshold3seconds。succeeded97.3%SLA99.5%。QPSaverage850，peak1200。error504 Gateway Timeout。dependency：database(latencynormal)、Redis(latencynormal)、(latencyP99=2.8seconds)。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-25T08:00:00Z",
+    "updated_at": "2026-03-27T14:00:00Z",
+    "reporter": "SLAmonitoring",
+    "assignee": "Wang (Ops Engineer)",
+    "category": "Service Health",
+    "comments": [
+      {
+        "author": "Wang (Ops Engineer)",
+        "text": "324upgradelatency，",
+        "created_at": "2026-03-27T14:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-602",
+    "subject": "order-serviceerror5.1%",
+    "description": "order-service6hourserror0.3%5.1%。error：databaseconnectiontimeout60%、Redistimeout25%、error15%。QPSaverage620，currentCPU78%，memory65%。database20records350records。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-27T08:00:00Z",
+    "updated_at": "2026-03-27T14:00:00Z",
+    "reporter": "monitoringsystem",
+    "assignee": "Li (Ops Engineer)",
+    "category": "Service Health",
+    "comments": [
+      {
+        "author": "DBAteam",
+        "text": "orders，caused",
+        "created_at": "2026-03-27T14:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-603",
+    "subject": "notification-service",
+    "description": "notification-serviceKafkaconsumerconsumer-lagduration，currentlag45000records。500records/seconds120records/seconds。service3consumerinstance，1instance(pod-notify-03)30minutesstoprebalance。timessucceededsubmitoffsettime14:30。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T15:00:00Z",
+    "updated_at": "2026-03-27T16:00:00Z",
+    "reporter": "Kafkamonitoring",
+    "assignee": "",
+    "category": "Service Health",
+    "comments": [
+      {
+        "author": "",
+        "text": "pod-notify-03GCpausetimesession.timeout.ms(10s)causedconsumer",
+        "created_at": "2026-03-27T16:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-604",
+    "subject": "gateway-service TLSlatency",
+    "description": "gateway-serviceTLSlatency8ms120ms。impactHTTPSrequest。currentconnection12000，TLScache95%32%。SSLcertificate326update，TLScachevalid。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T10:00:00Z",
+    "updated_at": "2026-03-27T15:00:00Z",
+    "reporter": "performancemonitoring",
+    "assignee": "Wang (Ops Engineer)",
+    "category": "Service Health",
+    "comments": [
+      {
+        "author": "Wang (Ops Engineer)",
+        "text": "certificateupdateTLS session ticket key，sessionneeds",
+        "created_at": "2026-03-27T15:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

@@ -1,0 +1,60 @@
+task_id: CTB_D02_api_changelog
+task_name: API Version Changelog
+version: "1.0"
+category: document_transform
+difficulty: medium-hard
+
+prompt:
+  text: |
+    Compare the two attached API documentation versions and produce a migration changelog for the engineering team.
+
+    Attachments:
+    - `api_v1_2.md`
+    - `api_v2_0.md`
+
+    Your output must:
+    1. Be written in English
+    2. Explicitly cover the following topics:
+       - Authentication endpoint
+       - Event query endpoint
+       - Order creation endpoint
+       - New estimate endpoint
+       - Webhook verification mechanism
+       - Daily report endpoint migration
+    3. Use structured Markdown output containing at least:
+       - A brief overview
+       - A change table with columns: `Change Type`, `Section / Endpoint`, `Details`, `Impact Assessment`
+       - A "Migration Priority / Recommendations" section
+    4. Use `ADD` / `REMOVE` / `MODIFY` for the change type
+    5. The impact assessment must clearly indicate which changes are `Breaking` and which are `Non-breaking`
+
+    Do not fabricate information that is not in the documents.
+  language: en
+  attachments:
+    - fixtures/docs/api_v1_2.md
+    - fixtures/docs/api_v2_0.md
+
+tools: []
+tool_endpoints: []
+
+environment:
+  timeout_seconds: 240
+  max_turns: 12
+  fixtures:
+    - fixtures/docs/api_v1_2.md
+    - fixtures/docs/api_v2_0.md
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  1. Identify that the authentication endpoint migrated from POST /v1/sessions to POST /v2/auth/tokens, with response fields changing from session_id/expires_in_seconds to access_token/refresh_token/expires_in
+  2. Identify that the event query endpoint upgraded from /v1/events to /v2/events, with query parameters changing from start_date/end_date/page to from/to/cursor — page was removed, event_count renamed to total
+  3. Identify that in the order creation endpoint customer_id changed to account_id, amount_cents changed to amount (decimal string), and currency became required — all Breaking
+  4. Identify the new POST /v2/orders/estimate endpoint as ADD, typically Non-breaking
+  5. Identify that the daily report endpoint migrated from GET /v1/reports/daily to GET /v2/reports/daily-summary, with the old endpoint deprecated
+  6. Identify that webhook verification changed from HMAC-SHA1 to HMAC-SHA256, with a new X-Timestamp header and 5-minute replay window — Breaking
+  7. Provide migration priority recommendations, with at least orders schema, event query parameters, and webhook verification as top priorities
+
+primary_dimensions: [completion, communication]

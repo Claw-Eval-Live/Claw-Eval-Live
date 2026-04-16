@@ -1,0 +1,67 @@
+[
+  {
+    "title": "cache strategydiscussion - times",
+    "content": "Redisasprimarycachelayer，cache expiration timeas30minutes。hotspotdatauseeditioncache+Redislayercache。needcache penetrationandcache avalancheaskissue。",
+    "author": "Wei Jiang",
+    "created_at": "2026-03-25",
+    "tags": [
+      "cache",
+      "Redis"
+    ],
+    "note_id": "nc-1",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "cache strategydiscussion - times",
+    "content": "update：cache expiration timemodifyasdatadatatypeset。usercache1hours，cache15minutes，pricecache5minutes。increaseaddpassdevicecache penetration。",
+    "author": "Wei Jiang",
+    "created_at": "2026-03-28",
+    "tags": [
+      "cache",
+      "strategy"
+    ],
+    "note_id": "nc-2",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "cachemonitoringFangcase",
+    "content": "usePrometheus+Grafanamonitoringcache hit rate。alert：below80%send，below60%sendalert。needrecordcache latencyP99metric。",
+    "author": "Wei Jiang",
+    "created_at": "2026-03-30",
+    "tags": [
+      "cache",
+      "monitoring"
+    ],
+    "note_id": "nc-3",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "cacheFangcase",
+    "content": "adoptCache-Asideformat。writefirstupdatedatadatabaseagaindeletecache。usemessage queue。enddown5datadelayed。",
+    "author": "Wei Jiang",
+    "created_at": "2026-04-01",
+    "tags": [
+      "cache",
+      ""
+    ],
+    "note_id": "nc-4",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "title": "cache capacity planning",
+    "content": "cachedatavolume：userdataapproximately200MB，dataapproximately500MB，pricedataapproximately100MB。Rediscluster config：3primary3from，eachpoint4GBinternalstore。reserve50%internalstoreshouldtoincrease。",
+    "author": "Wei Jiang",
+    "created_at": "2026-04-02",
+    "tags": [
+      "cache",
+      "planning"
+    ],
+    "note_id": "nc-5",
+    "participants": [],
+    "duration_minutes": 0
+  }
+]

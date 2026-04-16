@@ -1,0 +1,52 @@
+[
+  {
+    "event_id": "evt_w08_01",
+    "title": "v2.2email",
+    "location": "",
+    "attendees": [
+      "Marketing Department"
+    ],
+    "description": "v2.2featureemail",
+    "organizer": "Marketing Department",
+    "start_time": "2026-04-01T09:00:00Z",
+    "end_time": "2026-04-01T10:00:00Z"
+  },
+  {
+    "event_id": "evt_w08_02",
+    "title": "v2.2",
+    "location": "Zoom",
+    "attendees": [
+      "Marketing Department",
+      "Engineering Department"
+    ],
+    "description": "feature",
+    "organizer": "Marketing Department",
+    "start_time": "2026-04-08T14:00:00Z",
+    "end_time": "2026-04-08T15:30:00Z"
+  },
+  {
+    "event_id": "evt_w08_03",
+    "title": "",
+    "location": "",
+    "attendees": [
+      "VIP"
+    ],
+    "description": "Q1",
+    "organizer": "Marketing Department",
+    "start_time": "2026-04-18T18:00:00Z",
+    "end_time": "2026-04-18T21:00:00Z"
+  },
+  {
+    "event_id": "evt_w08_04",
+    "title": "SaaS",
+    "location": "",
+    "attendees": [
+      "Marketing Department",
+      "Sales Department"
+    ],
+    "description": "",
+    "organizer": "Marketing Department",
+    "start_time": "2026-04-22T09:00:00Z",
+    "end_time": "2026-04-23T17:00:00Z"
+  }
+]

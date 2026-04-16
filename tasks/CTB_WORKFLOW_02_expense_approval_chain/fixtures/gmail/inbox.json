@@ -1,0 +1,62 @@
+[
+  {
+    "message_id": "msg_w02_01",
+    "thread_id": "tw02_01",
+    "from": "zhaoqiang@company.cn",
+    "to": [
+      "finance@company.cn"
+    ],
+    "subject": "reimbursementplease-",
+    "body": "Finance Department， pleasereimbursementor lessexpense：\n：\n：approximately\ndate：318-203days expense：\n- ：- 2400\n- ：2 x 580 = 1160standard600\n- ：3days x 200 = 600\n- ：350\n：4510 description：becausestandardscope。",
+    "date": "2026-03-25T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_w02_02",
+    "thread_id": "tw02_02",
+    "from": "liming@company.cn",
+    "to": [
+      "finance@company.cn"
+    ],
+    "subject": "procurementplease-Figma",
+    "body": "Finance Department， pleaseprocurementFigma，team。 expense：$75// x 5 x 12 = $4,500approximately32,000\napprovestatus：VP description：，featureimpactteam。",
+    "date": "2026-03-26T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_w02_03",
+    "thread_id": "tw02_03",
+    "from": "wangfang@company.cn",
+    "to": [
+      "finance@company.cn"
+    ],
+    "subject": "serverexpenseplease",
+    "body": "Finance Department， pleaseserverexpense：\n- server4units：8000/\n- 6：48,000\n- cause： VPapprove。",
+    "date": "2026-03-27T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_w02_04",
+    "thread_id": "tw02_04",
+    "from": "marketing@company.cn",
+    "to": [
+      "finance@company.cn"
+    ],
+    "subject": "expenseplease",
+    "body": "Finance Department， please4SaaS：\n- ：25,000\n- ：8,000\n- 3x2days：approximately6,000\n：39,000 budget。VPapprove。 Marketing Department",
+    "date": "2026-03-27T14:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  }
+]

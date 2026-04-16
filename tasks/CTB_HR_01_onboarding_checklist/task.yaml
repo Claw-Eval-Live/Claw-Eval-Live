@@ -1,0 +1,103 @@
+task_id: CTB_HR_01_onboarding_checklist
+task_name: Onboarding Checklist
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_HR_01_onboarding_checklist/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_HR_01_onboarding_checklist/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    As the HR Manager, please prepare the onboarding checklist for new employees joining next week.
+    
+    Requirements:
+    1. Check CRM/employee records for new hires starting next week
+    2. Review emails for any special onboarding requirements or requests
+    3. For each new employee, create a comprehensive onboarding checklist including:
+       - IT setup (laptop, email account, system access)
+       - HR paperwork (contracts, tax forms, benefits enrollment)
+       - Department-specific orientation schedule
+       - Buddy/mentor assignment
+       - First-week training plan
+    4. Identify any missing information or pending approvals
+    5. Generate a consolidated onboarding preparation report
+  language: en
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: List personnel records
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get personnel details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  Zhang Wei (EMP-101): Joins Engineering on Apr 1, Senior Developer. To-do: equipment (laptop, monitor), access badge, corporate email, mentor Li Ming, GitHub Enterprise, AWS permissions, code repo access. Training: Apr 1 AM company culture, PM IT security, Apr 2 department orientation.
+  Liu Yang (EMP-102): Joins Marketing on Apr 2, Marketing Manager. To-do: equipment (laptop), access badge, corporate email, CRM access, marketing budget system access. Training: Apr 1 AM company culture, PM IT security, Apr 2 department orientation.
+  Chen Jing (EMP-103): Joins Finance on Apr 3, Financial Analyst. To-do: equipment (laptop, calculator), access badge, corporate email, SAP access, bank USB key. Training: Apr 1 AM company culture, PM IT security, Apr 2 department orientation.
+primary_dimensions: [completion]

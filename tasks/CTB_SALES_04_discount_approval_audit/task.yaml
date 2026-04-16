@@ -1,0 +1,80 @@
+task_id: CTB_SALES_04_discount_approval_audit
+task_name: Discount Approval Compliance Audit
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_SALES_04_discount_approval_audit/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    As a Sales Compliance Auditor, please review all recent discount requests against the company's Discount Policy.
+
+    Steps:
+    1. Find and read the company's latest Discount Policy notification email
+    2. Read all discount request emails
+    3. For each request, perform a compliance check:
+       - Details: customer name, standard price, requested discount rate, discounted amount, requesting salesperson
+       - Whether the discount rate is within the salesperson's approval authority
+       - Whether there are any violations (e.g., new customer discount exceeding limit, missing ROI justification)
+    4. Produce an audit report including:
+       - Each request's compliance status (compliant / needs escalation for approval / violation)
+       - For violations: detailed explanation of the non-compliance reason
+       - Summary counts: compliant, needs escalation, and violation
+       - Processing recommendations
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: Get the list of emails
+    input_schema:
+      type: object
+      properties:
+        days_back: {type: integer, default: 7}
+      required: []
+  - name: gmail_get_message
+    description: Get email details
+    input_schema:
+      type: object
+      properties:
+        message_id: {type: string}
+      required: [message_id]
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/gmail/inbox.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  Discount Policy: ≤15%manager-level approval, 15-30%total, >30%needVP+ROIjustification; existing clientRenewal+5%; Newsingle≤20%
+  Huateng Group: 25%discount, needtotalapproval → needs escalationapproval(compliant,butneedtotal)
+  Jincheng Logistics: 20%discount, needtotalapproval → needs escalationapproval
+  Boyuan Consulting: 50%discount, exceed30%needVP+ROI → non-compliant(noROIjustification,discount ratehigh)
+  Mingdao Software: 12%Renewaldiscount, existing client+5%≤20%, manager can approve → compliant
+  Xingchen Education: 35%discount, Newsingle≤20%Upper Limit → non-compliant(exceedNewUpper Limitandexceed30%needVP)
+  compliant: 1(Mingdao), needs escalation: 2(Huateng、Jincheng), non-compliant: 2(Boyuan、Xingchen)
+
+primary_dimensions: [completion]

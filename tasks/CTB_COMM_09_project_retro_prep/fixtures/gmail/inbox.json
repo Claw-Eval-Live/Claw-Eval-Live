@@ -1,0 +1,62 @@
+[
+  {
+    "message_id": "msg_1501",
+    "thread_id": "thread_1501",
+    "from": "lina@our-company.cn",
+    "to": [
+      "pm-wang@our-company.cn"
+    ],
+    "subject": "Alpha Project Delay Cause Explanation",
+    "body": "Manager Wang,\n\nMain reasons for the Alpha project delay:\n1. Third-party API approval was delayed by 2 weeks\n2. Front-end integration testing found 15 blocking bugs\n3. Client changed 3 requirements mid-project\n\nSuggest focusing on the change management process during the retrospective.\n\nLi Na",
+    "date": "2026-03-24T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_1502",
+    "thread_id": "thread_1502",
+    "from": "zhangwei@our-company.cn",
+    "to": [
+      "pm-wang@our-company.cn"
+    ],
+    "subject": "Alpha Project Technical Debt Summary",
+    "body": "Manager Wang,\n\nTechnical issues:\n1. Unit test coverage is only 45% (target was 80%)\n2. 3 critical modules have no API documentation\n3. Deployment script is not automated enough, each release requires 12 manual steps\n\nSuggest discussing CI/CD improvement plans during the retrospective.\n\nZhang Wei",
+    "date": "2026-03-24T14:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_1503",
+    "thread_id": "thread_1503",
+    "from": "client-zhao@alpha-client.cn",
+    "to": [
+      "pm-wang@our-company.cn"
+    ],
+    "subject": "Re: Alpha Project Delivery Feedback",
+    "body": "Manager Wang,\n\nOverall satisfaction: 7/10. Some feedback:\n1. System performance met expectations\n2. However, delivery was delayed by 3 weeks, which impacted our launch plan\n3. Hope future projects can better manage changes\n\nMr. Zhao",
+    "date": "2026-03-25T09:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_1510",
+    "thread_id": "thread_1510",
+    "from": "hr@our-company.cn",
+    "to": [
+      "all@our-company.cn"
+    ],
+    "subject": "Next Month Social Insurance Notice",
+    "body": "Everyone, the social insurance contribution base will be adjusted next month.",
+    "date": "2026-03-26T09:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  }
+]

@@ -1,0 +1,79 @@
+task_id: CTB_CRM_08_segment_profitability
+task_name: Customer Segment Profitability Analysis
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_CRM_08_segment_profitability/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_CRM_08_segment_profitability/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Analyze customer segment profitability. Group CRM customers by tier (VIP / Standard / Basic), cross-reference with financial data to calculate each segment's revenue, cost, and profit margin, and identify the most profitable segment and the segment most in need of optimization.
+  language: en
+tools:
+  - name: crm_list_customers
+    description: List customers
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get customer details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+  - name: finance_list_transactions
+    description: List financial transactions
+    input_schema:
+      type: object
+      properties:
+        date_from:
+          type: string
+        date_to:
+          type: string
+      required: []
+tool_endpoints:
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/crm/customers.json
+    - fixtures/finance/transactions.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  VIP (Huading + Dongfang): Revenue 1.45M, Cost 520K, Profit 930K, Margin 64.1%. Standard (Xinyuan + Qingsong): Revenue 600K, Cost 150K, Profit 450K, Margin 75%. Basic (Qihang + Langshi): Revenue 245K, Cost 105K, Profit 140K, Margin 57.1%. Standard is most profitable; Basic needs optimization.
+primary_dimensions: [completion]

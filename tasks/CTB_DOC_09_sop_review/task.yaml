@@ -1,0 +1,105 @@
+task_id: CTB_DOC_09_sop_review
+task_name: SOP Review
+version: '1.0'
+category: document
+difficulty: medium
+services:
+- name: notes
+  command: python mock_services/notes/server.py
+  port: 9105
+  health_check: http://localhost:9105/notes/list
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9105/notes/reset
+  env:
+    NOTES_FIXTURES: tasks/CTB_DOC_09_sop_review/fixtures/notes/documents.json
+    ERROR_RATE: '0'
+- name: gmail
+  command: python mock_services/gmail/server.py
+  port: 9100
+  health_check: http://localhost:9100/gmail/messages
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9100/gmail/reset
+  env:
+    GMAIL_FIXTURES: tasks/CTB_DOC_09_sop_review/fixtures/gmail/inbox.json
+    ERROR_RATE: '0'
+prompt:
+  text: |
+    As a process-optimization consultant, please review the company's existing SOPs and propose improvement recommendations:
+
+    1. Retrieve all SOP documents from the notes system
+    2. Retrieve SOP execution feedback and reported issues from emails
+    3. For each SOP, flag execution problems, gaps versus actual practice, and missing steps
+    4. Propose specific improvement recommendations for each issue
+    5. Generate a prioritized SOP improvement list
+    6. Output the key points of the improved SOPs
+  language: en
+tools:
+- name: notes_list_documents
+  description: List note documents
+  input_schema:
+    type: object
+    properties:
+      tag:
+        type: string
+    required: []
+- name: notes_get_document
+  description: Get document details
+  input_schema:
+    type: object
+    properties:
+      note_id:
+        type: string
+    required:
+    - note_id
+- name: gmail_list_messages
+  description: List email messages
+  input_schema:
+    type: object
+    properties:
+      days_back:
+        type: integer
+        default: 7
+    required: []
+- name: gmail_get_message
+  description: Get email message details
+  input_schema:
+    type: object
+    properties:
+      message_id:
+        type: string
+    required:
+    - message_id
+tool_endpoints:
+- tool_name: notes_list_documents
+  url: http://localhost:9105/notes/list
+  method: POST
+- tool_name: notes_get_document
+  url: http://localhost:9105/notes/get
+  method: POST
+- tool_name: gmail_list_messages
+  url: http://localhost:9100/gmail/messages
+  method: POST
+- tool_name: gmail_get_message
+  url: http://localhost:9100/gmail/messages/get
+  method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+  - fixtures/notes/documents.json
+  - fixtures/gmail/inbox.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  3 SOP reviews:
+
+  Ticket SOP: P0 response missing on weekends, satisfaction only 15%, no escalation path, KB articles vague. Improvements: on-call rotation, multi-channel satisfaction survey, clear escalation path.
+
+  Release SOP: no rollback criteria defined, staging checklist incomplete, notification scope too narrow, 30-min monitoring window too short. Improvements: metric thresholds for rollback, add mobile testing, notify tech support, extend to 1 hour.
+
+  Onboarding SOP: 48h kickoff target unrealistic, data import time-consuming, training insufficient, no flagship-edition content. Improvements: dedicated SOP for enterprise clients, extend training to 4 hours.
+primary_dimensions:
+- completion

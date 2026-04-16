@@ -1,0 +1,57 @@
+[
+  {
+    "message_id": "msg_c24_01",
+    "thread_id": "thread_review",
+    "subject": "Product Review Meeting preparation materials",
+    "from": "Zhang Wei <zhangwei@company.com>",
+    "to": ["Project Team <project@company.com>"],
+    "date": "2026-03-25T09:00:00Z",
+    "body": "For the Product Review Meeting on March 30, please prepare the following materials: 1) Q1 User Growth Data Report 2) Competitive Analysis Document 3) Tech Architecture Proposal v2. Responsible persons are Li Ming, Zhao Li, and Wang Tao respectively.",
+    "is_read": true,
+    "labels": ["inbox"]
+  },
+  {
+    "message_id": "msg_c24_02",
+    "thread_id": "thread_review",
+    "subject": "Re: Product Review Meeting preparation materials",
+    "from": "Li Ming <liming@company.com>",
+    "to": ["Project Team <project@company.com>"],
+    "date": "2026-03-26T10:00:00Z",
+    "body": "The user growth report is completed. Q1 new users: 12,000, retention rate: 78%. Document has been uploaded to the shared drive.",
+    "is_read": true,
+    "labels": ["inbox"]
+  },
+  {
+    "message_id": "msg_c24_03",
+    "thread_id": "thread_review",
+    "subject": "Re: Product Review Meeting preparation materials",
+    "from": "Wang Tao <wangtao@company.com>",
+    "to": ["Project Team <project@company.com>"],
+    "date": "2026-03-27T08:00:00Z",
+    "body": "Tech Architecture Proposal v2 is still being revised. Expected completion by March 29. Need one extra day.",
+    "is_read": false,
+    "labels": ["inbox"]
+  },
+  {
+    "message_id": "msg_c24_04",
+    "thread_id": "thread_strategy",
+    "subject": "Strategy Planning Meeting agenda",
+    "from": "CEO Chen <ceochen@company.com>",
+    "to": ["Executive Team <exec@company.com>"],
+    "date": "2026-03-24T14:00:00Z",
+    "body": "For the Strategy Planning Meeting on April 1, all VPs please prepare department OKR completion status and Q2 key plans. Special focus on the overseas market expansion plan and AI product roadmap.",
+    "is_read": true,
+    "labels": ["inbox"]
+  },
+  {
+    "message_id": "msg_c24_05",
+    "thread_id": "thread_strategy",
+    "subject": "Re: Strategy Planning Meeting agenda",
+    "from": "Liu Yang <liuyang@company.com>",
+    "to": ["Executive Team <exec@company.com>"],
+    "date": "2026-03-26T16:00:00Z",
+    "body": "The overseas market plan draft has been sent to CEO Chen for review. Focus is on three Southeast Asian countries (Thailand, Vietnam, Indonesia). The AI roadmap is the responsibility of the Tech VP.",
+    "is_read": false,
+    "labels": ["inbox"]
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "note_id": "note_301",
+    "title": "DNSarchitecturedocument",
+    "content": "# DNSarchitecture ## CoreDNScluster\n- ：CoreDNS 1.11.1\n- deployment：3Pod， cn-east-node-01, cn-east-node-02, cn-east-node-03\n- ：Pod 512MBmemory，1CPU\n- cacheconfiguration：max_ttl=600s, min_ttl=30s, cache_size=10000 ## - ：10.0.1.53\n- ：114.114.114.114\n- strategy：，timeout3seconds ## standards\n- ：.internal.corp\n- ArecordTTLstandard：300seconds\n- SRVrecordTTLstandard：60seconds\n- database：db-master.internal.corp → 146.8.253.220\n- message queue：mq-broker.internal.corp → 10.0.5.200IP，2026-03-20migration\n- API：api.internal.corp → 146.8.253.100, 146.8.253.101 ## alertthreshold\n- DNS QPS > 2000 alert\n- latencyP99 > 100ms alert\n- cache < 60% alert\n- CoreDNS Podmemory > 80% alert",
+    "tags": [
+      "DNS",
+      "network",
+      "architecture"
+    ],
+    "created_at": "2026-03-15T10:00:00Z",
+    "updated_at": "2026-03-20T10:00:00Z",
+    "author": "networkArchitecture Team",
+    "participants": [
+      "",
+      ""
+    ],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_302",
+    "title": "3DNSrecord",
+    "content": "# 20263DNSlog ## 320\n- content：mq-broker.internal.corp Arecord10.0.5.100migration10.0.5.200\n- ：\n- approve：director\n- notes：record325delete ## 325AM02:00\n- content：executeDNSrecordTTLupdatescript\n- ：script\n- target：SRVrecordTTL120s60s\n- abnormal：scriptscope，db-master.internal.corpArecordTTL300s5s\n- status：rollback",
+    "tags": [
+      "DNS",
+      "record",
+      ""
+    ],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-27T10:00:00Z",
+    "author": "Ops Team",
+    "participants": [
+      "",
+      ""
+    ],
+    "duration_minutes": 0
+  }
+]

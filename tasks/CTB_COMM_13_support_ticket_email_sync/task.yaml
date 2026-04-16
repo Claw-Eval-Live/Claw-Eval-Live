@@ -1,0 +1,141 @@
+task_id: CTB_COMM_13_support_ticket_email_sync
+task_name: Support Ticket vs Email Sync Check
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_COMM_13_support_ticket_email_sync/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_COMM_13_support_ticket_email_sync/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    The support team manager needs you to check whether customer emails are in sync with CRM tickets.
+
+    1. Read all customer support emails (ignore non-customer emails)
+    2. Query CRM for each customer's existing tickets
+    3. Compare each email against its corresponding ticket:
+       - Email reports a new issue but CRM has no ticket -> needs creation
+       - Email issue does not match existing ticket -> needs update or creation
+       - Email confirms issue is resolved -> ticket can be closed
+    4. Create tasks in CRM for issues that need new tickets
+    5. Output a sync check report
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: List customers
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get customer details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+  - name: crm_search_customer
+    description: Search customers
+    input_schema:
+      type: object
+      properties:
+        email:
+          type: string
+      required: []
+  - name: crm_create_task
+    description: Create a ticket task
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        priority:
+          type: string
+      required: [customer_id, title]
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+  - tool_name: crm_search_customer
+    url: http://localhost:9110/crm/customers/search
+    method: POST
+  - tool_name: crm_create_task
+    url: http://localhost:9110/crm/tasks/create
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+
+scoring_components: []
+safety_checks: []
+expected_actions:
+  - service: crm
+    action_key: tasks
+    required: true
+
+reference_solution: |
+  Alpha: Email "crash" vs ticket "slow loading" -> mismatch, needs new high-priority ticket
+  Beta: Email "ERROR-4001" -> no ticket -> needs creation
+  Gamma: Email "already fixed" -> ticket resolved -> consistent
+  Delta: Email "permission configuration" -> no ticket -> needs creation
+  Need to create: 3 new tasks (Alpha, Beta, Delta)
+
+primary_dimensions: [completion]

@@ -1,0 +1,81 @@
+[
+  {
+    "title": "completedrequirementsdocumentationfixed",
+    "assignee": "Yang Liu",
+    "priority": "high",
+    "status": "done",
+    "due_date": "2026-04-01",
+    "estimated_hours": 8,
+    "tags": [
+      "requirements",
+      "documentation"
+    ],
+    "dependencies": [],
+    "task_id": "todo_001"
+  },
+  {
+    "title": "datadatabase table structuredesign",
+    "assignee": "Hao Sun",
+    "priority": "high",
+    "status": "in_progress",
+    "due_date": "2026-04-05",
+    "estimated_hours": 12,
+    "tags": [
+      "backend",
+      "datadatabase"
+    ],
+    "dependencies": [
+      "completedrequirementsdocumentationfixed"
+    ],
+    "task_id": "todo_002"
+  },
+  {
+    "title": "frontendpagedevelopment",
+    "assignee": "Li Huang",
+    "priority": "high",
+    "status": "todo",
+    "due_date": "2026-04-10",
+    "estimated_hours": 24,
+    "tags": [
+      "frontend",
+      "development"
+    ],
+    "dependencies": [
+      "datadatabase table structuredesign"
+    ],
+    "task_id": "todo_003"
+  },
+  {
+    "title": "API integration testingtesting",
+    "assignee": "Hao Sun",
+    "priority": "high",
+    "status": "todo",
+    "due_date": "2026-04-14",
+    "estimated_hours": 16,
+    "tags": [
+      "testing",
+      "integration testing"
+    ],
+    "dependencies": [
+      "frontendpagedevelopment",
+      "datadatabase table structuredesign"
+    ],
+    "task_id": "todo_004"
+  },
+  {
+    "title": "user acceptancetesting",
+    "assignee": "Yang Liu",
+    "priority": "medium",
+    "status": "todo",
+    "due_date": "2026-04-18",
+    "estimated_hours": 8,
+    "tags": [
+      "testing",
+      "acceptance"
+    ],
+    "dependencies": [
+      "API integration testingtesting"
+    ],
+    "task_id": "todo_005"
+  }
+]

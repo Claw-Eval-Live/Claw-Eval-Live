@@ -1,0 +1,24 @@
+{
+  "task_name": "CTB_PRODAPP_04_overdue_task_escalation",
+  "prompt": "checkpendingtasktable，findoutputplacehasOverdueoroverdue（3daysinternal）task。dateclosepeoplemembermeetingarrangeandnotesOverdue Escalation Process，aseachoverduetaskfixedescalateFangcase。output：overduetask、overdueoriginaldue toanalysis、escalatetoandrecommendationrun。",
+  "services": {
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    },
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    },
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

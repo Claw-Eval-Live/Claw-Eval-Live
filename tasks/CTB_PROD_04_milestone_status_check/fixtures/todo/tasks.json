@@ -1,0 +1,67 @@
+[
+  {
+    "task_id": "MS-001",
+    "title": "Requirements Freeze",
+    "status": "done",
+    "priority": "high",
+    "due_date": "2026-04-15",
+    "tags": [
+      "Q2",
+      "milestone"
+    ],
+    "assignee": "PM",
+    "created_at": "2026-03-01T10:00:00+08:00"
+  },
+  {
+    "task_id": "MS-002",
+    "title": "Core API Development",
+    "status": "in_progress",
+    "priority": "high",
+    "due_date": "2026-04-28",
+    "tags": [
+      "Q2",
+      "api"
+    ],
+    "assignee": "Zhang Wei",
+    "created_at": "2026-03-01T10:00:00+08:00"
+  },
+  {
+    "task_id": "MS-003",
+    "title": "UI Framework Setup",
+    "status": "blocked",
+    "priority": "high",
+    "due_date": "2026-04-25",
+    "tags": [
+      "Q2",
+      "ui"
+    ],
+    "assignee": "Li Na",
+    "created_at": "2026-03-01T10:00:00+08:00"
+  },
+  {
+    "task_id": "MS-004",
+    "title": "Alpha Release Integration",
+    "status": "pending",
+    "priority": "high",
+    "due_date": "2026-05-01",
+    "tags": [
+      "Q2",
+      "milestone"
+    ],
+    "assignee": "PM",
+    "created_at": "2026-03-01T10:00:00+08:00"
+  },
+  {
+    "task_id": "MS-005",
+    "title": "Beta Testing",
+    "status": "pending",
+    "priority": "medium",
+    "due_date": "2026-05-15",
+    "tags": [
+      "Q2",
+      "milestone"
+    ],
+    "assignee": "Zhao Lei",
+    "created_at": "2026-03-01T10:00:00+08:00"
+  }
+]

@@ -1,0 +1,148 @@
+task_id: CTB_PRODAPP_05_knowledge_article_audit
+task_name: CTB_PRODAPP_05_knowledge_article_audit
+version: '1.0'
+category: workflow
+difficulty: medium
+services:
+- name: calendar
+  command: python mock_services/calendar/server.py
+  port: 9101
+  health_check: http://localhost:9101/calendar/events
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9101/calendar/reset
+  env:
+    ERROR_RATE: '0'
+    CALENDAR_FIXTURES: tasks/CTB_PRODAPP_05_knowledge_article_audit/fixtures/calendar/events.json
+    CALENDAR_DISABLE_DATE_SHIFT: '1'
+- name: todo
+  command: python mock_services/todo/server.py
+  port: 9104
+  health_check: http://localhost:9104/todo/tasks
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9104/todo/reset
+  env:
+    ERROR_RATE: '0'
+    TODO_FIXTURES: tasks/CTB_PRODAPP_05_knowledge_article_audit/fixtures/todo/tasks.json
+- name: notes
+  command: python mock_services/notes/server.py
+  port: 9105
+  health_check: http://localhost:9105/notes/list
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9105/notes/reset
+  env:
+    ERROR_RATE: '0'
+    NOTES_FIXTURES: tasks/CTB_PRODAPP_05_knowledge_article_audit/fixtures/notes/meetings.json
+prompt:
+  text: |
+    Please audit the knowledge base articles in the notes system. Review to-do tasks to understand current team work directions, and check the calendar for recent review plans. Identify outdated, inaccurate, or missing articles. Output an audit report including: audit result for each article (current/outdated/needs update), specific issue descriptions, suggested update owners, and priority levels.
+  language: en
+tools:
+- name: calendar_list_events
+  description: Retrieve calendar events within a specified date range
+  input_schema:
+    type: object
+    properties:
+      date:
+        type: string
+        description: Start date (YYYY-MM-DD)
+      days:
+        type: integer
+        description: Number of days to view
+        default: 1
+    required:
+    - date
+- name: calendar_get_event
+  description: Description
+  input_schema:
+    type: object
+    properties:
+      event_id:
+        type: string
+        description: Event ID
+    required:
+    - event_id
+- name: todo_list_tasks
+  description: Description
+  input_schema:
+    type: object
+    properties:
+      status:
+        type: string
+        description: Filter by status
+        default: all
+    required: []
+- name: todo_update_task
+  description: Description
+  input_schema:
+    type: object
+    properties:
+      task_id:
+        type: string
+      status:
+        type: string
+      priority:
+        type: string
+    required:
+    - task_id
+- name: notes_list
+  description: Priority level
+  input_schema:
+    type: object
+    properties:
+      max_results:
+        type: integer
+        description: Maximum number of results to return
+        default: 10
+    required: []
+- name: notes_get
+  description: Description
+  input_schema:
+    type: object
+    properties:
+      note_id:
+        type: string
+        description: Note ID
+    required:
+    - note_id
+tool_endpoints:
+- tool_name: calendar_list_events
+  url: http://localhost:9101/calendar/events
+  method: POST
+- tool_name: calendar_get_event
+  url: http://localhost:9101/calendar/events/get
+  method: POST
+- tool_name: todo_list_tasks
+  url: http://localhost:9104/todo/tasks
+  method: POST
+- tool_name: todo_update_task
+  url: http://localhost:9104/todo/tasks/update
+  method: POST
+- tool_name: notes_list
+  url: http://localhost:9105/notes/list
+  method: POST
+- tool_name: notes_get
+  url: http://localhost:9105/notes/get
+  method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+  - fixtures/calendar/events.json
+  - fixtures/todo/tasks.json
+  - fixtures/notes/meetings.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  1. Payment System Deploy Manual (note_p05a): OUTDATED -- references v2.0 but v3.0 migration in progress
+  2. Monitoring System Guide (note_p05b): OUTDATED -- references Zabbix 4.0, new monitoring platform being built
+  3. API Spec v3.0 (note_p05c): CURRENT -- recently updated (2026-03-01), no update needed
+  4. New Employee Onboarding Guide (note_p05d): OUTDATED -- references payment-v2 and zabbix-old URLs
+  5. Responsible: Wang Qiang for payment system doc, Chen Lei for monitoring doc, Zhang Wei for onboarding guide
+  6. Payment and monitoring docs are high priority; onboarding guide is medium priority
+  7. Update plan with owners, priorities, and action items per document
+primary_dimensions:
+- completion

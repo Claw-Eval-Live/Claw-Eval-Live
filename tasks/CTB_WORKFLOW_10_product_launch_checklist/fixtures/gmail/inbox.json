@@ -1,0 +1,47 @@
+[
+  {
+    "message_id": "msg_l01",
+    "thread_id": "tl01",
+    "from": "wangfang@company.cn",
+    "to": [
+      "liming@company.cn"
+    ],
+    "subject": "v2.2releasestatus",
+    "body": "， v2.2releasestatus： completed：\n- feature：(42)\n- ：2CVEfix\n- Stagingdeployment：48hours\n- rollbacksolution：preparation completed：\n- releasedescriptiondocumentteam\n- monitoringthresholddayscompleted\n- releaseplan329 risk：\n- featureconnectionpossibly，solutionv2.3fix recommendationplan32910release。",
+    "date": "2026-03-28T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_l02",
+    "thread_id": "tl02",
+    "from": "cs@company.cn",
+    "to": [
+      "liming@company.cn"
+    ],
+    "subject": "v2.2releaseplan",
+    "body": "， plan：\n1. release：notificationVIP、、releasetimeupdatecontent\n2. release：releaseemail\n3. trainingschedule：4\n4. ：timesupdate、approximately",
+    "date": "2026-03-28T14:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_l03",
+    "thread_id": "tl03",
+    "from": "devops@company.cn",
+    "to": [
+      "dev-team@company.cn"
+    ],
+    "subject": "v2.2deploymentplan",
+    "body": "team， v2.2deploymentplan329： 09:30 09:45 10:00 10%30minutes\n10:30 50%30minutes\n11:00 release\n11:00-12:00 durationmonitoring\n12:00 confirmreleasesucceeded/rollback rollback：release2hours DevOps",
+    "date": "2026-03-28T16:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": false
+  }
+]

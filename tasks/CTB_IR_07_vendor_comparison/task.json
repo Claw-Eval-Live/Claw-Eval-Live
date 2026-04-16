@@ -1,0 +1,15 @@
+{
+  "task_id": "CTB_IR_07",
+  "task_name": "vendor_comparison",
+  "task_description": "Search for and compare major domestic cloud computing vendors, evaluating them across dimensions such as performance, pricing, security, and service support, then generate a vendor comparison report.",
+  "prompt": "Please search for the latest product information and user reviews of major domestic cloud computing vendors in 2026 (Alibaba Cloud, Tencent Cloud, Huawei Cloud, CTYun, etc.), and conduct a comparative evaluation across the following dimensions: 1) Computing performance and availability; 2) Pricing structure and cost-effectiveness; 3) Security and compliance capabilities; 4) Technical support and service responsiveness. Please generate a detailed vendor comparison report with recommended rankings.",
+  "services": [
+    {
+      "service_name": "web",
+      "port": 9113,
+      "env_variable": "WEB_FIXTURES",
+      "error_rate": "0"
+    }
+  ],
+  "primary_dimensions": ["completion"]
+}

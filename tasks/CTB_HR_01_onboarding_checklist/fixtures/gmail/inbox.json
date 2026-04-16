@@ -1,0 +1,57 @@
+[
+  {
+    "message_id": "msg_hr01_001",
+    "thread_id": "thread_hr01_001",
+    "subject": "employeeonboardingnotice - Zhang Wei（Engineering）",
+    "from": "recruit@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-24T09:00:00Z",
+    "body": "HR Department，\n\nemployeeZhang Weiwill202641onboardingEngineering，high。pleaseor below：\n1. please（laptop、）\n2. access card\n3. \n4. departmentmentor（recommendation：）\n\nZhang WeiisEMP-101。\n\nthank you！\nrecruitment Wang Fang",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr01_002",
+    "thread_id": "thread_hr01_002",
+    "subject": "employeeonboardingnotice - Liu Yang（Marketing）",
+    "from": "recruit@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-24T10:30:00Z",
+    "body": "HR Department，\n\nemployeeLiu Yangwill202642onboardingMarketing，manager。pleaseor below：\n1. please（laptop）\n2. access card\n3. \n4. CRMpermission\n5. permission\n\nLiu YangisEMP-102。\n\nthank you！\nrecruitment Wang Fang",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr01_003",
+    "thread_id": "thread_hr01_003",
+    "subject": "employeeonboardingnotice - Chen Jing（Finance）",
+    "from": "recruit@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-24T14:00:00Z",
+    "body": "HR Department，\n\nemployeeChen Jingwill202643onboardingFinance，Financial Analyst。pleaseor below：\n1. please（laptop、）\n2. access card\n3. \n4. SAPpermission\n5. Uplease\n\nChen JingisEMP-103。\n\nthank you！\nrecruitment Wang Fang",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr01_004",
+    "thread_id": "thread_hr01_004",
+    "subject": "onboarding trainingreminder",
+    "from": "training@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-25T08:00:00Z",
+    "body": "HR，\n\nplease4employeeonboarding training：\n- 41：companypolicytraining（employee）\n- 41：ITtraining（employee）\n- 42：departmenttraining\n\npleasehasemployeereceivedtrainingnotice。\n\ntraining Zhao Lei",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr01_005",
+    "thread_id": "thread_hr01_005",
+    "subject": "Zhang Weionboarding",
+    "from": "tech_lead@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-25T11:00:00Z",
+    "body": "HR，\n\nZhang Weionboarding，Engineeringneed：\n1. GitHubaccount\n2. AWSpermissionplease\n3. permission\n\n，Zhang Weimentorconfirmis。\n\n ",
+    "is_read": false,
+    "labels": []
+  }
+]

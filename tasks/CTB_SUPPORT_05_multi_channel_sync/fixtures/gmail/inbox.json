@@ -1,0 +1,52 @@
+[
+  {
+    "message_id": "msg_1001",
+    "thread_id": "thread_1001",
+    "subject": "System login issue",
+    "from": "zhangsan@clientX.com",
+    "to": "support@company.com",
+    "date": "2026-03-20T08:00:00Z",
+    "body": "Hello, several users in our company are unable to log in to the system today, getting an account locked message. Please handle this as soon as possible.\n\nZhang San\nStellar Tech",
+    "is_read": true
+  },
+  {
+    "message_id": "msg_1002",
+    "thread_id": "thread_1002",
+    "subject": "Urgent: Data import failure",
+    "from": "wangwu@clientY.com",
+    "to": "support@company.com",
+    "date": "2026-03-21T10:00:00Z",
+    "body": "Hello, we tried to import March sales data but the system keeps showing an error: field format mismatch. We have tried reformatting according to the template but the error persists. Please assist urgently.\n\nWang Wu\nEvergreen Trading",
+    "is_read": true
+  },
+  {
+    "message_id": "msg_1003",
+    "thread_id": "thread_1003",
+    "subject": "Report export anomaly",
+    "from": "liuqi@clientZ.com",
+    "to": "support@company.com",
+    "date": "2026-03-23T14:00:00Z",
+    "body": "The quarterly report exported from your system shows all Q1 data as 0, which is clearly incorrect. Please check the report generation functionality.\n\nLiu Qi\nGrand Logistics",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_1004",
+    "thread_id": "thread_1004",
+    "subject": "Mobile app unusable",
+    "from": "chenba@clientW.com",
+    "to": "support@company.com",
+    "date": "2026-03-25T09:00:00Z",
+    "body": "Our sales team needs the mobile app while traveling, but after a recent update the app crashes immediately, severely impacting business operations.\n\nChen Ba\nVision Consulting",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_1005",
+    "thread_id": "thread_1005",
+    "subject": "API call issue",
+    "from": "zhaojiu@clientV.com",
+    "to": "support@company.com",
+    "date": "2026-03-26T11:00:00Z",
+    "body": "Our system integration API has been returning a large number of timeout errors since yesterday, with an error rate of approximately 40%. Please handle this urgently.\n\nZhao Jiu\nSmart Link Data",
+    "is_read": false
+  }
+]

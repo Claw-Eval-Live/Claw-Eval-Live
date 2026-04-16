@@ -1,0 +1,54 @@
+task_id: CTB_FIN_29_budget_reforecast
+task_name: Budget Reforecast
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_FIN_29_budget_reforecast/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Please reforecast the H2 budget based on H1 actual performance. Requirements:
+    1. List each department and line item's H1 budget, H1 actual, and variance
+    2. Calculate the H1 execution rate for each item (actual / budget)
+    3. Adjust the H2 budget based on the H1 execution rate (H2 reforecast = H2 original budget x H1 execution rate)
+    4. Calculate the full-year reforecast total (H1 actual + H2 reforecast)
+    5. Identify the budget item with the most severe overrun (highest H1 variance rate)
+  language: en
+tools:
+  - name: finance_list_transactions
+    description: Retrieve financial transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date:
+          type: string
+      required: []
+tool_endpoints:
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/finance/transactions.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  H1 actual total = 1,150K + 420K + 2,100K + 350K + 950K + 380K + 185K + 150K = 5,685K.
+  H1 budget total = 1,200K + 300K + 2,000K + 500K + 800K + 400K + 200K + 150K = 5,550K.
+  Most severe overrun: Sales travel expenses (execution rate 140% = 420K / 300K).
+  Marketing advertising execution rate 118.75%. R&D personnel costs execution rate 105%.
+  H2 reforecast: travel = 300K x 1.4 = 420K, advertising = 800K x 1.1875 = 950K, etc.
+  Full-year reforecast total = H1 actual 5,685K + H2 adjusted ~ 11,370K.
+primary_dimensions: [completion]

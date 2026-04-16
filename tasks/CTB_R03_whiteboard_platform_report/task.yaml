@@ -1,0 +1,131 @@
+task_id: CTB_R03_whiteboard_platform_report
+task_name: Whiteboard Platform Selection Report
+version: "1.0"
+category: research
+difficulty: medium-hard
+
+services:
+  - name: web
+    command: python mock_services/web/server.py
+    port: 9113
+    health_check: http://localhost:9113/web/health
+    health_check_method: GET
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9113/web/reset
+    env:
+      WEB_SEARCH_FIXTURES: tasks/CTB_R03_whiteboard_platform_report/fixtures/web/search_results.json
+      WEB_FETCH_FIXTURES: tasks/CTB_R03_whiteboard_platform_report/fixtures/web/pages.json
+
+prompt:
+  text: |
+    We are a design and product team distributed across Europe, the Americas, and Asia, planning to replace our current commercial whiteboard tool with an open-source self-hosted solution.
+
+    This is not an open-ended web search — the evaluation is based on mock web materials from an internal shortlist.
+
+    There are only 3 candidates on the shortlist:
+    - BoardFlow
+    - CanvasGrid
+    - SyncSlate
+
+    Please research only these 3 candidates and produce a structured selection report. Do not introduce tool names outside the shortlist.
+
+    The evaluation dimensions must cover:
+    1. Concurrency and real-time collaboration
+       - Whether 50+ concurrent editing is supported
+       - WebSocket / CRDT / collaboration model
+    2. Deployment and architecture
+       - Storage backend
+       - Self-hosting complexity
+       - Docker / Kubernetes compatibility
+    3. Community and operational maturity
+       - Stars / release cadence
+       - Security patch response time
+       - Operational complexity
+    4. GDPR / data sovereignty
+       - Data residency controls
+       - Audit logs
+       - Encryption / compliance risks
+
+    Output requirements:
+    - Write the report in Markdown
+    - Must include at least:
+      - Executive summary
+      - Candidate comparison table
+      - Compliance risk assessment section
+      - A deployment decision tree (can use Mermaid or text tree)
+      - Primary recommendation + backup recommendation + not-recommended option
+      - Phased rollout roadmap
+
+    Notes:
+    - Do not merely list information — provide clear recommendation reasoning
+    - Conclusions must target the scenario of "50+ concurrent editors + EU member data localization"
+  language: en
+
+tools:
+  - name: web_search
+    description: Search the internet and return a list of relevant web page results
+    input_schema:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Search keywords or query string
+        max_results:
+          type: integer
+          description: Maximum number of results to return
+          default: 10
+      required: [query]
+
+  - name: web_fetch
+    description: Fetch the full content of a web page at the specified URL
+    input_schema:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the web page to fetch
+        timeout_seconds:
+          type: integer
+          description: Request timeout in seconds
+          default: 30
+      required: [url]
+
+tool_endpoints:
+  - tool_name: web_search
+    url: http://localhost:9113/web/search
+    method: POST
+  - tool_name: web_fetch
+    url: http://localhost:9113/web/fetch
+    method: POST
+
+environment:
+  timeout_seconds: 420
+  max_turns: 24
+  fixtures:
+    - fixtures/web/search_results.json
+    - fixtures/web/pages.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  1. Candidates must cover at least:
+     - BoardFlow
+     - CanvasGrid
+     - SyncSlate
+  2. Recommended conclusion:
+     - BoardFlow as primary choice
+     - CanvasGrid as backup choice
+     - SyncSlate not recommended for priority adoption
+  3. Key evidence should reflect:
+     - BoardFlow: CRDT + PostgreSQL + object storage, 120 concurrent editors, region pinning, audit log, 7.2k stars, monthly releases, patches avg 4 days
+     - CanvasGrid: OT + Redis streams, 60 concurrent editors, EU data residency plugin beta, 4.8k stars, quarterly releases, patches avg 16 days
+     - SyncSlate: single-node relay, 35 concurrent editors, no region pinning, no audit log, 2.1k stars, only 2 releases in past 12 months
+  4. Report should include:
+     - GDPR / data sovereignty analysis
+     - Decision tree
+     - Phased rollout roadmap
+     - Multi-region deployment recommendations / data replication strategy
+
+primary_dimensions: [completion, communication]

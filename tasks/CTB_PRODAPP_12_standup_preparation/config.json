@@ -1,0 +1,24 @@
+{
+  "task_name": "CTB_PRODAPP_12_standup_preparation",
+  "prompt": "asdays（4month3date）standuppreparationmaterials。pendingtaskstatus、datestanduprecordandtechnicalnotes、withanddatedatearrange，aseachteamcompletemembercompletestandup，：datecompleted、dateplanning、blockedaskissueandneeddiscussionitem。withJSONformatreturn，standup_items（eachpeopleitems，member、yesterday、today、blockerssegment）anddiscussion_topicssegment。",
+  "services": {
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    },
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    },
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

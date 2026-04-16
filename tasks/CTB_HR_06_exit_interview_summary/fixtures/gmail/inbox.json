@@ -1,0 +1,57 @@
+[
+  {
+    "message_id": "msg_hr06_001",
+    "thread_id": "thread_hr06_001",
+    "subject": "exit interview - （Engineering）",
+    "from": "hr_partner@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-18T09:00:00Z",
+    "body": "HR，\n\nor belowis（EMP-501）exit interview：\n\ndeparture reason：compensation。receivedoffer，salaryincrease rate35%。\n：23\ncompany：，butsalary。\nrecommendation：recommendationEstablish a market salary benchmarking mechanism，salary。\n\nHRBP ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr06_002",
+    "thread_id": "thread_hr06_002",
+    "subject": "exit interview - Zhang Min（Marketing）",
+    "from": "hr_partner@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-19T10:00:00Z",
+    "body": "HR，\n\nZhang Min（EMP-502）exit interview：\n\ndeparture reason：。Marketing Specialistposition2not yetpromotion。\n：21\ncompany：team，butpromotion。\nrecommendation：recommendationgrade，promotionstandard。\n\nHRBP ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr06_003",
+    "thread_id": "thread_hr06_003",
+    "subject": "exit interview - （Engineering）",
+    "from": "hr_partner@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-20T09:00:00Z",
+    "body": "HR，\n\n（EMP-503）exit interview：\n\ndeparture reason：。overtime（overtime60），issue。\n：18\ncompany：projecthas，but。\nrecommendation：overtime，。\n\nHRBP ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr06_004",
+    "thread_id": "thread_hr06_004",
+    "subject": "exit interview - （Finance）",
+    "from": "hr_partner@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-21T14:00:00Z",
+    "body": "HR，\n\n（EMP-504）exit interview：\n\ndeparture reason：compensationlow。positionsalaryhigh20%。\n：12\ncompany：，butbenefitsnormal。\nrecommendation：compensation，benefitsproject（）。\n\nHRBP ",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr06_005",
+    "thread_id": "thread_hr06_005",
+    "subject": "exit interview - （Product）",
+    "from": "hr_partner@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-22T09:00:00Z",
+    "body": "HR，\n\n（EMP-505）exit interview：\n\ndeparture reason：。AI，companynoposition。\n：15\ncompany：，but。\nrecommendation：，transfer。\n\nHRBP ",
+    "is_read": false,
+    "labels": []
+  }
+]

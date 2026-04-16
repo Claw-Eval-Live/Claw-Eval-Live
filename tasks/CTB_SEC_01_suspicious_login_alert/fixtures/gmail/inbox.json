@@ -1,0 +1,62 @@
+[
+  {
+    "message_id": "msg_sec01_01",
+    "thread_id": "thread_sec01_01",
+    "subject": "【Security Alert】AnomalyLogindetection - use wang.lei@techstar.cn",
+    "from": "security-alert@techstar.cn",
+    "to": ["soc@techstar.cn"],
+    "date": "2026-03-25T02:15:00Z",
+    "body": "Security AlertNotification\n\ndetectiontoAnomalyLoginas：\nuse：wang.lei@techstar.cn\nTime：2026-03-25 02:13:08 UTC\nsourceIP：185.220.101.34\nLocation：Russia \n：not Linux/Firefox\nLoginStatus：Successful\n\ntheuseuseLogin：in Beijing\nmostNormalLogin：2026-03-24 18:30:00 UTC（Beijing）\n\npleasecheck。",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_sec01_02",
+    "thread_id": "thread_sec01_02",
+    "subject": "【Security Alert】AnomalyLogindetection - use zhang.min@techstar.cn",
+    "from": "security-alert@techstar.cn",
+    "to": ["soc@techstar.cn"],
+    "date": "2026-03-25T03:42:00Z",
+    "body": "Security AlertNotification\n\ndetectiontoAnomalyLoginas：\nuse：zhang.min@techstar.cn\nTime：2026-03-25 03:40:22 UTC\nsourceIP：185.220.101.34\nLocation：Russia \n：not Linux/Firefox\nLoginStatus：Successful\n\ntheuseuseLogin：in Shanghai\nmostNormalLogin：2026-03-24 17:45:00 UTC（Shanghai）\n\npleasecheck。",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_sec01_03",
+    "thread_id": "thread_sec01_03",
+    "subject": "【Security Alert】multipletimesLoginfailed - use li.na@techstar.cn",
+    "from": "security-alert@techstar.cn",
+    "to": ["soc@techstar.cn"],
+    "date": "2026-03-25T04:10:00Z",
+    "body": "Security AlertNotification\n\ndetectiontomultipletimesLoginfailed：\nuse：li.na@techstar.cn\nTime Range：2026-03-25 03:55:00 - 04:08:00 UTC\nfailedtimescount：17times\nsourceIP：91.240.118.72\nLocation： \n：not\nFinal Status：Account Locked\n\ntheuseuseLogin：in Shenzhen\n\npleasecheck。",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_sec01_04",
+    "thread_id": "thread_sec01_04",
+    "subject": "【Security Alert】AnomalyLogindetection - use chen.wei@techstar.cn",
+    "from": "security-alert@techstar.cn",
+    "to": ["soc@techstar.cn"],
+    "date": "2026-03-25T06:30:00Z",
+    "body": "Security AlertNotification\n\ndetectiontoAnomalyLoginas：\nuse：chen.wei@techstar.cn\nTime：2026-03-25 06:28:15 UTC\nsourceIP：203.198.45.67\nLocation：in \n：MacBook Pro / Chrome 125\nLoginStatus：Successful\n\ntheuseuseLogin：in Guangzhou\nmostNormalLogin：2026-03-25 01:00:00 UTC（Guangzhou）\n\n：theusehasexit。",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_sec01_05",
+    "thread_id": "thread_sec01_05",
+    "subject": "【Security Alert】VPNAnomalyConnection - use wang.lei@techstar.cn",
+    "from": "security-alert@techstar.cn",
+    "to": ["soc@techstar.cn"],
+    "date": "2026-03-25T02:45:00Z",
+    "body": "Security AlertNotification\n\ndetectiontoVPNAnomalyConnection：\nuse：wang.lei@techstar.cn\nTime：2026-03-25 02:30:00 UTC\nsourceIP：185.220.101.34\nVPNConnection Target：Internal Code Repository git.techstar.cn\ndata：2.3 GB\nrepository：core-payment-service, user-auth-module, api-gateway\n\nAnomalycharacteristics：Timelargecode。",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_sec01_06",
+    "thread_id": "thread_sec01_06",
+    "subject": "ITdepartmentNotification - VPNSystemUpgrade",
+    "from": "it-ops@techstar.cn",
+    "to": ["all@techstar.cn"],
+    "date": "2026-03-24T10:00:00Z",
+    "body": "same，\n\n（3month28day）willenterVPNSystemUpgrade，VPNServicewill4small。pleasebefore。\n\nITOperationsdepartment",
+    "is_read": true
+  }
+]

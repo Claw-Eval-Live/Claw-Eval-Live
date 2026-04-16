@@ -1,0 +1,20 @@
+{
+  "task_name": "CTB_PRODAPP_13_delegation_review",
+  "prompt": "checkbeforetask。Feng Lintaskwork hoursas32hours，4month4datehasfulldaysmeeting，。analysissometaskcanwithgiveFan YangorYu He，hasanddatearrange。withJSONformatreturn，overloaded_member、delegation_suggestions（eachitemstask、from、to、reason）andrevised_workloadsegment。",
+  "services": {
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    },
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

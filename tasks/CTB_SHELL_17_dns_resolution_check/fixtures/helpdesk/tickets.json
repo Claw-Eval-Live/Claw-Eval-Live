@@ -1,0 +1,82 @@
+[
+  {
+    "ticket_id": "TK-301",
+    "subject": "user api.internal.corp timeout",
+    "description": "325，team api.internal.corp DNSfailed，errorinformation NXDOMAIN SERVFAIL。failureapproximately30minutestimes，duration2-3minutesrecovery。impactnode(cn-east-node-01, cn-east-node-02)。CoreDNSlog 10.0.1.53 timeout。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-25T08:00:00Z",
+    "updated_at": "2026-03-27T14:00:00Z",
+    "reporter": "networkmonitoring",
+    "assignee": "",
+    "category": "DNSfailure",
+    "comments": [
+      {
+        "author": "",
+        "text": "confirmCoreDNS Podmemory92%，cache85%47%",
+        "created_at": "2026-03-27T14:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-302",
+    "subject": "db-master.internal.corp DNS TTLabnormal",
+    "description": "database db-master.internal.corp DNSrecordTTL5secondsnormal300seconds，causedDNS。monitoringDNS QPS2003500。impactdependencyservice。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-26T10:00:00Z",
+    "updated_at": "2026-03-27T11:00:00Z",
+    "reporter": "DBAteam",
+    "assignee": "",
+    "category": "DNSconfiguration",
+    "comments": [
+      {
+        "author": "DBAteam",
+        "text": "325AMexecuteDNSrecordupdatescript，possiblyTTL",
+        "created_at": "2026-03-27T11:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-303",
+    "subject": "mq-broker.internal.corp errorIP",
+    "description": "message queue mq-broker.internal.corp IP 10.0.5.100IP10.0.5.200。causedproducerconnectionreject。impacthandle，approximately12000records。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-27T06:00:00Z",
+    "updated_at": "2026-03-27T09:00:00Z",
+    "reporter": "monitoringsystem",
+    "assignee": "",
+    "category": "DNSerror",
+    "comments": [
+      {
+        "author": "",
+        "text": "DNSrecordcleanup，Arecord10.0.5.100，record10.0.5.200",
+        "created_at": "2026-03-27T09:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-304",
+    "subject": "payment-gateway.example.com latency",
+    "description": "payment-gateway.example.com DNSlatency5ms800ms。dig6。DNSserver 8.8.8.8 performanceissue。impactsucceeded3.2%。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T07:00:00Z",
+    "updated_at": "2026-03-27T12:00:00Z",
+    "reporter": "team",
+    "assignee": "",
+    "category": "DNSperformance",
+    "comments": [
+      {
+        "author": "",
+        "text": "recommendationDNScacheserver 114.114.114.114",
+        "created_at": "2026-03-27T12:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

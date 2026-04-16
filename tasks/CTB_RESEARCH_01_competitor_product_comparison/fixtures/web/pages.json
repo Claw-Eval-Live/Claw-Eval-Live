@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://www.feishu.cn/product/overview",
+    "title": "Feishu - productfeatureintroduction",
+    "content": "Feishuisoutputcollaborationplatform。\n\ncorefeature：\n- ：support、、message read receipt、message recall\n- videomeeting：maximumsupport500people，support、、meetingrecording、AIreal-time\n- documentationcollaboration：onlinedocumentation、spreadsheet、mind map，supportmultipeoplereal-timesameediting\n- approval workflow：selffixedapprovaltemplate，mobileapproval\n- OKRmanagement：itemto、progress tracking\n- openplaceplatform：APIcountpass800，supportselffixeddevicepeople\n\npricing：\n- standardsedition：free（50peoplewithdown）\n- commercialedition：50yuan/people/month\n- flagshipedition：100yuan/people/month\n\nstrength：degreeintegrationAIcapability，documentationcollaboration\nweakness：externalsupporthaslimit，datastoreatinternal",
+    "date": "2026-03-20"
+  },
+  {
+    "url": "https://work.weixin.qq.com/features",
+    "title": "WeCom - feature",
+    "content": "WeComisTencentoutputandtool。\n\ncorefeature：\n- ：and，support（maximum2000people）、\n- videomeeting：maximumsupport300people，support、\n- documentationcollaboration：Tencentdocumentationintegration，supportonlineediting\n- clientcontact：canaddclient，authentication\n- approval workflow：selffixedprocess，mobileapproval\n- openplaceplatform：APIcountpass500\n\npricing：\n- basicedition：free\n- standardsedition：30yuan/people/month\n- highleveledition：60yuan/people/month\n\nstrength：and，clientmanagementcapability，usernumberlarge\nweakness：documentationcollaborationcapabilityFeishu，AIfeaturefew",
+    "date": "2026-03-20"
+  },
+  {
+    "url": "https://www.dingtalk.com/solution",
+    "title": "DingTalk - Fangcaseintroduction",
+    "content": "DingTalkisoutputnumberplatform。\n\ncorefeature：\n- ：support、（maximum10000people）、DINGguaranteed message delivery\n- videomeeting：maximumsupport302people，support、minutes\n- documentationcollaboration：DingTalkdocumentation，supportonlinesame\n- approval workflow：approval，support400+template\n- Project Management：built-inProject Managementtool（DingTalkproject）\n- codeplatform：Yida Low-code Platform，canset upshoulduse\n- openplaceplatform：APIcountpass1200\n\npricing：\n- freeedition：basicfeature\n- professionaledition：9.8yuan/people/month\n- dedicatededition：datarequirementscustom\n\nstrength：price，andAlibaba Clouddegreeintegration，codecapability\nweakness：usergeneral，internationalizationdegree",
+    "date": "2026-03-20"
+  },
+  {
+    "url": "https://www.huaweicloud.com/product/welink.html",
+    "title": "HuaweiWeLink - productintroduction",
+    "content": "HuaweiWeLinkisHuaweioutputplatform。\n\ncorefeature：\n- ：support、、message encryption\n- videomeeting：HuaweiCloudLink，maximumsupport1000people，4Kimage quality\n- documentationcollaboration：Huawei Clouddocumentation，supportonlineediting\n- approval workflow：selffixedapproval\n- AIassistant：smallAIassistant\n- securityauthentication：passedlevelauthentication\n- openplaceplatform：APIcountapproximately300\n\npricing：\n- basicedition：free（100peoplewithdown）\n- commercialedition：25yuan/people/month\n- flagshipedition：80yuan/people/month\n\nstrength：securitylevelhigh，videomeeting，client\nweakness：openplacedegree，APIcountfew，Fangintegrationhaslimit",
+    "date": "2026-03-20"
+  }
+]

@@ -1,0 +1,103 @@
+task_id: CTB_SALES_07_cross_sell_opportunity
+task_name: Cross-sell Opportunity Mining
+version: "1.0"
+category: workflow
+difficulty: medium
+
+services:
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_SALES_07_cross_sell_opportunity/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_SALES_07_cross_sell_opportunity/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    As a Sales Strategy Analyst, please analyze existing customers for cross-sell opportunities.
+
+    Company product portfolio: ERP Basic, ERP Advanced, CRM System, HR System, Logistics Management System, Online Learning Platform, Data Analytics Platform, Supply Chain Management System.
+
+    Steps:
+    1. From the CRM, retrieve all customers and their purchased products (check the notes field)
+    2. From the finance system, retrieve each customer's spending history
+    3. Analyze each customer:
+       - Currently purchased products
+       - Total spending amount
+       - Industry and company scale
+       - Recommended cross-sell products with rationale
+    4. Produce a cross-sell opportunity report:
+       - Per customer: name, current products, spending, recommended products, estimated revenue, recommendation rationale
+       - Total estimated cross-sell revenue
+       - byprioritysorting（highValuecustomerpriority）
+  language: en
+
+tools:
+  - name: crm_list_customers
+    description: Get the list of customers
+    input_schema:
+      type: object
+      properties:
+        status: {type: string}
+      required: []
+  - name: crm_get_customer
+    description: Get customer details
+    input_schema:
+      type: object
+      properties:
+        customer_id: {type: string}
+      required: [customer_id]
+  - name: finance_list_transactions
+    description: Get transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date: {type: string}
+      required: []
+
+tool_endpoints:
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/crm/customers.json
+    - fixtures/finance/transactions.json
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+reference_solution: |
+  Customer spending summary:
+    Yintai Holdings: 1800K(1200K+400K+200K), PurchasedERPAdvanced+HR → recommendCRM/dataAnalysis
+    Dahua Group: 920K(800K+120K), PurchasedERP → recommendERPUpgrade/HR/
+    New: 58.50K(500K+8.50K), PurchasedCRM → recommenddataAnalysis/
+    Tongda Logistics: 350K, Purchased → recommend/ERP
+    Kaide Education: 230K(200K+30K), PurchasedLearning Platform → recommendHR/dataAnalysis
+  priority: Yintai>large>New>>Kaide
+
+primary_dimensions: [completion]

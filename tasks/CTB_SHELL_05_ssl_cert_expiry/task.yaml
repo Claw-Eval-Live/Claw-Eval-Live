@@ -1,0 +1,100 @@
+task_id: CTB_SHELL_05_ssl_cert_expiry
+task_name: SSL Certificate Expiry Check
+version: '1.0'
+category: workflow
+difficulty: medium
+services:
+- name: helpdesk
+  command: python mock_services/helpdesk/server.py
+  port: 9107
+  health_check: http://localhost:9107/helpdesk/tickets
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9107/helpdesk/reset
+  env:
+    HELPDESK_FIXTURES: tasks/CTB_SHELL_05_ssl_cert_expiry/fixtures/helpdesk/tickets.json
+    ERROR_RATE: '0'
+- name: notes
+  command: python mock_services/notes/server.py
+  port: 9105
+  health_check: http://localhost:9105/notes/list
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9105/notes/reset
+  env:
+    NOTES_FIXTURES: tasks/CTB_SHELL_05_ssl_cert_expiry/fixtures/notes/documents.json
+    ERROR_RATE: '0'
+prompt:
+  text: |
+    The security team has received multiple alerts about SSL certificates nearing expiration. Please:
+
+    1. Review all tickets to find SSL certificate-related alerts
+    2. Review the certificate inventory and renewal process in the notes
+    3. Cross-reference the alerted certificates against the inventory to determine which need urgent handling
+    4. Generate a certificate expiration handling report including: domain name, certificate type, expiration date, days remaining, responsible person, handling priority
+  language: en
+tools:
+- name: helpdesk_list_tickets
+  description: List tickets
+  input_schema:
+    type: object
+    properties:
+      status:
+        type: string
+    required: []
+- name: helpdesk_get_ticket
+  description: Get ticket details
+  input_schema:
+    type: object
+    properties:
+      ticket_id:
+        type: string
+    required:
+    - ticket_id
+- name: notes_list_documents
+  description: List documents
+  input_schema:
+    type: object
+    properties: {}
+    required: []
+- name: notes_get_document
+  description: Get document details
+  input_schema:
+    type: object
+    properties:
+      note_id:
+        type: string
+    required:
+    - note_id
+tool_endpoints:
+- tool_name: helpdesk_list_tickets
+  url: http://localhost:9107/helpdesk/tickets
+  method: POST
+- tool_name: helpdesk_get_ticket
+  url: http://localhost:9107/helpdesk/tickets/get
+  method: POST
+- tool_name: notes_list_documents
+  url: http://localhost:9105/notes/list
+  method: POST
+- tool_name: notes_get_document
+  url: http://localhost:9105/notes/get
+  method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+  - fixtures/helpdesk/tickets.json
+  - fixtures/notes/documents.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  1. List tickets: TK-501 (api.example.com cert expiring in 3 days), TK-502 (*.internal.com wildcard cert expiring in 7 days), TK-503 (pay.example.com cert already expired)
+  2. Review docs: note_501 (certificate inventory) and note_502 (certificate renewal process)
+  3. Analysis:
+     - pay.example.com: Already expired, affecting payment functionality, urgent, responsible: Wang (Ops Engineer)
+     - api.example.com: Expiring in 3 days, affecting API services, high priority, responsible: Li (Ops Engineer)
+     - *.internal.com: Expiring in 7 days, affecting internal services, medium priority, responsible: Zhang (Ops Admin)
+  4. Handle by days remaining (most urgent first)
+primary_dimensions:
+- completion

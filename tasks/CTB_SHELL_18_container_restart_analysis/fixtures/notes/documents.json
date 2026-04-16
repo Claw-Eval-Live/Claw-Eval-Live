@@ -1,0 +1,39 @@
+[
+  {
+    "note_id": "note_401",
+    "title": "Kubernetesclusterconfigurationinventory",
+    "content": "# K8sconfiguration ## payment-service\n- ：3\n- CPU Request/Limit：500m/1000m\n- Memory Request/Limit：256MB/512MB\n- JVMparameter：-Xms128m -Xmx384m\n- databaseconnection：maxPoolSize=20, minIdle=5\n- livenessProbe: httpGet /health, timeout=5s, failureThreshold=3\n- readinessProbe: httpGet /ready, timeout=3s, initialDelaySeconds=10 ## order-service\n- ：2\n- CPU Request/Limit：500m/1000m\n- Memory Request/Limit：512MB/1GB\n- Redisconfiguration：host=redis-cluster-01, port=6379\n- livenessProbe: httpGet /health, timeout=5s, failureThreshold=3 ## notification-service\n- ：2\n- CPU Request/Limit：250m/500m\n- Memory Request/Limit：256MB/512MB\n- email：\n- ：500/\n- livenessProbe: httpGet /health, timeout=3s, failureThreshold=3 ## gateway-service\n- ：3\n- sessionAffinity: ClientIP\n- readinessProbe: httpGet /ready, timeout=3s, initialDelaySeconds=5\n- actualstarttime：approximately30seconds",
+    "tags": [
+      "K8s",
+      "",
+      "configuration"
+    ],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-27T10:00:00Z",
+    "author": "Ops Team",
+    "participants": [
+      "Wang (Ops Engineer)",
+      "Li (Ops Engineer)",
+      ""
+    ],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_402",
+    "title": "3clusterincidentrecord",
+    "content": "# 20263clusterrecord ## 324\n- payment-serviceupgradev2.3.1，feature，memory40%\n- memory ## 326 08:00\n- Rediscluster：redis-cluster-01→redis-cluster-02\n- cause：redis-cluster-01diskIOlatency\n- impact：dependencyRedisaddressserviceneedsupdateconfiguration ## 326 16:00\n- gateway-servicenodecn-east-node-02executeupdate\n- PodPodDisruptionBudget",
+    "tags": [
+      "record",
+      "incident",
+      "K8s"
+    ],
+    "created_at": "2026-03-24T10:00:00Z",
+    "updated_at": "2026-03-27T10:00:00Z",
+    "author": "Ops Team",
+    "participants": [
+      "Wang (Ops Engineer)",
+      "Li (Ops Engineer)"
+    ],
+    "duration_minutes": 0
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "event_id": "evt_201",
+    "title": "StarCare Health Pilot Prep Meeting",
+    "start_time": "2026-03-19T15:00:00Z",
+    "end_time": "2026-03-19T16:00:00Z",
+    "attendees": ["me@company.com", "zhouning@company.com", "lijing@starcare-health.cn", "wangtao@starcare-health.cn"],
+    "location": "Zoom",
+    "recurring": false
+  },
+  {
+    "event_id": "evt_202",
+    "title": "Sales Weekly Meeting",
+    "start_time": "2026-03-19T10:00:00Z",
+    "end_time": "2026-03-19T11:00:00Z",
+    "attendees": ["sales-team@company.com"],
+    "location": "Conference Room B",
+    "recurring": false
+  },
+  {
+    "event_id": "evt_203",
+    "title": "Finance Process Sync",
+    "start_time": "2026-03-19T17:30:00Z",
+    "end_time": "2026-03-19T18:00:00Z",
+    "attendees": ["finance@company.com", "me@company.com"],
+    "location": "Conference Room C",
+    "recurring": false
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "task_name": "CTB_PRODAPP_14_meeting_notes_sync",
+  "prompt": "comparisonmeetingminutesrunitemsandbeforependingtasktable，findoutput：1）meetingminuteshasbutpendingrunitems；2）pendingalreadyhasbutandmeetingminutesnotproject。withJSONformatreturn，missing_tasks（pendingitemstable）、inconsistencies（notitems）andsync_actions（recommendationsame）segment。",
+  "services": {
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    },
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

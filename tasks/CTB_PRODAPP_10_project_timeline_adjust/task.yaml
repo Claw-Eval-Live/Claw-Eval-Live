@@ -1,0 +1,111 @@
+task_id: CTB_PRODAPP_10_project_timeline_adjust
+task_name: CTB_PRODAPP_10_project_timeline_adjust
+version: '1.0'
+category: workflow
+difficulty: medium
+services:
+- name: todo
+  command: python mock_services/todo/server.py
+  port: 9104
+  health_check: http://localhost:9104/todo/tasks
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9104/todo/reset
+  env:
+    ERROR_RATE: '0'
+    TODO_FIXTURES: tasks/CTB_PRODAPP_10_project_timeline_adjust/fixtures/todo/tasks.json
+- name: calendar
+  command: python mock_services/calendar/server.py
+  port: 9101
+  health_check: http://localhost:9101/calendar/events
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9101/calendar/reset
+  env:
+    ERROR_RATE: '0'
+    CALENDAR_FIXTURES: tasks/CTB_PRODAPP_10_project_timeline_adjust/fixtures/calendar/events.json
+    CALENDAR_DISABLE_DATE_SHIFT: '1'
+prompt:
+  text: |
+    Please review the project timeline for necessary adjustments. Based on task completion status and dependencies in the to-do list and milestone meetings in the calendar, identify tasks that are behind schedule and assess the impact on the overall timeline. Output: current progress vs plan comparison, delayed tasks and causes, adjusted timeline recommendations, and critical path analysis.
+  language: en
+tools:
+- name: todo_list_tasks
+  description: Retrieve the to-do task list
+  input_schema:
+    type: object
+    properties:
+      status:
+        type: string
+        description: Filter by status
+        default: all
+    required: []
+- name: todo_update_task
+  description: Description
+  input_schema:
+    type: object
+    properties:
+      task_id:
+        type: string
+      status:
+        type: string
+      priority:
+        type: string
+    required:
+    - task_id
+- name: calendar_list_events
+  description: Priority level
+  input_schema:
+    type: object
+    properties:
+      date:
+        type: string
+        description: Start date (YYYY-MM-DD)
+      days:
+        type: integer
+        description: Number of days to view
+        default: 1
+    required:
+    - date
+- name: calendar_get_event
+  description: Description
+  input_schema:
+    type: object
+    properties:
+      event_id:
+        type: string
+        description: Event ID
+    required:
+    - event_id
+tool_endpoints:
+- tool_name: todo_list_tasks
+  url: http://localhost:9104/todo/tasks
+  method: POST
+- tool_name: todo_update_task
+  url: http://localhost:9104/todo/tasks/update
+  method: POST
+- tool_name: calendar_list_events
+  url: http://localhost:9101/calendar/events
+  method: POST
+- tool_name: calendar_get_event
+  url: http://localhost:9101/calendar/events/get
+  method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+  - fixtures/todo/tasks.json
+  - fixtures/calendar/events.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  1. 2-day delay in backend API task propagates through dependency chain
+  2. Frontend page: original 4/10 -> adjusted ~4/12
+  3. Integration test: original 4/14 -> adjusted ~4/16
+  4. UAT acceptance: original 4/18 -> adjusted ~4/20
+  5. Milestone review meeting on 4/15 may need to be rescheduled
+  6. Dependency chain: backend API -> frontend -> integration test -> UAT
+  7. Mitigation suggestions: parallel work, scope reduction, resource reallocation
+primary_dimensions:
+- completion

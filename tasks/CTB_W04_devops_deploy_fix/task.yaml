@@ -1,0 +1,81 @@
+task_id: CTB_W04_devops_deploy_fix
+task_name: Compose Stack Deploy Repair
+version: "1.0"
+category: terminal
+difficulty: medium
+
+services: []
+
+prompt:
+  text: |
+    Container files:
+
+    - /workspace/project/docker-compose.yaml
+    - /workspace/project/config/deploy.env
+    - /workspace/project/config/gateway.conf
+    - /workspace/project/logs/deploy.log
+    - /workspace/project/scripts/check_stack.py
+
+    The current stack configuration is failing during the pre-deploy check phase. Your tasks:
+    1. Start by reading deploy.log to understand the full root-cause chain — do not just fix the last error
+    2. Fix the compose, env, and gateway configurations so the stack topology is consistent
+    3. Keep file paths and overall structure unchanged
+    4. Run `python /workspace/project/scripts/check_stack.py` and make sure it outputs `STACK_OK`
+    5. Write a report at `/workspace/DEPLOY_FIX.md` explaining:
+       - The true root cause
+       - Which errors were merely downstream symptoms
+       - What configuration changes you made
+       - How you verified the fix
+
+    Constraints:
+    - Do not modify `check_stack.py`
+    - Do not modify any log files
+    - Do not add any new services
+  language: en
+
+tools: []
+tool_endpoints: []
+
+sandbox_files:
+  - project/docker-compose.yaml
+  - project/config/deploy.env
+  - project/config/gateway.conf
+  - project/logs/deploy.log
+  - project/scripts/check_stack.py
+
+sandbox_grader_files:
+  - fixtures/verify_stack.py
+
+env_snapshot_commands:
+  - python /workspace/project/scripts/check_stack.py
+  - python /workspace/fixtures/verify_stack.py
+  - test -f /workspace/DEPLOY_FIX.md && echo EXISTS || echo MISSING
+
+environment:
+  timeout_seconds: 600
+  max_turns: 30
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+judge_rubric: ""
+reference_solution: |
+  1. The core issue is that the stack was migrated from the old `app:8090` to the new `api:8080` but the changes were incomplete
+  2. deploy.env must be fixed to:
+     - APP_MODE=prod
+     - API_PORT=8080
+     - WORKER_QUEUE=critical-jobs
+     - STACK_OUTPUT_DIR=/workspace/output/stack
+  3. docker-compose.yaml must be fixed so that:
+     - services are only api / worker / gateway
+     - worker depends_on api: service_healthy
+     - worker command points to http://api:8080 and queue critical-jobs
+     - gateway port mapping is 8088:8088
+  4. gateway.conf must be fixed to:
+     - upstream api_upstream -> server api:8080;
+     - listen 8088;
+     - proxy_pass http://api_upstream;
+  5. check_stack.py must output STACK_OK and produce /workspace/output/stack/stack_status.json
+
+primary_dimensions: [completion, robustness]

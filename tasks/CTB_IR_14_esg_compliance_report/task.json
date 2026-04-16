@@ -1,0 +1,21 @@
+{
+  "task_id": "CTB_IR_14",
+  "task_name": "esg_compliance_report",
+  "task_description": "Search for ESG compliance standards and industry best practices, combine with internal carbon emissions data from notes, and generate an ESG compliance report.",
+  "prompt": "Search for the latest 2026 ESG (Environmental, Social, Governance) compliance standards and best practices in the tech industry. Also review internal notes on the company's carbon emissions and social responsibility records. Generate an ESG compliance report covering 1) latest ESG regulatory requirements; 2) assessment of the company's current ESG performance; 3) gap analysis against industry benchmarks; 4) improvement roadmap.",
+  "services": [
+    {
+      "service_name": "web",
+      "port": 9113,
+      "env_variable": "WEB_FIXTURES",
+      "error_rate": "0"
+    },
+    {
+      "service_name": "notes",
+      "port": 9105,
+      "env_variable": "NOTES_FIXTURES",
+      "error_rate": "0"
+    }
+  ],
+  "primary_dimensions": ["completion"]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "customer_id": "UP-001",
+    "name": "Company X",
+    "contact_person": "Client X",
+    "contact_email": "client-x@up-x.com",
+    "status": "active",
+    "tier": "standard",
+    "industry": "Other",
+    "annual_revenue": 100000,
+    "notes": "Standard plan, 20-user license.",
+    "current_plan": "Standard - 20 users"
+  },
+  {
+    "customer_id": "UP-002",
+    "name": "Company Y",
+    "contact_person": "Client Y",
+    "contact_email": "client-y@up-y.com",
+    "status": "active",
+    "tier": "standard",
+    "industry": "Other",
+    "annual_revenue": 80000,
+    "notes": "Basic plan customer.",
+    "current_plan": "Basic"
+  },
+  {
+    "customer_id": "UP-003",
+    "name": "Company Z",
+    "contact_person": "Client Z",
+    "contact_email": "client-z@up-z.com",
+    "status": "active",
+    "tier": "VIP",
+    "industry": "Other",
+    "annual_revenue": 300000,
+    "notes": "Headquarters using Enterprise plan.",
+    "current_plan": "Enterprise - HQ"
+  }
+]

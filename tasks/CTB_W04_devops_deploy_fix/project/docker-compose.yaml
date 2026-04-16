@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  api:
+    image: claw/api:latest
+    env_file:
+      - ./config/deploy.env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8090/healthz"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+  worker:
+    image: claw/worker:latest
+    env_file:
+      - ./config/deploy.env
+    command: ["python", "worker.py", "--queue", "default-jobs", "--api-url", "http://app:8090"]
+    depends_on:
+      api:
+        condition: service_started
+  gateway:
+    image: claw/gateway:latest
+    volumes:
+      - ./config/gateway.conf:/etc/gateway/gateway.conf
+    ports:
+      - "8080:8080"
+    depends_on:
+      api:
+        condition: service_started

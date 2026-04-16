@@ -1,0 +1,108 @@
+task_id: CTB_HR_05_training_needs_analysis
+task_name: Training Needs Analysis
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_HR_05_training_needs_analysis/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_HR_05_training_needs_analysis/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Please analyze the training needs across departments and generate a training plan.
+    
+    Requirements:
+    1. Retrieve employee skill profiles and training records
+    2. Review emails for training requests and feedback
+    3. Identify skill gaps by department
+    4. Prioritize training needs based on:
+       - Business impact
+       - Number of employees affected
+       - Urgency (compliance vs development)
+    5. Generate a training needs analysis report with:
+       - Department-by-department breakdown
+       - Recommended training programs
+       - Budget estimates
+       - Implementation timeline
+  language: en
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: crm_list_customers
+    description: List personnel records
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+      required: []
+  - name: crm_get_customer
+    description: Get personnel details
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+      required: [customer_id]
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  Sorted by priority:
+  1. Urgent: Finance Dept new tax-law training (complete before Apr 1), 5000 CNY, within 8000 budget
+  2. High: Engineering Dept advanced Python, 15000 CNY, within 20000 budget; Leadership training (all managers), 25000 CNY, within 30000 dedicated budget
+  3. Medium: Marketing Dept data analytics, 8000 CNY, within 10000 budget
+  4. Low: Product Dept UX design, 6000 CNY, within 8000 budget
+  Total budget required: 59000 CNY. Categories: Technical (Python), Management (Leadership), Professional (Tax Law, Data Analytics, UX Design)
+primary_dimensions: [completion]

@@ -1,0 +1,24 @@
+[
+  {
+    "note_id": "note_501",
+    "title": "SSL Certificate Inventory",
+    "content": "# SSL Certificate Inventory (Updated 2026-03-15)\n\n| Domain | Cert Type | Issuer | Expiry Date | Responsible | Deployment |\n|------|---------|---------|---------|--------|----------|\n| api.example.com | Single-domain OV | DigiCert | 2026-03-31 | Li (Ops Engineer) | nginx-lb-01/02 |\n| www.example.com | Single-domain OV | DigiCert | 2026-09-15 | Li (Ops Engineer) | nginx-lb-01/02 |\n| pay.example.com | Single-domain EV | GlobalSign | 2026-03-27 | Wang (Ops Engineer) | nginx-pay-01 |\n| *.internal.com | Wildcard DV | Let's Encrypt | 2026-04-04 | Zhang (Ops Admin) | gateway-01 |\n| m.example.com | Single-domain DV | Let's Encrypt | 2026-07-20 | Zhang (Ops Admin) | nginx-mobile-01 |\n\n## Renewal Reminder Rules\n- EV certificates: Begin preparation 60 days before expiry\n- OV certificates: Begin renewal 30 days before expiry\n- DV certificates: Auto-renew 14 days before expiry\n\n## Notes\n- EV certificate renewal requires enterprise verification, 2-5 business day lead time\n- Let's Encrypt certificates auto-renew via certbot\n- After certificate update, synchronize across all load balancer nodes",
+    "tags": ["SSL", "certificate", "inventory"],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "Security Team",
+    "participants": ["Li (Ops Engineer)", "Wang (Ops Engineer)", "Zhang (Ops Admin)"],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_502",
+    "title": "SSL Certificate Renewal Process",
+    "content": "# SSL Certificate Renewal Process\n\n## DigiCert Certificate Renewal\n1. Log in to DigiCert management console\n2. Find the certificate and click Renew\n3. Generate new CSR: openssl req -new -newkey rsa:2048 -nodes -keyout domain.key -out domain.csr\n4. Submit CSR and complete domain validation\n5. Download new certificate and deploy\n\n## GlobalSign EV Certificate Renewal\n1. Contact GlobalSign account manager 60 days in advance\n2. Submit enterprise documents (business license, organization code certificate)\n3. Complete phone verification\n4. Wait for issuance (typically 2-5 business days)\n5. Express lane: Contact account manager to request expedited processing, can be shortened to 1 business day\n\n## Let's Encrypt Certificate Renewal\n1. Check certbot service: systemctl status certbot.timer\n2. Manual renewal: certbot renew\n3. Verify renewal: certbot certificates\n4. Reload nginx: nginx -s reload\n\n## Deployment Steps\n1. Back up old certificate\n2. Upload new certificate to /etc/nginx/ssl/\n3. Update nginx config to point to new certificate\n4. Test config: nginx -t\n5. Reload config: nginx -s reload\n6. Verify: openssl s_client -connect domain:443",
+    "tags": ["SSL", "renewal", "process"],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "Security Team",
+    "participants": ["Ops Team"],
+    "duration_minutes": 0
+  }
+]

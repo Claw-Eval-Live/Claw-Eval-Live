@@ -1,0 +1,24 @@
+[
+  {
+    "message_id": "msg_1401",
+    "thread_id": "thread_1401",
+    "from": "finance-dept@our-company.com",
+    "to": ["dept-heads@our-company.com"],
+    "subject": "March department expense budget reminder",
+    "body": "Department heads,\n\nBelow are the March expense budget caps for each department:\n\n- Marketing: $100,000\n- Engineering: $80,000\n- Sales: $50,000\n- HR: $30,000\n- Admin: $10,000\n\nPlease keep spending within budget. Over-budget requests require pre-approval.\n\nFinance Department",
+    "date": "2026-03-01T09:00:00Z",
+    "labels": ["inbox"],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_1410",
+    "thread_id": "thread_1410",
+    "from": "admin@our-company.com",
+    "to": ["all@our-company.com"],
+    "subject": "System maintenance notice",
+    "body": "System maintenance this weekend.",
+    "date": "2026-03-25T09:00:00Z",
+    "labels": ["inbox"],
+    "is_read": false
+  }
+]

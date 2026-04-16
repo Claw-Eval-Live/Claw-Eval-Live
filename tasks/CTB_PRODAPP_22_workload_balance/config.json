@@ -1,0 +1,20 @@
+{
+  "task_name": "CTB_PRODAPP_22_workload_balance",
+  "prompt": "analysisteam4month6dateto8datevolume。computeeachcompletemembermeetingandtaskwork hours，findoutputvolumeassignnotaskissue。Xin Luvolumepasshigh，submitoutputadjustFangcase，departmentconvertmovegivecompletemember。withJSONformatreturn，workload_summary（eachpeoplemeeting_hours、task_hours、total_hours）、imbalance_analysisandrebalance_plansegment。",
+  "services": {
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    },
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

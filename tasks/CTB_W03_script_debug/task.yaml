@@ -1,0 +1,76 @@
+task_id: CTB_W03_script_debug
+task_name: Legacy Data Processor Repair
+version: "1.0"
+category: terminal
+difficulty: medium
+
+services: []
+
+prompt:
+  text: |
+    Container files:
+
+    - /workspace/project/data_processor.py — the currently broken data processing script
+    - /workspace/project/data/day_01.json
+    - /workspace/project/data/day_02.json
+    - /workspace/project/data/day_03.json
+    - /workspace/project/spec/output_contract.md — output contract
+
+    Complete the following tasks:
+    1. Fix `/workspace/project/data_processor.py`, keeping the CLI interface unchanged:
+       `python /workspace/project/data_processor.py --input <input_json> --output <output_json>`
+    2. Make it correctly process all 3 input files in strict compliance with output_contract.md
+    3. Produce the following 3 output files:
+       - /workspace/output/day_01_summary.json
+       - /workspace/output/day_02_summary.json
+       - /workspace/output/day_03_summary.json
+    4. Write a `/workspace/CHANGELOG.md` explaining:
+       - Root cause
+       - What you changed
+       - How you verified the fix works
+
+    Constraints:
+    - Do not modify the original input data
+    - Do not modify output_contract.md
+    - Do not change the script's CLI argument format
+  language: en
+
+tools: []
+tool_endpoints: []
+
+sandbox_files:
+  - project/data_processor.py
+  - project/data/day_01.json
+  - project/data/day_02.json
+  - project/data/day_03.json
+  - project/spec/output_contract.md
+
+sandbox_grader_files:
+  - fixtures/verify_outputs.py
+
+env_snapshot_commands:
+  - python -m py_compile /workspace/project/data_processor.py 2>&1 && echo SYNTAX_OK || echo SYNTAX_ERR
+  - python /workspace/fixtures/verify_outputs.py
+  - test -f /workspace/CHANGELOG.md && echo EXISTS || echo MISSING
+
+environment:
+  timeout_seconds: 600
+  max_turns: 30
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+judge_rubric: ""
+reference_solution: |
+  1. Fix field alias compatibility: status/state, category/category_name, amount_cents/amount
+  2. Normalize statuses:
+     - completed / paid / settled -> completed
+     - pending / queued / retry -> pending
+     - failed / cancelled -> ignore
+  3. Convert all amounts to cents, handling int / string / $12.50 / amount field variants
+  4. owner / category must be trimmed + lowercased; owner_sequence must be deduplicated by first occurrence
+  5. Produce 3 summary JSON files and write a CHANGELOG.md covering root cause, changes, and verification method
+  6. A hidden check will run an additional input file to prevent hard-coding for only the 3 visible files
+
+primary_dimensions: [completion, robustness]

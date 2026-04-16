@@ -1,0 +1,82 @@
+[
+  {
+    "ticket_id": "TK-501",
+    "subject": "app-server-01logfiledisk87%",
+    "description": "app-server-01/var/log/app/directorydiskspace87%total500GBdisk，435GB。logfile payment-service.log，186GB，time215。logrotateconfigurationnormalexecute。cronloglogrotatetask31execute。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-26T08:00:00Z",
+    "updated_at": "2026-03-27T10:00:00Z",
+    "reporter": "Disk Monitor",
+    "assignee": "operations",
+    "category": "log",
+    "comments": [
+      {
+        "author": "operations",
+        "text": "check/etc/logrotate.d/app-servicesconfigurationfilepermission600root:root，logrotateroot",
+        "created_at": "2026-03-27T10:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-502",
+    "subject": "order-servicelogdays",
+    "description": "order-servicelogdaysretain30days，actualcheckorder-service.log42days，67GB。logrotatestatusfile/var/lib/logrotate/statusrecordslast_rotatedate2026-02-13。log4j2days，becauselogpathstdoutfile。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-26T14:00:00Z",
+    "updated_at": "2026-03-27T11:00:00Z",
+    "reporter": "operations",
+    "assignee": "Li (Ops Engineer)",
+    "category": "log",
+    "comments": [
+      {
+        "author": "Li (Ops Engineer)",
+        "text": "deploymentloglog4j2filestdout > /var/log/app/order-service.log，log4j2",
+        "created_at": "2026-03-27T11:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-503",
+    "subject": "archivelogabnormal",
+    "description": "logarchivefileabnormal。normalloggz90%or more，notification-servicearchivelog23%file12GB，9.2GB。analysisserviceDEBUGbase64attachmentcontentlog。",
+    "status": "open",
+    "priority": "medium",
+    "created_at": "2026-03-27T09:00:00Z",
+    "updated_at": "2026-03-27T15:00:00Z",
+    "reporter": "operations",
+    "assignee": "",
+    "category": "log",
+    "comments": [
+      {
+        "author": "",
+        "text": "notification-servicelog310DEBUGissuerecovery，DEBUGlogemailattachmentbase64content",
+        "created_at": "2026-03-27T15:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-504",
+    "subject": "logsystemELKdiskalert",
+    "description": "ELKclusterElasticsearchdatanodedisk82%capacity2TB，1.64TB。retainstrategyconfiguration90days，executeILMstrategydelete。check3createpayment-2026.01.*，total320GB。ILMstrategypayment-policydelete120。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T11:00:00Z",
+    "updated_at": "2026-03-27T16:00:00Z",
+    "reporter": "ELKmonitoring",
+    "assignee": "operations",
+    "category": "log",
+    "comments": [
+      {
+        "author": "operations",
+        "text": "ILMstrategydeleterecordsmin_age:90d AND max_size:500GBAND，OR。500GBthereforedelete",
+        "created_at": "2026-03-27T16:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

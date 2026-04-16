@@ -1,0 +1,51 @@
+[
+  {
+    "url": "https://docs.boardflow.dev/platform-overview",
+    "status_code": 200,
+    "title": "BoardFlow Platform Overview",
+    "content_type": "text/html",
+    "content": "# BoardFlow Platform Overview\n\nBoardFlow is a self-hosted collaborative whiteboard platform built around a CRDT collaboration core.\n\n## Collaboration model\n- CRDT-based state sync over WebSocket fanout\n- Validated for 120 concurrent editors per board in the reference benchmark\n- Presence and cursor updates are decoupled from object sync\n\n## Storage and deployment\n- PostgreSQL for board metadata\n- Object storage for assets and snapshots\n- Docker Compose quick start\n- Helm chart for Kubernetes production deployment\n- Region pinning supported for asset and snapshot storage\n\n## Security and compliance\n- Built-in audit log export\n- Customer-managed encryption keys supported for object storage\n- Region-aware storage policy can pin EU members to EU buckets\n\n## Operational notes\n- Monthly release cadence\n- Typical production rollout: 2-4 days for a platform team"
+  },
+  {
+    "url": "https://github.example.com/boardflow/platform",
+    "status_code": 200,
+    "title": "BoardFlow GitHub",
+    "content_type": "text/html",
+    "content": "# BoardFlow GitHub Snapshot\n\n- Stars: 7200\n- Open issues: 38\n- Contributors in last 90 days: 74\n- Releases in last 12 months: 12\n- Median security patch turnaround: 4 days\n- Latest release: v5.3.1\n\n## Community notes\nRoadmap and upgrade notes are updated monthly. Two recent auth fixes shipped within 3 and 5 days."
+  },
+  {
+    "url": "https://docs.canvasgrid.io/platform-overview",
+    "status_code": 200,
+    "title": "CanvasGrid Platform Overview",
+    "content_type": "text/html",
+    "content": "# CanvasGrid Platform Overview\n\nCanvasGrid is a self-hosted collaborative canvas using an OT synchronization layer.\n\n## Collaboration model\n- Operational Transform over WebSocket gateway\n- Validated for 60 concurrent editors per board\n- Heavier contention under large shape batches than CRDT-first systems\n\n## Storage and deployment\n- PostgreSQL for core metadata\n- Redis Streams for sync event fanout\n- Optional S3-compatible object storage for media assets\n- Docker images available; Kubernetes deployment supported through community chart\n\n## Security and compliance\n- EU data residency plugin available in beta\n- Audit export exists but requires enterprise plugin enablement\n- Encryption at rest depends on external storage configuration\n\n## Operational notes\n- Quarterly release cadence\n- Plugin compatibility should be checked before minor upgrades"
+  },
+  {
+    "url": "https://github.example.com/canvasgrid/core",
+    "status_code": 200,
+    "title": "CanvasGrid GitHub",
+    "content_type": "text/html",
+    "content": "# CanvasGrid GitHub Snapshot\n\n- Stars: 4800\n- Open issues: 91\n- Contributors in last 90 days: 33\n- Releases in last 12 months: 4\n- Median security patch turnaround: 16 days\n- Latest release: v3.4.0\n\n## Community notes\nThe project is still healthy, but several operators mention extra upgrade work when OT workers and Redis schemas change together."
+  },
+  {
+    "url": "https://docs.syncslate.dev/platform-overview",
+    "status_code": 200,
+    "title": "SyncSlate Platform Overview",
+    "content_type": "text/html",
+    "content": "# SyncSlate Platform Overview\n\nSyncSlate is a lightweight collaborative canvas originally designed for small internal teams.\n\n## Collaboration model\n- Single relay-based WebSocket sync service\n- Peak validated concurrency: 35 concurrent editors per board\n- No CRDT conflict-free merge model; reconnect bursts can cause object drift under load\n\n## Storage and deployment\n- Single PostgreSQL database plus local disk assets\n- No official Kubernetes deployment guide\n- Common self-hosted installs rely on handcrafted VM scripts\n\n## Security and compliance\n- No region pinning support\n- No built-in audit log\n- Encryption relies on reverse proxy termination only\n\n## Operational notes\n- Limited roadmap visibility\n- Best fit remains small single-region teams"
+  },
+  {
+    "url": "https://github.example.com/syncslate/app",
+    "status_code": 200,
+    "title": "SyncSlate GitHub",
+    "content_type": "text/html",
+    "content": "# SyncSlate GitHub Snapshot\n\n- Stars: 2100\n- Open issues: 147\n- Contributors in last 90 days: 11\n- Releases in last 12 months: 2\n- Security patch SLA: none published\n- Latest release: v2.2.0\n\n## Community notes\nOperators report that region-aware compliance controls must be implemented externally. Several bugfix pull requests remained open for over 30 days."
+  },
+  {
+    "url": "https://ops-playbook.example.com/eu-data-residency-cutover",
+    "status_code": 200,
+    "title": "EU Data Residency Whiteboard Cutover Playbook",
+    "content_type": "text/html",
+    "content": "# EU Data Residency Whiteboard Cutover Playbook\n\nRecommended phased rollout for collaborative whiteboard migration with GDPR constraints:\n\n1. Keep EU member data in EU-resident object storage and metadata replicas\n2. Run a pilot board with 10-15 heavy editors before global rollout\n3. Validate audit logs, backup restore and region-specific access control\n4. Run dual-track operations for 2 weeks while comparing board activity and restore drills\n5. Define rollback thresholds before DNS / SSO cutover\n6. Keep read-only export access on the old platform until attachment parity is confirmed\n\nRisk controls:\n- Assign a rollback owner\n- Predefine replica lag thresholds\n- Document EU / non-EU data split and key management"
+  }
+]

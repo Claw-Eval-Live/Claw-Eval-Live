@@ -1,0 +1,82 @@
+[
+  {
+    "ticket_id": "TK-801",
+    "subject": "Rediscache92%58%",
+    "description": "Rediscluster(redis-cluster-01)cache12hours92%58%。keyspaceanalysis：key15089。Eviction12hours61times。maxmemory4GB，currentused_memory3.9GB。impactuser-sessionproduct-catalogkey。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-27T06:00:00Z",
+    "updated_at": "2026-03-27T14:00:00Z",
+    "reporter": "Redis Monitor",
+    "assignee": "",
+    "category": "cache",
+    "comments": [
+      {
+        "author": "",
+        "text": "326product-catalogscriptTTL1hours24hours，product keymemorycauseduser-session",
+        "created_at": "2026-03-27T14:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-802",
+    "subject": "CDNcachecaused",
+    "description": "CDNnodecache96%41%。200Mbps1.8Gbps，nginx CPU92%。analysis326releaseURLhashparameterrulecontenthashtime，causedURL，CDNcache。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-27T08:00:00Z",
+    "updated_at": "2026-03-27T13:00:00Z",
+    "reporter": "CDNmonitoring",
+    "assignee": "",
+    "category": "cache",
+    "comments": [
+      {
+        "author": "owner",
+        "text": "confirmwebpackconfigurationcontenthashtimestamp，preparationrollback。CDNcacheneeds2-3hours",
+        "created_at": "2026-03-27T13:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-803",
+    "subject": "cacheCaffeine",
+    "description": "order-servicecache(Caffeine)88%35%。cacheconfiguration：maximumSize=10000, expireAfterWrite=5min。monitoringeviction rateseconds200times。order-servicev2.5.03interface，causedcachecapacityinsufficient，data。currentcachekey：order-detail 45%，user-preference 30%，inventory 25%。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T09:00:00Z",
+    "updated_at": "2026-03-27T15:00:00Z",
+    "reporter": "APMmonitoring",
+    "assignee": "Li (Ops Engineer)",
+    "category": "cache",
+    "comments": [
+      {
+        "author": "Li (Ops Engineer)",
+        "text": "v2.5.0interfacecachekey，maximumSize。recommendationcacheinstancecapacity30000",
+        "created_at": "2026-03-27T15:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-804",
+    "subject": "databasecacheabnormal",
+    "description": "MySQL query_cache75%12%。query_cache_size=256MB，Qcache_hits/Com_select=0.12。analysis326，minutesapproximately400timesDDLALTER TABLE，timesDDLcausedquery cache。serviceETLtask。",
+    "status": "open",
+    "priority": "medium",
+    "created_at": "2026-03-27T10:00:00Z",
+    "updated_at": "2026-03-27T16:00:00Z",
+    "reporter": "DBAteam",
+    "assignee": "DBAteam",
+    "category": "cache",
+    "comments": [
+      {
+        "author": "DBAteam",
+        "text": "ETLtask326daysAMexecuteexecute，DDLenabledquery_cache",
+        "created_at": "2026-03-27T16:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

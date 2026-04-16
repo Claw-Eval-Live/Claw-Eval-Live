@@ -1,0 +1,135 @@
+task_id: CTB_MGMT_04_strategic_initiative_tracking
+task_name: strategic_initiative_tracking
+version: '1.0'
+category: management
+difficulty: hard
+services:
+- name: notes
+  command: python mock_services/notes/server.py
+  port: 9105
+  health_check: http://localhost:9105/notes/list
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9105/notes/reset
+  env:
+    NOTES_FIXTURES: tasks/CTB_MGMT_04_strategic_initiative_tracking/fixtures/notes/documents.json
+    ERROR_RATE: '0'
+- name: gmail
+  command: python mock_services/gmail/server.py
+  port: 9100
+  health_check: http://localhost:9100/gmail/messages
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9100/gmail/reset
+  env:
+    GMAIL_FIXTURES: tasks/CTB_MGMT_04_strategic_initiative_tracking/fixtures/gmail/inbox.json
+    ERROR_RATE: '0'
+- name: todo
+  command: python mock_services/todo/server.py
+  port: 9104
+  health_check: http://localhost:9104/todo/tasks
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9104/todo/reset
+  env:
+    TODO_FIXTURES: tasks/CTB_MGMT_04_strategic_initiative_tracking/fixtures/todo/tasks.json
+    ERROR_RATE: '0'
+prompt:
+  text: "You are the CEO's strategic assistant and need to summarize the latest progress on three strategic initiatives. Please:\n\n1. Review the strategic initiative definitions and milestones in internal documents\n2. Review the latest progress reports from each owner via email\n3. Check the status of tasks related to each initiative in the to-do system\n4. Assess each strategic initiative:\n   - Current milestone progress\n   - Whether there is a delay risk\n   - Key blockers\n5. Generate a strategic initiative tracking report:\n   - Status for each initiative (green/yellow/red)\n   - Completed and pending milestones\n   - Risk items and blocker list\n   - Items requiring CEO attention and decisions\n"
+  language: en
+tools:
+- name: notes_list_documents
+  description: Retrieve the list of documents
+  input_schema:
+    type: object
+    properties:
+      max_results:
+        type: integer
+        default: 20
+    required: []
+- name: notes_get_document
+  description: Retrieve detailed content by document ID
+  input_schema:
+    type: object
+    properties:
+      note_id:
+        type: string
+    required:
+    - note_id
+- name: gmail_list_messages
+  description: Retrieve the list of emails
+  input_schema:
+    type: object
+    properties:
+      days_back:
+        type: integer
+        default: 7
+      max_results:
+        type: integer
+        default: 20
+    required: []
+- name: gmail_get_message
+  description: Retrieve detailed content by email ID
+  input_schema:
+    type: object
+    properties:
+      message_id:
+        type: string
+    required:
+    - message_id
+- name: todo_list_tasks
+  description: Retrieve the task list
+  input_schema:
+    type: object
+    properties:
+      max_results:
+        type: integer
+        default: 20
+    required: []
+- name: todo_get_task
+  description: Retrieve detailed content by task ID
+  input_schema:
+    type: object
+    properties:
+      task_id:
+        type: string
+    required:
+    - task_id
+tool_endpoints:
+- tool_name: notes_list_documents
+  url: http://localhost:9105/notes/list
+  method: POST
+- tool_name: notes_get_document
+  url: http://localhost:9105/notes/get
+  method: POST
+- tool_name: gmail_list_messages
+  url: http://localhost:9100/gmail/messages
+  method: POST
+- tool_name: gmail_get_message
+  url: http://localhost:9100/gmail/messages/get
+  method: POST
+- tool_name: todo_list_tasks
+  url: http://localhost:9104/todo/tasks
+  method: POST
+- tool_name: todo_get_task
+  url: http://localhost:9104/todo/tasks/get
+  method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+  - fixtures/notes/documents.json
+  - fixtures/gmail/inbox.json
+  - fixtures/todo/tasks.json
+scoring_components: []
+expected_actions: []
+reference_solution: |
+  1. Initiative 1 (AI Product Line): YELLOW -- 60% M2 progress, 92% model accuracy; GPU procurement delayed 2 weeks
+  2. Initiative 2 (International Expansion): RED -- M1 delayed 2 weeks (3/31->4/14), only 2 people staffed
+  3. Suggestion: narrow international scope to Singapore + Indonesia only; M2 cascades to June
+  4. Initiative 3 (Operational Efficiency): GREEN -- CI/CD done (30% deploy time saved), M1 complete
+  5. RPA evaluation in progress; UiPath license needed: 120,000/year
+  6. CEO decisions needed: GPU procurement approval, international scope narrowing, UiPath budget approval
+  7. Report uses Green/Yellow/Red status indicators with milestones and blockers listed
+primary_dimensions:
+- completion

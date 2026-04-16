@@ -1,0 +1,29 @@
+[
+  {
+    "event_id": "evt_901",
+    "title": "Client A Product Demo",
+    "start_time": "2026-03-26T14:00:00+08:00",
+    "end_time": "2026-03-26T15:00:00+08:00",
+    "location": "Online",
+    "attendees": ["zhangwei@our-company.cn", "client-a@external.com"],
+    "description": "Client A product demo"
+  },
+  {
+    "event_id": "evt_902",
+    "title": "Server Expansion Window",
+    "start_time": "2026-03-27T22:00:00+08:00",
+    "end_time": "2026-03-28T02:00:00+08:00",
+    "location": "Remote",
+    "attendees": ["zhaolei@our-company.cn"],
+    "description": "Server expansion maintenance window"
+  },
+  {
+    "event_id": "evt_903",
+    "title": "Team Weekly Meeting",
+    "start_time": "2026-03-31T10:00:00+08:00",
+    "end_time": "2026-03-31T10:30:00+08:00",
+    "location": "Conference Room A",
+    "attendees": ["all@our-company.cn"],
+    "description": "Weekly team meeting"
+  }
+]

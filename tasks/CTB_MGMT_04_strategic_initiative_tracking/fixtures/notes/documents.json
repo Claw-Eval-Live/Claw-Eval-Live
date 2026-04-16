@@ -1,0 +1,13 @@
+[
+  {
+    "note_id": "note_strat_01",
+    "title": "2026 Strategic Initiatives Overview",
+    "content": "Company 2026 three strategic initiatives:\n\nInitiative 1: AI Product Line Incubation\n  Owner: Wei Chen\n  Goal: Complete AI assistant MVP by Q2, launch Beta in Q3, commercial release in Q4\n  Key milestones:\n  - M1: Technology selection complete (due March 15) Done\n  - M2: MVP prototype development (due April 30)\n  - M3: Internal beta launch (due June 30)\n  Current progress: M1 complete, M2 in progress (60% done)\n\nInitiative 2: International Expansion\n  Owner: Na Liu\n  Goal: Enter Southeast Asian market in Q2, reach 10% revenue share by Q4\n  Key milestones:\n  - M1: Market research complete (due March 31)\n  - M2: Localization team setup (due May 31)\n  - M3: First overseas client signed (due July 31)\n  Current progress: M1 80% complete, delay risk\n\nInitiative 3: Operational Efficiency Improvement\n  Owner: Lei Zhang\n  Goal: Reduce annual operating costs by 15%\n  Key milestones:\n  - M1: Process automation plan complete (due March 15) Done\n  - M2: Automation tool deployment (due May 31)\n  - M3: Effectiveness evaluation (due September 30)\n  Current progress: M1 complete, M2 started (20% done)",
+    "tags": ["strategy", "2026", "OKR"],
+    "created_at": "2026-01-10T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "ceo",
+    "participants": ["chen.wei", "liu.na", "zhang.lei"],
+    "duration_minutes": 0
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "title": "Mobile Adaptationlaunch",
+    "assignee": "Chen Xu",
+    "priority": "high",
+    "status": "todo",
+    "due_date": "2026-04-30",
+    "estimated_hours": 40,
+    "tags": [
+      "mobile"
+    ],
+    "task_id": "todo_001"
+  },
+  {
+    "title": "Vue3migration research",
+    "assignee": "Lin Feng",
+    "priority": "medium",
+    "status": "in_progress",
+    "due_date": "2026-04-05",
+    "estimated_hours": 8,
+    "tags": [
+      "Vue3",
+      "research"
+    ],
+    "task_id": "todo_002"
+  },
+  {
+    "title": "dataanalysisPOC",
+    "assignee": "Chen Xu",
+    "priority": "high",
+    "status": "todo",
+    "due_date": "2026-04-15",
+    "estimated_hours": 24,
+    "tags": [
+      "dataanalysis",
+      "POC"
+    ],
+    "task_id": "todo_003"
+  },
+  {
+    "title": "afterplatformmanagementsystemescalate",
+    "assignee": "Lin Feng",
+    "priority": "medium",
+    "status": "todo",
+    "due_date": "2026-04-25",
+    "estimated_hours": 30,
+    "tags": [
+      "Vue3",
+      "escalate"
+    ],
+    "task_id": "todo_004"
+  }
+]

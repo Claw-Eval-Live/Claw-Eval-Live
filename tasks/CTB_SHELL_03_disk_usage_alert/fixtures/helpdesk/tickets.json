@@ -1,0 +1,62 @@
+[
+  {
+    "ticket_id": "TK-301",
+    "subject": "prod-web-01 /var/logdistrictUtilization95%",
+    "description": "DiskMonitoring Alert：prod-web-01Service/var/logdistrictUtilizationto95%（Total capacity 50GB，alreadyUsing47.5GB）。Usage：nginxLogaccess.log(20GB)、Application Logsapp.log(15GB)、SystemLogsyslog(8GB)。LogRotationConfignot，access.logmostafterRotationTimeas2month15day。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-24T08:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "reporter": "Diskmonitoring",
+    "assignee": "Operationsgroup",
+    "category": "Disk Alert",
+    "comments": [
+      {
+        "author": "Operationsgroup",
+        "text": "logrotate cronTask confirmed not executed，crondServiceStatusAnomaly",
+        "created_at": "2026-03-25T10:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-302",
+    "subject": "prod-db-01 /datadistrictUtilization88%",
+    "description": "DiskMonitoring Alert：prod-db-01Service/datadistrictUtilizationto88%（total500GB，alreadyUsing440GB）。Usage：MySQLdata(280GB)、binlogLog(120GB)、Backup Files(40GB)。binlogmostthedayas1month，expire_logs_dayscurrentas0（notuseautomaticCleanup）。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-23T14:00:00Z",
+    "updated_at": "2026-03-25T09:00:00Z",
+    "reporter": "Diskmonitoring",
+    "assignee": "DBAgroup",
+    "category": "Disk Alert",
+    "comments": [
+      {
+        "author": "DBAgroup",
+        "text": "binlogneedRetention7daysuseatMaster-SlaveReplication，beforethecanwithSecurityCleanup",
+        "created_at": "2026-03-25T09:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-303",
+    "subject": "prod-app-01 /tmpdistrictUtilization92%",
+    "description": "DiskMonitoring Alert：prod-app-01Service/tmpdistrictUtilizationto92%（Total capacity 20GB，alreadyUsing18.4GB）。Usage：ApplicationTemporaryupload_tmp(12GB)、Session Filessession_tmp(4GB)、itsTemporary(2.4GB)。upload_tmpinAtlargeexceeds30daystheTemporarynotCleanup。",
+    "status": "open",
+    "priority": "medium",
+    "created_at": "2026-03-24T16:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "reporter": "Diskmonitoring",
+    "assignee": "Operationsgroup",
+    "category": "Disk Alert",
+    "comments": [
+      {
+        "author": "Development Team",
+        "text": "upload_tmptheCleanupscriptAttimesdeploymentinby",
+        "created_at": "2026-03-25T10:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

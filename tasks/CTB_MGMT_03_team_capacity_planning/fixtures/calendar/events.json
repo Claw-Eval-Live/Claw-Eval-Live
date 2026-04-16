@@ -1,0 +1,104 @@
+[
+  {
+    "event_id": "evt_cap_01",
+    "title": "Product Review Meeting",
+    "location": "Conference Room A",
+    "attendees": [
+      "zhang.lei",
+      "wang.fang",
+      "li.na",
+      "chen.wei"
+    ],
+    "description": "Q2 product roadmap review",
+    "organizer": "zhang.lei",
+    "start_time": "2026-03-30T09:00:00Z",
+    "end_time": "2026-03-30T10:30:00Z"
+  },
+  {
+    "event_id": "evt_cap_02",
+    "title": "Technical Design Discussion",
+    "location": "Conference Room B",
+    "attendees": [
+      "wang.fang",
+      "li.na",
+      "zhao.peng"
+    ],
+    "description": "Microservices architecture migration design discussion",
+    "organizer": "wang.fang",
+    "start_time": "2026-03-30T14:00:00Z",
+    "end_time": "2026-03-30T16:00:00Z"
+  },
+  {
+    "event_id": "evt_cap_03",
+    "title": "Requirements Sync Meeting",
+    "location": "Online",
+    "attendees": [
+      "zhang.lei",
+      "wang.fang",
+      "chen.wei"
+    ],
+    "description": "Sync with Client A on custom requirements",
+    "organizer": "zhang.lei",
+    "start_time": "2026-03-31T10:00:00Z",
+    "end_time": "2026-03-31T11:00:00Z"
+  },
+  {
+    "event_id": "evt_cap_04",
+    "title": "Code Review",
+    "location": "Online",
+    "attendees": [
+      "li.na",
+      "zhao.peng",
+      "wang.fang"
+    ],
+    "description": "Payment module code review",
+    "organizer": "li.na",
+    "start_time": "2026-03-31T14:00:00Z",
+    "end_time": "2026-03-31T15:00:00Z"
+  },
+  {
+    "event_id": "evt_cap_05",
+    "title": "Team Weekly Meeting",
+    "location": "Main Conference Room",
+    "attendees": [
+      "zhang.lei",
+      "wang.fang",
+      "li.na",
+      "chen.wei",
+      "zhao.peng"
+    ],
+    "description": "Engineering department all-hands weekly meeting",
+    "organizer": "zhang.lei",
+    "start_time": "2026-04-01T09:00:00Z",
+    "end_time": "2026-04-01T10:00:00Z"
+  },
+  {
+    "event_id": "evt_cap_06",
+    "title": "1-on-1 Coaching - Zhao Peng",
+    "location": "zhang.lei's office",
+    "attendees": [
+      "zhang.lei",
+      "zhao.peng"
+    ],
+    "description": "New employee coaching",
+    "organizer": "zhang.lei",
+    "start_time": "2026-04-01T14:00:00Z",
+    "end_time": "2026-04-01T15:00:00Z"
+  },
+  {
+    "event_id": "evt_cap_07",
+    "title": "Tech Sharing Session",
+    "location": "Multi-Purpose Hall",
+    "attendees": [
+      "zhang.lei",
+      "wang.fang",
+      "li.na",
+      "chen.wei",
+      "zhao.peng"
+    ],
+    "description": "AI model optimization experience sharing",
+    "organizer": "chen.wei",
+    "start_time": "2026-04-02T15:00:00Z",
+    "end_time": "2026-04-02T16:30:00Z"
+  }
+]

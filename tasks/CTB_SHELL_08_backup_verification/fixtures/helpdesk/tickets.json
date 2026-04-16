@@ -1,0 +1,62 @@
+[
+  {
+    "ticket_id": "TK-801",
+    "subject": "MySQLbackup2daysfailed",
+    "description": "prod-db-01MySQLbackuptask324failed。backup：mysqldump，planexecutetime：daysAM2:00。errorlog：mysqldump: Error 28 (No space left on device) when writing to '/data/backup/full_20260324.sql'。backuptargetdirectory/data/backup/space5GB，backupapproximately120GB。last timesucceededbackuptime：2026-03-23 02:00。RPOstrategy：24hours。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-24T06:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "reporter": "backupmonitoring",
+    "assignee": "DBA Team",
+    "category": "Backup Alert",
+    "comments": [
+      {
+        "author": "DBA Team",
+        "text": "backupfilestrategycleanup，/data/backup/30daysbackupfile400GB",
+        "created_at": "2026-03-25T10:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-802",
+    "subject": "filebackuptask",
+    "description": "prod-app-01filebackup325execute。backup：rsync，planexecutetime：daysAM3:00。rsynclog/data/uploadsdirectory，error：rsync error: timeout in data send/receive (code 30)。backupfile：65GB/80GB，approximately15GB。backuptarget：backup-nfs-01:/backup/app01/。networklogAM3:00-4:00backup。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-25T06:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "reporter": "backupmonitoring",
+    "assignee": "Ops Team",
+    "category": "Backup Alert",
+    "comments": [
+      {
+        "author": "network",
+        "text": "backupAMfailure，schedule",
+        "created_at": "2026-03-25T10:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-803",
+    "subject": "backuptimeout",
+    "description": "(dc-backup-bj)datatask3daystimeout。：rclone，planexecutetime：daysAM4:00，timeout6hours。currentdataapproximately500GB/days，100Mbps。actualapproximately50Mbps50%，6hoursapproximately135GB。backup72hours。RPOstrategybackup48hours。",
+    "status": "open",
+    "priority": "medium",
+    "created_at": "2026-03-25T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "reporter": "backupmonitoring",
+    "assignee": "Infrastructure Team",
+    "category": "Backup Alert",
+    "comments": [
+      {
+        "author": "Infrastructure Team",
+        "text": "data，100Mbpsinsufficient，pleaseupgrade1Gbps",
+        "created_at": "2026-03-25T10:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

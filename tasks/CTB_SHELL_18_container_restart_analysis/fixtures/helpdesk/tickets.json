@@ -1,0 +1,82 @@
+[
+  {
+    "ticket_id": "TK-401",
+    "subject": "payment-servicerestart",
+    "description": "payment-service48hoursrestart23times。KubernetesincidentOOMKilled，memory512MB。restart10:00-12:0014:00-16:00。current3，pod-payment-7a2frestart15times。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-25T06:00:00Z",
+    "updated_at": "2026-03-27T10:00:00Z",
+    "reporter": "K8smonitoring",
+    "assignee": "Wang (Ops Engineer)",
+    "category": "restart",
+    "comments": [
+      {
+        "author": "Wang (Ops Engineer)",
+        "text": "heap dumpanalysisdisableddatabaseconnection，connection",
+        "created_at": "2026-03-27T10:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-402",
+    "subject": "order-service CrashLoopBackOff",
+    "description": "order-service2PodCrashLoopBackOffstatus。logstartconnectionRedisclusterfailed: Connection refused redis-cluster-01:6379。timessucceededstart32608:00，afterRediscluster。noderedis-cluster-02:6379。",
+    "status": "open",
+    "priority": "critical",
+    "created_at": "2026-03-26T09:00:00Z",
+    "updated_at": "2026-03-27T08:00:00Z",
+    "reporter": "K8smonitoring",
+    "assignee": "Li (Ops Engineer)",
+    "category": "restart",
+    "comments": [
+      {
+        "author": "Li (Ops Engineer)",
+        "text": "order-serviceconfigurationfileRedisaddressredis-cluster-01，Sentinel/Cluster",
+        "created_at": "2026-03-27T08:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-403",
+    "subject": "notification-servicecheckfailedrestart",
+    "description": "notification-serviceapproximately20minutesK8scheckrestart。livenessProbeconfiguration：httpGet /health, timeout3seconds, failedthreshold3times。analysisservicehandleemailresponse，/healthinterfaceP99latency5seconds。24hoursrestart72times。",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-26T12:00:00Z",
+    "updated_at": "2026-03-27T12:00:00Z",
+    "reporter": "K8smonitoring",
+    "assignee": "",
+    "category": "restart",
+    "comments": [
+      {
+        "author": "",
+        "text": "email，threadcausedchecktimeout",
+        "created_at": "2026-03-27T12:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-404",
+    "subject": "gateway-servicerestartassignment",
+    "description": "gateway-service326timesrestartcause：nodeupdate，restart3Podassignment：pod-gw-0178%，pod-gw-0218%，pod-gw-034%。ServicesessionAffinityconfigurationreadinessProbetime。",
+    "status": "open",
+    "priority": "medium",
+    "created_at": "2026-03-26T18:00:00Z",
+    "updated_at": "2026-03-27T09:00:00Z",
+    "reporter": "SREteam",
+    "assignee": "Wang (Ops Engineer)",
+    "category": "restart",
+    "comments": [
+      {
+        "author": "SREteam",
+        "text": "readinessProbelatency5seconds，serviceactualneeds30seconds，causedPod",
+        "created_at": "2026-03-27T09:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {"transaction_id": "TX-1", "type": "expense", "category": "Office expenses", "amount": 120000, "deductible": true, "tax_rate": 0.25, "date": "2025-12-31", "description": "Office supplies and consumables"},
+  {"transaction_id": "TX-2", "type": "expense", "category": "Business entertainment", "amount": 350000, "deductible": true, "deduction_limit_pct": 0.6, "tax_rate": 0.25, "date": "2025-12-31", "description": "Client entertainment expenses (60% deduction limit)"},
+  {"transaction_id": "TX-3", "type": "expense", "category": "Penalties", "amount": 80000, "deductible": false, "tax_rate": 0.25, "date": "2025-12-31", "description": "Environmental penalty (non-deductible)"},
+  {"transaction_id": "TX-4", "type": "expense", "category": "R&D expenses", "amount": 600000, "deductible": true, "deduction_pct": 1.75, "tax_rate": 0.25, "date": "2025-12-31", "description": "R&D expenses (175% super deduction)"},
+  {"transaction_id": "TX-5", "type": "expense", "category": "Advertising", "amount": 450000, "deductible": true, "deduction_limit_pct": 1.0, "tax_rate": 0.25, "date": "2025-12-31", "description": "Brand advertising spend"},
+  {"transaction_id": "TX-6", "type": "expense", "category": "Late payment surcharges", "amount": 25000, "deductible": false, "tax_rate": 0.25, "date": "2025-12-31", "description": "Tax late payment surcharges (non-deductible)"},
+  {"transaction_id": "TX-7", "type": "expense", "category": "Employee benefits", "amount": 280000, "deductible": true, "deduction_limit_pct": 0.14, "tax_rate": 0.25, "date": "2025-12-31", "description": "Employee benefits (14% of payroll limit)"},
+  {"transaction_id": "TX-8", "type": "expense", "category": "Charitable donations", "amount": 100000, "deductible": true, "deduction_limit_pct": 0.12, "tax_rate": 0.25, "date": "2025-12-31", "description": "Public welfare donations (12% of profit limit)"}
+]

@@ -1,0 +1,24 @@
+{
+  "task_name": "CTB_PRODAPP_07_weekly_planning",
+  "prompt": "asteamcompilearrangenext week（4month6date-4month10date）planning。datealreadyhasmeetingarrange、pendingtasktableeachcompletemembertaskanddeadlinedate、notesScheduling Principles，aseachcompletememberplanningeachdaysfocus。output：eachpeopleeachdaysassign（meetingvsdevelopmentvsreview），arrangeentertaskandrisk alert。",
+  "services": {
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    },
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    },
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

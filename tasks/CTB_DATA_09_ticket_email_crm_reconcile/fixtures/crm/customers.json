@@ -1,0 +1,7 @@
+[
+  {"customer_id": "CUS-1001", "name": "Alpha Retail Group", "contact_person": "Zhang Wei", "contact_email": "zhang@alpha-retail.com", "status": "active", "tier": "VIP", "industry": "Retail", "annual_revenue": 480000, "notes": "Enterprise account."},
+  {"customer_id": "CUS-1002", "name": "Beta Financial Services", "contact_person": "Li Ming", "contact_email": "li@beta-finance.com", "status": "active", "tier": "standard", "industry": "Finance", "annual_revenue": 120000, "notes": "Standard customer."},
+  {"customer_id": "CUS-1003", "name": "Gamma Logistics Tech", "contact_person": "Wang Gang", "contact_email": "wang@gamma-logistics.com", "status": "active", "tier": "VIP", "industry": "Logistics", "annual_revenue": 350000, "notes": ""},
+  {"customer_id": "CUS-1004", "name": "Delta EdTech", "contact_person": "Teacher Chen", "contact_email": "chen@delta-edu.com", "status": "active", "tier": "standard", "industry": "Education", "annual_revenue": 80000, "notes": ""},
+  {"customer_id": "CUS-1005", "name": "Epsilon Healthcare Group", "contact_person": "Zhao Li", "contact_email": "zhao@epsilon-health.com", "status": "active", "tier": "VIP", "industry": "Healthcare", "annual_revenue": 420000, "notes": ""}
+]

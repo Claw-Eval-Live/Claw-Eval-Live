@@ -1,0 +1,16 @@
+{
+  "task_name": "CTB_PRODAPP_20_note_consolidation",
+  "prompt": "5closecache strategynotesastechnicalFangcasedocumentation。：timesdiscussioninternalupdatetimesdiscussionpassstrategy，withnewversionas。afterdocumentationshould：cachearchitecture、passstrategy、Fangcase、monitoringalertandvolumeplanning。withJSONformatreturn，consolidated_document（titleandsectionsnumbergroup，eachsectionheadingandcontent）andsuperseded_info（passiveupdate）segment。",
+  "services": {
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://report.iresearch.cn/ai-market-2026",
+    "title": "iResearch - 2026 China AI Market Trend Report",
+    "content": "2026 China AI Market Trend Report Summary\n\nMarket Size:\n- 2025 China AI market reached RMB 425 billion (approximately $4,250 hundred-million yuan)\n- 2026 forecast: RMB 568 billion (5,680 hundred-million yuan), YoY growth 33.6%\n- Expected to exceed RMB 1 trillion by 2028\n\nKey Trends:\n1. Accelerated LLM commercialization: Enterprise LLM adoption grew 120%, concentrated in customer service, marketing, and code generation\n2. AI Agents as new growth driver: AI Agent market expected to reach RMB 38 billion in 2026\n3. Rapid development of multimodal AI: Text-image and audio-video multimodal applications grew 85% YoY\n4. Increased edge AI deployment: On-device AI chip shipments grew 60%\n\nCompetitive Landscape:\n- Baidu, Alibaba, Tencent, and Huawei hold 65% market share\n- Active startup funding: Total AI sector funding reached RMB 120 billion in 2025",
+    "date": "2026-03-15"
+  },
+  {
+    "url": "https://www.gartner.com/en/reports/ai-hype-cycle-2026",
+    "title": "Gartner 2026 AI Hype Cycle",
+    "content": "Gartner 2026 AI Technology Maturity Curve Key Points:\n\nTechnologies entering production maturity:\n- Conversational AI\n- ML Platforms\n- Computer Vision\n\nTechnologies at the peak of inflated expectations:\n- AI Agent\n- Multimodal LLMs\n- AI Code Generation\n\nTechnologies in the trough of disillusionment:\n- Autonomous Driving L4+\n- Artificial General Intelligence (AGI)\n\nKey Predictions:\n- By 2027, 40% of enterprise applications will integrate AI Agent capabilities\n- By 2028, 75% of software engineers will use AI coding assistants daily\n- AI governance and security will be a key enterprise investment focus in 2026-2027\n\nGartner recommends: Enterprises should prioritize AI Agent and multimodal AI investments while monitoring AI governance risks.",
+    "date": "2026-03-18"
+  },
+  {
+    "url": "https://www.mckinsey.com/capabilities/ai/insights-2026",
+    "title": "McKinsey - AI Impact Analysis by Industry",
+    "content": "McKinsey 2026 AI Industry Impact Report Summary:\n\nAI Adoption Rate by Industry:\n- Financial services: 72% (highest)\n- Technology: 68%\n- Healthcare: 45%\n- Manufacturing: 38%\n- Retail: 52%\n\nROI Analysis:\n- Average AI investment-to-return ratio: 1:3.5 (every $1 invested generates $3.5 in value)\n- Financial industry AI ROI is the highest at 1:5.2\n- Highest value use cases: Customer service automation (35% cost savings), Sales forecasting (28% accuracy improvement)\n\nTalent Gap:\n- Global AI talent gap: 4 million\n- China AI talent gap: approximately 750,000 (75 wan)\n- Most scarce roles: AI Architect, MLOps Engineer, AI Product Manager\n\nInvestment Recommendation: Prioritize customer service and sales AI scenarios; ROI visible within 6-12 months.",
+    "date": "2026-03-10"
+  }
+]

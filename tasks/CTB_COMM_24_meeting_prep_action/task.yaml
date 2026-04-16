@@ -1,0 +1,90 @@
+task_id: CTB_COMM_24_meeting_prep_action
+task_name: Meeting Prep Action Items
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_COMM_24_meeting_prep_action/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: calendar
+    command: python mock_services/calendar/server.py
+    port: 9101
+    health_check: http://localhost:9101/calendar/events
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9101/calendar/reset
+    env:
+      CALENDAR_FIXTURES: tasks/CTB_COMM_24_meeting_prep_action/fixtures/calendar/events.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Review the upcoming meeting schedule, then find related preparation material information from emails. Compile a preparation checklist for each meeting, noting the responsible person and completion status.
+  language: en
+tools:
+  - name: gmail_list_messages
+    description: List email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          default: 7
+      required: []
+  - name: gmail_get_message
+    description: Get email message details
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+      required: [message_id]
+  - name: calendar_list_events
+    description: List calendar events
+    input_schema:
+      type: object
+      properties:
+        days_ahead:
+          type: integer
+          default: 7
+      required: []
+  - name: calendar_get_event
+    description: Get calendar event details
+    input_schema:
+      type: object
+      properties:
+        event_id:
+          type: string
+      required: [event_id]
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: calendar_list_events
+    url: http://localhost:9101/calendar/events
+    method: POST
+  - tool_name: calendar_get_event
+    url: http://localhost:9101/calendar/events/get
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/calendar/events.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  Product Review Meeting (3/30): User growth report - Li Ming - completed, Competitive analysis - Zhao Li - unconfirmed, Tech architecture v2 - Wang Tao - in progress (due 3/29). Strategy Planning Meeting (4/1): OKR status - all VPs, Overseas market plan - Liu Yang - submitted for review, AI roadmap - Tech VP - unconfirmed.
+primary_dimensions: [completion]

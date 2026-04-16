@@ -1,0 +1,201 @@
+task_id: CTB_C06_customer_health_churn_risk
+task_name: Customer Health Monitoring & Churn Risk Intervention
+version: "1.0"
+category: workflow
+difficulty: medium-hard
+
+services:
+  - name: gmail
+    command: python mock_services/gmail/server.py
+    port: 9100
+    health_check: http://localhost:9100/gmail/messages
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9100/gmail/reset
+    env:
+      GMAIL_FIXTURES: tasks/CTB_C06_customer_health_churn_risk/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
+  - name: crm
+    command: python mock_services/crm/server.py
+    port: 9110
+    health_check: http://localhost:9110/crm/customers
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9110/crm/reset
+    env:
+      CRM_FIXTURES: tasks/CTB_C06_customer_health_churn_risk/fixtures/crm/customers.json
+      ERROR_RATE: "0"
+
+prompt:
+  text: |
+    As the Customer Success Manager, you need to monitor VIP customer health and identify churn risks. Please:
+
+    1. Retrieve all VIP customer details from CRM, including renewal dates and support ticket records
+    2. Search the mailbox for correspondence with each VIP customer in the past 30 days
+    3. Comprehensively analyze the health status of each customer across these dimensions:
+       - Email sentiment analysis (negative keywords: dissatisfied, complaint, alternative vendor, cancel, hesitant, etc.)
+       - Number and priority of unresolved tickets
+       - Days until renewal
+       - Time since last contact
+    4. Based on the above dimensions, calculate a risk level for each customer (High/Medium/Low)
+    5. Develop specific intervention recommendations for high-risk customers
+    6. Create urgent follow-up tasks in CRM for high-risk customers
+
+    Output requirements:
+    - Generate a structured customer health monitoring report
+    - The report must include risk assessment details for each VIP customer
+    - High-risk customers must have a specific intervention action plan
+  language: en
+
+tools:
+  - name: gmail_list_messages
+    description: List inbox email messages
+    input_schema:
+      type: object
+      properties:
+        days_back:
+          type: integer
+          description: Number of recent days to retrieve
+          default: 7
+        max_results:
+          type: integer
+          description: Maximum number of results
+          default: 20
+      required: []
+
+  - name: gmail_get_message
+    description: Get detailed email content by message ID
+    input_schema:
+      type: object
+      properties:
+        message_id:
+          type: string
+          description: Message ID
+      required: [message_id]
+
+  - name: crm_list_customers
+    description: List CRM customers, filterable by status or tier
+    input_schema:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Customer status filter
+        tier:
+          type: string
+          description: "Customer tier filter: VIP, standard"
+      required: []
+
+  - name: crm_get_customer
+    description: Get full customer details including tickets and renewal date
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+          description: Customer ID
+      required: [customer_id]
+
+  - name: crm_create_task
+    description: Create a follow-up task for a customer
+    input_schema:
+      type: object
+      properties:
+        customer_id:
+          type: string
+          description: Associated customer ID
+        title:
+          type: string
+          description: Task title
+        description:
+          type: string
+          description: Task description
+        priority:
+          type: string
+          description: "Priority: high, medium, low"
+      required: [customer_id, title]
+
+tool_endpoints:
+  - tool_name: gmail_list_messages
+    url: http://localhost:9100/gmail/messages
+    method: POST
+  - tool_name: gmail_get_message
+    url: http://localhost:9100/gmail/messages/get
+    method: POST
+  - tool_name: crm_list_customers
+    url: http://localhost:9110/crm/customers
+    method: POST
+  - tool_name: crm_get_customer
+    url: http://localhost:9110/crm/customers/get
+    method: POST
+  - tool_name: crm_create_task
+    url: http://localhost:9110/crm/tasks/create
+    method: POST
+
+environment:
+  timeout_seconds: 300
+  max_turns: 24
+  fixtures:
+    - fixtures/gmail/inbox.json
+    - fixtures/crm/customers.json
+
+scoring_components:
+  - name: fetch_vip_customers
+    weight: 0.10
+    check:
+      type: tool_called
+      tool_name: crm_list_customers
+      min_calls: 1
+  - name: read_customer_details
+    weight: 0.15
+    check:
+      type: tool_called
+      tool_name: crm_get_customer
+      min_calls: 3
+  - name: read_customer_emails
+    weight: 0.15
+    check:
+      type: tool_called
+      tool_name: gmail_get_message
+      min_calls: 3
+  - name: risk_assessment
+    weight: 0.25
+    check:
+      type: keywords_present
+      keywords: ["high risk", "Everway Logistics", "Azure Sea Medical", "renewal"]
+  - name: create_urgent_tasks
+    weight: 0.20
+    check:
+      type: tool_called
+      tool_name: crm_create_task
+      min_calls: 2
+  - name: report_quality
+    weight: 0.15
+    check:
+      type: min_length
+      min_length: 300
+
+safety_checks: []
+
+expected_actions:
+  - service: crm
+    action_key: tasks
+    required: true
+
+reference_solution: |
+  1. CRM query for VIP customers -> 4: Everway Logistics, CloudSail Education, Stellar Finance, Azure Sea Medical
+  2. Read details for each (including tickets and renewal dates)
+  3. Read emails and match to each customer:
+     - Everway Logistics: 2 negative emails ("alternative vendor", "severely dissatisfied")
+     - Azure Sea Medical: 2 negative emails ("urging", "renewal concerns")
+     - Stellar Finance: 1 positive email
+     - CloudSail Education: no emails
+  4. Risk assessment:
+     - Everway Logistics: High risk (2 open tickets + negative emails + May renewal)
+     - Azure Sea Medical: High risk (2 high-priority open tickets + renewal concerns + June renewal)
+     - CloudSail Education: Medium risk (60 days no contact + April renewal approaching)
+     - Stellar Finance: Low risk (no tickets + positive email + September renewal)
+  5. Create urgent follow-up tasks for Everway and Azure Sea
+  6. Output structured report
+
+primary_dimensions: [completion, communication]

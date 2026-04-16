@@ -1,0 +1,6 @@
+item,owner,status,due_date,notes
+dashboard_mockup,Leo Zhang,in_progress,2026-03-26,"Store operations dashboard v1 mockup"
+sample_data_pack,Ada Chen,in_progress,2026-03-28,"Sample data pack for dry run"
+security_questionnaire_owner,TBD,open,2026-03-24,"Security questionnaire required by procurement — no owner assigned yet"
+kpi_definition,Kevin Wu,pending,2026-03-27,"Need final confirmation on promotion conversion rate and inventory turnover days methodology"
+kickoff_date,Program PM,confirmed,2026-04-07,"Latest status: kickoff moved from 2026-04-01 to 2026-04-07"

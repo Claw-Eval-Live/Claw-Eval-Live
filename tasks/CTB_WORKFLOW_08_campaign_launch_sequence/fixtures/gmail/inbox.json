@@ -1,0 +1,47 @@
+[
+  {
+    "message_id": "msg_w08_01",
+    "thread_id": "tw08_01",
+    "from": "marketing@company.cn",
+    "to": [
+      "all-dept@company.cn"
+    ],
+    "subject": "v2.2featureMarketing Campaignplan",
+    "body": "department， v2.2releaseplanor lessMarketing Campaign： 1. email41：v2.2feature\n2. 48：Excel+optimizefeature，target50\n3. 41-15：v2.2，\n4. 41-30：+ needsdepartment：\n- ：content\n- succeeded：\n- ：campaign Marketing Department",
+    "date": "2026-03-26T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_w08_02",
+    "thread_id": "tw08_02",
+    "from": "cs@company.cn",
+    "to": [
+      "marketing@company.cn"
+    ],
+    "subject": "",
+    "body": "Marketing Department， or less：\n1. VIP，Excel\n2. VIP，\n3. VIP，performance\n4. BetaExcel\n5. Epsilonauditfeature",
+    "date": "2026-03-27T10:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": true
+  },
+  {
+    "message_id": "msg_w08_03",
+    "thread_id": "tw08_03",
+    "from": "sales@company.cn",
+    "to": [
+      "marketing@company.cn"
+    ],
+    "subject": "campaign-",
+    "body": "Marketing Department， 38dealunderstoodfeature。\napproximatelycampaignschedule。",
+    "date": "2026-03-27T14:00:00Z",
+    "labels": [
+      "inbox"
+    ],
+    "is_read": true
+  }
+]

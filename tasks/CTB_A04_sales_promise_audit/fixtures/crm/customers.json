@@ -1,0 +1,57 @@
+[
+  {
+    "customer_id": "CUS-501",
+    "name": "GreenTech Energy Solutions Ltd.",
+    "contact_person": "Wang Fang",
+    "contact_email": "client-wangfang@greentech.cn",
+    "status": "active",
+    "tier": "standard",
+    "industry": "Energy",
+    "annual_revenue": 120000,
+    "contract_terms": {
+      "annual_fee": 120000,
+      "discount": "None",
+      "free_trial": "None",
+      "training_sessions": 0,
+      "support_sla": "8-hour response"
+    },
+    "notes": "Standard contract, no special terms."
+  },
+  {
+    "customer_id": "CUS-502",
+    "name": "Precision Manufacturing Technology Ltd.",
+    "contact_person": "Liu Wei",
+    "contact_email": "client-liuwei@precision-mfg.com",
+    "status": "active",
+    "tier": "standard",
+    "industry": "Manufacturing",
+    "annual_revenue": 80000,
+    "contract_terms": {
+      "annual_fee": 80000,
+      "discount": "None",
+      "free_trial": "None",
+      "free_modules": [],
+      "free_migration": false,
+      "support_sla": "Standard support"
+    },
+    "notes": "New customer, standard terms."
+  },
+  {
+    "customer_id": "CUS-503",
+    "name": "Nova Retail Technology Ltd.",
+    "contact_person": "Chen Yu",
+    "contact_email": "client-chenyu@nova-retail.com",
+    "status": "active",
+    "tier": "VIP",
+    "industry": "Retail",
+    "annual_revenue": 150000,
+    "contract_terms": {
+      "annual_fee": 150000,
+      "discount": "None",
+      "included_modules": ["Data analytics", "Natural language query"],
+      "api_support": true,
+      "support_sla": "7x24"
+    },
+    "notes": "Enterprise customer, standard enterprise pricing."
+  }
+]

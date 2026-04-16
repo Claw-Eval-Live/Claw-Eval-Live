@@ -1,0 +1,21 @@
+[
+  {
+    "title": "knowledge basereviewmeeting",
+    "date": "2026-04-08",
+    "start_time": "2026-04-08T14:00:00Z",
+    "end_time": "2026-04-08T15:30:00Z",
+    "participants": [
+      "Wei Zhang",
+      "Na Li",
+      "Min Zhao"
+    ],
+    "location": "Meeting Room A",
+    "event_id": "evt_001",
+    "attendees": [
+      "Wei Zhang",
+      "Na Li",
+      "Min Zhao"
+    ],
+    "recurring": false
+  }
+]

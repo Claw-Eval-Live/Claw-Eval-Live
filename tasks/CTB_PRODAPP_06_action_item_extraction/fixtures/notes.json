@@ -1,0 +1,40 @@
+[
+  {
+    "note_id": "note_p06a",
+    "title": "Sprint 12 planning meetingmeetingminutes",
+    "content": "# Sprint 12 planning meeting minutes\ndate：2026-03-25\n\n## discussion content\n1. editionitem\n2. taskassign\n\n## Action Items\n- 【Na Li】completeduser login module optimization，deadline4month5date\n- 【Qiang Wang】completedMicroservice gateway upgrade，deadline4month8date\n- 【Min Zhao】writedatadatabase read-write splittingFangcasedocumentation，deadline4month3date\n- 【Lei Chen】set upE2EAutomated Testingframework，deadline4month10date\n- 【Wei Zhang】updateProduct Roadmapsendall-hands，deadline4month2date",
+    "tags": [
+      "meetingminutes",
+      "Sprint"
+    ],
+    "created_at": "2026-03-25T11:00:00Z",
+    "updated_at": "2026-03-25T11:00:00Z",
+    "author": "Wei Zhang",
+    "participants": [
+      "Wei Zhang",
+      "Na Li",
+      "Qiang Wang",
+      "Min Zhao",
+      "Lei Chen"
+    ],
+    "duration_minutes": 120
+  },
+  {
+    "note_id": "note_p06b",
+    "title": "architecturereviewmeetingmeetingminutes",
+    "content": "# architecturereviewmeetingminutes\ndate：2026-03-26\n\n## discussion content\n1. newarchitectureFangcasereviewpassed\n2. performanceload testingFangcase\n\n## Action Items\n- 【Qiang Wang】preparationAPIgatewaylimitFangcasePOC，deadline4month5date\n- 【Min Zhao】completeddatadatabase shardingdesigndocumentation，deadline4month7date\n- 【Lei Chen】completedload testingenvironment setup，deadline4month4date",
+    "tags": [
+      "meetingminutes",
+      "architecture"
+    ],
+    "created_at": "2026-03-26T16:00:00Z",
+    "updated_at": "2026-03-26T16:00:00Z",
+    "author": "Qiang Wang",
+    "participants": [
+      "Qiang Wang",
+      "Min Zhao",
+      "Lei Chen"
+    ],
+    "duration_minutes": 120
+  }
+]

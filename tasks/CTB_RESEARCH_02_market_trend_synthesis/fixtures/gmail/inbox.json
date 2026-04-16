@@ -1,0 +1,22 @@
+[
+  {
+    "message_id": "msg_res02_01",
+    "thread_id": "thread_res02_01",
+    "subject": "Fwd: Latest IDC AI Forecast - For Internal Reference",
+    "from": "analyst@ourcompany.cn",
+    "to": ["strategy@ourcompany.cn"],
+    "date": "2026-03-22T10:00:00Z",
+    "body": "Team,\n\nForwarding the key points from IDC's latest forecast:\n\n1. Global AI spending in 2026 will reach $320 billion (3,200 hundred-million USD), a 29% YoY increase\n2. China AI spending accounts for 15% of global total, approximately $48 billion (480 hundred-million USD)\n3. SaaS+AI model becoming mainstream; by 2027, 60% of SaaS products are expected to have built-in AI capabilities\n4. AI security market growing rapidly, expected to reach $12 billion in 2026\n\nI recommend we focus on the SaaS+AI trend, which aligns closely with our product direction.\n\nIndustry Analyst, Mark Zhao",
+    "is_read": false
+  },
+  {
+    "message_id": "msg_res02_02",
+    "thread_id": "thread_res02_02",
+    "subject": "Customer Feedback Summary: AI Feature Requests",
+    "from": "sales@ourcompany.cn",
+    "to": ["strategy@ourcompany.cn"],
+    "date": "2026-03-23T14:00:00Z",
+    "body": "Strategy Team,\n\nHere is a summary of customer AI feature requests received in the past month:\n\n1. Intelligent customer service chatbot (mentioned by 8 customers)\n2. Automated report generation (mentioned by 6 customers)\n3. Intelligent sales lead scoring (mentioned by 5 customers)\n4. Document intelligent summarization (mentioned by 4 customers)\n5. Anomaly detection and alerting (mentioned by 3 customers)\n\nIndustries most interested in AI features: Finance (12 companies), E-commerce (8 companies), Manufacturing (5 companies)\n\nWe recommend prioritizing the development of intelligent customer service and automated report features to cover the most customer demand.\n\nSales Team",
+    "is_read": false
+  }
+]

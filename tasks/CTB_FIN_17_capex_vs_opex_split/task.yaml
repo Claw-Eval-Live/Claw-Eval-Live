@@ -1,0 +1,44 @@
+task_id: CTB_FIN_17_capex_vs_opex_split
+task_name: CapEx vs OpEx Classification Check
+version: "1.0"
+category: workflow
+difficulty: medium
+services:
+  - name: finance
+    command: python mock_services/finance/server.py
+    port: 9102
+    health_check: http://localhost:9102/finance/transactions
+    health_check_method: POST
+    ready_timeout: 10
+    reset_endpoint: http://localhost:9102/finance/reset
+    env:
+      FINANCE_FIXTURES: tasks/CTB_FIN_17_capex_vs_opex_split/fixtures/finance/transactions.json
+      ERROR_RATE: "0"
+prompt:
+  text: |
+    Verify whether IT spending has been correctly classified as capital expenditure (CapEx) or operating expenditure (OpEx). Per accounting policy, items costing >50K with a useful life >1 year should be capitalized.
+  language: en
+tools:
+  - name: finance_list_transactions
+    description: Retrieve financial transaction records
+    input_schema:
+      type: object
+      properties:
+        start_date:
+          type: string
+      required: []
+tool_endpoints:
+  - tool_name: finance_list_transactions
+    url: http://localhost:9102/finance/transactions
+    method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+    - fixtures/finance/transactions.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  2 misclassified items: Software license 3-year (90K + 3yr should be capex but classified as opex), ERP system (500K + 5yr should be capex but classified as opex). Laptop (8K < 50K, despite 3yr life the amount is below threshold so opex is acceptable). Total impact: 590K.
+primary_dimensions: [completion]

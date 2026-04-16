@@ -1,0 +1,152 @@
+[
+  {
+    "ticket_id": "FRT-001",
+    "subject": "Unable to log in to the system",
+    "description": "Login fails despite entering the correct password",
+    "status": "resolved",
+    "priority": "high",
+    "created_at": "2026-03-15T08:00:00Z",
+    "updated_at": "2026-03-15T09:00:00Z",
+    "reporter": "user1@client.com",
+    "assignee": "agent_a@company.com",
+    "category": "account",
+    "comments": [
+      {
+        "author": "agent_a@company.com",
+        "text": "Hello, we have received your report and are investigating",
+        "created_at": "2026-03-15T08:10:00Z"
+      },
+      {
+        "author": "agent_a@company.com",
+        "text": "Issue resolved; it was caused by an expired password",
+        "created_at": "2026-03-15T08:45:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "FRT-002",
+    "subject": "Data synchronization delay",
+    "description": "Data synchronization is delayed by over 1 hour",
+    "status": "resolved",
+    "priority": "high",
+    "created_at": "2026-03-17T10:00:00Z",
+    "updated_at": "2026-03-17T14:00:00Z",
+    "reporter": "user2@client.com",
+    "assignee": "agent_b@company.com",
+    "category": "sync",
+    "comments": [
+      {
+        "author": "agent_b@company.com",
+        "text": "Confirmed the synchronization delay issue; working on it",
+        "created_at": "2026-03-17T10:55:00Z"
+      },
+      {
+        "author": "agent_b@company.com",
+        "text": "Sync queue has been cleared; service restored to normal",
+        "created_at": "2026-03-17T13:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "FRT-003",
+    "subject": "Report displays blank page",
+    "description": "Monthly sales report shows a blank page when opened",
+    "status": "resolved",
+    "priority": "medium",
+    "created_at": "2026-03-19T09:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z",
+    "reporter": "user3@client.com",
+    "assignee": "agent_a@company.com",
+    "category": "bug",
+    "comments": [
+      {
+        "author": "agent_a@company.com",
+        "text": "Thank you for the report; let me look into the issue",
+        "created_at": "2026-03-19T09:08:00Z"
+      },
+      {
+        "author": "agent_a@company.com",
+        "text": "It was a cache issue; now fixed",
+        "created_at": "2026-03-19T11:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "FRT-004",
+    "subject": "API call returns 403",
+    "description": "API calls using the API key return 403 Forbidden",
+    "status": "resolved",
+    "priority": "high",
+    "created_at": "2026-03-20T14:00:00Z",
+    "updated_at": "2026-03-21T10:00:00Z",
+    "reporter": "user4@client.com",
+    "assignee": "agent_c@company.com",
+    "category": "api",
+    "comments": [
+      {
+        "author": "agent_c@company.com",
+        "text": "Received; checking the permission configuration",
+        "created_at": "2026-03-20T15:30:00Z"
+      },
+      {
+        "author": "agent_c@company.com",
+        "text": "The API key permission scope was misconfigured; corrected now",
+        "created_at": "2026-03-21T09:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "FRT-005",
+    "subject": "Mobile app crash",
+    "description": "iOS app crashes when opening a specific page",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-22T11:00:00Z",
+    "updated_at": "2026-03-24T10:00:00Z",
+    "reporter": "user5@client.com",
+    "assignee": "agent_b@company.com",
+    "category": "bug",
+    "comments": [
+      {
+        "author": "agent_b@company.com",
+        "text": "Thank you for the report; we are reproducing the issue",
+        "created_at": "2026-03-22T13:15:00Z"
+      },
+      {
+        "author": "agent_b@company.com",
+        "text": "Reproduced the issue; submitted to the development team for a fix",
+        "created_at": "2026-03-23T10:00:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "FRT-006",
+    "subject": "File upload failure",
+    "description": "Uploading files larger than 10MB fails",
+    "status": "resolved",
+    "priority": "medium",
+    "created_at": "2026-03-24T09:00:00Z",
+    "updated_at": "2026-03-24T15:00:00Z",
+    "reporter": "user6@client.com",
+    "assignee": "agent_a@company.com",
+    "category": "bug",
+    "comments": [
+      {
+        "author": "agent_a@company.com",
+        "text": "Hello, we are testing the file upload function",
+        "created_at": "2026-03-24T09:05:00Z"
+      },
+      {
+        "author": "agent_a@company.com",
+        "text": "The Nginx configuration was limiting the upload size; increased to 50MB",
+        "created_at": "2026-03-24T11:00:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

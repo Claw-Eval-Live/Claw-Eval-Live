@@ -1,0 +1,33 @@
+{
+  "date": "2026-03-01",
+  "records": [
+    {
+      "id": "tx-1001",
+      "status": "Completed",
+      "amount": "12.50",
+      "category_name": " Compute ",
+      "owner": " Alice "
+    },
+    {
+      "id": "tx-1002",
+      "state": "pending",
+      "amount_cents": "300",
+      "category": "storage",
+      "owner": "bob"
+    },
+    {
+      "id": "tx-1003",
+      "status": "FAILED",
+      "amount": "99.99",
+      "category": "network",
+      "owner": "mallory"
+    },
+    {
+      "id": "tx-1004",
+      "state": "settled",
+      "amount_cents": 250,
+      "category": "compute",
+      "owner": "alice"
+    }
+  ]
+}

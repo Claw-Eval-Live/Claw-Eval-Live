@@ -1,0 +1,57 @@
+[
+  {
+    "message_id": "msg_hr02_001",
+    "thread_id": "thread_hr02_001",
+    "subject": "Leave Request - Zhao Li (Marketing Dept) 5 Days Annual Leave",
+    "from": "zhaoli@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-20T09:00:00Z",
+    "body": "Hi HR,\n\nI am requesting 5 days of annual leave from April 7 to April 11, 2026, to visit family back home. My employee ID is EMP-201. My annual leave balance should still be 8 days.\n\nPlease approve.\nZhao Li",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr02_002",
+    "thread_id": "thread_hr02_002",
+    "subject": "Leave Request - Sun Qiang (Engineering Dept) 3 Days Annual Leave",
+    "from": "sunqiang@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-21T10:00:00Z",
+    "body": "Hi HR,\n\nI am requesting 3 days of annual leave from April 14 to April 16, 2026. My employee ID is EMP-202. I believe my annual leave balance is 10 days.\n\nThank you!\nSun Qiang",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr02_003",
+    "thread_id": "thread_hr02_003",
+    "subject": "Leave Request - Wang Min (Finance Dept) 7 Days Annual Leave",
+    "from": "wangmin@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-22T08:30:00Z",
+    "body": "Hi HR,\n\nI am requesting 7 days of annual leave (April 21 - April 29) for an overseas vacation. My employee ID is EMP-203. I checked and my annual leave balance should be 5 days. I would like to use comp-time to cover the remaining 2 days.\n\nWang Min",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr02_004",
+    "thread_id": "thread_hr02_004",
+    "subject": "Leave Request - Huang Lei (Engineering Dept) 2 Days Annual Leave",
+    "from": "huanglei@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-23T11:00:00Z",
+    "body": "Hi HR,\n\nPlease approve my annual leave request for 2 days (April 3 - April 4). My employee ID is EMP-204. My annual leave balance should be 6 days.\n\nHuang Lei",
+    "is_read": false,
+    "labels": []
+  },
+  {
+    "message_id": "msg_hr02_005",
+    "thread_id": "thread_hr02_005",
+    "subject": "Annual Leave Balance System Update Notification",
+    "from": "system@techstar.com",
+    "to": "hr@techstar.com",
+    "date": "2026-03-19T16:00:00Z",
+    "body": "HR Administrator,\n\nThe following are the annual leave balance system records as of March 19, 2026:\n- EMP-201 Zhao Li: Remaining 6 days (not 8, 2 days used in Feb)\n- EMP-202 Sun Qiang: Remaining 10 days\n- EMP-203 Wang Min: Remaining 5 days\n- EMP-204 Huang Lei: Remaining 4 days (not 6, 2 days used in Jan)\n\nPlease verify whether each employee's claimed balance is accurate.\n\nHR System Automated Notification",
+    "is_read": true,
+    "labels": []
+  }
+]

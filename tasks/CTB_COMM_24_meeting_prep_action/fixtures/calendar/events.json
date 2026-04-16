@@ -1,0 +1,43 @@
+[
+  {
+    "event_id": "evt_c24_01",
+    "title": "Product Review Meeting",
+    "location": "Conference Room A301",
+    "attendees": [
+      "Zhang Wei",
+      "Li Ming",
+      "Zhao Li",
+      "Wang Tao"
+    ],
+    "description": "Q1 product review and Q2 planning",
+    "organizer": "Zhang Wei",
+    "start_time": "2026-03-30T14:00:00Z",
+    "end_time": "2026-03-30T16:00:00Z"
+  },
+  {
+    "event_id": "evt_c24_02",
+    "title": "Strategy Planning Meeting",
+    "location": "Board Room",
+    "attendees": [
+      "CEO Chen",
+      "Liu Yang",
+      "All VPs"
+    ],
+    "description": "Q2 strategic planning and OKR alignment",
+    "organizer": "CEO Chen",
+    "start_time": "2026-04-01T09:00:00Z",
+    "end_time": "2026-04-01T12:00:00Z"
+  },
+  {
+    "event_id": "evt_c24_03",
+    "title": "Weekly Team Standup",
+    "location": "Online Video Call",
+    "attendees": [
+      "All team members"
+    ],
+    "description": "Weekly progress sync",
+    "organizer": "Zhang Wei",
+    "start_time": "2026-03-28T10:00:00Z",
+    "end_time": "2026-03-28T10:30:00Z"
+  }
+]

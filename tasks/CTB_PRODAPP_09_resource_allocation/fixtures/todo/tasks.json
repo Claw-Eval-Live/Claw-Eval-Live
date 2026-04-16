@@ -1,0 +1,67 @@
+[
+  {
+    "title": "completeduser authentication module",
+    "assignee": "Wei Zhang",
+    "priority": "high",
+    "status": "in_progress",
+    "due_date": "2026-04-08",
+    "estimated_hours": 16,
+    "tags": [
+      "frontend",
+      "authentication"
+    ],
+    "task_id": "todo_001"
+  },
+  {
+    "title": "APIgatewayPerformance Optimization",
+    "assignee": "Qiang Wang",
+    "priority": "high",
+    "status": "in_progress",
+    "due_date": "2026-04-07",
+    "estimated_hours": 12,
+    "tags": [
+      "backend",
+      "performance"
+    ],
+    "task_id": "todo_002"
+  },
+  {
+    "title": "designsystemcomponentdatabaseupdate",
+    "assignee": "Na Li",
+    "priority": "medium",
+    "status": "todo",
+    "due_date": "2026-04-09",
+    "estimated_hours": 8,
+    "tags": [
+      "frontend",
+      "design"
+    ],
+    "task_id": "todo_003"
+  },
+  {
+    "title": "datamigration script writing",
+    "assignee": "Min Zhao",
+    "priority": "high",
+    "status": "todo",
+    "due_date": "2026-04-08",
+    "estimated_hours": 20,
+    "tags": [
+      "backend",
+      "datadatabase"
+    ],
+    "task_id": "todo_004"
+  },
+  {
+    "title": "Unit Test Coverage Improvement",
+    "assignee": "Lei Chen",
+    "priority": "medium",
+    "status": "in_progress",
+    "due_date": "2026-04-10",
+    "estimated_hours": 10,
+    "tags": [
+      "testing",
+      "quality"
+    ],
+    "task_id": "todo_005"
+  }
+]

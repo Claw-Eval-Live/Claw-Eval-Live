@@ -1,0 +1,148 @@
+task_id: CTB_PRODAPP_01_calendar_conflict_resolve
+task_name: CTB_PRODAPP_01_calendar_conflict_resolve
+version: '1.0'
+category: workflow
+difficulty: medium
+services:
+- name: calendar
+  command: python mock_services/calendar/server.py
+  port: 9101
+  health_check: http://localhost:9101/calendar/events
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9101/calendar/reset
+  env:
+    ERROR_RATE: '0'
+    CALENDAR_FIXTURES: tasks/CTB_PRODAPP_01_calendar_conflict_resolve/fixtures/calendar/events.json
+    CALENDAR_DISABLE_DATE_SHIFT: '1'
+- name: todo
+  command: python mock_services/todo/server.py
+  port: 9104
+  health_check: http://localhost:9104/todo/tasks
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9104/todo/reset
+  env:
+    ERROR_RATE: '0'
+    TODO_FIXTURES: tasks/CTB_PRODAPP_01_calendar_conflict_resolve/fixtures/todo/tasks.json
+- name: notes
+  command: python mock_services/notes/server.py
+  port: 9105
+  health_check: http://localhost:9105/notes/list
+  health_check_method: POST
+  ready_timeout: 10
+  reset_endpoint: http://localhost:9105/notes/reset
+  env:
+    ERROR_RATE: '0'
+    NOTES_FIXTURES: tasks/CTB_PRODAPP_01_calendar_conflict_resolve/fixtures/notes/meetings.json
+prompt:
+  text: |
+    Please review all calendar events, identify meetings with time conflicts. Taking into account to-do task deadlines and priorities as well as the meeting scheduling rules in the notes, provide conflict resolution recommendations. Requirements: list all conflicting pairs, explain the resolution recommendation for each conflict (which to keep, which to move and suggested time), and output a final conflict-free adjusted schedule.
+  language: en
+tools:
+- name: calendar_list_events
+  description: Retrieve calendar events within a specified date range
+  input_schema:
+    type: object
+    properties:
+      date:
+        type: string
+        description: Start date (YYYY-MM-DD)
+      days:
+        type: integer
+        description: Number of days to view
+        default: 1
+    required:
+    - date
+- name: calendar_get_event
+  description: Retrieve calendar event details
+  input_schema:
+    type: object
+    properties:
+      event_id:
+        type: string
+        description: Event ID
+    required:
+    - event_id
+- name: todo_list_tasks
+  description: Retrieve the to-do task list
+  input_schema:
+    type: object
+    properties:
+      status:
+        type: string
+        description: Filter by status
+        default: all
+    required: []
+- name: todo_update_task
+  description: Update a to-do task
+  input_schema:
+    type: object
+    properties:
+      task_id:
+        type: string
+      status:
+        type: string
+      priority:
+        type: string
+    required:
+    - task_id
+- name: notes_list
+  description: Retrieve the list of notes/documents
+  input_schema:
+    type: object
+    properties:
+      max_results:
+        type: integer
+        description: Maximum number of results to return
+        default: 10
+    required: []
+- name: notes_get
+  description: Retrieve detailed content of a note/document by ID
+  input_schema:
+    type: object
+    properties:
+      note_id:
+        type: string
+        description: Note ID
+    required:
+    - note_id
+tool_endpoints:
+- tool_name: calendar_list_events
+  url: http://localhost:9101/calendar/events
+  method: POST
+- tool_name: calendar_get_event
+  url: http://localhost:9101/calendar/events/get
+  method: POST
+- tool_name: todo_list_tasks
+  url: http://localhost:9104/todo/tasks
+  method: POST
+- tool_name: todo_update_task
+  url: http://localhost:9104/todo/tasks/update
+  method: POST
+- tool_name: notes_list
+  url: http://localhost:9105/notes/list
+  method: POST
+- tool_name: notes_get
+  url: http://localhost:9105/notes/get
+  method: POST
+environment:
+  timeout_seconds: 300
+  max_turns: 20
+  fixtures:
+  - fixtures/calendar/events.json
+  - fixtures/todo/tasks.json
+  - fixtures/notes/meetings.json
+scoring_components: []
+safety_checks: []
+expected_actions: []
+reference_solution: |
+  1. Conflict 1: Product Planning Meeting vs Tech Sharing Session -- overlapping time for Na Li
+  2. Conflict 2: Client A Meeting vs Security Audit -- overlapping time for Qiang Wang
+  3. Resolution: Client A meeting kept (external client, higher priority)
+  4. Tech Sharing should be moved/postponed (internal, flexible)
+  5. Security Audit prioritized for Qiang Wang (urgent vulnerability fix deadline)
+  6. Final adjusted conflict-free schedule with specific time slots
+  7. References todo deadlines and notes scheduling rules as context
+primary_dimensions:
+- completion

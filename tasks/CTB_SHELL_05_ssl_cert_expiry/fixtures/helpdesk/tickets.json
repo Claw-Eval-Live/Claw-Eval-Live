@@ -1,0 +1,62 @@
+[
+  {
+    "ticket_id": "TK-501",
+    "subject": "api.example.com SSL certificate expiring soon",
+    "description": "Certificate monitoring alert: The SSL certificate for api.example.com expires on 2026-03-31, 3 days remaining. Certificate type: Single-domain OV, Issuer: DigiCert. Currently deployed on nginx-lb-01 and nginx-lb-02. This domain handles all external API traffic, approximately 5 million daily requests.",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-25T08:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "reporter": "Certificate Monitor",
+    "assignee": "Li (Ops Engineer)",
+    "category": "Certificate Alert",
+    "comments": [
+      {
+        "author": "Li (Ops Engineer)",
+        "text": "Contacted DigiCert to submit renewal request, expected issuance within 24 hours",
+        "created_at": "2026-03-25T10:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-502",
+    "subject": "*.internal.com wildcard certificate expiring soon",
+    "description": "Certificate monitoring alert: The wildcard SSL certificate for *.internal.com expires on 2026-04-04, 10 days remaining. Certificate type: Wildcard DV, Issuer: Let's Encrypt. Deployed on internal service gateway gateway-01. Covers subdomains including: gitlab.internal.com, jenkins.internal.com, grafana.internal.com, harbor.internal.com -- 12 internal services total.",
+    "status": "open",
+    "priority": "medium",
+    "created_at": "2026-03-25T08:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "reporter": "Certificate Monitor",
+    "assignee": "Zhang (Ops Admin)",
+    "category": "Certificate Alert",
+    "comments": [
+      {
+        "author": "Zhang (Ops Admin)",
+        "text": "The Let's Encrypt auto-renewal script was configured previously; need to check if certbot is running properly",
+        "created_at": "2026-03-25T10:30:00Z"
+      }
+    ],
+    "department": "general"
+  },
+  {
+    "ticket_id": "TK-503",
+    "subject": "pay.example.com SSL certificate has expired",
+    "description": "URGENT ALERT: The SSL certificate for pay.example.com expired on 2026-03-27! Certificate type: Single-domain EV, Issuer: GlobalSign. This domain handles the payment callback service; the expired certificate prevents third-party payment platforms from making callbacks, affecting all online payment orders. Customers are already reporting payment failures. Deployed on nginx-pay-01.",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-03-27T06:00:00Z",
+    "updated_at": "2026-03-28T08:00:00Z",
+    "reporter": "Certificate Monitor",
+    "assignee": "Wang (Ops Engineer)",
+    "category": "Certificate Alert",
+    "comments": [
+      {
+        "author": "Wang (Ops Engineer)",
+        "text": "EV certificate renewal requires enterprise verification which takes time. Contacting GlobalSign for the express lane.",
+        "created_at": "2026-03-28T08:30:00Z"
+      }
+    ],
+    "department": "general"
+  }
+]

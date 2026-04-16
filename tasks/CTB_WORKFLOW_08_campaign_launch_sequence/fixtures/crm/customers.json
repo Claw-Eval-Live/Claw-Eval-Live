@@ -1,0 +1,57 @@
+[
+  {
+    "customer_id": "CUS-C01",
+    "name": "",
+    "contact_person": "",
+    "contact_email": "zw@huasheng.cn",
+    "status": "active",
+    "tier": "VIP",
+    "industry": "",
+    "annual_revenue": 220000,
+    "notes": "Excel"
+  },
+  {
+    "customer_id": "CUS-C02",
+    "name": "",
+    "contact_person": "",
+    "contact_email": "lz@dingchuang.cn",
+    "status": "active",
+    "tier": "VIP",
+    "industry": "",
+    "annual_revenue": 420000,
+    "notes": ""
+  },
+  {
+    "customer_id": "CUS-C03",
+    "name": "",
+    "contact_person": "",
+    "contact_email": "zl@longteng.cn",
+    "status": "renewal",
+    "tier": "VIP",
+    "industry": "",
+    "annual_revenue": 250000,
+    "notes": "4approximately"
+  },
+  {
+    "customer_id": "CUS-C04",
+    "name": "Beta",
+    "contact_person": "",
+    "contact_email": "lm@beta.cn",
+    "status": "active",
+    "tier": "standard",
+    "industry": "",
+    "annual_revenue": 120000,
+    "notes": "standard"
+  },
+  {
+    "customer_id": "CUS-C05",
+    "name": "",
+    "contact_person": "",
+    "contact_email": "cf@xingchen.cn",
+    "status": "negotiation",
+    "tier": "standard",
+    "industry": "",
+    "annual_revenue": 0,
+    "notes": "38"
+  }
+]

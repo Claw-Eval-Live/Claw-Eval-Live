@@ -1,0 +1,35 @@
+[
+  {
+    "note_id": "note_mgmt01_01",
+    "title": "2026 Q1 OKR - Engineering Department",
+    "content": "Department: Engineering\nHead: Zhang Lei\n\nO1: Improve product stability\n  KR1: System availability reaches 99.95% (Q1 actual: 99.92%)\n  KR2: P0-level incidents <= 2 per quarter (Q1 actual: 3)\n  KR3: Mean time to recovery <= 30 minutes (Q1 actual: 25 minutes)\n\nO2: Accelerate feature delivery\n  KR1: Complete 12 feature releases (Q1 actual: 10)\n  KR2: Feature delivery cycle <= 15 days (Q1 actual: 18 days)\n  KR3: Code review coverage >= 90% (Q1 actual: 95%)",
+    "tags": ["OKR", "Q1", "Engineering"],
+    "created_at": "2026-01-05T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "zhang.lei",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_mgmt01_02",
+    "title": "2026 Q1 OKR - Marketing Department",
+    "content": "Department: Marketing\nHead: Liu Na\n\nO1: Enhance brand influence\n  KR1: Media impressions reach 5 million (Q1 actual: 6.2 million)\n  KR2: Host 3 industry events (Q1 actual: 3)\n  KR3: Social media follower growth of 20% (Q1 actual: 25%)\n\nO2: Drive customer acquisition growth\n  KR1: New registered users reach 8,000 (Q1 actual: 6,500)\n  KR2: Customer acquisition cost <= 150 CNY/person (Q1 actual: 180 CNY/person)\n  KR3: Lead conversion rate >= 15% (Q1 actual: 12%)",
+    "tags": ["OKR", "Q1", "Marketing"],
+    "created_at": "2026-01-05T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "liu.na",
+    "participants": [],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_mgmt01_03",
+    "title": "2026 Q1 OKR - Sales Department",
+    "content": "Department: Sales\nHead: Wang Qiang\n\nO1: Achieve Q1 sales targets\n  KR1: Q1 revenue reaches 12 million CNY (Q1 actual: 13.5 million CNY)\n  KR2: New signed clients >= 25 (Q1 actual: 28)\n  KR3: Client renewal rate >= 85% (Q1 actual: 88%)\n\nO2: Optimize sales process\n  KR1: Average deal cycle <= 45 days (Q1 actual: 42 days)\n  KR2: CRM data completeness >= 95% (Q1 actual: 91%)\n  KR3: Monthly client visits per rep >= 20 (Q1 actual: 22)",
+    "tags": ["OKR", "Q1", "Sales"],
+    "created_at": "2026-01-05T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "wang.qiang",
+    "participants": [],
+    "duration_minutes": 0
+  }
+]

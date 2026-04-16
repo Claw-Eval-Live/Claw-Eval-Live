@@ -1,0 +1,6 @@
+[
+  {"customer_id": "CUS-3001", "name": "Alpha Technologies", "contact_person": "Client A", "contact_email": "client-a@alpha.com", "status": "active", "tier": "VIP", "industry": "Technology", "annual_revenue": 400000, "notes": "Key account.", "open_tickets": [{"ticket_id": "TK-801", "title": "Slow page loading", "status": "open", "priority": "medium"}]},
+  {"customer_id": "CUS-3002", "name": "Beta Retail", "contact_person": "Client B", "contact_email": "client-b@beta.com", "status": "active", "tier": "standard", "industry": "Retail", "annual_revenue": 120000, "notes": "", "open_tickets": []},
+  {"customer_id": "CUS-3003", "name": "Gamma Logistics", "contact_person": "Client C", "contact_email": "client-c@gamma.com", "status": "active", "tier": "standard", "industry": "Logistics", "annual_revenue": 150000, "notes": "", "open_tickets": [{"ticket_id": "TK-799", "title": "Login anomaly", "status": "resolved"}]},
+  {"customer_id": "CUS-3004", "name": "Delta Education", "contact_person": "Client D", "contact_email": "client-d@delta.com", "status": "active", "tier": "standard", "industry": "Education", "annual_revenue": 90000, "notes": "", "open_tickets": []}
+]

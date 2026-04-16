@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://cloud-review.cn/comparison-2026",
+    "title": "2026 Mid-Year Cloud Computing Vendor Comparison",
+    "content": "2026 mid-year cloud computing market share: Alibaba Cloud 33.1%, Huawei Cloud 19.8%, Tencent Cloud 15.4%, Baidu Cloud 9.2%. In compute performance, Alibaba Cloud handles 710K requests per second, while Huawei Cloud reaches 920K on ARM-based infrastructure. Availability SLA: Alibaba Cloud 99.995%, Huawei Cloud 99.99%, Tencent Cloud 99.99%, Baidu Cloud 99.95%. Security: All four passed Level 3 classified protection; Huawei Cloud and Alibaba Cloud additionally obtained ISO 27701 certification.",
+    "date": "2026-03-12"
+  },
+  {
+    "url": "https://cloud-pricing.cn/2026-benchmark",
+    "title": "2026 Cloud Computing Price Benchmark",
+    "content": "Standard 4-core 8G instance monthly price: Alibaba Cloud 398 CNY/month, Tencent Cloud 375 CNY/month, Huawei Cloud 389 CNY/month, Baidu Cloud 329 CNY/month. Cost ranking: Alibaba Cloud > Tencent Cloud > Huawei Cloud > Baidu Cloud. However, in large-scale cluster scenarios, Alibaba Cloud has the most efficient auto-scaling with high utilization and low TCO. On storage pricing, Huawei Cloud is the most competitive at 0.098 CNY/GB.",
+    "date": "2026-03-18"
+  },
+  {
+    "url": "https://cloud-service.cn/support-review",
+    "title": "Cloud Computing Technical Support Review",
+    "content": "Technical support response times: Alibaba Cloud average response time 12 minutes (premium tier), Huawei Cloud 18 minutes, Tencent Cloud 22 minutes, Baidu Cloud 35 minutes. Dedicated customer manager threshold: Alibaba Cloud 50K CNY/month or above, Huawei Cloud 30K CNY/month or above, Tencent Cloud 100K CNY/month or above. Documentation quality score (out of 10): Alibaba Cloud 9.2, Huawei Cloud 8.8, Tencent Cloud 8.5, Baidu Cloud 7.3.",
+    "date": "2026-03-20"
+  }
+]

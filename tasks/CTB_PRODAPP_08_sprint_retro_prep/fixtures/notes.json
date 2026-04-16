@@ -1,0 +1,36 @@
+[
+  {
+    "note_id": "note_p08a",
+    "title": "Sprint 11 retrospectivemeetingminutes",
+    "content": "# Sprint 11 retrospectivemeetingminutes\ndate：2026-03-20\n\n## went well\n- clientshouldand\n- codereviewqualitysubmit\n\n## needs improvement\n- standup taking too long（average25minutes）\n- tasklarge（average40%）\n- testingenvironmentnotfixed3timesblocked\n\n## modifyrunitems\n1. 【Wei Zhang】standup time limit15minutes，usedevice - deadlineSprint 12\n2. 【all-hands】adoptPlanning Pokermodify - deadlineSprint 12\n3. 【Lei Chen】set uptestingenvironment - deadlineSprint 12",
+    "tags": [
+      "retrospective",
+      "Sprint 11"
+    ],
+    "created_at": "2026-03-20T17:00:00Z",
+    "updated_at": "2026-03-20T17:00:00Z",
+    "author": "Wei Zhang",
+    "participants": [
+      "Wei Zhang",
+      "Na Li",
+      "Qiang Wang",
+      "Min Zhao",
+      "Lei Chen"
+    ],
+    "duration_minutes": 120
+  },
+  {
+    "note_id": "note_p08b",
+    "title": "Sprint Retrospectivetemplate",
+    "content": "# Sprint Retrospectivetemplate\n\n## 1. dataretrospective\n- planningtasknumber vs completedtasknumber\n- completion rate\n- average\n\n## 2. went wellFang\noutput3-5items\n\n## 3. needmodifyFang\noutput3-5items\n\n## 4. uptimesmodifyitems\ncheckuptimesretrospectivemodifyruniscompleted\n\n## 5. editiontimesmodifyrun\neachitemsfixedowneranddeadline\n\n## 6. Sprinthighlight\nselectoutputeditionorhighlight",
+    "tags": [
+      "retrospective",
+      "template"
+    ],
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-03-01T10:00:00Z",
+    "author": "Project Management",
+    "participants": [],
+    "duration_minutes": 0
+  }
+]

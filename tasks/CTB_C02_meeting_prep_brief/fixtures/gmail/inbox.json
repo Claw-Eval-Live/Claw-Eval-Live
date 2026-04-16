@@ -1,0 +1,32 @@
+[
+  {
+    "message_id": "msg_501",
+    "from": "lijing@starcare-health.cn",
+    "to": "sales@company.com",
+    "subject": "Items to confirm at tomorrow's pilot prep meeting",
+    "body": "Hi,\n\nFor tomorrow afternoon's pilot prep meeting, we would like to confirm three things:\n1. Can you provide SOC 2 related materials and a more detailed data compliance statement?\n2. If we launch the pilot in early April, can the implementation timeline be reviewed during the meeting?\n3. Can the HIS integration start with read-only access first?\n\nBoth our CTO Tao Wang and I will attend. We hope you can also prepare some recommendations.\n\nThanks,\nJing Li\nStarCare Health",
+    "date": "2026-03-18T09:10:00Z",
+    "labels": ["INBOX", "IMPORTANT"],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_502",
+    "from": "zhouning@company.com",
+    "to": "me@company.com",
+    "subject": "Re: Background notes for tomorrow's StarCare Health meeting",
+    "body": "A few background points to prepare before the meeting:\n\n- Their procurement team has already asked once for the security materials checklist. If we don't have SOC 2 or an equivalent document, progress will slow down.\n- CTO Tao Wang cares a lot about the HIS API boundaries — prefers read-only access first and doesn't want write-back involved at the start.\n- They want to run a test with de-identified sample data first and only move to real data after confirming the workflow runs smoothly.\n- If we can clearly present the 4-week pilot plan during the meeting, Jing Li will find it easier to push through internal approvals.\n\nNing Zhou",
+    "date": "2026-03-18T13:25:00Z",
+    "labels": ["INBOX", "IMPORTANT"],
+    "is_read": false
+  },
+  {
+    "message_id": "msg_503",
+    "from": "ops@company.com",
+    "to": "all@company.com",
+    "subject": "Office HVAC maintenance notice",
+    "body": "HVAC maintenance will take place after 8 PM tonight. Please leave the office area in advance.",
+    "date": "2026-03-18T15:40:00Z",
+    "labels": ["INBOX"],
+    "is_read": true
+  }
+]

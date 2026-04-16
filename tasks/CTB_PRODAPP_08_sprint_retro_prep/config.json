@@ -1,0 +1,24 @@
+{
+  "task_name": "CTB_PRODAPP_08_sprint_retro_prep",
+  "prompt": "astocomeSprint Retrospectivepreparationmaterials。dateeditionSprintmeetingrecord、pendingtaskcompleted、notesretrospectivetemplateandmodifyitems，completeretrospectivepreparationdocumentation。：editionSprintcompleted/completedtask、went well/needs improvementFang、uptimesretrospectivemodifyitems、editiontimesretrospectiverecommendationdiscussionissue。",
+  "services": {
+    "calendar": {
+      "port": 9101,
+      "fixture": "fixtures/calendar.json"
+    },
+    "todo": {
+      "port": 9104,
+      "fixture": "fixtures/todo.json"
+    },
+    "notes": {
+      "port": 9105,
+      "fixture": "fixtures/notes.json"
+    }
+  },
+  "config": {
+    "ERROR_RATE": "0"
+  },
+  "primary_dimensions": [
+    "completion"
+  ]
+}

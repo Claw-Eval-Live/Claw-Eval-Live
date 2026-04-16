@@ -1,0 +1,7 @@
+[
+  {"customer_id": "REN-001", "name": "Jinding Technologies", "contact_person": "Director Zhou", "contact_email": "zhou@jinding.com", "status": "active", "tier": "VIP", "industry": "Technology", "annual_revenue": 500000, "contract_end": "2026-04-15", "notes": "Key account, high usage.", "health_score": 92},
+  {"customer_id": "REN-002", "name": "Haichuan Logistics", "contact_person": "Manager Li", "contact_email": "li@haichuan.com", "status": "active", "tier": "standard", "industry": "Logistics", "annual_revenue": 120000, "contract_end": "2026-04-30", "notes": "Average usage, had complaint last quarter.", "health_score": 55},
+  {"customer_id": "REN-003", "name": "Xingchen Education", "contact_person": "Principal Wang", "contact_email": "wang@xingchen-edu.com", "status": "active", "tier": "VIP", "industry": "Education", "annual_revenue": 380000, "contract_end": "2026-05-01", "notes": "Long-term partner.", "health_score": 88},
+  {"customer_id": "REN-004", "name": "Ruitong Medical", "contact_person": "Director Chen", "contact_email": "chen@ruitong.com", "status": "active", "tier": "VIP", "industry": "Healthcare", "annual_revenue": 450000, "contract_end": "2026-04-10", "notes": "High compliance requirements.", "health_score": 78},
+  {"customer_id": "REN-005", "name": "Hengtai Trading", "contact_person": "Director Zhang", "contact_email": "zhang@hengtai.com", "status": "active", "tier": "standard", "industry": "Trading", "annual_revenue": 80000, "contract_end": "2026-06-30", "notes": "Small client, low renewal likelihood.", "health_score": 35}
+]

@@ -1,0 +1,77 @@
+task_id: CTB_W01_log_diagnosis
+task_name: Ingest Log Root Cause Repair
+version: "1.0"
+category: terminal
+difficulty: medium
+
+services: []
+
+prompt:
+  text: |
+    Container files:
+
+    - /workspace/project/logs/terminal_history.log
+    - /workspace/project/logs/worker.log
+    - /workspace/project/config/runtime.env
+    - /workspace/project/scripts/run_ingest.sh
+    - /workspace/project/scripts/ingest_runner.py
+    - /workspace/project/data/payload.json
+
+    The ingest job failed last night. Your tasks:
+    1. Read the logs and identify the true root cause — do not stop at the last error message
+    2. Fix only the necessary configuration so the ingest job runs successfully
+    3. Keep `/workspace/project/scripts/run_ingest.sh` as the entry point (do not modify it)
+    4. Run `bash /workspace/project/scripts/run_ingest.sh` and confirm it produces output
+    5. Write a `/workspace/DIAGNOSIS.md` explaining:
+       - What you believe is the true root cause
+       - Which errors are merely symptoms
+       - What you changed
+       - How you verified the fix
+
+    Constraints:
+    - Do not modify log files
+    - Do not modify `ingest_runner.py`
+    - Only change `runtime.env` if possible
+  language: en
+
+tools: []
+tool_endpoints: []
+
+sandbox_files:
+  - project/logs/terminal_history.log
+  - project/logs/worker.log
+  - project/config/runtime.env
+  - project/scripts/run_ingest.sh
+  - project/scripts/ingest_runner.py
+  - project/data/payload.json
+
+sandbox_grader_files:
+  - fixtures/verify_ingest.py
+
+env_snapshot_commands:
+  - bash /workspace/project/scripts/run_ingest.sh
+  - python /workspace/fixtures/verify_ingest.py
+  - test -f /workspace/DIAGNOSIS.md && echo EXISTS || echo MISSING
+
+environment:
+  timeout_seconds: 600
+  max_turns: 30
+
+scoring_components: []
+safety_checks: []
+expected_actions: []
+
+judge_rubric: ""
+reference_solution: |
+  1. True root cause: `INGEST_REGION=us-eats-1` typo in runtime.env causes endpoint host resolution failure
+  2. `BATCH_SIZE=5000` also violates runner constraints — secondary config error
+  3. Required config fixes:
+     - INGEST_REGION=us-east-1
+     - BATCH_SIZE=200
+     - REPORT_DIR=/workspace/output/ingest
+     - EMIT_FORMAT=json
+  4. `ENABLE_S3_FALLBACK=true` can stay — does not affect pass
+  5. Successful run produces `/workspace/output/ingest/daily_summary.json`
+  6. DIAGNOSIS.md must identify region typo as root cause; fallback/path errors are cascading symptoms
+
+primary_dimensions: [completion, robustness]

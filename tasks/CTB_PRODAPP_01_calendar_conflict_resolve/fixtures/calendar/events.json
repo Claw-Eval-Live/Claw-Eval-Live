@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Q2 Product Planning Review",
+    "date": "2026-04-06",
+    "start_time": "2026-04-06T09:00:00Z",
+    "end_time": "2026-04-06T11:00:00Z",
+    "participants": ["Wei Zhang", "Na Li", "Qiang Wang", "Min Zhao"],
+    "location": "Main Conference Room",
+    "event_id": "evt_001",
+    "attendees": ["Wei Zhang", "Na Li", "Qiang Wang", "Min Zhao"],
+    "recurring": false
+  },
+  {
+    "title": "Frontend Tech Sharing Session",
+    "date": "2026-04-06",
+    "start_time": "2026-04-06T10:00:00Z",
+    "end_time": "2026-04-06T11:30:00Z",
+    "participants": ["Na Li", "Fang Zhou", "Lei Chen"],
+    "location": "Meeting Room B",
+    "event_id": "evt_002",
+    "attendees": ["Na Li", "Fang Zhou", "Lei Chen"],
+    "recurring": false
+  },
+  {
+    "title": "Client A Requirements Meeting",
+    "date": "2026-04-06",
+    "start_time": "2026-04-06T14:00:00Z",
+    "end_time": "2026-04-06T15:30:00Z",
+    "participants": ["Wei Zhang", "Qiang Wang"],
+    "location": "Online Meeting",
+    "event_id": "evt_003",
+    "attendees": ["Wei Zhang", "Qiang Wang"],
+    "recurring": false
+  },
+  {
+    "title": "Security Audit Meeting",
+    "date": "2026-04-06",
+    "start_time": "2026-04-06T14:30:00Z",
+    "end_time": "2026-04-06T16:00:00Z",
+    "participants": ["Qiang Wang", "Min Zhao", "Lei Chen"],
+    "location": "Meeting Room A",
+    "event_id": "evt_004",
+    "attendees": ["Qiang Wang", "Min Zhao", "Lei Chen"],
+    "recurring": false
+  },
+  {
+    "title": "Sprint Retrospective Meeting",
+    "date": "2026-04-07",
+    "start_time": "2026-04-07T10:00:00Z",
+    "end_time": "2026-04-07T11:30:00Z",
+    "participants": ["Wei Zhang", "Na Li", "Qiang Wang", "Min Zhao", "Fang Zhou", "Lei Chen"],
+    "location": "Main Conference Room",
+    "event_id": "evt_005",
+    "attendees": ["Wei Zhang", "Na Li", "Qiang Wang", "Min Zhao", "Fang Zhou", "Lei Chen"],
+    "recurring": false
+  }
+]

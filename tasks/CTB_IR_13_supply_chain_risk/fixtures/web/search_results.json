@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://semiconductor-weekly.com/supply-chain-2026",
+    "title": "2026 Semiconductor Supply Chain Report",
+    "content": "The 2026 global semiconductor market size reached 780 billion USD, with AI chips growing 28%. In advanced processes (3nm and below), only 18 fabs worldwide are capable. TSMC holds a dominant share of the global advanced process foundry market at 62%, Samsung at 15%, Intel at 8%. In mature processes (28nm and above), Chinese domestic capacity saw YoY growth of 35%. HBM (High Bandwidth Memory) demand surged, with SK Hynix holding 95% market share and a 24-month order backlog.",
+    "date": "2026-03-15"
+  },
+  {
+    "url": "https://geopolitics-tech.com/chip-restrictions-2026",
+    "title": "2026 Chip Export Restrictions Update",
+    "content": "In February 2026, updated chip export controls were announced, including: 1) AI chip export threshold lowered to 300 TOPS; 2) EDA tools for GAA architecture restricted; 3) HBM exports now require individual approval. ASML announced a suspension of all DUV exports to China. An additional 23 semiconductor entities were added to the restricted list. In response, China accelerates domestic substitution; Huawei's Ascend 910C chip has reached approximately 85% of the A100's performance level.",
+    "date": "2026-03-20"
+  }
+]

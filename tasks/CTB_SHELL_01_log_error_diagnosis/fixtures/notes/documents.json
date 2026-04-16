@@ -1,0 +1,24 @@
+[
+  {
+    "note_id": "note_101",
+    "title": "payment-service Service Configuration Document",
+    "content": "# Payment Service Config\n\n## deployment\n- Service Name：payment-service\n- deploymentnode：prod-node-03\n- Instancecount：3\n- Containerresource：CPU 2, memory 1GB\n\n## JVMParameters\n- -Xms256m -Xmx512m\n- -XX:+UseG1GC\n- -XX:MaxGCPauseMillis=200\n\n## dependencyService\n- MySQL: db-master-01:3306/payment_db\n- Redis: redis-cluster-01:6379\n- Third-party Payment Gateway: https://api.paygateway.com/v2\n\n## Connection PoolConfig\n- Database Connection Pool: maxPoolSize=20, minIdle=5\n- RedisConnection Pool: maxTotal=50, maxIdle=20\n\n## Log\n- : INFO\n- com.app.payment: DEBUG\n\n## AlertThreshold\n- error rate > 1% Triggered Alert\n- ResponseTimeP99 > 3s Triggered Alert\n- JVMHeapUtilization > 85% Triggered Alert",
+    "tags": ["payment", "Config", "ProductionEnvironment"],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "Architecture Team",
+    "participants": ["Engineer Wang", "Operations"],
+    "duration_minutes": 0
+  },
+  {
+    "note_id": "note_102",
+    "title": "order-service Service Configuration Document",
+    "content": "# Order Service Config\n\n## deployment\n- Service Name：order-service\n- deploymentnode：prod-node-01, prod-node-02\n- Instancecount：4\n- Containerresource：CPU 4, memory 2GB\n\n## JVMParameters\n- -Xms512m -Xmx1g\n- -XX:+UseG1GC\n\n## dependencyService\n- MySQL: db-master-01:3306/order_db\n- Redis: redis-cluster-01:6379\n- Kafka: kafka-broker-01:9092\n- payment-service: http://payment-service:8080\n\n## Connection PoolConfig\n- Database Connection Pool: maxPoolSize=10, minIdle=2, connectionTimeout=30000ms\n- RedisConnection Pool: maxTotal=30, maxIdle=10\n\n## Log\n- : INFO\n\n## AlertThreshold\n- error rate > 0.5% Triggered Alert\n- Database Connection PoolUtilization > 80% Triggered Alert\n- ResponseTimeP99 > 2s Triggered Alert",
+    "tags": ["order", "Config", "ProductionEnvironment"],
+    "created_at": "2026-03-20T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z",
+    "author": "Architecture Team",
+    "participants": ["Engineer Li", "Operations"],
+    "duration_minutes": 0
+  }
+]

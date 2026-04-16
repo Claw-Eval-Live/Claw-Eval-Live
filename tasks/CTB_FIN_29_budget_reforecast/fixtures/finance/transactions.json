@@ -1,0 +1,10 @@
+[
+  {"transaction_id": "BF-1", "type": "budget_item", "department": "Sales", "item": "Personnel costs", "h1_budget": 1200000, "h1_actual": 1150000, "h2_budget": 1200000, "date": "2025-06-30", "description": "Sales personnel costs"},
+  {"transaction_id": "BF-2", "type": "budget_item", "department": "Sales", "item": "Travel expenses", "h1_budget": 300000, "h1_actual": 420000, "h2_budget": 300000, "date": "2025-06-30", "description": "Sales travel expenses"},
+  {"transaction_id": "BF-3", "type": "budget_item", "department": "R&D", "item": "Personnel costs", "h1_budget": 2000000, "h1_actual": 2100000, "h2_budget": 2000000, "date": "2025-06-30", "description": "R&D personnel costs"},
+  {"transaction_id": "BF-4", "type": "budget_item", "department": "R&D", "item": "Equipment procurement", "h1_budget": 500000, "h1_actual": 350000, "h2_budget": 500000, "date": "2025-06-30", "description": "R&D equipment procurement"},
+  {"transaction_id": "BF-5", "type": "budget_item", "department": "Marketing", "item": "Advertising", "h1_budget": 800000, "h1_actual": 950000, "h2_budget": 800000, "date": "2025-06-30", "description": "Marketing advertising"},
+  {"transaction_id": "BF-6", "type": "budget_item", "department": "Marketing", "item": "Events", "h1_budget": 400000, "h1_actual": 380000, "h2_budget": 400000, "date": "2025-06-30", "description": "Marketing events"},
+  {"transaction_id": "BF-7", "type": "budget_item", "department": "Admin", "item": "Office expenses", "h1_budget": 200000, "h1_actual": 185000, "h2_budget": 200000, "date": "2025-06-30", "description": "Admin office expenses"},
+  {"transaction_id": "BF-8", "type": "budget_item", "department": "Admin", "item": "Facility costs", "h1_budget": 150000, "h1_actual": 150000, "h2_budget": 150000, "date": "2025-06-30", "description": "Admin facility costs"}
+]
