@@ -24,7 +24,7 @@ Interactive leaderboard: [`benchmark/leaderboard.html`](benchmark/leaderboard.ht
 | 10 | DeepSeek V3.2 | DeepSeek | 51.4% | 69.1 |
 | 11 | Qwen 3.6 Plus | Alibaba | 50.5% | 71.4 |
 | 12 | Qwen 3.5 397B | Alibaba | 49.5% | 72.6 |
-| 13 | Doubao Seed 2 | ByteDance | 44.8% | 70.6 |
+| 13 | Doubao Seed 2.0 Pro | ByteDance | 44.8% | 70.6 |
 
 **Evaluation logic.** Tasks are ranked by **Pass Rate** with **Overall Completion Score** as the tie-breaker. A task is counted as passed when its completion score is **≥ 0.80**.
 
