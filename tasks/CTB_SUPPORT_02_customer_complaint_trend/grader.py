@@ -1,6 +1,6 @@
 """CTB_SUPPORT_02 grader -- customer complaint trend analysis.
 
-v2.2: Claw-Eval mode (analysis report).
+v2.2: analysis mode (analysis report).
 - Deterministic 35%: tool gate, category classification, counts, high-risk customer
 - Judge 65%: trend analysis accuracy, recommendation quality
 - Fallback: keyword-based scoring when judge unavailable
@@ -48,14 +48,14 @@ Evaluate the quality of priority handling recommendations (0.0-1.0).
 ## Expected elements
 1. Priority handling order (performance first due to highest count and churn risk)
 2. Specific action for high-risk clientB (immediate executive outreach)
-3. Cross-channel deduplication methodology
-4. Trend direction assessment (increasing or stable)
-5. Preventive measures
+3. Category-level action plan for the main complaint types
+4. Preventive measures to reduce repeat complaints
+5. Clear ownership or escalation suggestions
 
 ## Scoring tiers
-- 0.9-1.0: Clear priority ordering; specific actions per category; deduplication methodology; prevention plan
+- 0.9-1.0: Clear priority ordering; specific actions per category; prevention plan; ownership/escalation guidance
 - 0.7-0.8: Reasonable priorities; some specific actions
-- 0.5-0.6: Basic recommendations; no priority
+- 0.5-0.6: Basic recommendations; limited prioritization
 - 0.3-0.4: Minimal recommendations
 - 0.0-0.2: No recommendations
 """

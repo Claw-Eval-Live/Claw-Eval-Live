@@ -2,7 +2,7 @@
 
 Ground truth source: fixtures/web/search_results.json
 
-v2.2: Claw-Eval mode (research report).
+v2.2: analysis mode (research report).
 - Deterministic 30%: tool gate, sub-domain coverage, city coverage, key numbers
 - Judge 70%: supply/demand data, salary data, trend analysis quality
 - Fallback: keyword-based scoring when judge unavailable

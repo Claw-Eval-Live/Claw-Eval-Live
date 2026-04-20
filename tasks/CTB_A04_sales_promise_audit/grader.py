@@ -5,7 +5,7 @@ Rubric ground truth derived from fixture data:
   - fixtures/gmail/inbox.json (msg_901, msg_902, msg_903)
   - fixtures/crm/customers.json (CUS-501, CUS-502, CUS-503)
 
-v2.2: Claw-Eval mode (analysis/audit report).
+v2.2: analysis mode (analysis/audit report).
 - Deterministic 35%: tool gate, discrepancy detection, risk classification
 - Judge 65%: discrepancy accuracy, report quality + analysis
 - Fallback: keyword-based scoring when judge unavailable

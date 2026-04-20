@@ -3,7 +3,7 @@
 Ground truth source: task.yaml reference_solution is empty for this task.
 Rubric ground truth derived from fixture data:     - fixtures/web/pages.json
 
-v2.2: Claw-Eval mode (research).
+v2.2: analysis mode (research).
 - Deterministic 30%: search gate, product coverage, meeting capacity numbers, API counts
 - Judge 70%: data accuracy matrix, positioning analysis, customer-type recommendations
 - Fallback: keyword-based scoring when judge unavailable

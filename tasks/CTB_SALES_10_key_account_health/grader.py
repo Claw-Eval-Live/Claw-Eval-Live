@@ -1,6 +1,6 @@
 """CTB_SALES_10 grader -- key account health assessment.
 
-v2.2: Claw-Eval mode (multi-source analysis report).
+v2.2: analysis mode (multi-source analysis report).
 - Deterministic 35%: tool gate, customer identification, key financial numbers, risk labels
 - Judge 65%: assessment accuracy rubric, report quality rubric
 - Fallback: keyword-based scoring when judge unavailable

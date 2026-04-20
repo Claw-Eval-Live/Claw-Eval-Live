@@ -15,6 +15,7 @@ services:
     env:
       WEB_SEARCH_FIXTURES: tasks/CTB_R03_whiteboard_platform_report/fixtures/web/search_results.json
       WEB_FETCH_FIXTURES: tasks/CTB_R03_whiteboard_platform_report/fixtures/web/pages.json
+      ERROR_RATE: "0"
 
 prompt:
   text: |

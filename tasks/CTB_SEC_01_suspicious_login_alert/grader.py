@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml + fixtures/gmail/inbox.json
 
-v2.2: Claw-Eval mode (security analysis report).
+v2.2: analysis mode (security analysis report).
 - Deterministic 35%: tool gate, account identification, IP correlation, classification
 - Judge 65%: threat analysis accuracy, remediation quality
 - Fallback: keyword-based scoring when judge unavailable

@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures.
 
-v2.2: Claw-Eval mode (data analysis report).
+v2.2: analysis mode (data analysis report).
 - Deterministic 40%: tool gate, regional actuals, variances, totals
 - Judge 60%: data accuracy, analysis quality
 - Fallback: keyword-based scoring when judge unavailable

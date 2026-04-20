@@ -3,7 +3,7 @@
 Ground truth source: task.yaml + fixtures/web/pages.json + fixtures/gmail/inbox.json
 Rubric ground truth derived from fixture data.
 
-v2.2: Claw-Eval mode (research report).
+v2.2: analysis mode (research report).
 - Deterministic 35%: tool gate, market size numbers, trend keywords, ROI data
 - Judge 65%: market data accuracy, trend analysis quality, strategic insight
 - Fallback: keyword-based scoring when judge unavailable

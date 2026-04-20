@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures.
 
-v2.2: Claw-Eval mode (HR analysis report).
+v2.2: analysis mode (HR analysis report).
 - Deterministic 35%: tool gate, dept coverage, lowest scores, decline values
 - Judge 65%: satisfaction data accuracy, intervention recommendations
 - Fallback: keyword-based scoring when judge unavailable

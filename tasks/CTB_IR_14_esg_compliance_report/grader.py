@@ -3,7 +3,7 @@
 Ground truth source: task.yaml reference_solution is empty for this task.
 Rubric ground truth derived from fixture data:   - fixtures/web/search_results.json,  - fixtures/notes/meetings.json,completion
 
-v2.2: Claw-Eval mode (research report).
+v2.2: analysis mode (research report).
 - Deterministic 30%: tool gate, key ESG numbers, gap indicators
 - Judge 70%: regulatory+company data, benchmark comparison, gap analysis+roadmap
 - Fallback: keyword-based scoring when judge unavailable

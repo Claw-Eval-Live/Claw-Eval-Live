@@ -1,6 +1,6 @@
 """CTB_SUPPORT_04 grader -- resolution quality check.
 
-v2.2: Claw-Eval mode (analysis report).
+v2.2: analysis mode (analysis report).
 - Deterministic 35%: tool gate, ticket coverage, quality ratings, problem tickets
 - Judge 65%: quality assessment accuracy, recommendation quality
 - Fallback: keyword-based scoring when judge unavailable

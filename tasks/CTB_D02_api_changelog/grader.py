@@ -1,6 +1,6 @@
 """CTB_D02 grader — compare two API docs and write a migration changelog.
 
-v2.2: Claw-Eval mode (document transform).
+v2.2: analysis mode (document transform).
 - Deterministic 30%: API endpoint coverage, change type labels, table structure
 - Judge 70%: change accuracy per section, completeness, migration recommendations
 """

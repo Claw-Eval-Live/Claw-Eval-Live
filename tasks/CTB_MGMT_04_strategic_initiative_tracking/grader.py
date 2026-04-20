@@ -2,7 +2,7 @@
 
 Ground truth source: fixtures/notes + fixtures/gmail + fixtures/todo
 
-v2.2: Claw-Eval mode (management report).
+v2.2: analysis mode (management report).
 - Deterministic 35%: tool gate, initiative coverage, status assignments, CEO actions
 - Judge 65%: initiative assessment accuracy, risk analysis quality
 - Fallback: keyword-based scoring when judge unavailable

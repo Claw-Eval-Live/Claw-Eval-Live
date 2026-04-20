@@ -1,6 +1,6 @@
 """CTB_COMM_24 grader -- meeting prep action items.
 
-v2.2: Claw-Eval mode (workflow/communication, no write operations).
+v2.2: analysis mode (workflow/communication, no write operations).
 - Deterministic 35%: tool gate, key people+status pairs, data points (12000, 78%)
 - Judge 65%: product review accuracy, strategy meeting accuracy, status tracking
 - Fallback: keyword-based scoring when judge unavailable

@@ -1,6 +1,6 @@
 """CTB_SUPPORT_01 grader -- ticket escalation review.
 
-v2.2: Claw-Eval mode (analysis report).
+v2.2: analysis mode (analysis report).
 - Deterministic 35%: tool gate, ticket coverage, category classification, repeat customer
 - Judge 65%: escalation analysis accuracy, recommendation quality
 - Fallback: keyword-based scoring when judge unavailable
@@ -39,19 +39,19 @@ Evaluate the accuracy of ticket escalation analysis (0.0-1.0).
 """
 
     _RECOMMENDATION_RUBRIC = """\
-Evaluate the quality of escalation reduction recommendations (0.0-1.0).
+Evaluate the quality of escalation reduction recommendations and follow-up actions (0.0-1.0).
 
 ## Expected elements
-1. Common cause analysis (categorize and count by type)
-2. Repeat customer identification (customer_c)
-3. Improvement recommendations to reduce unnecessary escalations
-4. Per-ticket: reason, category, handling team, resolution outcome
+1. Prioritized process changes to reduce unnecessary escalations
+2. Follow-up plan for repeat-customer risk (customer_c)
+3. Recommendations tied to the main escalation patterns already identified in the analysis
+4. Concrete workflow improvements (routing, ownership, SLA, escalation policy)
 
 ## Scoring tiers
-- 0.9-1.0: Comprehensive root cause analysis; specific reduction recommendations; per-ticket detail
-- 0.7-0.8: Good cause analysis; reasonable recommendations
-- 0.5-0.6: Basic analysis; generic recommendations
-- 0.3-0.4: Minimal analysis
+- 0.9-1.0: Specific, actionable reduction plan; strong follow-up actions; recommendations clearly tied to observed patterns
+- 0.7-0.8: Reasonable recommendations; some prioritization and follow-up actions
+- 0.5-0.6: Basic recommendations; mostly generic
+- 0.3-0.4: Minimal suggestions
 - 0.0-0.2: No recommendations
 """
 

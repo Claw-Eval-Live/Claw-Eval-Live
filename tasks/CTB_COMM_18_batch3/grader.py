@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures.
 
-v2.2: Claw-Eval mode (analysis report).
+v2.2: analysis mode (analysis report).
 - Deterministic 35%: tool gate, company coverage, status keywords
 - Judge 65%: complaint status accuracy, report quality
 - Fallback: keyword-based scoring when judge unavailable
@@ -37,13 +37,9 @@ Evaluate the accuracy of complaint status identification for all 3 companies (0.
 2. Company Y: Complaint about display anomaly is UNHANDLED. No CRM record exists. Needs a new CRM record.
 3. Company Z: API rate limit complaint from a VIP customer, returns HTTP 500 errors. UNHANDLED. Needs PRIORITY handling and a new CRM record.
 
-## Pending Priority Order
-- Z should be higher priority than Y because: Z is VIP + involves feature limitation (API rate limit)
-- Y is a display anomaly (lower severity)
-
 ## Scoring tiers
-- 0.9-1.0: All 3 companies correctly identified with status and reasoning; priority order Z > Y correct
-- 0.7-0.8: All 3 identified; status mostly correct; priority mentioned
+- 0.9-1.0: All 3 companies correctly identified with status, CRM sync state, and required follow-up action
+- 0.7-0.8: All 3 identified; status mostly correct
 - 0.5-0.6: 2-3 companies identified; some status correct
 - 0.3-0.4: 1-2 companies; partial status
 - 0.0-0.2: No meaningful status identification
@@ -54,12 +50,12 @@ Evaluate the quality of the verification report (0.0-1.0).
 
 ## Expected elements
 1. Per-company comparison: email complaint vs CRM record
-2. Clear status for each: resolved, unhandled, needs creation
-3. Severity-based prioritization of pending items
-4. Actionable recommendations
+2. Clear next-step summary for each company
+3. Prioritization of unresolved items with rationale
+4. Actionable recommendations and concise summary
 
 ## Scoring tiers
-- 0.9-1.0: Clear per-company analysis; correct statuses; priority ranking; specific recommendations
+- 0.9-1.0: Clear per-company analysis; unresolved items prioritized with rationale; specific recommendations
 - 0.7-0.8: Most elements present; reasonable structure
 - 0.5-0.6: Partial analysis; some structure
 - 0.3-0.4: Minimal analysis

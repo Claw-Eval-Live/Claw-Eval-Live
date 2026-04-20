@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures/finance/transactions.json
 
-v2.2: Claw-Eval mode (financial analysis report).
+v2.2: analysis mode (financial analysis report).
 - Deterministic 35%: tool gate, non-deductible total, R&D super-deduction, tax impact
 - Judge 65%: expense classification accuracy, calculation correctness, analysis quality
 - Fallback: keyword-based scoring when judge unavailable

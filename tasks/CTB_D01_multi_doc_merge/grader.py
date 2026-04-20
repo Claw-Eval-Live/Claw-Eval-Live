@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures.
 
-v2.2: Claw-Eval mode (document synthesis).
+v2.2: analysis mode (document synthesis).
 - Deterministic 35%: file written, scope coverage, milestone coverage
 - Judge 65%: content accuracy + merge quality, report structure
 - Fallback: keyword-based scoring when judge unavailable

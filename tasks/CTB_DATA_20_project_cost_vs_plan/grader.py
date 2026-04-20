@@ -1,6 +1,6 @@
 """CTB_DATA_20 grader -- project cost vs plan comparison.
 
-v2.2: Claw-Eval mode (data analysis).
+v2.2: analysis mode (data analysis).
 - Deterministic 35%: tool gate, total actual 550K, total budget 530K, overrun 3.8%, stage counts
 - Judge 65%: stage-by-stage comparison accuracy, progress tracking, budget risk assessment
 - Fallback: keyword-based scoring when judge unavailable

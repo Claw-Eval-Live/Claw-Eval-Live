@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures.
 
-v2.2: Claw-Eval mode (financial analysis report).
+v2.2: analysis mode (financial analysis report).
 - Deterministic 35%: tool gate, segment numbers, key conclusions
 - Judge 65%: financial accuracy, analysis quality
 - Fallback: keyword-based scoring when judge unavailable

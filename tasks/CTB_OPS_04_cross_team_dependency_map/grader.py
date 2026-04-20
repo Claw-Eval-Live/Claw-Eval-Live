@@ -2,7 +2,7 @@
 
 Ground truth source: fixtures/gmail + fixtures/todo
 
-v2.2: Claw-Eval mode (operations analysis report).
+v2.2: analysis mode (operations analysis report).
 - Deterministic 35%: tool gate, dependency chains, bottleneck identification, delay risk
 - Judge 65%: chain accuracy, risk analysis quality, recommendations
 - Fallback: keyword-based scoring when judge unavailable

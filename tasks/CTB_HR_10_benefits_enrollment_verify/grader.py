@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures.
 
-v2.2: Claw-Eval mode (HR audit report).
+v2.2: analysis mode (HR audit report).
 - Deterministic 35%: tool gate, employee coverage, violation identification
 - Judge 65%: compliance assessment accuracy, violation detail quality
 - Fallback: keyword-based scoring when judge unavailable

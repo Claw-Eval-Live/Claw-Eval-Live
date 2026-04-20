@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures.
 
-v2.2: Claw-Eval hybrid mode (backup verification report).
+v2.2: hybrid mode (backup verification report).
 - Deterministic 35%: tool gate, ticket/note coverage, backup issue identification
 - Judge 65%: diagnostic accuracy (35%), remediation quality (30%)
 - Fallback: English-first keyword scoring when judge unavailable

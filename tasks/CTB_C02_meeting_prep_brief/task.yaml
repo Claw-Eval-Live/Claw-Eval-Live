@@ -15,6 +15,7 @@ services:
     env:
       CALENDAR_FIXTURES: tasks/CTB_C02_meeting_prep_brief/fixtures/calendar/events.json
       CALENDAR_DISABLE_DATE_SHIFT: "1"
+      ERROR_RATE: "0"
   - name: gmail
     command: python mock_services/gmail/server.py
     port: 9100
@@ -24,6 +25,7 @@ services:
     reset_endpoint: http://localhost:9100/gmail/reset
     env:
       GMAIL_FIXTURES: tasks/CTB_C02_meeting_prep_brief/fixtures/gmail/inbox.json
+      ERROR_RATE: "0"
   - name: notes
     command: python mock_services/notes/server.py
     port: 9105
@@ -33,6 +35,7 @@ services:
     reset_endpoint: http://localhost:9105/notes/reset
     env:
       NOTES_FIXTURES: tasks/CTB_C02_meeting_prep_brief/fixtures/notes/meetings.json
+      ERROR_RATE: "0"
 
 prompt:
   text: |

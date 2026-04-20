@@ -2,7 +2,7 @@
 
 Ground truth source: fixtures/web/search_results.json
 
-v2.2: Claw-Eval mode (research report).
+v2.2: analysis mode (research report).
 - Deterministic 30%: tool gate, vendor coverage, key data points
 - Judge 70%: performance/pricing data, security/compliance, recommendation quality
 - Fallback: keyword-based scoring when judge unavailable
@@ -46,16 +46,16 @@ Evaluate the accuracy of performance and pricing comparison data (0.0-1.0).
 """
 
     _SECURITY_RUBRIC = """\
-Evaluate the accuracy of security compliance and support data (0.0-1.0).
+Evaluate the accuracy of security compliance and support responsiveness data (0.0-1.0).
 
 ## Ground Truth
 - Security certifications: MLPS Level 3 (classified protection), ISO 27701
-- Alibaba Cloud response time: 12 minutes (fastest)
-- Overall recommendation/ranking across compute, pricing, security, and support dimensions
+- Alibaba Cloud response time: 12 minutes (fastest support response)
+- Security/support comparison should stay factual: certifications, compliance posture, support responsiveness
 
 ## Scoring tiers
-- 0.9-1.0: Security certifications mentioned; support response times; clear dimensional ranking
-- 0.7-0.8: Most security data; some support metrics
+- 0.9-1.0: Security certifications and support responsiveness are correct; security/support strengths or weaknesses are clearly compared
+- 0.7-0.8: Most security/support facts correct; some comparison
 - 0.5-0.6: Partial security/support data
 - 0.3-0.4: Minimal coverage
 - 0.0-0.2: No security/support analysis

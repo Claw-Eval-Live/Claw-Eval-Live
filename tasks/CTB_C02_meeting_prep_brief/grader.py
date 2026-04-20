@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures.
 
-v2.2: Claw-Eval mode (research/synthesis report).
+v2.2: analysis mode (research/synthesis report).
 - Deterministic 35%: tool gate, basic info coverage, topic coverage
 - Judge 65%: content accuracy, brief structure + analysis
 - Fallback: keyword-based scoring when judge unavailable

@@ -1,6 +1,6 @@
 """CTB_SALES_04 grader — discount approval compliance audit.
 
-v2.2: mixed mode (Claw-Eval analysis + deterministic classification).
+v2.2: mixed mode (analysis + deterministic classification).
 - Deterministic 40%: tool gate, company-level classification accuracy, statistics
 - Judge 60%: policy understanding rubric, audit report quality rubric
 - Fallback: keyword-based scoring when judge unavailable

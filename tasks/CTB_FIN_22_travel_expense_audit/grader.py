@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures.
 
-v2.2: Claw-Eval mode (financial audit report).
+v2.2: analysis mode (financial audit report).
 - Deterministic 40%: tool gate, flagged employees, excess total, department breakdown
 - Judge 60%: audit accuracy, report quality
 - Fallback: keyword-based scoring when judge unavailable

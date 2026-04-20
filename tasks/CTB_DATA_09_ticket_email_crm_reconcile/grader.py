@@ -49,8 +49,8 @@ Evaluate the accuracy of ticket-email-CRM reconciliation findings (0.0-1.0).
 - VIP customers with open tickets: Alpha(TK-501), Gamma(TK-503), Epsilon(TK-505)
 
 ## Scoring tiers
-- 0.9-1.0: All 3 discrepancies correct with action items; VIP flagged
-- 0.7-0.8: 2-3 discrepancies found; VIP partially flagged
+- 0.9-1.0: All 3 discrepancies correct; VIP customers and CRM gaps correctly identified
+- 0.7-0.8: 2-3 discrepancies found; VIP/CRM gaps mostly correct
 - 0.5-0.6: 1-2 discrepancies found
 - 0.3-0.4: Only surface-level comparison
 - 0.0-0.2: No meaningful reconciliation
@@ -60,15 +60,15 @@ Evaluate the accuracy of ticket-email-CRM reconciliation findings (0.0-1.0).
 Evaluate the quality of the reconciliation action plan (0.0-1.0).
 
 ## Expected elements
-1. Per-email vs ticket comparison results
-2. New ticket creation list (for Alpha's new issue and Zeta)
-3. Ticket closure/update list (Beta's TK-502)
-4. VIP customer priority alerts
-5. CRM gap identification (Zeta not in CRM)
+1. Per-discrepancy next-action list
+2. New ticket creation actions (for Alpha's new issue and Zeta)
+3. Ticket closure/update action (Beta's TK-502)
+4. CRM onboarding / follow-up action for Zeta
+5. Priority handling recommendations for VIP open issues
 
 ## Scoring tiers
-- 0.9-1.0: All elements present; clear action items; VIP alerts; CRM gap noted
-- 0.7-0.8: Most elements present; some action items
+- 0.9-1.0: All discrepancies mapped to specific next actions; priorities are clear; follow-up steps are actionable
+- 0.7-0.8: Most actions present; some prioritization
 - 0.5-0.6: Partial report
 - 0.3-0.4: Minimal structure
 - 0.0-0.2: No meaningful report

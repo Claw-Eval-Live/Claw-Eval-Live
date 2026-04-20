@@ -2,7 +2,7 @@
 
 Ground truth source: fixtures/finance + fixtures/gmail
 
-v2.2: Claw-Eval mode (management analysis report).
+v2.2: analysis mode (management analysis report).
 - Deterministic 35%: tool gate, Q1 spend data, budget constraint, CEO priorities
 - Judge 65%: Q1 analysis accuracy, Q2 allocation rationale, report quality
 - Fallback: keyword-based scoring when judge unavailable

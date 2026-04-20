@@ -2,7 +2,7 @@
 
 Ground truth source: fixtures/notes + fixtures/todo
 
-v2.2: Claw-Eval mode (management analysis report).
+v2.2: analysis mode (management analysis report).
 - Deterministic 35%: tool gate, department coverage, key achievement values
 - Judge 65%: KR achievement accuracy, department assessments, Q2 recommendations
 - Fallback: keyword-based scoring when judge unavailable

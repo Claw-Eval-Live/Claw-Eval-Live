@@ -2,7 +2,7 @@
 
 Ground truth source: task.yaml reference_solution + fixtures.
 
-v2.2: Claw-Eval mode (analysis report).
+v2.2: analysis mode (analysis report).
 - Deterministic 35%: tool gate, lead coverage, key findings
 - Judge 65%: scoring accuracy, validation report quality
 - Fallback: keyword-based scoring when judge unavailable
@@ -54,14 +54,13 @@ Evaluate the accuracy of lead score validation for all 4 prospects (0.0-1.0).
 Evaluate the quality of the validation report (0.0-1.0).
 
 ## Expected elements
-1. Per-lead comparison: CRM score vs recommended score with reasoning
-2. Clear direction for each: underscore, overscore, invalid
-3. Prospect C identified as highest priority (urgent + high budget)
-4. Prospect D flagged for removal/invalidation (unsubscribed)
-5. Actionable recommendations for score adjustments
+1. Per-lead comparison: CRM score vs recommended score with evidence
+2. Clear adjustment rationale for each lead
+3. Operational follow-up recommendations (sales follow-up, nurture, disqualify, score update)
+4. Structured summary or table for CRM handoff
 
 ## Scoring tiers
-- 0.9-1.0: Clear per-lead analysis with scores, directions, and evidence; actionable recommendations
+- 0.9-1.0: Clear per-lead analysis with evidence; strong operational recommendations; easy-to-use handoff structure
 - 0.7-0.8: Most leads analyzed; reasonable recommendations
 - 0.5-0.6: Partial analysis; some recommendations
 - 0.3-0.4: Minimal analysis
