@@ -1,172 +1,159 @@
-# LiveClaw-500
+<div align="center">
 
-A benchmark for evaluating AI agents on realistic multi-step computer tasks across enterprise workflows.
+# LiveClawEval
 
-**105 tasks** | **13 models** | **22 workflow categories** | **18 mock services** | **pass@0.80**
+### *A Live Agent Benchmark for Evolving Real-World Workflow*
 
-Interactive leaderboard: [`benchmark/leaderboard.html`](benchmark/leaderboard.html)
+[![Tasks](https://img.shields.io/badge/tasks-105-blue)](https://liveclaweval.github.io/#/leaderboard)
+[![Families](https://img.shields.io/badge/families-17-green)](https://liveclaweval.github.io/#/leaderboard)
+[![Models](https://img.shields.io/badge/models-14-orange)](https://liveclaweval.github.io/#/leaderboard)
+[![Leaderboard](https://img.shields.io/badge/leaderboard-live-purple)](https://liveclaweval.github.io/)
+[![License](https://img.shields.io/badge/license-CC--BY--4.0-yellow)](./LICENSE)
+
+> **A living benchmark grounded in continuously updated real-world ClawHub marketplace signals — re-calibrated quarterly, so the task distribution keeps tracking what enterprises actually want agents to do.**
+
+</div>
+
+---
+
+## Why LiveClawEval
+
+Most agent benchmarks freeze at publication and quietly drift away from real-world workflow demand. LiveClawEval takes a different bet:
+
+- **Grounded in market signals.** Tasks are derived from continuously updated ClawHub marketplace signals — top skills ranked by download volume — not from author intuition or committee vote.
+- **Re-calibrated every quarter.** An automated signal-to-task pipeline re-ingests fresh signals, re-clusters workflow patterns, and regenerates the task set, so family weights track current demand instead of last year's snapshot.
+- **Fully explainable scoring.** Rule-based extraction handles deterministic checks; structured LLM-as-judge handles report-style outputs. Every score is traceable.
+- **Built for multi-step workflow.** Agents interact with mock enterprise services and are evaluated on operational correctness *and* output quality — not single-turn QA.
+
+> 🌐 Interactive leaderboard, family heatmap, and per-task scores: **[liveclaweval.github.io](https://liveclaweval.github.io/)**
 
 ---
 
 ## Leaderboard
 
-| # | Model | Organization | Pass Rate | Overall Completion |
-|---|-------|-------------|-----------|-------------------|
-| 1 | Claude Opus 4.6 | Anthropic | 66.7% | 83.7 |
-| 2 | GPT-5.4 | OpenAI | 63.8% | 81.8 |
-| 3 | Claude Sonnet 4.6 | Anthropic | 61.9% | 79.9 |
-| 4 | GLM-5 | Zhipu AI | 61.9% | 78.1 |
-| 5 | MiniMax M2.7 | MiniMax | 54.3% | 77.6 |
-| 6 | Gemini 3.1 Pro | Google | 54.3% | 74.1 |
-| 7 | MiMo V2 Pro | Xiaomi | 53.3% | 77.0 |
-| 8 | Kimi K2.5 | Moonshot AI | 53.3% | 76.2 |
-| 9 | MiniMax M2.5 | MiniMax | 51.4% | 71.0 |
-| 10 | DeepSeek V3.2 | DeepSeek | 51.4% | 69.1 |
-| 11 | Qwen 3.6 Plus | Alibaba | 50.5% | 71.4 |
-| 12 | Qwen 3.5 397B | Alibaba | 49.5% | 72.6 |
-| 13 | Doubao Seed 2.0 Pro | ByteDance | 44.8% | 70.6 |
+Ranked by **Overall Completion Score** across 105 tasks · 14 frontier models.
 
-**Evaluation logic.** Tasks are ranked by **Pass Rate** with **Overall Completion Score** as the tie-breaker. A task is counted as passed when its completion score is **≥ 0.80**.
+| # | Model | Org | Overall |
+|---|---|---|---:|
+| 1 | Claude Opus 4.6 | Anthropic | 83.7 |
+| 2 | GPT-5.4 | OpenAI | 81.8 |
+| 3 | Claude Sonnet 4.6 | Anthropic | 79.9 |
+| 4 | GLM-5 | Zhipu AI | 78.1 |
+| 5 | MiniMax M2.7 | MiniMax | 77.6 |
+| 6 | MiMo V2 Pro | Xiaomi | 77.0 |
+| 7 | Kimi K2.5 | Moonshot AI | 76.2 |
+| 8 | Gemini 3.1 Pro | Google | 74.1 |
+| 9 | Qwen 3.5 397B | Alibaba | 72.6 |
+| 10 | Qwen 3.6 Plus | Alibaba | 71.4 |
+| 11 | MiniMax M2.5 | MiniMax | 71.0 |
+| 12 | Doubao Seed 2.0 Pro | ByteDance | 70.6 |
+| 13 | DeepSeek V3.2 | DeepSeek | 69.1 |
+| 14 | Grok 4.20 | xAI | — |
+
+> Live results, family-level breakdowns, and heatmap / radar views: [liveclaweval.github.io/#/leaderboard](https://liveclaweval.github.io/#/leaderboard)
 
 ---
 
 ## Tasks
 
-LiveClaw-500 focuses on realistic work-style agent tasks rather than single-turn QA. Agents interact with mock enterprise services, perform multi-step actions, and are graded on both action correctness and output quality.
+105 tasks across 17 families, weighted by ClawHub demand signal.
 
-### Coverage
+| Family | # | Family | # | Family | # |
+|---|---:|---|---:|---|---:|
+| SHELL | 18 | SUPPORT | 5 | IR | 4 |
+| PRODAPP | 17 | WORKFLOW | 5 | MGMT | 4 |
+| DATA | 9 | CRM | 4 | PROD | 4 |
+| HR | 9 | DOC | 4 | RESEARCH | 3 |
+| SALES | 6 | FIN | 4 | OPS | 3 |
+| COMM | 5 | | | SEC | 1 |
 
-| Area | Tasks |
-|---|---:|
-| PRODAPP | 17 |
-| SHELL | 12 |
-| HR | 8 |
-| IR | 6 |
-| SALES | 6 |
-| COMM | 5 |
-| DATA | 5 |
-| SUPPORT | 5 |
-| W | 5 |
-| WORKFLOW | 4 |
-| CRM | 4 |
-| FIN | 4 |
-| PROD | 4 |
-| A | 3 |
-| D | 3 |
-| MGMT | 3 |
-| OPS | 3 |
-| C | 2 |
-| RESEARCH | 2 |
-| SEC | 2 |
-| DOC | 1 |
-| R | 1 |
+Each task ships with:
+- `task.yaml` — prompt, services, evaluation rubric
+- `grader.py` — deterministic checks + judge-driven rubric
+- `fixtures/` — mock service state, attachments, sandbox files
 
-### Mock services
+### Scoring
 
-`calendar`, `caption`, `config`, `contacts`, `crm`, `documents`, `finance`, `gmail`, `helpdesk`, `inventory`, `kb`, `notes`, `ocr`, `rss`, `scheduler`, `todo`, `web`, `web_real`, `web_real_injection`
+Hybrid by design:
 
-### Grading
+- **Rule-based extraction** for required tool calls, state changes, and factual correctness.
+- **Structured LLM-as-judge** for report-style outputs against an explicit rubric.
+- **Script-first verification** for terminal- and workspace-heavy tasks.
 
-LiveClaw-500 uses a hybrid grading setup:
-- **Deterministic checks** verify required tool calls, state changes, and factual correctness.
-- **LLM-as-judge** evaluates semantic quality for report-style tasks.
-- **Script-first verification** is used for terminal and workspace-heavy tasks.
-
-This combines action-level verification with output-level evaluation.
+Per-task scores live in `[0, 1]`; the family- and overall-level numbers on the leaderboard are simple unweighted means within each scope.
 
 ---
 
-## Dataset
+## Repository Layout
 
-### Repository layout
-
-```text
-LiveClaw-500/
-├── README.md
-├── pyproject.toml
-├── benchmark/
-├── tasks/
-├── mock_services/
-├── model_configs/
-├── scripts/
-├── src/liveclaw_500/
-└── config_template.yaml
 ```
-
-### Included public assets
-
-- `tasks/` — 105 released tasks with `task.yaml`, graders, and fixtures
-- `mock_services/` — mock backend services used for task execution
-- `benchmark/` — leaderboard and released result tables
-- `model_configs/` — public model config examples using environment variables
-- `src/liveclaw_500/` — evaluation framework and CLI
+LiveClawEval/
+├── README.md
+├── LICENSE                 # CC BY 4.0
+├── pyproject.toml
+├── config_template.yaml
+├── tasks/                  # 105 published tasks (task.yaml + grader.py + fixtures)
+├── mock_services/          # Mock enterprise backends used by tasks
+├── model_configs/          # Provider configs (env-var driven)
+├── benchmark/              # Released results & leaderboard data
+├── scripts/                # Run / regrade / aggregation utilities
+└── src/                    # Evaluation framework & CLI
+```
 
 ---
 
 ## Quick Start
 
-### 1. Install
-
 ```bash
+# 1. Install
 pip install -e .
-```
 
-### 2. Run a single task
-
-```bash
-python -m liveclaw_500.cli run \
+# 2. Run a single task
+python -m liveclaweval.cli run \
   --task tasks/CTB_HR_01_onboarding_checklist \
   --config model_configs/claude_opus_46.yaml \
   --trace-dir traces/
-```
 
-### 3. Run a batch
-
-```bash
-python -m liveclaw_500.cli batch \
+# 3. Batch run
+python -m liveclaweval.cli batch \
   --tasks-dir tasks/ \
   --config model_configs/claude_opus_46.yaml \
   --parallel 4
-```
 
-### 4. Re-grade existing traces
-
-```bash
+# 4. Re-grade existing traces
 python scripts/regrade_with_judge.py \
   --traces-dir traces/your_model/ \
   --tasks-dir tasks/
-```
 
-### 5. Start from a config template
-
-```bash
+# 5. Add your own model
 cp config_template.yaml model_configs/my_model.yaml
+# then fill in api_key / base_url / model_id for your provider
 ```
-
-Then fill in your provider-specific `api_key`, `base_url`, and `model_id`.
 
 ---
 
-## Comparison
+## Roadmap
 
-| | LiveClaw-500 | Claw-Eval | WildClawBench |
-|---|---|---|---|
-| Tasks | 105 | 300 | 60 |
-| Grading | Hybrid (rules + judge) | Judge-heavy hybrid | Script-heavy hybrid |
-| Services | 18 mock services | Real + sandbox | Sandbox only |
-| Pass threshold | 0.80 | 0.60 | Binary |
+- [ ] Quarterly Q2 2026 refresh — next signal re-ingestion + task regeneration
+- [ ] Public Hugging Face dataset mirror
+- [ ] Multi-turn extension (simulated user persona)
+- [ ] arXiv preprint
 
 ---
 
 ## Citation
 
 ```bibtex
-@misc{liveclaw500,
-  title={LiveClaw-500: A Benchmark for Real-World AI Agent Evaluation},
-  year={2026},
+@misc{liveclaweval2026,
+  title  = {LiveClawEval: A Live Agent Benchmark for Evolving Real-World Workflow},
+  author = {LiveClawEval Team},
+  year   = {2026},
+  url    = {https://liveclaweval.github.io/}
 }
 ```
 
+---
+
 ## License
 
-This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Released under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license. See [LICENSE](./LICENSE) for details.
