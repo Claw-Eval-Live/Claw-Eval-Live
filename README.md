@@ -5,6 +5,10 @@
 </p>
 
 <p align="center">
+  <em>Seeking alpha tasks from live workflow signals.</em>
+</p>
+
+<p align="center">
   • ClawHub-grounded Tasks • Quarterly Re-calibration • Workflow + Workspace Evaluation • Explainable Scores •
 </p>
 

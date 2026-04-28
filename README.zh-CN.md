@@ -5,6 +5,10 @@
 </p>
 
 <p align="center">
+  <em>Seeking alpha tasks from live workflow signals.</em>
+</p>
+
+<p align="center">
   • ClawHub 信号驱动 • 季度重校准 • Workflow + Workspace 任务 • 可解释评分 •
 </p>
 
