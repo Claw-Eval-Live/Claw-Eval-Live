@@ -1,6 +1,10 @@
 # 🚀 LiveClawEval
 
 <p align="center">
+  <img src="docs/assets/liveclaweval-logo.jpg" alt="LiveClawEval logo" width="260">
+</p>
+
+<p align="center">
   <strong>A Live Agent Benchmark for Evolving Real-World Workflow.</strong>
 </p>
 
