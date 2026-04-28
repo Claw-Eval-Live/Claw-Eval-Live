@@ -38,11 +38,9 @@
 ## 🧭 Quick Navigation
 
 > [!TIP]
-> **I'm a researcher** → start with the [live leaderboard](https://liveclaweval.github.io/#/leaderboard), the visual tour, and the citation.
+> **I am Human** → continue with this README for the leaderboard, visual tour, quick start, and citation.
 >
-> **I'm an agent developer** → jump to Quick Start, run one task, then inspect task fixtures and graders.
->
-> **我是中文读者** → 查看 [README.zh-CN.md](README.zh-CN.md)。
+> **I am Agent** → read [AGENTS.md](AGENTS.md) for structured operating instructions, key files, and command quick reference.
 
 `LiveClawEval` evaluates AI agents on realistic multi-step enterprise workflows. Agents interact with controlled services, workspace files, and task-specific fixtures; scores reflect whether they actually completed the workflow, not just whether they produced plausible text.
 
