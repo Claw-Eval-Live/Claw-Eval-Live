@@ -18,16 +18,16 @@
 
 <p align="center">
   <a href="README.md">English</a> •
-  <a href="https://liveclaweval.github.io/#/leaderboard">在线排行榜</a> •
+  <a href="https://claw-eval-live.github.io/#/leaderboard">在线排行榜</a> •
   <a href="#-快速开始">快速开始</a> •
   <a href="#-引用">引用</a>
 </p>
 
 <p align="center">
-  <a href="https://liveclaweval.github.io/#/leaderboard"><img alt="Tasks" src="https://img.shields.io/badge/tasks-105-blue"></a>
-  <a href="https://liveclaweval.github.io/#/leaderboard"><img alt="Families" src="https://img.shields.io/badge/families-17-green"></a>
-  <a href="https://liveclaweval.github.io/#/leaderboard"><img alt="Models" src="https://img.shields.io/badge/frontier%20models-13-orange"></a>
-  <a href="https://liveclaweval.github.io/"><img alt="Leaderboard" src="https://img.shields.io/badge/leaderboard-live-purple"></a>
+  <a href="https://claw-eval-live.github.io/#/leaderboard"><img alt="Tasks" src="https://img.shields.io/badge/tasks-105-blue"></a>
+  <a href="https://claw-eval-live.github.io/#/leaderboard"><img alt="Families" src="https://img.shields.io/badge/families-17-green"></a>
+  <a href="https://claw-eval-live.github.io/#/leaderboard"><img alt="Models" src="https://img.shields.io/badge/frontier%20models-13-orange"></a>
+  <a href="https://claw-eval-live.github.io/"><img alt="Leaderboard" src="https://img.shields.io/badge/leaderboard-live-purple"></a>
   <img alt="Refresh" src="https://img.shields.io/badge/refresh-quarterly-00a6ff">
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-CC--BY--4.0-yellow"></a>
 </p>
@@ -61,7 +61,7 @@
 | 12 | Doubao Seed 2.0 Pro | ByteDance | 70.4 |
 | 13 | DeepSeek V3.2 | DeepSeek | 69.3 |
 
-🌐 完整热力图、雷达图、任务级分数见：[liveclaweval.github.io/#/leaderboard](https://liveclaweval.github.io/#/leaderboard)
+🌐 完整热力图、雷达图、任务级分数见：[claw-eval-live.github.io/#/leaderboard](https://claw-eval-live.github.io/#/leaderboard)
 
 ## 🎬 图示
 
@@ -88,8 +88,8 @@
 ## ⚡ 快速开始
 
 ```bash
-git clone https://github.com/LiveClawEval/LiveClawEval.git
-cd LiveClawEval
+git clone https://github.com/Claw-Eval-Live/Claw-Eval-Live.git
+cd Claw-Eval-Live
 pip install -e .
 
 liveclaw-500 list --tasks-dir tasks
@@ -105,11 +105,11 @@ liveclaw-500 run \
 ## 📖 引用
 
 ```bibtex
-@misc{liveclaweval2026,
+@misc{claweval2026live,
   title  = {Claw-Eval-Live: A Live Agent Benchmark for Evolving Real-World Workflow},
   author = {Claw-Eval-Live Team},
   year   = {2026},
-  url    = {https://liveclaweval.github.io/}
+  url    = {https://claw-eval-live.github.io/}
 }
 ```
 

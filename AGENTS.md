@@ -32,5 +32,5 @@ liveclaw-500 grade --trace traces/your_trace.jsonl --task tasks/CTB_HR_01_onboar
 - Keep branding as `Claw-Eval-Live`.
 - Use `13 frontier models`, not 14.
 - Do not reintroduce `LiveClaw-500`, `pass@0.80`, or single-letter task families such as `A/C/D/R/W` in user-facing docs.
-- Prefer linking to the live site for dynamic leaderboard details: `https://liveclaweval.github.io/#/leaderboard`.
+- Prefer linking to the live site for dynamic leaderboard details: `https://claw-eval-live.github.io/#/leaderboard`.
 - If README figures change, place assets under `docs/assets/` and use relative links.

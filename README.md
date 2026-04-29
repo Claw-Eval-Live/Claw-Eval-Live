@@ -26,10 +26,10 @@
 </p>
 
 <p align="center">
-  <a href="https://liveclaweval.github.io/#/leaderboard"><img alt="Tasks" src="https://img.shields.io/badge/tasks-105-blue"></a>
-  <a href="https://liveclaweval.github.io/#/leaderboard"><img alt="Families" src="https://img.shields.io/badge/families-17-green"></a>
-  <a href="https://liveclaweval.github.io/#/leaderboard"><img alt="Models" src="https://img.shields.io/badge/frontier%20models-13-orange"></a>
-  <a href="https://liveclaweval.github.io/"><img alt="Leaderboard" src="https://img.shields.io/badge/leaderboard-live-purple"></a>
+  <a href="https://claw-eval-live.github.io/#/leaderboard"><img alt="Tasks" src="https://img.shields.io/badge/tasks-105-blue"></a>
+  <a href="https://claw-eval-live.github.io/#/leaderboard"><img alt="Families" src="https://img.shields.io/badge/families-17-green"></a>
+  <a href="https://claw-eval-live.github.io/#/leaderboard"><img alt="Models" src="https://img.shields.io/badge/frontier%20models-13-orange"></a>
+  <a href="https://claw-eval-live.github.io/"><img alt="Leaderboard" src="https://img.shields.io/badge/leaderboard-live-purple"></a>
   <img alt="Refresh" src="https://img.shields.io/badge/refresh-quarterly-00a6ff">
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-CC--BY--4.0-yellow"></a>
 </p>
@@ -78,7 +78,7 @@ Ranked by **Overall Completion Score** across 105 tasks and 13 frontier models.
 | 12 | Doubao Seed 2.0 Pro | ByteDance | 70.4 |
 | 13 | DeepSeek V3.2 | DeepSeek | 69.3 |
 
-🌐 **Live table, family heatmap, radar view, and per-task scores:** [liveclaweval.github.io/#/leaderboard](https://liveclaweval.github.io/#/leaderboard)
+🌐 **Live table, family heatmap, radar view, and per-task scores:** [claw-eval-live.github.io/#/leaderboard](https://claw-eval-live.github.io/#/leaderboard)
 
 ## 🎬 Visual Tour
 
@@ -89,7 +89,7 @@ Ranked by **Overall Completion Score** across 105 tasks and 13 frontier models.
 
 | Family Distribution | Interactive Site |
 |---|---|
-| ![Family distribution](docs/assets/family-distribution.png) | [![Leaderboard live](https://img.shields.io/badge/open-live%20leaderboard-purple?style=for-the-badge)](https://liveclaweval.github.io/#/leaderboard) |
+| ![Family distribution](docs/assets/family-distribution.png) | [![Leaderboard live](https://img.shields.io/badge/open-live%20leaderboard-purple?style=for-the-badge)](https://claw-eval-live.github.io/#/leaderboard) |
 | The public release is weighted by ClawHub-derived workflow demand. | The website exposes heatmap, radar, ranking, and task-level evidence views. |
 
 ## ✨ Features
@@ -125,8 +125,8 @@ Each released task includes:
 
 ```bash
 # 1. Clone and install
-git clone https://github.com/LiveClawEval/LiveClawEval.git
-cd LiveClawEval
+git clone https://github.com/Claw-Eval-Live/Claw-Eval-Live.git
+cd Claw-Eval-Live
 pip install -e .
 
 # 2. List tasks
@@ -176,18 +176,18 @@ Enterprise agent workloads move quickly: new tool-use patterns appear, older wor
 
 ## 📚 Docs & Links
 
-- 🌐 Website and leaderboard: [liveclaweval.github.io](https://liveclaweval.github.io/)
-- 📊 Leaderboard route: [liveclaweval.github.io/#/leaderboard](https://liveclaweval.github.io/#/leaderboard)
+- 🌐 Website and leaderboard: [claw-eval-live.github.io](https://claw-eval-live.github.io/)
+- 📊 Leaderboard route: [claw-eval-live.github.io/#/leaderboard](https://claw-eval-live.github.io/#/leaderboard)
 - 🇨🇳 中文 README: [README.zh-CN.md](README.zh-CN.md)
 - 🧾 License: [CC BY 4.0](LICENSE)
 
 ## ⭐ Star History
 
-<a href="https://star-history.com/#LiveClawEval/LiveClawEval&Date">
+<a href="https://star-history.com/#Claw-Eval-Live/Claw-Eval-Live&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=LiveClawEval/LiveClawEval&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=LiveClawEval/LiveClawEval&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=LiveClawEval/LiveClawEval&type=Date" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Claw-Eval-Live/Claw-Eval-Live&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Claw-Eval-Live/Claw-Eval-Live&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Claw-Eval-Live/Claw-Eval-Live&type=Date" />
   </picture>
 </a>
 
@@ -202,11 +202,11 @@ Enterprise agent workloads move quickly: new tool-use patterns appear, older wor
 ## 📖 Citation
 
 ```bibtex
-@misc{liveclaweval2026,
+@misc{claweval2026live,
   title  = {Claw-Eval-Live: A Live Agent Benchmark for Evolving Real-World Workflow},
   author = {Claw-Eval-Live Team},
   year   = {2026},
-  url    = {https://liveclaweval.github.io/}
+  url    = {https://claw-eval-live.github.io/}
 }
 ```
 
@@ -221,7 +221,7 @@ Released under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) lic
 </p>
 
 <p align="center">
-  <a href="https://github.com/LiveClawEval/LiveClawEval/issues">Report Issues</a> ·
-  <a href="https://github.com/LiveClawEval/LiveClawEval/issues/new?labels=enhancement">Feature Requests</a> ·
-  <a href="https://liveclaweval.github.io/#/leaderboard">Live Leaderboard</a>
+  <a href="https://github.com/Claw-Eval-Live/Claw-Eval-Live/issues">Report Issues</a> ·
+  <a href="https://github.com/Claw-Eval-Live/Claw-Eval-Live/issues/new?labels=enhancement">Feature Requests</a> ·
+  <a href="https://claw-eval-live.github.io/#/leaderboard">Live Leaderboard</a>
 </p>
