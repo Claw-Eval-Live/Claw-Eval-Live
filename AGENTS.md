@@ -1,10 +1,10 @@
 # AGENTS.md
 
-Structured operating notes for AI agents working with `LiveClawEval`.
+Structured operating notes for AI agents working with `Claw-Eval-Live`.
 
 ## Mission
 
-`LiveClawEval` is a live benchmark for evaluating AI agents on evolving real-world workflows. The public release contains 105 tasks across 17 families and reports 13 frontier models on the live leaderboard.
+`Claw-Eval-Live` is a live benchmark for evaluating AI agents on evolving real-world workflows. The public release contains 105 tasks across 17 families and reports 13 frontier models on the live leaderboard.
 
 ## Key Files
 
@@ -29,7 +29,7 @@ liveclaw-500 grade --trace traces/your_trace.jsonl --task tasks/CTB_HR_01_onboar
 
 ## Editing Rules
 
-- Keep branding as `LiveClawEval`.
+- Keep branding as `Claw-Eval-Live`.
 - Use `13 frontier models`, not 14.
 - Do not reintroduce `LiveClaw-500`, `pass@0.80`, or single-letter task families such as `A/C/D/R/W` in user-facing docs.
 - Prefer linking to the live site for dynamic leaderboard details: `https://liveclaweval.github.io/#/leaderboard`.

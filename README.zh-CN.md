@@ -1,7 +1,7 @@
-# 🚀 LiveClawEval
+# 🚀 Claw-Eval-Live
 
 <p align="center">
-  <img src="docs/assets/liveclaweval-logo.jpg" alt="LiveClawEval logo" width="260">
+  <img src="docs/assets/liveclaweval-logo.jpg" alt="Claw-Eval-Live logo" width="260">
 </p>
 
 <p align="center">
@@ -33,13 +33,13 @@
 </p>
 
 > [!IMPORTANT]
-> **🧭 从静态 benchmark 到 live workflow evaluation。** 传统智能体基准往往在发布时冻结，随后逐渐偏离真实企业工作流需求。LiveClawEval 基于持续更新的 ClawHub marketplace signals 构建，并按季度重校准任务分布。
+> **🧭 从静态 benchmark 到 live workflow evaluation。** 传统智能体基准往往在发布时冻结，随后逐渐偏离真实企业工作流需求。Claw-Eval-Live 基于持续更新的 ClawHub marketplace signals 构建，并按季度重校准任务分布。
 >
 > **📈 不是拍脑袋造题。** 任务类别与权重来自市场信号、下载量和工作流模式聚类，而不是人工直觉或委员会投票。
 >
 > **🔍 分数可解释。** 每个任务都基于可观测执行证据评分：状态变化、工具调用、文件修复、结构化报告质量等均可追溯。
 
-![LiveClawEval overview](docs/assets/liveclaweval-overview.png)
+![Claw-Eval-Live overview](docs/assets/liveclaweval-overview.png)
 
 ## 🏆 排行榜
 
@@ -106,8 +106,8 @@ liveclaw-500 run \
 
 ```bibtex
 @misc{liveclaweval2026,
-  title  = {LiveClawEval: A Live Agent Benchmark for Evolving Real-World Workflow},
-  author = {LiveClawEval Team},
+  title  = {Claw-Eval-Live: A Live Agent Benchmark for Evolving Real-World Workflow},
+  author = {Claw-Eval-Live Team},
   year   = {2026},
   url    = {https://liveclaweval.github.io/}
 }

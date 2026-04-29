@@ -1,7 +1,7 @@
-# 🚀 LiveClawEval
+# 🚀 Claw-Eval-Live
 
 <p align="center">
-  <img src="docs/assets/liveclaweval-logo.jpg" alt="LiveClawEval logo" width="260">
+  <img src="docs/assets/liveclaweval-logo.jpg" alt="Claw-Eval-Live logo" width="260">
 </p>
 
 <p align="center">
@@ -35,13 +35,13 @@
 </p>
 
 > [!IMPORTANT]
-> **🧭 From static benchmarks to live workflow evaluation.** Most agent benchmarks freeze at publication time. LiveClawEval is built from continuously updated ClawHub marketplace signals, so the benchmark tracks evolving enterprise workflow demand instead of a one-off task snapshot.
+> **🧭 From static benchmarks to live workflow evaluation.** Most agent benchmarks freeze at publication time. Claw-Eval-Live is built from continuously updated ClawHub marketplace signals, so the benchmark tracks evolving enterprise workflow demand instead of a one-off task snapshot.
 >
 > **📈 Signal-to-task, not intuition-to-task.** We derive task families and weights from marketplace signals, re-cluster workflow patterns, and refresh the public snapshot quarterly.
 >
 > **🔍 Explainable scores.** Each task is graded from observable execution evidence: deterministic checks for state changes and tool use, structured LLM judging for report-style outputs, and script-first verification for terminal/workspace tasks.
 
-![LiveClawEval overview](docs/assets/liveclaweval-overview.png)
+![Claw-Eval-Live overview](docs/assets/liveclaweval-overview.png)
 
 ## 🧭 Quick Navigation
 
@@ -50,7 +50,7 @@
 >
 > **I am Agent** → read [AGENTS.md](AGENTS.md) for structured operating instructions, key files, and command quick reference.
 
-`LiveClawEval` evaluates AI agents on realistic multi-step enterprise workflows. Agents interact with controlled services, workspace files, and task-specific fixtures; scores reflect whether they actually completed the workflow, not just whether they produced plausible text.
+`Claw-Eval-Live` evaluates AI agents on realistic multi-step enterprise workflows. Agents interact with controlled services, workspace files, and task-specific fixtures; scores reflect whether they actually completed the workflow, not just whether they produced plausible text.
 
 - **For live benchmark research**: task distribution is tied to changing marketplace demand.
 - **For agent evaluation**: tasks require planning, service interaction, file/workspace repair, and structured outputs.
@@ -85,7 +85,7 @@ Ranked by **Overall Completion Score** across 105 tasks and 13 frontier models.
 | Signal-to-Snapshot Pipeline | Family Heatmap | Workflow vs. Workspace |
 |---|---|---|
 | ![Signal-to-snapshot pipeline](docs/assets/signal-to-snapshot.png) | ![Family heatmap](docs/assets/family-heatmap.png) | ![Workflow vs workspace](docs/assets/workflow-vs-workspace.png) |
-| Marketplace signals are converted into a refreshed task snapshot. | Completion patterns vary sharply across families and models. | LiveClawEval covers both service-backed workflow tasks and workspace-repair tasks. |
+| Marketplace signals are converted into a refreshed task snapshot. | Completion patterns vary sharply across families and models. | Claw-Eval-Live covers both service-backed workflow tasks and workspace-repair tasks. |
 
 | Family Distribution | Interactive Site |
 |---|---|
@@ -94,7 +94,7 @@ Ranked by **Overall Completion Score** across 105 tasks and 13 frontier models.
 
 ## ✨ Features
 
-LiveClawEval focuses on evaluation scenarios that static QA-style benchmarks miss:
+Claw-Eval-Live focuses on evaluation scenarios that static QA-style benchmarks miss:
 
 - **📡 Market-grounded construction** — task families are derived from ClawHub demand signals.
 - **🔁 Quarterly refresh** — the benchmark is designed to evolve as enterprise workflows evolve.
@@ -156,7 +156,7 @@ Start from `config_template.yaml`, then fill in your provider `api_key`, `base_u
 ## 🗂️ Repository Layout
 
 ```text
-LiveClawEval/
+Claw-Eval-Live/
 ├── README.md
 ├── README.zh-CN.md
 ├── LICENSE
@@ -172,7 +172,7 @@ LiveClawEval/
 
 ## 🧪 Why This Exists
 
-Enterprise agent workloads move quickly: new tool-use patterns appear, older workflows flatten, and the tasks people pay for change. A benchmark frozen once cannot faithfully represent that moving target. LiveClawEval is an attempt to make agent evaluation *live*: grounded in fresh demand signals, refreshed on a schedule, and transparent enough that researchers can inspect how every score was produced.
+Enterprise agent workloads move quickly: new tool-use patterns appear, older workflows flatten, and the tasks people pay for change. A benchmark frozen once cannot faithfully represent that moving target. Claw-Eval-Live is an attempt to make agent evaluation *live*: grounded in fresh demand signals, refreshed on a schedule, and transparent enough that researchers can inspect how every score was produced.
 
 ## 📚 Docs & Links
 
@@ -203,8 +203,8 @@ Enterprise agent workloads move quickly: new tool-use patterns appear, older wor
 
 ```bibtex
 @misc{liveclaweval2026,
-  title  = {LiveClawEval: A Live Agent Benchmark for Evolving Real-World Workflow},
-  author = {LiveClawEval Team},
+  title  = {Claw-Eval-Live: A Live Agent Benchmark for Evolving Real-World Workflow},
+  author = {Claw-Eval-Live Team},
   year   = {2026},
   url    = {https://liveclaweval.github.io/}
 }
@@ -217,7 +217,7 @@ Released under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) lic
 ---
 
 <p align="center">
-  If LiveClawEval helps your agent research, please give it a ⭐ Star!
+  If Claw-Eval-Live helps your agent research, please give it a ⭐ Star!
 </p>
 
 <p align="center">
