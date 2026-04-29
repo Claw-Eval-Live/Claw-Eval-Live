@@ -105,7 +105,7 @@ liveclaw-500 run \
 ## 📖 引用
 
 ```bibtex
-@misc{claweval2026live,
+@misc{clawevallive2026,
   title  = {Claw-Eval-Live: A Live Agent Benchmark for Evolving Real-World Workflow},
   author = {Claw-Eval-Live Team},
   year   = {2026},

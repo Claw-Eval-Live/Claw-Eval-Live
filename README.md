@@ -202,7 +202,7 @@ Enterprise agent workloads move quickly: new tool-use patterns appear, older wor
 ## 📖 Citation
 
 ```bibtex
-@misc{claweval2026live,
+@misc{clawevallive2026,
   title  = {Claw-Eval-Live: A Live Agent Benchmark for Evolving Real-World Workflow},
   author = {Claw-Eval-Live Team},
   year   = {2026},
