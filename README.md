@@ -125,6 +125,12 @@ Each released task includes:
 - `grader.py` — deterministic checks plus optional judge-backed semantic scoring.
 - `fixtures/` — mock service state, attachments, sandbox files, and expected evidence.
 
+The public release contains the materialized 105-task benchmark snapshot and its
+grading/runtime assets. The upstream seed-expansion and task-generation pipeline
+used to derive candidate tasks from ClawHub market signals is not included in
+this repository; future quarterly refreshes will publish the resulting refreshed
+task snapshots and grading assets.
+
 ## ⚡ Quick Start
 
 ```bash
