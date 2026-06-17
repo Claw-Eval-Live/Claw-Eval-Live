@@ -1,0 +1,8 @@
+family,market_weight,current_ratio,gap,current_tasks,suggested_tasks_in_72,action
+Workspace-Repair-Config,26.2%,7.7%,+18.5%,8,19,PRIORITY
+Cross-Tool-Orchestration,21.9%,15.4%,+6.5%,16,16,PRIORITY
+Document-Transform,15.0%,17.3%,-2.3%,18,11,TRIM
+Data-Analysis-Reporting,12.2%,23.1%,-10.8%,24,9,REDUCE
+Research-to-Artifact,11.8%,32.7%,-20.8%,34,9,REDUCE
+Communication-Drafting,7.6%,3.8%,+3.7%,4,5,ADD
+Other,5.2%,0.0%,+5.2%,0,4,PRIORITY

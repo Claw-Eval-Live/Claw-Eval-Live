@@ -1,0 +1,19 @@
+family,total_installs,skill_count,market_weight,market_weight_pct,benchmarkable,patterns,description
+Workflow-Orchestration,3002797,363,0.1365,13.6%,yes,"Workflow Automation & Orchestration, Multi-Service API Integration",Agent designs and runs multi-step cross-service workflows
+Non-Benchmark,2790547,415,0,0.0%,no,"Agent Self-Improvement & Memory, Agent Platform Tooling, Uncategorized","Agent meta-capabilities (self-improvement, platform tooling) — not suitable for benchmark tasks"
+Shell-Filesystem,2656893,251,0.1207,12.1%,yes,"Shell & Terminal, Filesystem Operations","Agent operates in terminal, manages files and directories"
+Productivity-Apps,2530962,304,0.115,11.5%,yes,"Notes & Knowledge Management, Calendar & Scheduling, Google Workspace Integration, Task & Project Management","Agent coordinates across productivity SaaS (notes, calendar, tasks)"
+Media-Processing,2181289,257,0.0991,9.9%,yes,"Image & Screenshot Processing, Video Processing & YouTube, Audio & Speech Processing","Agent processes audio, video, and images"
+Information-Retrieval,1708909,257,0.0777,7.8%,yes,"News & Feed Monitoring, Web Search, Academic Research, Deep Research & Synthesis","Agent finds, filters, and synthesizes information from external sources"
+Finance-Accounting,1614697,248,0.0734,7.3%,yes,"Stock & Financial Markets, Crypto & Prediction Markets, Accounting & E-Commerce, Chinese Finance Data","Agent analyzes markets, processes invoices, manages financial data"
+Coding-Quality,1307912,156,0.0594,5.9%,yes,"Code Quality & Debugging, Git & GitHub, UI/UX & Frontend Design",Agent writes/reviews/debugs code and designs UIs
+Document-Processing,1189997,113,0.0541,5.4%,yes,"Document Summarization, PDF Processing, OCR & Data Extraction, Format Conversion","Agent reads, transforms, and restructures documents"
+Data-Analytics,1000927,122,0.0455,4.5%,yes,"Data Analysis & Visualization, Spreadsheet & Database","Agent queries data, computes metrics, builds visualizations"
+DevOps-Infrastructure,829467,147,0.0377,3.8%,yes,"Configuration & Secrets, Deployment & CI/CD, Docker & Containers","Agent deploys, configures, and maintains infrastructure"
+Communication,809451,103,0.0368,3.7%,yes,"Email Management, Chat & Messaging Platforms",Agent reads/sends/drafts messages across email and chat platforms
+Browser-Interaction,803820,84,0.0365,3.7%,yes,"Browser Automation, Web Scraping & Crawling","Agent controls a browser to navigate, extract, and automate web UIs"
+Content-Creation,691527,95,0.0314,3.1%,yes,"Presentation Generation, Content Rewriting & Copywriting, Image Generation, Video Creation, Diagram & Chart Generation, Translation & Localization","Agent produces new artifacts: slides, images, diagrams, copy"
+CRM-Sales-Marketing,594383,115,0.027,2.7%,yes,"Marketing & Campaigns, CRM & Sales","Agent operates CRM, runs campaigns, manages sales pipelines"
+Chinese-Platforms,447667,94,0.0203,2.0%,yes,"Chinese Social & Content Platforms, Chinese Workplace (Feishu/DingTalk/WeChat)",Agent integrates with Chinese workplace and social platforms
+Security-Safety,438291,54,0.0199,2.0%,yes,"Agent Safety & Robustness, Code & Infrastructure Security Audit, Compliance & Governance","Agent audits code/infra for vulnerabilities, defends against prompt injection/phishing, ensures compliance"
+System-Automation,196960,20,0.009,0.9%,yes,"Smart Home & IoT, Desktop Automation",Agent controls desktop GUI or IoT devices

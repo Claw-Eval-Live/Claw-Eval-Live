@@ -125,11 +125,28 @@ Each released task includes:
 - `grader.py` — deterministic checks plus optional judge-backed semantic scoring.
 - `fixtures/` — mock service state, attachments, sandbox files, and expected evidence.
 
-The public release contains the materialized 105-task benchmark snapshot and its
-grading/runtime assets. The upstream seed-expansion and task-generation pipeline
-used to derive candidate tasks from ClawHub market signals is not included in
-this repository; future quarterly refreshes will publish the resulting refreshed
-task snapshots and grading assets.
+The public release contains both the materialized 105-task benchmark snapshot
+and the open signal-to-seed pipeline used to derive candidate task ideas from
+ClawHub market signals. See [`benchmark/signal_pipeline_methodology.md`](benchmark/signal_pipeline_methodology.md),
+[`benchmark/task_seed_generation_methodology_v0.1.md`](benchmark/task_seed_generation_methodology_v0.1.md),
+and the released scripts:
+
+```bash
+python scripts/fetch_skill_signals.py --top 500
+python scripts/derive_benchmark_weights.py
+python scripts/build_task_seed_bank.py
+python scripts/generate_candidate_task_ideas.py --dry-run
+python scripts/prefilter_candidate_task_ideas.py
+python scripts/generate_composite_candidates.py --dry-run
+python scripts/prefilter_composite_candidates.py
+python scripts/select_candidates_for_implementation.py
+python scripts/implement_selected_tasks.py --dry-run
+```
+
+Model-backed generation steps require a local OpenAI-compatible model config,
+for example `model_configs/kimi_k25.yaml` with `OPENROUTER_API_KEY` exported.
+Private batch-running infrastructure and unpublished review traces are not part
+of this release.
 
 ## ⚡ Quick Start
 
