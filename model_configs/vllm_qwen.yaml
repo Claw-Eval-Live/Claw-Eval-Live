@@ -1,0 +1,22 @@
+# Qwen via OpenAI-compatible vLLM endpoint
+
+model:
+  api_key: ${VLLM_QWEN_API_KEY}
+  base_url: ${VLLM_QWEN_BASE_URL}
+  model_id: Qwen/Qwen3.6-35B-A3B
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: false
+
+judge:
+  api_key: ${VLLM_QWEN_API_KEY}
+  base_url: ${VLLM_QWEN_BASE_URL}
+  model_id: Qwen/Qwen3.6-35B-A3B
+  enabled: true
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: false
+
+defaults:
+  trace_dir: traces_vllm_qwen
+  tasks_dir: tasks

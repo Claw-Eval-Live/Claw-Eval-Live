@@ -163,4 +163,7 @@ def load_config(path: str | Path | None = None) -> Config:
             expanded = _walk_expand(raw)
             return Config.model_validate(expanded)
 
+    if path is not None:
+        raise FileNotFoundError(f"Config file not found: {path}")
+
     return Config()

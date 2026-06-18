@@ -25,6 +25,32 @@ Respond with JSON only: {"score": <float>, "reasoning": "<brief explanation>"}
 """
 
 
+def _parse_judge_json(raw: str) -> dict[str, Any]:
+    """Parse judge JSON, tolerating code fences and provider preambles."""
+    raw = raw.strip()
+    raw = re.sub(r"^```(?:json)?\s*", "", raw)
+    raw = re.sub(r"\s*```$", "", raw.strip())
+
+    try:
+        parsed = json.loads(raw)
+    except json.JSONDecodeError:
+        parsed = None
+    if isinstance(parsed, dict) and "score" in parsed:
+        return parsed
+
+    decoder = json.JSONDecoder()
+    for match in re.finditer(r"\{", raw):
+        try:
+            candidate, _ = decoder.raw_decode(raw[match.start():])
+        except json.JSONDecodeError:
+            continue
+        if isinstance(candidate, dict) and "score" in candidate:
+            return candidate
+
+    preview = raw[:500].replace("\n", "\\n")
+    raise ValueError(f"Judge returned no parseable JSON object with 'score': {preview}")
+
+
 class LLMJudge:
     """Judge communication quality using an LLM via OpenAI-compatible API."""
 
@@ -76,10 +102,7 @@ class LLMJudge:
                     extra_body=self.extra_body or None,
                 )
                 raw = resp.choices[0].message.content or "{}"
-                # Strip markdown code fences if present
-                raw = re.sub(r"^```(?:json)?\s*", "", raw.strip())
-                raw = re.sub(r"\s*```$", "", raw.strip())
-                parsed = json.loads(raw)
+                parsed = _parse_judge_json(raw)
 
                 # Detect empty or missing score — treat as judge failure
                 if "score" not in parsed:
